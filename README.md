@@ -30,6 +30,15 @@ src/
   styles/global.css           base, botón principal, tarjetas
 ```
 
+## Base de datos (MongoDB Atlas)
+
+1. Copia `.env.example` como `.env` y pon tu cadena de conexión en `MONGODB_URI`. El `.env` no se sube a GitHub.
+2. `npm install` y luego `npm run db:check` para probar la conexión desde tu ordenador.
+3. En Vercel, `MONGODB_URI` va en Settings → Environment Variables.
+4. Una vez desplegado, `/api/health` responde `{"ok":true,...}` si la web llega a la base de datos.
+
+El código del servidor vive en `api/` (funciones de Vercel). La base de datos se llama `mosik`.
+
 ## Despliegue
 
 Vercel construye el proyecto con `vercel.json` (Vite, salida en `dist/`, y todas las rutas apuntan a `index.html`).
