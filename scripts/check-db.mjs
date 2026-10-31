@@ -1,6 +1,14 @@
 // Prueba local de la conexión: npm run db:check
-// Lee MONGODB_URI del archivo .env (Node 20.6 o superior).
+// Lee MONGODB_URI del archivo .env (funciona con cualquier versión de Node 18 o superior).
+import { readFileSync, existsSync } from 'node:fs';
 import { MongoClient } from 'mongodb';
+
+if (!process.env.MONGODB_URI && existsSync('.env')) {
+  for (const line of readFileSync('.env', 'utf8').split(/\r?\n/)) {
+    const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
+    if (m && !line.trim().startsWith('#')) process.env[m[1]] ??= m[2].replace(/^["']|["']$/g, '');
+  }
+}
 
 const uri = process.env.MONGODB_URI;
 if (!uri) {
