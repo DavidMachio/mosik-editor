@@ -16,7 +16,7 @@ export default function Layout() {
             <span className="site-header__beads">Beads</span>
           </Link>
           <nav aria-label="Principal" className="site-nav">
-            <NavLink to="/" end>Inicio</NavLink>
+            <NavLink to="/" end className="site-nav__home">Inicio</NavLink>
             <NavLink to="/herramienta">Herramienta</NavLink>
             {!loading && (user ? (
               <>

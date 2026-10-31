@@ -81,3 +81,14 @@ main:focus {
 .site-nav a.site-nav__cta:hover {
   background: var(--mk-action-hover);
 }
+
+/* Móvil: cabecera compacta (logo y tema en una fila, menú en otra) */
+@media (max-width: 700px) {
+  .site-header__inner { min-height: 0; padding-top: 6px; padding-bottom: 6px; gap: 4px 8px; }
+  .site-header__brand { order: 1; }
+  .site-header__inner .theme-toggle { order: 2; margin-left: auto; }
+  .site-header__inner .site-nav { order: 3; flex: 1 1 100%; margin-left: 0; justify-content: flex-start; }
+  .site-header__beads { display: none; }
+  .site-nav__home { display: none; } /* el logo ya lleva al inicio */
+  .site-nav a, .site-nav__link { padding: 8px 10px; font-size: 15px; }
+}

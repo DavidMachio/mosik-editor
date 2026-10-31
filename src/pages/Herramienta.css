@@ -1,10 +1,25 @@
 .tool-page {
-  padding-top: 24px;
-  max-width: 1440px;
+  padding-top: 16px;
+  max-width: 1600px;
+}
+.tool-page__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  margin-bottom: 12px;
 }
 .tool-page h1 {
-  font-size: clamp(26px, 3.5vw, 38px);
+  margin: 0;
+  font-size: clamp(22px, 3vw, 30px);
 }
-.tool-page__intro {
-  max-width: 760px;
+.tool-page__head p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* En móvil el título de la página sobra: el menú ya indica dónde estás y hace falta sitio para el lienzo. */
+@media (max-width: 900px) {
+  .tool-page { padding-top: 8px; }
+  .tool-page__head { display: none; }
 }

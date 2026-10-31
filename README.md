@@ -24,9 +24,11 @@ src/
   pages/Home.jsx              inicio
   pages/Herramienta.jsx       página de la herramienta
   pages/herramienta/
-    EditorMarkup.jsx          marcado del editor (JSX)
+    EditorMarkup.jsx          marcado de la herramienta: barra, lienzo y panel con pestañas (los ids no deben cambiarse)
     initEditor.js             lógica del editor (se ejecuta al abrir la página)
-    editor.css                estilos del editor, acotados a .mk-editor
+    initTabs.js               pestañas del panel y hoja inferior en móvil
+    editor.css                estilos de los controles del editor, acotados a .mk-editor
+    editor-layout.css         maquetación: escritorio en tres columnas y móvil con hoja inferior
   styles/tokens.css           colores, tipografías y esquinas de la marca (claro y oscuro)
   styles/global.css           base, botón principal, tarjetas
 ```

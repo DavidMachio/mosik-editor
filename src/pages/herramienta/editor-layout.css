@@ -1,0 +1,157 @@
+/* Maquetación de la herramienta: barra de herramientas + lienzo + panel con pestañas.
+   Escritorio: tres columnas. Móvil (hasta 900 px): barra horizontal, lienzo y hoja inferior con pestañas. */
+.mk-editor [hidden] { display: none !important; }
+
+.mk-editor .tool {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) minmax(330px, 390px);
+  gap: 12px;
+  height: clamp(560px, calc(100dvh - 215px), 1000px);
+}
+
+/* ---- Barra de herramientas ---- */
+.mk-editor .tool__bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px;
+  overflow-y: auto;
+  background: var(--pn);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-card);
+}
+.mk-editor .tool__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--bd);
+}
+.mk-editor .tool__group:last-child { border-bottom: 0; padding-bottom: 0; }
+.mk-editor .tool__bar button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-height: 56px;
+  padding: 6px 1px;
+  font-size: 10.5px;
+  line-height: 1.15;
+  text-align: center;
+}
+.mk-editor .tool__bar button span:first-child { font-size: 20px; line-height: 1; }
+
+/* ---- Lienzo ---- */
+.mk-editor .tool__stage {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  min-height: 0;
+}
+.mk-editor .tool__stagebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mk-editor .tool__zoom { flex: 1; max-width: 360px; }
+.mk-editor .tool__stage #wrap {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  background: var(--mk-sunken);
+}
+.mk-editor .tool__status {
+  margin: 0;
+  min-height: 1.4em;
+}
+
+/* ---- Panel con pestañas ---- */
+.mk-editor .tool__side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--pn);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+.mk-editor .tabs {
+  display: flex;
+  border-bottom: 1px solid var(--bd);
+}
+.mk-editor .tabs [role='tab'] {
+  flex: 1;
+  padding: 10px 6px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.mk-editor .tabs [role='tab']:hover { background: var(--mk-sunken); }
+.mk-editor .tabs [role='tab'][aria-selected='true'] {
+  background: var(--ac-soft);
+  border-bottom-color: var(--ac-bd);
+}
+.mk-editor .tabpanel {
+  flex: 1;
+  min-height: 0;
+  padding: 10px;
+  overflow-y: auto;
+}
+.mk-editor .tabpanel .pn:last-child { margin-bottom: 0; }
+.mk-editor .tabpanel .pn h3 { text-transform: none; font-size: 13px; letter-spacing: 0; }
+.mk-editor .tool button:focus-visible,
+.mk-editor .tool select:focus-visible,
+.mk-editor .tool input:focus-visible {
+  outline: 3px solid var(--mk-action-border);
+  outline-offset: 2px;
+}
+
+/* ---- Móvil: barra horizontal + hoja inferior ---- */
+@media (max-width: 900px) {
+  .mk-editor .tool {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: calc(42dvh + 12px);
+  }
+  .mk-editor .tool[data-sheet='closed'] { padding-bottom: 72px; }
+
+  .mk-editor .tool__bar {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 6px;
+  }
+  .mk-editor .tool__group {
+    flex-direction: row;
+    padding-bottom: 0;
+    padding-right: 10px;
+    border-bottom: 0;
+    border-right: 1px solid var(--bd);
+  }
+  .mk-editor .tool__group:last-child { border-right: 0; padding-right: 0; }
+  .mk-editor .tool__bar button { min-width: 62px; min-height: 52px; flex: none; }
+
+  .mk-editor .tool__stage #wrap { flex: none; height: calc(58dvh - 228px); min-height: 200px; }
+  .mk-editor .tool__status { display: none; }
+  .mk-editor .tool[data-sheet='closed'] .tool__stage #wrap { height: calc(100dvh - 330px); min-height: 260px; }
+
+  .mk-editor .tool__side {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    height: 42dvh;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.25);
+  }
+  .mk-editor .tool[data-sheet='closed'] .tool__side { height: auto; }
+  .mk-editor .tool[data-sheet='closed'] .tabpanel { display: none; }
+  .mk-editor .tabs [role='tab'] { padding: 14px 4px; min-height: 52px; }
+}
