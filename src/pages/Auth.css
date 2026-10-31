@@ -1,0 +1,47 @@
+.auth {
+  padding-top: 32px;
+  max-width: 520px;
+}
+.auth__form {
+  display: grid;
+  gap: 16px;
+}
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--mk-border);
+  border-radius: var(--radius-control);
+  background: var(--mk-bg);
+  color: var(--mk-text);
+  font: inherit;
+}
+.field input[aria-invalid='true'] {
+  border-color: var(--mk-action-border);
+  border-width: 2px;
+}
+.field__hint,
+.field__error {
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+.field__hint { color: var(--mk-muted); }
+.field__error { color: var(--mk-link); font-weight: 600; }
+.auth__error {
+  margin: 0;
+  min-height: 1.5em;
+  color: var(--mk-link);
+  font-weight: 600;
+}
+.auth__form .btn[disabled] {
+  opacity: 0.6;
+  cursor: wait;
+}
+.auth__alt {
+  margin: 0;
+  text-align: center;
+}

@@ -4,6 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Entrar from './pages/Entrar.jsx';
+import Registro from './pages/Registro.jsx';
+import Perfil from './pages/Perfil.jsx';
 
 // La herramienta pesa bastante más que el resto: se descarga solo al entrar en ella.
 const Herramienta = lazy(() => import('./pages/Herramienta.jsx'));
@@ -21,6 +24,9 @@ export default function App() {
             </Suspense>
           }
         />
+        <Route path="entrar" element={<Entrar />} />
+        <Route path="registro" element={<Registro />} />
+        <Route path="perfil" element={<Perfil />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

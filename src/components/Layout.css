@@ -22,6 +22,9 @@
 }
 .site-nav {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
   gap: 4px;
 }
 .site-nav a {
@@ -49,4 +52,26 @@
 }
 main:focus {
   outline: none;
+}
+
+.site-nav__link {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--mk-text);
+  font: 500 16px var(--font-body);
+  cursor: pointer;
+}
+.site-nav__link:hover {
+  background: var(--mk-sunken);
+}
+.site-nav a.site-nav__cta {
+  border: 1px solid var(--mk-action-border);
+  background: var(--mk-action);
+  color: var(--mk-ink);
+  font-weight: 600;
+}
+.site-nav a.site-nav__cta:hover {
+  background: var(--mk-action-hover);
 }

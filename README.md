@@ -4,6 +4,7 @@ Aplicación React (Vite) con dos páginas:
 
 - `/` · Inicio
 - `/herramienta` · Herramienta de diseño (editor de rejilla de cuentas)
+- `/registro`, `/entrar`, `/perfil` · Cuentas de usuario
 
 ## Cómo trabajar en local
 
@@ -38,6 +39,10 @@ src/
 4. Una vez desplegado, `/api/health` responde `{"ok":true,...}` si la web llega a la base de datos.
 
 El código del servidor vive en `api/` (funciones de Vercel). La base de datos se llama `mosik`.
+Modelo de datos y estado de cada colección: `docs/modelo-de-datos.md`.
+
+Rutas de usuarios: `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`.
+Las rutas `/api` solo funcionan una vez desplegadas en Vercel (`npm run dev` no las sirve).
 
 ## Despliegue
 
