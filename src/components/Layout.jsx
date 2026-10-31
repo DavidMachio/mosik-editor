@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import MosikLogo from './MosikLogo.jsx';
+import ThemeToggle from './ThemeToggle.jsx';
 import { useAuth } from '../auth/AuthContext.jsx';
 import './Layout.css';
 
@@ -29,6 +30,7 @@ export default function Layout() {
               </>
             ))}
           </nav>
+          <ThemeToggle />
         </div>
       </header>
 

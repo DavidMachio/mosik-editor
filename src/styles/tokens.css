@@ -25,8 +25,27 @@
   --radius-card: 12px;
 }
 
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* Oscuro elegido a mano */
+:root[data-theme='dark'] {
+  --mk-bg: #150702;
+  --mk-card: #20140e;
+  --mk-sunken: #30211a;
+  --mk-text: #f7f2f0;
+  --mk-muted: #b9a79d;
+  --mk-line: #45332a;
+  --mk-border: #8c7569;
+  --mk-link: #fe955c;
+  --mk-action-soft: rgba(254, 174, 133, 0.2);
+  color-scheme: dark;
+}
+
+/* Sin elección: sigue la preferencia del sistema */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --mk-bg: #150702;
     --mk-card: #20140e;
     --mk-sunken: #30211a;
@@ -36,5 +55,6 @@
     --mk-border: #8c7569;
     --mk-link: #fe955c;
     --mk-action-soft: rgba(254, 174, 133, 0.2);
+    color-scheme: dark;
   }
 }

@@ -5,7 +5,7 @@
 }
 
 html {
-  color-scheme: light dark;
+  color-scheme: light dark; /* el tema elegido a mano lo ajusta tokens.css */
 }
 
 body {

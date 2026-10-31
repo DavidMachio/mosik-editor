@@ -1,0 +1,24 @@
+.theme-toggle {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--mk-border);
+  border-radius: var(--radius-control);
+  background: var(--mk-bg);
+}
+.theme-toggle button {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--mk-text);
+  font: 500 13px var(--font-body);
+  cursor: pointer;
+}
+.theme-toggle button:hover {
+  background: var(--mk-sunken);
+}
+.theme-toggle button[aria-pressed='true'] {
+  background: var(--mk-action);
+  color: var(--mk-ink);
+  font-weight: 600;
+}

@@ -4,10 +4,16 @@
 }
 .site-header__inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 8px 16px;
   min-height: 64px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.site-header__inner .site-nav {
+  margin-left: auto;
 }
 .site-header__brand {
   display: inline-flex;
