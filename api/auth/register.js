@@ -21,7 +21,8 @@ export default async function handler(req, res) {
       username: clean.username,
       usernameLower: clean.usernameLower,
       passwordHash: await hashPassword(clean.password),
-      role: 'free',
+      role: 'userFree',
+      favoritos: [], // ids de diseños marcados como favoritos
       createdAt: new Date(),
     };
 

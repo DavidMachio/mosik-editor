@@ -19,7 +19,7 @@ async function request(path, { method = 'GET', body } = {}) {
   return data;
 }
 
-export const ROLE_LABELS = { admin: 'Administrador', free: 'Gratuito', paid: 'De pago' };
+export const ROLE_LABELS = { admin: 'Administrador', userFree: 'Gratuito', userPaid: 'De pago' };
 
 export function AuthProvider({ children }) {
   // undefined = comprobando la sesión, null = sin sesión, objeto = usuario

@@ -7,7 +7,9 @@ const scrypt = promisify(scryptCb);
 export const SESSION_COOKIE = 'mosik_session';
 const SESSION_DAYS = 30;
 const MAX_FAILED_ATTEMPTS = 8; // por correo o usuario, cada 15 minutos
-export const ROLES = ['admin', 'free', 'paid'];
+export const ROLES = ['admin', 'userFree', 'userPaid'];
+// Compatibilidad: las primeras cuentas se crearon con 'free' y 'paid'.
+export const normalizeRole = (role) => ({ free: 'userFree', paid: 'userPaid' }[role] || role);
 
 // ---------- Contraseñas ----------
 const SCRYPT = { N: 16384, r: 8, p: 1, keylen: 64 };
@@ -66,7 +68,7 @@ export function publicUser(user) {
     id: String(user._id),
     email: user.email,
     username: user.username,
-    role: user.role,
+    role: normalizeRole(user.role),
     createdAt: user.createdAt,
   };
 }
