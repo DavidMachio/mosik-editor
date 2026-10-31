@@ -1,6 +1,6 @@
 // Herramienta de diseño de Mosik Beads (editor de rejilla).
 // Lógica original del editor de prueba del 31 oct 2026, sin cambios de comportamiento.
-// Se ejecuta una vez que el marcado (EditorMarkup.jsx) está en la página y devuelve una función de limpieza.
+// Se ejecuta una vez que el marcado (EditorMarkup.jsx) está en la página y devuelve { destroy, exportDesign, importDesign }.
 export function initEditor() {
 const __timers = [];
 const setTimeout = (f, ms) => { const id = window.setTimeout(f, ms); __timers.push(id); return id; };
@@ -269,7 +269,8 @@ $('cnt').addEventListener('click',e=>{
  if(e.target.closest('.lay')){solo.has(c)?solo.delete(c):solo.add(c);hidden.delete(c);draw()}});
 function dl(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
 $('save').onclick=()=>dl('diseno-rejilla.json',new Blob([JSON.stringify({v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid})],{type:'application/json'}));
-$('load').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{const d=JSON.parse(t);push();COLS=d.cols;ROWS=d.rows;grid=d.grid;PW=d.pw||COLS;PH=d.ph||ROWS;PR=d.pr||1;PC=d.pc||1;$('cols').value=PW;$('rows').value=PH;const std=['40x40','29x29','20x20'].includes(PW+'x'+PH);$('preset').value=std?PW+'x'+PH:'custom';platesKey=(PLATES.find(x=>x[2]===PR&&x[3]===PC&&x[0]!=='custom')||['custom'])[0];$('pr').value=PR;$('pc').value=PC;size();applyBoard()})};
+function loadDesignObject(d){push();COLS=d.cols;ROWS=d.rows;grid=d.grid;PW=d.pw||COLS;PH=d.ph||ROWS;PR=d.pr||1;PC=d.pc||1;$('cols').value=PW;$('rows').value=PH;const std=['40x40','29x29','20x20'].includes(PW+'x'+PH);$('preset').value=std?PW+'x'+PH:'custom';platesKey=(PLATES.find(x=>x[2]===PR&&x[3]===PC&&x[0]!=='custom')||['custom'])[0];$('pr').value=PR;$('pc').value=PC;size();solo.clear();hidden.clear();applyBoard()}
+$('load').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>loadDesignObject(JSON.parse(t)))};
 $('csv').onclick=()=>{const m={};grid.forEach(r=>r.forEach(c=>{if(c)m[c]=(m[c]||0)+1}));dl('cuentas.csv',new Blob(['codigo;cuentas;con_margen_10\n'+Object.keys(m).sort().map(c=>`${c};${m[c]};${Math.ceil(m[c]*1.1/10)*10}`).join('\n')],{type:'text/csv'}))};
 $('png').onclick=()=>{const o=document.createElement('canvas'),k=20;o.width=COLS*k;o.height=ROWS*k;const c=o.getContext('2d');c.fillStyle='#f6f5f1';c.fillRect(0,0,o.width,o.height);
  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){const v=grid[y][x];if(!v)continue;c.fillStyle=CODES[v].hex;if(VIEW==='pix'){c.fillRect(x*k,y*k,k,k);continue}c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
@@ -297,5 +298,17 @@ function mapScale(f){const sc=scaleFor(f);if(!sc.length){$('scmsg').textContent=
 $('togray').onclick=()=>mapScale('Grises');$('toscale').onclick=()=>mapScale($('famsel').value);
 renderStrip();
 grid=newGrid(COLS,ROWS);renderPal();size();upd();setTool('move');document.querySelector('.pi[data-k="1x1"]').classList.add('sel');applyBoard();
-return () => { document.removeEventListener('click', onDocClick); __timers.forEach(id => window.clearTimeout(id)); };
+
+// Diseño actual en el formato v2 del archivo JSON, más una vista previa PNG pequeña y el número de cuentas.
+function exportDesign(){
+  let beads=0;grid.forEach(r=>r.forEach(c=>{if(c)beads++}));
+  const k=Math.max(2,Math.min(12,Math.floor(360/Math.max(COLS,ROWS))));
+  const o=document.createElement('canvas');o.width=COLS*k;o.height=ROWS*k;const c=o.getContext('2d');
+  c.fillStyle='#f6f5f1';c.fillRect(0,0,o.width,o.height);
+  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){const v=grid[y][x];if(!v)continue;c.fillStyle=CODES[v].hex;
+    if(k<6||VIEW==='pix'){c.fillRect(x*k,y*k,k,k);continue}
+    c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
+  return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid},preview:o.toDataURL('image/png'),beads};
+}
+return { destroy: () => { document.removeEventListener('click', onDocClick); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
 }

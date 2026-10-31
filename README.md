@@ -4,7 +4,10 @@ Aplicación React (Vite) con dos páginas:
 
 - `/` · Inicio
 - `/herramienta` · Herramienta de diseño (editor de rejilla de cuentas)
-- `/registro`, `/entrar`, `/perfil` · Cuentas de usuario
+- `/registro`, `/entrar`, `/perfil` · Cuentas de usuario (en el perfil, «Mis diseños»)
+- `/galeria` · Diseños públicos, con búsqueda por palabras y etiquetas
+- `/diseno/:id` · Ficha de un diseño
+- `/herramienta?diseno=ID` · Abre un diseño guardado en la herramienta
 
 ## Cómo trabajar en local
 
@@ -43,6 +46,7 @@ src/
 El código del servidor vive en `api/` (funciones de Vercel). La base de datos se llama `mosik`.
 Modelo de datos y estado de cada colección: `docs/modelo-de-datos.md`.
 
+Rutas de diseños: `GET/POST /api/designs`, `GET/PATCH/DELETE /api/designs/:id` (detalle en `docs/modelo-de-datos.md`).
 Rutas de usuarios: `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`.
 Las rutas `/api` solo funcionan una vez desplegadas en Vercel (`npm run dev` no las sirve).
 

@@ -34,6 +34,7 @@ export default function Entrar() {
   return (
     <div className="container auth">
       <h1>Entrar</h1>
+      {location.state?.draft && <p className="muted">Tu diseño está guardado en este navegador: al entrar lo recuperamos para que puedas guardarlo.</p>}
       <form className="card auth__form" onSubmit={onSubmit} noValidate>
         <div className="field">
           <label htmlFor="identifier">Correo o nombre de usuario</label>
@@ -47,7 +48,7 @@ export default function Entrar() {
         </div>
         <p className="auth__error" role="alert" aria-live="assertive">{error}</p>
         <button className="btn" type="submit" disabled={sending}>{sending ? 'Entrando…' : 'Entrar'}</button>
-        <p className="muted auth__alt">¿No tienes cuenta? <Link to="/registro">Crea una</Link></p>
+        <p className="muted auth__alt">¿No tienes cuenta? <Link to="/registro" state={location.state}>Crea una</Link></p>
       </form>
     </div>
   );

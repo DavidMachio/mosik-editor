@@ -22,11 +22,33 @@ Estado: `users` está hecho; el resto es el diseño acordado, todavía sin progr
 ## authAttempts (hecho)
 Intentos fallidos de entrada por correo o usuario. Se borran solos a los 15 minutos. Con 8 fallos se bloquea temporalmente.
 
-## designs (pendiente)
-- `creatorId` (usuario que lo creó) y `collectionId` (opcional: hay diseños sueltos de usuarios).
-- `title`, `description`, **`tags`** (lista de palabras en minúsculas para buscar), `public`, `likesCount`.
-- Tablero: tipo de placa y número de placas; gama (`midi` o `mini`); cuadrícula de colores; imagen de vista previa.
-- Índice de texto sobre `title`, `tags` y `description` para la búsqueda por palabras clave.
+## designs (hecho)
+| Campo | Notas |
+|---|---|
+| `ownerId`, `ownerUsername`, `ownerUsernameLower` | Quién lo creó (el nombre se copia para listar sin consultar usuarios). |
+| `title`, `description` | Título de 3 a 80 caracteres; descripción de hasta 500. |
+| `tags` | Hasta 10 etiquetas en minúsculas (2 a 24 caracteres, sin espacios: se convierten en guiones). |
+| `isPublic` | `false` por defecto: solo lo ve su dueño (y los administradores). Si es `true`, sale en la galería. |
+| `collectionId` | Reservado (`null`): lo usarán las colecciones. |
+| `cols`, `rows`, `beads`, `colors`, `gama` | Tamaño, número de cuentas, de colores y gama (`mini`, `midi` o `mixta`), calculados por el servidor. |
+| `data` | La cuadrícula en formato compacto: `{ v, cols, rows, pw, ph, pr, pc, palette, rle }` (ver `shared/designCodec.js`). Un diseño de 200 × 200 pasa de unos 210 KB a unos 10 KB. |
+| `preview` | Imagen PNG pequeña (data URL, máximo 150 KB). Se sirve como imagen en `/api/designs/ID?preview=1`. |
+| `likesCount` | Contador del corazón (todavía sin usar). |
+| `createdAt`, `updatedAt` | Fechas. |
+
+Índices: (`ownerId`, `createdAt`), (`isPublic`, `createdAt`), `tags` y un índice de texto sobre título (peso 5), etiquetas (peso 8) y descripción, en español, para la búsqueda por palabras clave.
+Límite: 100 diseños por persona (los administradores no tienen límite).
+
+### Rutas de la API
+- `GET /api/designs` · lista pública. Filtros: `q` (palabras), `tag`, `owner`, `page`, `limit` (máx. 48). `mine=1` devuelve los diseños de la persona con sesión, incluidos los privados.
+- `POST /api/designs` · crea un diseño (hace falta sesión).
+- `GET /api/designs/ID` · ficha con la cuadrícula. Si es privado, solo para su dueño o un administrador (para el resto, 404).
+- `GET /api/designs/ID?preview=1` · la imagen de vista previa.
+- `PATCH /api/designs/ID` · edita título, descripción, etiquetas, visibilidad o el propio diseño (solo el dueño o un administrador).
+- `DELETE /api/designs/ID` · borra el diseño (solo el dueño o un administrador).
+
+### Límite de funciones en Vercel
+El plan gratuito (Hobby) admite **12 funciones** por despliegue. Ahora hay 7 (`health`, 4 de usuarios y 2 de diseños). Las rutas de diseños se agrupan en dos archivos a propósito. Para las próximas (me gusta, avisos, colecciones, favoritos) conviene seguir agrupando con un parámetro (`?accion=`) en vez de crear un archivo por ruta.
 
 ## collections (pendiente)
 `name`, `year`, `color`, `tags`, `designIds` o relación inversa desde `designs.collectionId`.

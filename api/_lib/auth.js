@@ -155,4 +155,13 @@ export function requireJsonPost(req, res) {
   return true;
 }
 
+// Para PATCH y otros métodos con cuerpo: exige JSON.
+export function requireJson(req, res) {
+  if (!String(req.headers?.['content-type'] || '').toLowerCase().includes('application/json')) {
+    res.status(415).json({ error: 'Formato no admitido.' });
+    return false;
+  }
+  return true;
+}
+
 export const bodyOf = (req) => (req.body && typeof req.body === 'object' ? req.body : {});

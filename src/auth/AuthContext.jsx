@@ -1,23 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { request } from '../lib/api.js';
 
 const AuthContext = createContext(null);
-
-async function request(path, { method = 'GET', body } = {}) {
-  const res = await fetch(path, {
-    method,
-    headers: body ? { 'Content-Type': 'application/json' } : undefined,
-    body: body ? JSON.stringify(body) : undefined,
-    credentials: 'same-origin',
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    throw Object.assign(new Error(data.error || 'Algo ha salido mal. Inténtalo de nuevo.'), {
-      status: res.status,
-      fields: data.fields || {},
-    });
-  }
-  return data;
-}
 
 export const ROLE_LABELS = { admin: 'Administrador', userFree: 'Gratuito', userPaid: 'De pago' };
 

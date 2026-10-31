@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext.jsx';
 import usePageTitle from '../hooks/usePageTitle.js';
 import './Auth.css';
@@ -8,13 +8,15 @@ export default function Registro() {
   usePageTitle('Crear cuenta · Mosik Beads');
   const { user, register } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const destino = location.state?.from || '/perfil';
 
   const [values, setValues] = useState({ email: '', username: '', password: '' });
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState('');
   const [sending, setSending] = useState(false);
 
-  if (user) return <Navigate to="/perfil" replace />;
+  if (user) return <Navigate to={destino} replace />;
 
   const set = (name) => (e) => setValues((v) => ({ ...v, [name]: e.target.value }));
 
@@ -25,7 +27,7 @@ export default function Registro() {
     setSending(true);
     try {
       await register(values);
-      navigate('/perfil', { replace: true });
+      navigate(destino, { replace: true });
     } catch (err) {
       setErrors(err.fields || {});
       setFormError(Object.keys(err.fields || {}).length ? '' : err.message);
@@ -48,6 +50,7 @@ export default function Registro() {
   return (
     <div className="container auth">
       <h1>Crear cuenta</h1>
+      {location.state?.draft && <p className="muted">Tu diseño está guardado en este navegador: al crear la cuenta lo recuperamos para que puedas guardarlo.</p>}
       <form className="card auth__form" onSubmit={onSubmit} noValidate>
         {field('email', 'Correo', { input: { type: 'email', autoComplete: 'email' } })}
         {field('username', 'Nombre de usuario', {
@@ -60,7 +63,7 @@ export default function Registro() {
         })}
         <p className="auth__error" role="alert" aria-live="assertive">{formError}</p>
         <button className="btn" type="submit" disabled={sending}>{sending ? 'Creando…' : 'Crear cuenta'}</button>
-        <p className="muted auth__alt">¿Ya tienes cuenta? <Link to="/entrar">Entra</Link></p>
+        <p className="muted auth__alt">¿Ya tienes cuenta? <Link to="/entrar" state={location.state}>Entra</Link></p>
       </form>
     </div>
   );

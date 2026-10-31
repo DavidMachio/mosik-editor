@@ -18,6 +18,7 @@ export default function Layout() {
           <nav aria-label="Principal" className="site-nav">
             <NavLink to="/" end className="site-nav__home">Inicio</NavLink>
             <NavLink to="/herramienta">Herramienta</NavLink>
+            <NavLink to="/galeria">Galería</NavLink>
             {!loading && (user ? (
               <>
                 <NavLink to="/perfil">@{user.username}</NavLink>

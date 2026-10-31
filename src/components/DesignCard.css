@@ -1,0 +1,52 @@
+.design-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.design-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--mk-card);
+  border: 1px solid var(--mk-line);
+  border-radius: var(--radius-card);
+}
+.design-card:hover { border-color: var(--mk-border); }
+.design-card__media {
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: var(--mk-sunken);
+}
+.design-card__media img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f6f5f1;
+}
+.design-card__body { display: grid; gap: 6px; padding: 12px 14px 14px; }
+.design-card__title { margin: 0; font-size: 17px; line-height: 1.25; }
+.design-card__link { color: var(--mk-text); text-decoration: none; }
+/* la tarjeta entera es pulsable gracias al enlace del título */
+.design-card__link::after { content: ''; position: absolute; inset: 0; }
+.design-card__meta { margin: 0; font-size: 13px; color: var(--mk-muted); }
+.design-card__owner, .design-card__tags a { position: relative; z-index: 1; }
+.design-card__tags { display: flex; flex-wrap: wrap; gap: 4px 10px; list-style: none; margin: 0; padding: 0; font-size: 13px; }
+.design-card__actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.design-card__actions .btn { padding: 7px 12px; font-size: 13px; }
+.pill {
+  display: inline-block;
+  padding: 1px 10px;
+  border: 1px solid var(--mk-border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mk-text);
+}
+.pill--public { background: var(--mk-action-soft); border-color: var(--mk-action-border); }

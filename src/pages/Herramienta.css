@@ -5,21 +5,61 @@
 .tool-page__head {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+}
+.tool-page__titles {
+  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 4px 16px;
-  margin-bottom: 12px;
 }
 .tool-page h1 {
   margin: 0;
   font-size: clamp(22px, 3vw, 30px);
 }
-.tool-page__head p {
+.tool-page__titles p {
   margin: 0;
   font-size: 14px;
 }
+.tool-page__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  min-width: 0;
+}
+.tool-page__current {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.btn--small {
+  padding: 9px 16px;
+  font-size: 14px;
+}
+.btn[disabled] { opacity: 0.6; }
+.tool-page__notices:empty { display: none; }
+.tool-page__notice {
+  margin: 0 0 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--mk-line);
+  border-radius: var(--radius-control);
+  background: var(--mk-card);
+  font-size: 14px;
+}
+.tool-page__notice--error {
+  border-color: var(--mk-action-border);
+  font-weight: 600;
+}
 
-/* En móvil el título de la página sobra: el menú ya indica dónde estás y hace falta sitio para el lienzo. */
+/* En móvil el título sobra (el menú ya indica dónde estás) y hace falta sitio para el lienzo; el botón de guardar se queda. */
 @media (max-width: 900px) {
   .tool-page { padding-top: 8px; }
-  .tool-page__head { display: none; }
+  .tool-page__titles { display: none; }
+  .tool-page__head { margin-bottom: 8px; }
 }
