@@ -16,8 +16,7 @@ Proyecto estático: Vercel lo publica tal cual, sin configuración (Framework Pr
 ## Plan
 Este repositorio es provisional. Cuando exista la web (06_Web/web-hama), la herramienta se integrará
 como una ruta de la misma web para compartir dominio, cuentas y sistema de diseño.
-Por eso el código vive en `herramienta/` y no depende de la página que lo contiene.
+Por eso la herramienta es un único archivo autocontenido, fácil de mover a la web.
 
 ## Estructura
-- `index.html`: página de prueba que carga la herramienta.
-- `herramienta/`: código de la herramienta (módulo independiente).
+- `index.html`: Editor de rejilla (versión de prueba del 31 oct 2026), archivo único sin dependencias.
