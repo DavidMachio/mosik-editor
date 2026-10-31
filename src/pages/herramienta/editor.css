@@ -1,0 +1,48 @@
+/* Estilos del editor, acotados a .mk-editor para no afectar al resto de la web. */
+.mk-editor{--bg:var(--mk-bg);--pn:var(--mk-card);--tx:var(--mk-text);--mu:var(--mk-muted);--bd:var(--mk-line);--bd-ctl:var(--mk-border);--ac:var(--mk-action);--ac-bd:var(--mk-action-border);--ac-soft:var(--mk-action-soft);--ink:var(--mk-ink);box-sizing:border-box;font:14px var(--font-body);color:var(--tx)}
+.mk-editor *{box-sizing:border-box}
+.mk-editor .mu{color:var(--mu);font-size:12px}
+.mk-editor .app{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:12px;padding:12px}
+@media(max-width:860px){.mk-editor .app{grid-template-columns:1fr}
+}.mk-editor .pn{background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:10px;margin-bottom:10px}
+.mk-editor .pn h3{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu);margin:0 0 8px}
+.mk-editor .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+.mk-editor label{display:flex;align-items:center;gap:6px}
+.mk-editor input[type=number]{width:64px}
+.mk-editor input[type=range]{flex:1;min-width:90px}
+.mk-editor button,.mk-editor select,.mk-editor input[type=number],.mk-editor input[type=search]{font:inherit;padding:6px 10px;border:1px solid var(--bd-ctl);border-radius:8px;background:var(--pn);color:var(--tx)}
+.mk-editor button{cursor:pointer}
+.mk-editor button.big{padding:9px 16px;font-weight:600}
+.mk-editor button.on{background:var(--ac);color:var(--ink);border-color:var(--ac-bd)}
+.mk-editor button:disabled{opacity:.4}
+.mk-editor #wrap{overflow:auto;max-height:78vh;border:1px solid var(--bd);border-radius:10px;background:#ddd}
+.mk-editor canvas{display:block;touch-action:none;cursor:crosshair}
+.mk-editor #pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(30px,1fr));gap:3px;max-height:300px;overflow:auto}
+.mk-editor #pal button{padding:0;height:30px;border-radius:50%;border:2px solid transparent;font-size:8px;line-height:1;color:#000;text-shadow:0 0 2px #fff}
+.mk-editor #pal button.sel{border-color:var(--tx);outline:2px solid var(--ac)}
+.mk-editor table{border-collapse:collapse;width:100%;font-size:12px}
+.mk-editor td,.mk-editor th{padding:3px 4px;border-bottom:1px solid var(--bd);text-align:left}
+.mk-editor i.sw{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:middle;border:1px solid #0003}
+.mk-editor #cur{display:flex;align-items:center;gap:8px;font-weight:600}
+.mk-editor #modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:12px;z-index:10}
+.mk-editor #modal.show{display:flex}
+.mk-editor #card{background:var(--pn);color:var(--tx);border-radius:14px;max-width:760px;width:100%;max-height:92vh;overflow:auto;padding:16px}
+.mk-editor #card h2{margin:0 0 4px;font-size:17px}
+.mk-editor .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.mk-editor .chip{border:1px solid var(--bd);border-radius:10px;padding:6px 8px;display:flex;align-items:center;gap:8px;min-width:150px}
+.mk-editor .chip.pk{outline:2px solid var(--ac)}
+.mk-editor .chip .dot{width:26px;height:26px;border-radius:50%;border:1px solid #0003;flex:none}
+.mk-editor .chip small{color:var(--mu);display:block;font-size:11px}
+.mk-editor .chip button{padding:2px 7px;font-size:12px}
+.mk-editor #mpal{display:grid;grid-template-columns:repeat(auto-fill,minmax(30px,1fr));gap:3px;max-height:170px;overflow:auto;margin-top:6px}
+.mk-editor #mpal button{padding:0;height:30px;border-radius:50%;border:2px solid transparent;font-size:8px;color:#000;text-shadow:0 0 2px #fff}
+.mk-editor #mprev{width:100%;max-width:360px;border-radius:8px;background:#f6f5f1}
+.mk-editor #pdd{position:relative}
+.mk-editor #pddb{display:flex;align-items:center;gap:8px}
+.mk-editor #pddl{position:absolute;z-index:6;top:100%;left:0;margin-top:4px;background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:6px;display:none;grid-template-columns:repeat(3,92px);gap:6px;box-shadow:0 6px 20px #0003}
+.mk-editor #pddl.show{display:grid}
+.mk-editor .pi{border:1px solid var(--bd);border-radius:8px;padding:6px;text-align:center;cursor:pointer;font-size:12px;background:var(--pn);color:var(--tx)}
+.mk-editor .pi:hover,.mk-editor .pi.sel{border-color:var(--ac);background:var(--ac-soft)}
+.mk-editor .pi svg{display:block;margin:0 auto 3px}
+.mk-editor #custom{display:none}
+.mk-editor #custom.show{display:flex}

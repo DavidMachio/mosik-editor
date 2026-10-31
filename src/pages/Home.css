@@ -1,0 +1,40 @@
+.hero {
+  padding: 64px 0 48px;
+}
+.hero__inner > * {
+  max-width: 760px;
+}
+.hero__lead {
+  font-size: 18px;
+  color: var(--mk-muted);
+  margin-bottom: 24px;
+}
+.section {
+  padding-top: 32px;
+}
+.steps,
+.soon {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.steps__item {
+  position: relative;
+}
+.steps__num {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: var(--mk-action);
+  color: var(--mk-ink);
+  font: 600 16px var(--font-display);
+}
+.steps__item p {
+  margin: 0;
+}

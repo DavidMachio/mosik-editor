@@ -1,0 +1,40 @@
+/* Tokens de Mosik Beads (Decisiones cerradas, fase 04). Valores provisionales hasta revisar el libro de marca.
+   Tema claro por defecto; el tema oscuro "tabaco" sigue la preferencia del sistema. */
+:root {
+  --mk-bg: #ecebea;
+  --mk-card: #ffffff;
+  --mk-sunken: #f7f6f5;
+  --mk-text: #150702;
+  --mk-muted: #6b5d57;
+  --mk-line: #d8d3d0;
+  --mk-border: #8c7569;
+  --mk-ink: #150702;
+
+  --mk-action: #feae85;
+  --mk-action-hover: #fec2a3;
+  --mk-action-pressed: #f99864;
+  --mk-action-border: #d35f03;
+  --mk-action-soft: rgba(254, 174, 133, 0.28);
+  --mk-brand: #f67214; /* solo logo, icono y detalles pequeños */
+  --mk-link: #a74900;
+
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius-control: 8px;
+  --radius-card: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mk-bg: #150702;
+    --mk-card: #20140e;
+    --mk-sunken: #30211a;
+    --mk-text: #f7f2f0;
+    --mk-muted: #b9a79d;
+    --mk-line: #45332a;
+    --mk-border: #8c7569;
+    --mk-link: #fe955c;
+    --mk-action-soft: rgba(254, 174, 133, 0.2);
+  }
+}

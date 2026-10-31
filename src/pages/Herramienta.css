@@ -1,0 +1,10 @@
+.tool-page {
+  padding-top: 24px;
+  max-width: 1440px;
+}
+.tool-page h1 {
+  font-size: clamp(26px, 3.5vw, 38px);
+}
+.tool-page__intro {
+  max-width: 760px;
+}
