@@ -445,19 +445,16 @@
 /* Las tres fases crecen de izquierda a derecha, con la misma escala de píxel */
 .evo__art { display: flex; align-items: flex-end; justify-content: center; gap: calc(var(--s) * 5px); min-height: 300px; padding-bottom: 14px; }
 .evo__sprite { display: block; height: auto; image-rendering: pixelated; filter: drop-shadow(0 10px 8px rgba(21, 7, 2, .35)); }
-.evo__sprite--1 { width: calc(28px * var(--s)); }
-.evo__sprite--2 { width: calc(41px * var(--s)); }
-.evo__sprite--3 { width: calc(65px * var(--s)); }
+.evo__sprite { width: calc(var(--w) * var(--s) * 1px); }
 .evo__down { position: absolute; left: clamp(24px, 4vw, 56px); bottom: 18px; display: grid; place-items: center; width: 36px; height: 36px; color: #fff; opacity: .85; }
 .evo__chev { transform: rotate(90deg); }
 @media (prefers-reduced-motion: no-preference) {
   .evo__sprite { animation: evo-bob 3.2s ease-in-out infinite; }
-  .evo__sprite--2 { animation-delay: .35s; }
-  .evo__sprite--3 { animation-delay: .7s; }
   @keyframes evo-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 }
 @media (max-width: 820px) {
-  .evo { grid-template-columns: minmax(0, 1fr); min-height: 0; --s: 1.9; }
+  .evo { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .evo__sprite { width: calc(var(--w) * var(--s) * .5px); }
   .evo__text { min-width: 0; }
   .evo__art { min-height: 200px; }
   .evo__down { display: none; }

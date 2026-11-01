@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle.js';
 import Icon from '../components/Icon.jsx';
-import { EVOLUCIONES } from '../data/evoluciones.js';
-import './Evoluciones.css';
+import { porSlug } from '../data/colecciones/index.js';
+import NotFound from './NotFound.jsx';
+import './Coleccion.css';
 
 // Vista previa del diseño: una cuenta (círculo con agujero) por cada píxel del sprite.
 function Preview({ fase }) {
@@ -30,7 +31,7 @@ function Preview({ fase }) {
 
 
 // Los tres diseños juntos: composición en cuentas, totales y gama con la cantidad de cada color.
-function Conjunto() {
+function Conjunto({ disenos: EVOLUCIONES }) {
   const [sel, setSel] = useState(null);
   const GAP = 5;
   const data = useMemo(() => {
@@ -46,7 +47,7 @@ function Conjunto() {
     let x = 0;
     const pos = EVOLUCIONES.map((f) => { const o = x; x += f.ancho + GAP; return o; });
     return { total, colores, alto, ancho: x - GAP, pos };
-  }, []);
+  }, [EVOLUCIONES]);
   const elegido = data.colores.find((c) => c.codigo === sel);
 
   const beads = [];
@@ -74,17 +75,17 @@ function Conjunto() {
   return (
     <section className="evo-all" aria-labelledby="evo-all-t">
       <div className="evo-all__head">
-        <h2 id="evo-all-t">Si haces los tres</h2>
+        <h2 id="evo-all-t">Si haces {EVOLUCIONES.length === 2 ? 'los dos' : EVOLUCIONES.length === 3 ? 'los tres' : 'todos'}</h2>
         <p className="muted">La línea completa, una al lado de otra. Pulsa un color para verlo pintado en la composición.</p>
       </div>
-      <ul className="evo-stats evo-stats--all" aria-label="Datos de los tres diseños juntos">
+      <ul className="evo-stats evo-stats--all" aria-label="Datos de todos los diseños juntos">
         <li className="evo-stat evo-stat--big"><span className="evo-stat__label">Total de cuentas</span><strong>{data.total.toLocaleString('es-ES')}</strong></li>
         <li className="evo-stat"><span className="evo-stat__label">Colores distintos</span><strong>{data.colores.length}</strong></li>
         <li className="evo-stat"><span className="evo-stat__label">Diseños</span><strong>{EVOLUCIONES.length}</strong><span className="evo-stat__sub">{EVOLUCIONES.map((f) => f.cuentas).join(' + ')}</span></li>
       </ul>
       <div className="evo-prev__stage evo-all__stage">
         <svg className="evo-prev__svg" viewBox={`-6 -6 ${data.ancho * 10 + 12} ${data.alto * 10 + 12}`} role="img"
-          aria-label={`Los tres diseños juntos: ${data.total} cuentas y ${data.colores.length} colores`}>{beads}</svg>
+          aria-label={`Los diseños juntos: ${data.total} cuentas y ${data.colores.length} colores`}>{beads}</svg>
       </div>
       <div className="evo-all__gama">
         <div className="evo-all__gamahead">
@@ -112,14 +113,24 @@ function Conjunto() {
   );
 }
 
-const num = (n) => `Nº ${String(n).padStart(3, '0')}`;
+const num = (n) => (n ? `Nº ${String(n).padStart(3, '0')}` : '');
 
-export default function Evoluciones() {
-  usePageTitle('Evoluciones · Mosik Beads');
+export default function Coleccion() {
+  const { slug } = useParams();
+  const col = porSlug(slug);
+  if (!col) return <NotFound />;
+  return <ColeccionPagina col={col} />;
+}
+
+function ColeccionPagina({ col }) {
+  const EVOLUCIONES = col.disenos;
+  usePageTitle(`${col.titulo} · Mosik Beads`);
   const [params, setParams] = useSearchParams();
   const sel = Math.max(1, Math.min(EVOLUCIONES.length, Number(params.get('fase')) || 1));
   const fase = EVOLUCIONES[sel - 1];
   const pick = (i) => setParams({ fase: String(i + 1) }, { replace: true });
+  const t = col.tema;
+  const style = { '--evo-bg': t.fondo, '--evo-a': t.circulo, '--evo-b': t.circulo2, '--evo-yellow': t.acento };
 
   function onKey(e, i) {
     let n = null;
@@ -132,22 +143,22 @@ export default function Evoluciones() {
   }
 
   return (
-    <div className="container evo-page">
-      <nav className="evo-page__crumbs" aria-label="Dónde estás"><Link to="/">Inicio</Link> <span aria-hidden="true">/</span> <span>Evoluciones</span></nav>
+    <div className="container evo-page" style={style}>
+      <nav className="evo-page__crumbs" aria-label="Dónde estás"><Link to="/">Inicio</Link> <span aria-hidden="true">/</span> <span>{col.titulo}</span></nav>
 
       <header className="evo-hero">
         <span className="evo-hero__circle" aria-hidden="true" />
-        <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección · Entrega 1</p>
-        <h1>Evoluciones</h1>
-        <p className="evo-hero__lead">Una línea evolutiva completa en tres diseños. Elige una fase para ver su ficha.</p>
-        <Conjunto />
-        <p className="evo-hero__pick">O elige un diseño para ver su ficha:</p>
-        <div className="evo-tabs" role="tablist" aria-label="Fases de la línea">
+        <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección · {col.entrega}</p>
+        <h1>{col.titulo}</h1>
+        <p className="evo-hero__lead">{col.intro}</p>
+        {EVOLUCIONES.length > 1 && <Conjunto disenos={EVOLUCIONES} />}
+        <p className="evo-hero__pick">{EVOLUCIONES.length > 1 ? 'O elige un diseño para ver su ficha:' : 'Su ficha:'}</p>
+        <div className="evo-tabs" role="tablist" aria-label="Diseños de la colección">
           {EVOLUCIONES.map((f, i) => (
             <button key={f.id} type="button" role="tab" id={`evo-tab-${i}`} aria-selected={i === sel - 1} aria-controls="evo-ficha"
               tabIndex={i === sel - 1 ? 0 : -1} className="evo-tab" onClick={() => pick(i)} onKeyDown={(e) => onKey(e, i)}>
-              <span className="evo-tab__img"><img src={`/colecciones/evoluciones/${f.id}.png`} alt="" width={f.ancho} height={f.alto} /></span>
-              <span className="evo-tab__txt"><span className="evo-tab__num">{num(f.numero)}</span><span className="evo-tab__name">{f.nombre}</span><span className="evo-tab__phase">{f.fase}</span></span>
+              <span className="evo-tab__img"><img src={`/colecciones/${col.slug}/${f.id}.png`} alt="" width={f.ancho} height={f.alto} /></span>
+              <span className="evo-tab__txt">{f.numero ? <span className="evo-tab__num">{num(f.numero)}</span> : null}<span className="evo-tab__name">{f.nombre}</span><span className="evo-tab__phase">{f.fase}</span></span>
             </button>
           ))}
         </div>
@@ -155,7 +166,7 @@ export default function Evoluciones() {
 
       <section className="evo-ficha" id="evo-ficha" role="tabpanel" aria-labelledby={`evo-tab-${sel - 1}`}>
         <div className="evo-ficha__head">
-          <p className="evo-ficha__num">{num(fase.numero)} · {fase.fase}</p>
+          <p className="evo-ficha__num">{[num(fase.numero), fase.fase].filter(Boolean).join(' · ')}</p>
           <h2>{fase.nombre}</h2>
         </div>
 

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { request } from '../lib/api.js';
 import usePageTitle from '../hooks/usePageTitle.js';
 import useReveal from '../hooks/useReveal.js';
+import ColeccionBanner from '../components/ColeccionBanner.jsx';
+import { COLECCIONES_FICHA } from '../data/colecciones/index.js';
 import DesignCard from '../components/DesignCard.jsx';
 import Icon from '../components/Icon.jsx';
 import '../components/DesignCard.css';
@@ -37,7 +39,7 @@ const AYUDAS = [
 
 // Colecciones previstas (Decisiones cerradas, 18 oct 2026). Todavía no tienen página: se muestran como «próximamente».
 const COLECCIONES = [
-  { nombre: 'Evoluciones', texto: 'Líneas evolutivas completas, una nueva cada cierto tiempo.', gradiente: 'linear-gradient(135deg, #D35A33, #F29B40)' },
+  ...[...COLECCIONES_FICHA].reverse().map((c) => ({ nombre: c.titulo, texto: c.resumen, gradiente: `linear-gradient(135deg, ${c.tema.fondo}, ${c.tema.circulo})` })),
   { nombre: 'Temporada', texto: 'Halloween y Navidad, pieza a pieza.', gradiente: 'var(--grad-temporada)' },
   { nombre: 'Retratos', texto: 'Personas y personajes en cuentas.', gradiente: 'var(--grad-retratos)' },
   { nombre: 'Videojuegos', texto: 'Sprites y pantallas de juego.', gradiente: 'var(--grad-videojuegos)' },
@@ -60,28 +62,10 @@ export default function Home() {
 
   return (
     <>
-      {/* Nueva colección: Evoluciones (se irá ampliando con una línea evolutiva nueva cada cierto tiempo) */}
-      <section className="container bento-wrap" aria-labelledby="evoluciones" data-reveal>
-        <div className="evo">
-          <span className="evo__circle evo__circle--a" aria-hidden="true" />
-          <span className="evo__circle evo__circle--b" aria-hidden="true" />
-          <div className="evo__text">
-            <p className="evo__kicker"><Icon name="paleta" size={18} /> Nueva colección</p>
-            <h2 id="evoluciones">Evoluciones<br /><span className="evo__mark">Tres fases</span> en una misma línea</h2>
-            <p className="evo__lead">Cada cierto tiempo, una línea evolutiva nueva en cuentas. La primera entrega: el ratón eléctrico, de cría a forma final.</p>
-            <div className="evo__actions">
-              <Link to="/colecciones/evoluciones" className="evo__btn evo__btn--main"><Icon name="imagen" size={20} /> Ver diseño</Link>
-              <Link to="/herramienta" className="evo__btn evo__btn--ghost">Crear el mío</Link>
-            </div>
-          </div>
-          <div className="evo__art" aria-hidden="true">
-            <img className="evo__sprite evo__sprite--1" src="/colecciones/evoluciones/fase-1.png" width="28" height="39" alt="" />
-            <img className="evo__sprite evo__sprite--2" src="/colecciones/evoluciones/fase-2.png" width="41" height="48" alt="" />
-            <img className="evo__sprite evo__sprite--3" src="/colecciones/evoluciones/fase-3.png" width="65" height="63" alt="" />
-          </div>
-          <a className="evo__down" href="#como-funciona" aria-label="Seguir bajando"><Icon name="flecha" size={20} className="evo__chev" /></a>
-        </div>
-      </section>
+      {/* Colecciones nuevas con ficha (la más reciente primero) */}
+      {[...COLECCIONES_FICHA].reverse().map((c) => (
+        <ColeccionBanner key={c.slug} col={c} titleId={`coleccion-${c.slug}`} />
+      ))}
 
       {/* Portada: una tarjeta oscura grande y dos pequeñas */}
       <section className="container bento-wrap" aria-labelledby="hero-titulo">

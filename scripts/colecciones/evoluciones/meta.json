@@ -1,0 +1,41 @@
+{
+  "slug": "evoluciones",
+  "titulo": "Evoluciones",
+  "entrega": "Entrega 1",
+  "lema": [
+    "Tres fases",
+    " en una misma línea"
+  ],
+  "texto": "Cada cierto tiempo, una línea evolutiva nueva en cuentas. La primera entrega: el ratón eléctrico, de cría a forma final.",
+  "intro": "Una línea evolutiva completa en tres diseños. Elige una fase para ver su ficha.",
+  "tema": {
+    "fondo": "#d35a33",
+    "circulo": "#f29b40",
+    "circulo2": "#e8683f",
+    "acento": "#fbe56e"
+  },
+  "disenos": [
+    {
+      "archivo": "fase-1.png",
+      "id": "fase-1",
+      "nombre": "Pichu",
+      "numero": 172,
+      "fase": "Cría"
+    },
+    {
+      "archivo": "fase-2.png",
+      "id": "fase-2",
+      "nombre": "Pikachu",
+      "numero": 25,
+      "fase": "Fase 2"
+    },
+    {
+      "archivo": "fase-3.png",
+      "id": "fase-3",
+      "nombre": "Raichu",
+      "numero": 26,
+      "fase": "Fase final"
+    }
+  ],
+  "resumen": "Líneas evolutivas completas, una nueva cada cierto tiempo."
+}
