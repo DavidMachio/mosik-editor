@@ -1,0 +1,41 @@
+{
+  "slug": "evoluciones-fuego",
+  "titulo": "Evoluciones Fuego",
+  "entrega": "Entrega 3",
+  "lema": [
+    "Tres fases",
+    " de llama"
+  ],
+  "texto": "Tercera entrega: la línea de fuego, de la chispa a las alas.",
+  "intro": "La línea de fuego en tres diseños. Elige una fase para ver su ficha.",
+  "resumen": "Línea de fuego, de cría a forma final.",
+  "tema": {
+    "fondo": "#b3362b",
+    "circulo": "#f08a3c",
+    "circulo2": "#d9532f",
+    "acento": "#fbe56e"
+  },
+  "disenos": [
+    {
+      "archivo": "fase-1.png",
+      "id": "fase-1",
+      "nombre": "Charmander",
+      "numero": 4,
+      "fase": "Cría"
+    },
+    {
+      "archivo": "fase-2.png",
+      "id": "fase-2",
+      "nombre": "Charmeleon",
+      "numero": 5,
+      "fase": "Fase 2"
+    },
+    {
+      "archivo": "fase-3.png",
+      "id": "fase-3",
+      "nombre": "Charizard",
+      "numero": 6,
+      "fase": "Fase final"
+    }
+  ]
+}

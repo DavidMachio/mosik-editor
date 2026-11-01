@@ -1,0 +1,41 @@
+{
+  "slug": "evoluciones-planta",
+  "titulo": "Evoluciones Planta",
+  "entrega": "Entrega 2",
+  "lema": [
+    "Tres fases",
+    " de hoja y flor"
+  ],
+  "texto": "Segunda entrega: la línea de planta, de la semilla a la flor completa.",
+  "intro": "La línea de planta en tres diseños. Elige una fase para ver su ficha.",
+  "resumen": "Línea de planta, de cría a forma final.",
+  "tema": {
+    "fondo": "#3f8f4f",
+    "circulo": "#8cc152",
+    "circulo2": "#4fa56b",
+    "acento": "#fbe56e"
+  },
+  "disenos": [
+    {
+      "archivo": "fase-1.png",
+      "id": "fase-1",
+      "nombre": "Bulbasaur",
+      "numero": 1,
+      "fase": "Cría"
+    },
+    {
+      "archivo": "fase-2.png",
+      "id": "fase-2",
+      "nombre": "Ivysaur",
+      "numero": 2,
+      "fase": "Fase 2"
+    },
+    {
+      "archivo": "fase-3.png",
+      "id": "fase-3",
+      "nombre": "Venusaur",
+      "numero": 3,
+      "fase": "Fase final"
+    }
+  ]
+}

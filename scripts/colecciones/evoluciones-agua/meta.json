@@ -1,0 +1,41 @@
+{
+  "slug": "evoluciones-agua",
+  "titulo": "Evoluciones Agua",
+  "entrega": "Entrega 4",
+  "lema": [
+    "Tres fases",
+    " de ola"
+  ],
+  "texto": "Cuarta entrega: la línea de agua, del caparazón al cañón.",
+  "intro": "La línea de agua en tres diseños. Elige una fase para ver su ficha.",
+  "resumen": "Línea de agua, de cría a forma final.",
+  "tema": {
+    "fondo": "#2f6fb5",
+    "circulo": "#5ba8e0",
+    "circulo2": "#3c8ac9",
+    "acento": "#fbe56e"
+  },
+  "disenos": [
+    {
+      "archivo": "fase-1.png",
+      "id": "fase-1",
+      "nombre": "Squirtle",
+      "numero": 7,
+      "fase": "Cría"
+    },
+    {
+      "archivo": "fase-2.png",
+      "id": "fase-2",
+      "nombre": "Wartortle",
+      "numero": 8,
+      "fase": "Fase 2"
+    },
+    {
+      "archivo": "fase-3.png",
+      "id": "fase-3",
+      "nombre": "Blastoise",
+      "numero": 9,
+      "fase": "Fase final"
+    }
+  ]
+}
