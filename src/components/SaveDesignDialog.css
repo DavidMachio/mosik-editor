@@ -32,3 +32,15 @@
 .btn--ghost { background: transparent; border-color: var(--mk-border); }
 .btn--ghost:hover { background: var(--mk-sunken); }
 .save-dialog .btn[disabled] { opacity: 0.6; cursor: wait; }
+
+/* Apertura del diálogo: fundido y bajada corta (con «reducir movimiento», solo fundido) */
+@keyframes save-dialog-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+@keyframes save-dialog-fade {
+  from { opacity: 0; }
+}
+.save-dialog[open] { animation: save-dialog-fade var(--dur-fast) linear; }
+@media (prefers-reduced-motion: no-preference) {
+  .save-dialog[open] { animation: save-dialog-in var(--dur-base) var(--ease-out); }
+}

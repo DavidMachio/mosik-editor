@@ -74,6 +74,11 @@ a { color: var(--mk-link); }
 }
 .btn:hover { background: var(--mk-action-hover); }
 .btn:active { background: var(--mk-action-pressed); }
+.btn { transition: background-color var(--dur-fast) var(--ease-out); }
+
+/* Botón secundario: contorno, sin relleno */
+.btn--ghost { background: transparent; border-color: var(--mk-border); }
+.btn--ghost:hover { background: var(--mk-sunken); }
 
 .card {
   background: var(--mk-card);
@@ -83,3 +88,27 @@ a { color: var(--mk-link); }
 }
 
 .muted { color: var(--mk-muted); }
+
+/* ---- Movimiento ---- */
+@keyframes mk-rise {
+  from { opacity: 0; transform: translateY(12px); }
+}
+@keyframes mk-fade {
+  from { opacity: 0; }
+}
+
+/* Aparición al hacer scroll: cada bloque entra una sola vez.
+   Sin script o con «reducir movimiento», todo se ve desde el principio. */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal [data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity var(--dur-slow) var(--ease-out) calc(var(--i, 0) * 60ms),
+      transform var(--dur-slow) var(--ease-out) calc(var(--i, 0) * 60ms);
+  }
+  .js-reveal [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

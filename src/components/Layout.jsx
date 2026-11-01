@@ -40,8 +40,12 @@ export default function Layout() {
       </main>
 
       <footer className="site-footer">
-        <div className="container">
+        <div className="container site-footer__inner">
           <p className="muted">Mosik Beads · Web en construcción.</p>
+          <nav aria-label="Pie" className="site-footer__nav">
+            <Link to="/herramienta">Herramienta</Link>
+            <Link to="/galeria">Galería</Link>
+          </nav>
         </div>
       </footer>
     </>
