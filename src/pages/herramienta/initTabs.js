@@ -11,11 +11,15 @@ export function initTabs(root) {
   const strip = root.querySelector('.tool__bar');
   const side = root.querySelector('.tool__side');
   const list = root.querySelector('[role="tablist"]');
+  const topbar = root.querySelector('#tool-topbar');
+  const saveBtn = root.querySelector('#savebtn');
   const closeBtn = root.querySelector('.sheet__close');
   function placeList() {
     if (!strip || !side || !list) return;
     if (mq.matches) {
       if (list.parentElement !== strip) strip.appendChild(list);
+    } else if (topbar) {
+      if (list.parentElement !== topbar) topbar.insertBefore(list, saveBtn);
     } else if (list.parentElement !== side) {
       side.insertBefore(list, side.querySelector('.tabpanel'));
     }
@@ -117,6 +121,6 @@ export function initTabs(root) {
     if (beadBtn) beadBtn.removeEventListener('click', onBead);
     if (closeBtn) closeBtn.removeEventListener('click', onClose);
     if (palPanel && capas && capas.parentElement !== palPanel) palPanel.appendChild(capas);
-    if (side && list && list.parentElement !== side) side.insertBefore(list, side.querySelector('.tabpanel'));
+    if (topbar && list && list.parentElement !== topbar) topbar.insertBefore(list, saveBtn);
   };
 }

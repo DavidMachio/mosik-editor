@@ -379,11 +379,14 @@
   .mk-editor #cvbox { margin: 0 auto; }
   .mk-editor .tool > *:not(.tool__stage):not(.tool__side) { position: absolute; z-index: 5; }
 
-  .mk-editor .tool__corner {
-    display: grid; place-items: center; left: 12px; top: 12px; width: 52px; height: 52px; padding: 0;
-    background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  .mk-editor .tool__topbar {
+    left: 12px; top: 12px; display: flex; align-items: center; gap: 6px; height: 52px; padding: 4px 6px;
+    background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); box-shadow: 0 4px 16px rgba(0,0,0,.12);
   }
+  .mk-editor .tool__corner { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; background: transparent; border: 0; border-radius: 12px; cursor: pointer; }
   .mk-editor .tool__corner:hover { background: var(--ac-soft); }
+  .mk-editor .tool__savebtn { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; margin-left: 4px; border: 1px solid var(--ac-bd); border-radius: 12px; background: var(--ac-soft); cursor: pointer; }
+  .mk-editor .tool__savebtn:hover { background: var(--ac); color: #fff; }
 
   /* Herramientas básicas: barra flotante abajo en el centro */
   .mk-editor .tool__bar {
@@ -398,10 +401,7 @@
   /* El panel lateral desaparece como caja: sus pestañas son la barra superior y sus paneles flotan debajo */
   .mk-editor .tool__side { display: contents; }
   .mk-editor .sheet__bar { display: none; }
-  .mk-editor .tabs {
-    position: absolute; z-index: 5; left: 72px; top: 12px; width: max-content; gap: 6px; padding: 4px 6px; height: 52px; align-items: center;
-    background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); box-shadow: 0 4px 16px rgba(0,0,0,.12);
-  }
+  .mk-editor .tabs { gap: 6px; padding: 0 0 0 6px; margin-left: 2px; border: 0; border-left: 1px solid var(--bd); align-items: center; width: max-content; }
   .mk-editor .tabs [role='tab'] {
     position: relative; flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
     border: 1px solid transparent; border-radius: 12px;
@@ -411,15 +411,15 @@
   .mk-editor .tabs [role='tab'][aria-selected='true'][aria-expanded='false'] { background: var(--ac-soft); border-color: var(--ac-bd); }
   .mk-editor .tool[data-sheet='closed'] .tabpanel { display: none; }
   .mk-editor .tabpanel {
-    position: absolute; z-index: 6; left: 72px; top: 72px; display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 12px;
-    max-width: min(920px, calc(100vw - 100px)); max-height: min(300px, calc(100dvh - 200px)); padding: 10px; overflow: auto;
+    position: absolute; z-index: 6; left: 12px; top: 72px; display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 10px;
+    width: 372px; max-width: calc(100vw - 24px); max-height: calc(100dvh - 180px); padding: 10px; overflow-x: hidden; overflow-y: auto;
     background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); box-shadow: 0 12px 32px rgba(0,0,0,.2);
   }
-  .mk-editor .tabpanel .pn { flex: 0 0 auto; width: 340px; margin: 0; }
+  .mk-editor .tabpanel .pn { flex: 0 0 auto; width: auto; margin: 0; }
   .mk-editor .tabpanel #pal { max-height: 130px; overflow-y: auto; }
 
   /* Capas: panel flotante a la derecha, bajo el botón de guardar */
-  .mk-editor .tool__layers { right: 12px; top: 72px; width: 240px; max-height: calc(100dvh - 180px); box-shadow: 0 12px 32px rgba(0,0,0,.2); z-index: 6; }
+  .mk-editor .tool__layers { right: 12px; top: 12px; width: 240px; max-height: calc(100dvh - 180px); box-shadow: 0 12px 32px rgba(0,0,0,.2); z-index: 6; }
   .mk-editor .tool[data-layers='closed'] .tool__layers { display: none; }
 
   /* Zoom y estado: abajo, a los lados de la barra de herramientas */
@@ -428,4 +428,4 @@
   .mk-editor .tool__status { display: none; } /* la ayuda de cada herramienta sale al pasar el ratón por su botón */
   .mk-editor .plates { position: absolute; z-index: 5; left: 50%; bottom: 84px; transform: translateX(-50%); width: min(560px, 90vw); }
 }
-@media (max-width: 900px) { .mk-editor .tool__group--layers { display: none; } }
+@media (max-width: 900px) { .mk-editor .tool__group--layers, .mk-editor .tool__topbar, .mk-editor .tool__savebtn { display: none; } }
