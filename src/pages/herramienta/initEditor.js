@@ -47,12 +47,16 @@ let VIEW='bead',PW=40,PH=40,PR=1,PC=1,platesKey='1x1';
 let solo=new Set(),hidden=new Set(),recolorFrom=null;
 let COLS=40,ROWS=40,grid=[],CS=16,tool='move',cur='A10',img=null,imgCv=null,imgDirty=true;
 const imgT={s:1,x:0,y:0,rot:0,flip:false};let hist=[],redo=[];
-const cv=$('cv'),ctx=cv.getContext('2d');
+const cv=$('cv'),ctx=cv.getContext('2d'),cvbox=$('cvbox');
+let FOCUS=null; // null = todo el diseño · {r,c} = ver una sola placa (tablero)
 function newGrid(c,r,old){const g=Array.from({length:r},()=>Array(c).fill(null));if(old)for(let y=0;y<Math.min(r,old.length);y++)for(let x=0;x<Math.min(c,old[0].length);x++)g[y][x]=old[y][x];return g}
 function snap(){return JSON.stringify(grid)}
 function push(){hist.push(snap());if(hist.length>80)hist.shift();redo=[];upd()}
 function upd(){$('undo').disabled=!hist.length;$('redo').disabled=!redo.length}
-function size(keep){const w=$('wrap');const fx=keep?(w.scrollLeft+w.clientWidth/2)/cv.width:0,fy=keep?(w.scrollTop+w.clientHeight/2)/cv.height:0;CS=+$('zoom').value;cv.width=COLS*CS;cv.height=ROWS*CS;imgDirty=true;draw();if(keep){w.scrollLeft=fx*cv.width-w.clientWidth/2;w.scrollTop=fy*cv.height-w.clientHeight/2}}
+function applyFocus(){
+ if(FOCUS){cvbox.style.width=PW*CS+'px';cvbox.style.height=PH*CS+'px';cv.style.transform=`translate(${-FOCUS.c*PW*CS}px,${-FOCUS.r*PH*CS}px)`}
+ else{cvbox.style.width=cv.width+'px';cvbox.style.height=cv.height+'px';cv.style.transform=''}}
+function size(keep){const w=$('wrap');const ow=cvbox.offsetWidth||cv.width,oh=cvbox.offsetHeight||cv.height;const fx=keep?(w.scrollLeft+w.clientWidth/2)/ow:0,fy=keep?(w.scrollTop+w.clientHeight/2)/oh:0;CS=+$('zoom').value;cv.width=COLS*CS;cv.height=ROWS*CS;applyFocus();imgDirty=true;draw();if(keep){w.scrollLeft=fx*cvbox.offsetWidth-w.clientWidth/2;w.scrollTop=fy*cvbox.offsetHeight-w.clientHeight/2}}
 function drawGuides(c,k,sc){
  const W=COLS*k,H=ROWS*k;c.save();
  const line=(x0,y0,x1,y1,w,col)=>{c.strokeStyle=col;c.lineWidth=w;c.beginPath();c.moveTo(x0,y0);c.lineTo(x1,y1);c.stroke()};
@@ -73,7 +77,7 @@ function applyBoard(keepMsg){
  $('cprev').innerHTML=plateSvg(PR,PC,54,40);
  const p=PLATES.find(x=>x[0]===platesKey);
  $('pddb').innerHTML=(platesKey==='custom'?plateSvg(PR,PC,34,24):plateSvg(p[2],p[3],34,24))+`<span>${platesKey==='custom'?PR+' × '+PC+' placas':p[1]}</span> ▾`;
- $('boardinfo').textContent=`${PR*PC} ${PR*PC===1?'placa':'placas'} (${PR} fila${PR>1?'s':''} × ${PC} columna${PC>1?'s':''}) · tablero de ${COLS} × ${ROWS} cuentas`}
+ $('boardinfo').textContent=`${PR*PC} ${PR*PC===1?'placa':'placas'} (${PR} fila${PR>1?'s':''} × ${PC} columna${PC>1?'s':''}) · tablero de ${COLS} × ${ROWS} cuentas`;if(FOCUS&&(FOCUS.r>=PR||FOCUS.c>=PC))FOCUS=null;applyFocus();syncPlateBar()}
 $('pddl').innerHTML=PLATES.map(p=>`<div class="pi" data-k="${p[0]}">${p[0]==='custom'?'<svg width="54" height="40" viewBox="0 0 54 40"><rect x="4" y="4" width="46" height="32" rx="3" fill="none" stroke="#e8731c" stroke-width="1.5" stroke-dasharray="4 3"/><text x="27" y="26" text-anchor="middle" font-size="18" fill="#e8731c">+</text></svg>':plateSvg(p[2],p[3],54,40)}${p[1]}</div>`).join('');
 $('pddb').onclick=e=>{e.stopPropagation();$('pddl').classList.toggle('show')};
 const onDocClick=e=>{if(!e.target.closest('#pdd'))$('pddl').classList.remove('show')};
@@ -114,10 +118,14 @@ function applyAt(x,y){
 let down=false,last=null,mv=null;
 // Dos dedos: mover la vista y hacer zoom con pellizco, sea cual sea la herramienta. Un dedo sigue pintando o moviendo la imagen.
 const pts=new Map();let multi=null;
-function startMulti(){down=false;mv=null;last=null;const[a,b]=[...pts.values()];const w=$('wrap');multi={d:Math.hypot(a.x-b.x,a.y-b.y)||1,z:+$('zoom').value,cx:(a.x+b.x)/2,cy:(a.y+b.y)/2}}
+function startMulti(){down=false;mv=null;last=null;const[a,b]=[...pts.values()];multi={d:Math.hypot(a.x-b.x,a.y-b.y)||1,z:+$('zoom').value,cx:(a.x+b.x)/2,cy:(a.y+b.y)/2,zoom:false}}
+// Zoom que mantiene fijo el punto del dibujo que hay bajo los dedos.
+function zoomAt(nz,cx,cy){const w=$('wrap'),r=w.getBoundingClientRect(),ox=cx-r.left,oy=cy-r.top;const px=(w.scrollLeft+ox)/CS,py=(w.scrollTop+oy)/CS;$('zoom').value=nz;size();w.scrollLeft=px*CS-ox;w.scrollTop=py*CS-oy}
 function moveMulti(){const[a,b]=[...pts.values()];const w=$('wrap');const d=Math.hypot(a.x-b.x,a.y-b.y)||1,cx=(a.x+b.x)/2,cy=(a.y+b.y)/2;
- const nz=Math.max(3,Math.min(48,Math.round(multi.z*d/multi.d)));if(nz!==+$('zoom').value){$('zoom').value=nz;size(true)}
- w.scrollLeft-=cx-multi.cx;w.scrollTop-=cy-multi.cy;multi.cx=cx;multi.cy=cy}
+ w.scrollLeft-=cx-multi.cx;w.scrollTop-=cy-multi.cy;multi.cx=cx;multi.cy=cy;
+ // El zoom solo empieza cuando los dedos se separan o se juntan de verdad (más de un 12 %): mover la vista con dos dedos no zoomea por error.
+ if(!multi.zoom){if(Math.abs(d/multi.d-1)<0.12)return;multi.zoom=true;multi.d=d;multi.z=+$('zoom').value;return}
+ const nz=Math.max(3,Math.min(48,Math.round(multi.z*d/multi.d*2)/2));if(nz!==+$('zoom').value)zoomAt(nz,cx,cy)}
 cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pts.size===2){startMulti();return}if(pts.size>2)return;const c=cellAt(e);down=true;
  if(tool==='move'){const w=$('wrap');mv={x:e.clientX,y:e.clientY,ux:imgT.ux,uy:imgT.uy,sl:w.scrollLeft,st:w.scrollTop,pan:$('lock').checked||!img};cv.style.cursor='grabbing';return}
  if(!c)return;const[x,y]=c;
@@ -198,12 +206,30 @@ pvcv.addEventListener('pointermove',e=>{const old=pvpts.get(e.pointerId);if(!old
 ['pointerup','pointercancel'].forEach(t=>pvcv.addEventListener(t,e=>{pvpts.delete(e.pointerId);pvLast=null}));
 const onPvKey=e=>{if(e.key==='Escape'&&!$('pvmodal').hidden){e.preventDefault();$('pvcancel').click()}};document.addEventListener('keydown',onPvKey);
 const onPvResize=()=>{if(!$('pvmodal').hidden&&PV.img)pvDraw()};window.addEventListener('resize',onPvResize);
+// ---- Tableros (placas) como páginas ----
+// El botón de capas abre una bandeja con una carta pequeña por tablero. Al elegir una, el área de trabajo muestra solo ese
+// tablero con sus piezas (y el recuento de colores pasa a ser el de ese tablero). El diseño completo no se toca.
+function plateIdx(){return FOCUS?FOCUS.r*PC+FOCUS.c:-1}
+function setFocus(i){FOCUS=i<0||i>=PR*PC?null:{r:Math.floor(i/PC),c:i%PC};applyFocus();syncPlateBar();draw();fitToScreen()}
+function syncPlateBar(){const n=PR*PC,bar=$('platebar');bar.hidden=n<2;if(n<2){FOCUS=null;applyFocus();$('platetray').hidden=true;$('platesbtn').setAttribute('aria-expanded','false');return}
+ const i=plateIdx();$('platelabel').textContent=i<0?`Todo el diseño · ${n} tableros`:`Tablero ${i+1} de ${n} · F${FOCUS.r+1} · C${FOCUS.c+1}`}
+function thumb(x0,y0,w,h,wpx){const k=wpx/w,t=document.createElement('canvas'),dpr=window.devicePixelRatio||1;t.width=Math.round(wpx*dpr);t.height=Math.round(h*k*dpr);t.style.width=wpx+'px';t.style.height=(h*k)+'px';
+ const c=t.getContext('2d');c.scale(dpr,dpr);c.fillStyle='#f6f5f1';c.fillRect(0,0,wpx,h*k);
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const v=grid[y0+y]&&grid[y0+y][x0+x];if(!v)continue;c.fillStyle=CODES[v].hex;c.fillRect(Math.floor(x*k),Math.floor(y*k),Math.ceil(k),Math.ceil(k))}return t}
+function buildTray(){const tray=$('platetray');tray.innerHTML='';const n=PR*PC,cur=plateIdx();
+ const card=(i,label,cnv,aria)=>{const b=document.createElement('button');b.type='button';b.className='plates__card';b.setAttribute('aria-pressed',String(cur===i));b.setAttribute('aria-label',aria);b.appendChild(cnv);const l=document.createElement('span');l.textContent=label;b.appendChild(l);b.onclick=()=>{setFocus(i);closeTray()};return b};
+ tray.appendChild(card(-1,'Todo',thumb(0,0,COLS,ROWS,56),'Ver todo el diseño'));
+ for(let i=0;i<n;i++){const r=Math.floor(i/PC),c=i%PC;tray.appendChild(card(i,String(i+1),thumb(c*PW,r*PH,PW,PH,56),`Tablero ${i+1}, fila ${r+1}, columna ${c+1}`))}}
+function closeTray(){$('platetray').hidden=true;$('platesbtn').setAttribute('aria-expanded','false')}
+$('platesbtn').onclick=()=>{const open=$('platetray').hidden;if(open){buildTray();$('platetray').hidden=false;const sel=$('platetray').querySelector('[aria-pressed="true"]');if(sel&&sel.scrollIntoView)sel.scrollIntoView({block:'nearest',inline:'center'})}else{closeTray();return}$('platesbtn').setAttribute('aria-expanded','true')};
+const stepPlate=d=>{const n=PR*PC;let i=plateIdx()+d;if(i<-1)i=n-1;if(i>=n)i=-1;setFocus(i)};
+$('platesprev').onclick=()=>stepPlate(-1);$('platesnext').onclick=()=>stepPlate(1);
 $('clearimg').onclick=()=>{img=null;imgCv=null;draw()};
 ['op','showimg','isc','showbeads','showgrid','bop'].forEach(i=>$(i).addEventListener('input',()=>{imgDirty=true;draw()}));
 $('zoom').addEventListener('input',()=>size(true));
 const zs=d=>{$('zoom').value=Math.max(3,Math.min(48,+$('zoom').value+d));size(true)};
 // Ajusta el zoom para que el tablero entero quepa en el área de trabajo.
-function fitToScreen(){const w=$('wrap');const z=Math.floor(Math.min((w.clientWidth-4)/COLS,(w.clientHeight-4)/ROWS));$('zoom').value=Math.max(3,Math.min(48,z||3));size();w.scrollLeft=0;w.scrollTop=0}
+function fitToScreen(){const w=$('wrap');const bw=FOCUS?PW:COLS,bh=FOCUS?PH:ROWS;const z=Math.floor(Math.min((w.clientWidth-4)/bw,(w.clientHeight-4)/bh)*2)/2;$('zoom').value=Math.max(3,Math.min(48,z||3));size();w.scrollLeft=0;w.scrollTop=0}
 $('fit').onclick=fitToScreen;
 $('zm').onclick=()=>zs(-3);$('zp').onclick=()=>zs(3);
 $('wrap').addEventListener('wheel',e=>{if(e.ctrlKey||e.metaKey){e.preventDefault();zs(e.deltaY<0?2:-2)}},{passive:false});
@@ -316,11 +342,12 @@ $('conv').onclick=()=>{const used=[...new Set(grid.flat().filter(Boolean))];if(!
  const g=r.g==='m'?'s':'m';$('gama').value=g;cur=Object.values(mp)[0]||cur;renderPal();
  const fus=used.length-new Set(Object.values(mp)).size;const med=r.rows.reduce((a,x)=>a+x.de,0)/r.rows.length;
  $('convmsg').textContent=`Convertido a ${g==='s'?'Midi':'Mini'}: ${r.rows.length} colores, ΔE medio ${med.toFixed(1)}${fus?`, ${fus} colores fundidos`:''}${r.otros&&r.otros.length?`. Ya estaban en la otra gama: ${r.otros.join(', ')}`:''}`;draw()};
-function counts(){const m={};let t=0;grid.forEach(r=>r.forEach(c=>{if(c){m[c]=(m[c]||0)+1;t++}}));
- [...solo].forEach(c=>{if(!m[c])solo.delete(c)});[...hidden].forEach(c=>{if(!m[c])hidden.delete(c)});
- const ks=Object.keys(m).sort((a,b)=>m[b]-m[a]);if(!ks.length){$('cnt').innerHTML='Sin cuentas todavía';return m}
+function counts(){const all={},m={};let t=0;grid.forEach((r,y)=>r.forEach((c,x)=>{if(c){all[c]=(all[c]||0)+1;if(!FOCUS||(x>=FOCUS.c*PW&&x<(FOCUS.c+1)*PW&&y>=FOCUS.r*PH&&y<(FOCUS.r+1)*PH)){m[c]=(m[c]||0)+1;t++}}}));
+ [...solo].forEach(c=>{if(!all[c])solo.delete(c)});[...hidden].forEach(c=>{if(!all[c])hidden.delete(c)});
+ const scope=FOCUS?`<div class="mu" style="margin-bottom:4px"><b>Tablero ${FOCUS.r*PC+FOCUS.c+1}</b>: solo las cuentas de este tablero.</div>`:'';
+ const ks=Object.keys(m).sort((a,b)=>m[b]-m[a]);if(!ks.length){$('cnt').innerHTML=scope+(FOCUS?'Sin cuentas en este tablero':'Sin cuentas todavía');return m}
  const mg=n=>Math.ceil(n*1.1/10)*10;
- $('cnt').innerHTML=`<div class="mu" style="margin-bottom:4px">Capas por color: pulsa un color para ver solo ese, 👁 para ocultarlo, «Cambiar» para sustituirlo por otro.</div>`+(solo.size||hidden.size?'<div class="row"><button id="showall">Mostrar todos</button></div>':'')+`<table><tr><th>Capa</th><th>Cuentas</th><th>+10 %</th><th></th></tr>${ks.map(c=>`<tr data-c="${c}" style="${solo.has(c)?'background:rgba(232,115,28,.18)':''}${hidden.has(c)?';opacity:.45':''}"><td class="lay" style="cursor:pointer"><i class="sw" style="background:${CODES[c].hex}"></i>${c}</td><td>${m[c]}</td><td>${mg(m[c])}</td><td style="white-space:nowrap"><button class="eye" style="padding:2px 6px">${hidden.has(c)?'🚫':'👁'}</button> <button class="chg" style="padding:2px 6px${recolorFrom===c?';background:var(--ac);color:#fff':''}">Cambiar</button></td></tr>`).join('')}<tr><th>Total</th><th>${t}</th><th>${ks.reduce((a,c)=>a+mg(m[c]),0)}</th><th></th></tr></table><div class="mu" style="margin-top:4px">${ks.length} colores · ${COLS}×${ROWS}</div>`;return m}
+ $('cnt').innerHTML=scope+`<div class="mu" style="margin-bottom:4px">Capas por color: pulsa un color para ver solo ese, 👁 para ocultarlo, «Cambiar» para sustituirlo por otro.</div>`+(solo.size||hidden.size?'<div class="row"><button id="showall">Mostrar todos</button></div>':'')+`<table><tr><th>Capa</th><th>Cuentas</th><th>+10 %</th><th></th></tr>${ks.map(c=>`<tr data-c="${c}" style="${solo.has(c)?'background:rgba(232,115,28,.18)':''}${hidden.has(c)?';opacity:.45':''}"><td class="lay" style="cursor:pointer"><i class="sw" style="background:${CODES[c].hex}"></i>${c}</td><td>${m[c]}</td><td>${mg(m[c])}</td><td style="white-space:nowrap"><button class="eye" style="padding:2px 6px">${hidden.has(c)?'🚫':'👁'}</button> <button class="chg" style="padding:2px 6px${recolorFrom===c?';background:var(--ac);color:#fff':''}">Cambiar</button></td></tr>`).join('')}<tr><th>Total</th><th>${t}</th><th>${ks.reduce((a,c)=>a+mg(m[c]),0)}</th><th></th></tr></table><div class="mu" style="margin-top:4px">${ks.length} colores · ${COLS}×${ROWS}</div>`;return m}
 $('cnt').addEventListener('click',e=>{
  if(e.target.id==='showall'){solo.clear();hidden.clear();draw();return}
  const tr=e.target.closest('tr[data-c]');if(!tr)return;const c=tr.dataset.c;
@@ -329,7 +356,7 @@ $('cnt').addEventListener('click',e=>{
  if(e.target.closest('.lay')){solo.has(c)?solo.delete(c):solo.add(c);hidden.delete(c);draw()}});
 function dl(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
 $('save').onclick=()=>dl('diseno-rejilla.json',new Blob([JSON.stringify({v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid})],{type:'application/json'}));
-function loadDesignObject(d){push();COLS=d.cols;ROWS=d.rows;grid=d.grid;PW=d.pw||COLS;PH=d.ph||ROWS;PR=d.pr||1;PC=d.pc||1;$('cols').value=PW;$('rows').value=PH;const std=['40x40','29x29','20x20'].includes(PW+'x'+PH);$('preset').value=std?PW+'x'+PH:'custom';platesKey=(PLATES.find(x=>x[2]===PR&&x[3]===PC&&x[0]!=='custom')||['custom'])[0];$('pr').value=PR;$('pc').value=PC;size();solo.clear();hidden.clear();applyBoard()}
+function loadDesignObject(d){FOCUS=null;push();COLS=d.cols;ROWS=d.rows;grid=d.grid;PW=d.pw||COLS;PH=d.ph||ROWS;PR=d.pr||1;PC=d.pc||1;$('cols').value=PW;$('rows').value=PH;const std=['40x40','29x29','20x20'].includes(PW+'x'+PH);$('preset').value=std?PW+'x'+PH:'custom';platesKey=(PLATES.find(x=>x[2]===PR&&x[3]===PC&&x[0]!=='custom')||['custom'])[0];$('pr').value=PR;$('pc').value=PC;size();solo.clear();hidden.clear();applyBoard();fitToScreen()}
 $('load').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>loadDesignObject(JSON.parse(t)))};
 $('csv').onclick=()=>{const m={};grid.forEach(r=>r.forEach(c=>{if(c)m[c]=(m[c]||0)+1}));dl('cuentas.csv',new Blob(['codigo;cuentas;con_margen_10\n'+Object.keys(m).sort().map(c=>`${c};${m[c]};${Math.ceil(m[c]*1.1/10)*10}`).join('\n')],{type:'text/csv'}))};
 $('png').onclick=()=>{const o=document.createElement('canvas'),k=20;o.width=COLS*k;o.height=ROWS*k;const c=o.getContext('2d');c.fillStyle='#f6f5f1';c.fillRect(0,0,o.width,o.height);
