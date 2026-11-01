@@ -62,3 +62,24 @@
   .evo-stat--big { grid-column: 1 / -1; }
   .evo-ficha__body { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Los tres juntos (dentro de la cabecera naranja, en una tarjeta clara) */
+.evo-all { margin: 0 0 18px; padding: clamp(14px, 2.4vw, 24px); border-radius: 20px; background: var(--mk-card); color: var(--mk-text); }
+.evo-all__head h2 { margin: 0 0 4px; font-size: clamp(22px, 2.6vw, 30px); color: var(--mk-text); }
+.evo-all__head p { margin: 0 0 14px; font-size: 14.5px; }
+.evo-stats--all { grid-template-columns: 1.4fr 1fr 1.2fr; }
+.evo-all__stage { margin-bottom: 16px; }
+.evo-all__gamahead { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.evo-all__gamahead h3 { margin: 0; font-size: 18px; color: var(--mk-text); }
+.evo-all__reset { min-height: 36px; padding: 0 14px; border: 1px solid var(--mk-border); border-radius: 10px; background: var(--mk-card); color: var(--mk-text); font-weight: 600; cursor: pointer; }
+.evo-chip--btn { width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+.evo-chip--btn:hover { transform: translateY(-2px); border-color: var(--evo-bg); }
+.evo-chip--btn[aria-pressed='true'] { border-color: var(--evo-bg); background: var(--evo-yellow); color: var(--evo-ink); box-shadow: 0 0 0 2px var(--evo-bg); }
+.evo-chip--btn:focus-visible { outline: 3px solid var(--evo-bg); outline-offset: 2px; }
+.evo-chip--btn[aria-pressed='true'] .evo-chip__n { color: var(--evo-ink); }
+.evo-all__detail { margin: 4px 0 0; font-size: 14px; }
+.evo-hero__pick { margin: 6px 0 10px; font-weight: 600; }
+@media (max-width: 820px) {
+  .evo-stats--all { grid-template-columns: 1fr 1fr; }
+  .evo-stats--all .evo-stat--big { grid-column: 1 / -1; }
+}

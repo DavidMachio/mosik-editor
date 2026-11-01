@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle.js';
 import Icon from '../components/Icon.jsx';
@@ -25,6 +25,90 @@ function Preview({ fase }) {
       aria-label={`Vista previa en cuentas: ${fase.ancho} por ${fase.alto}, ${fase.cuentas} cuentas`}>
       {beads}{holes}
     </svg>
+  );
+}
+
+
+// Los tres diseños juntos: composición en cuentas, totales y gama con la cantidad de cada color.
+function Conjunto() {
+  const [sel, setSel] = useState(null);
+  const GAP = 5;
+  const data = useMemo(() => {
+    const total = EVOLUCIONES.reduce((a, f) => a + f.cuentas, 0);
+    const mapa = {};
+    EVOLUCIONES.forEach((f, i) => f.colores.forEach((c) => {
+      const m = mapa[c.codigo] || (mapa[c.codigo] = { codigo: c.codigo, hex: c.hex, total: 0, por: EVOLUCIONES.map(() => 0) });
+      m.total += c.cuentas;
+      m.por[i] = c.cuentas;
+    }));
+    const colores = Object.values(mapa).sort((a, b) => b.total - a.total);
+    const alto = Math.max(...EVOLUCIONES.map((f) => f.alto));
+    let x = 0;
+    const pos = EVOLUCIONES.map((f) => { const o = x; x += f.ancho + GAP; return o; });
+    return { total, colores, alto, ancho: x - GAP, pos };
+  }, []);
+  const elegido = data.colores.find((c) => c.codigo === sel);
+
+  const beads = [];
+  EVOLUCIONES.forEach((f, i) => {
+    const letraCodigo = Object.fromEntries(f.colores.map((c) => [c.letra, c]));
+    const dy = data.alto - f.alto; // alineados por abajo
+    f.filas.forEach((fila, y) => {
+      for (let x = 0; x < fila.length; x += 1) {
+        const ch = fila[x];
+        if (ch === '.') continue;
+        const c = letraCodigo[ch];
+        const cx = (data.pos[i] + x) * 10 + 5;
+        const cy = (y + dy) * 10 + 5;
+        const dim = sel && c.codigo !== sel;
+        beads.push(
+          <g key={`${i}-${x}-${y}`} opacity={dim ? 0.14 : 1}>
+            <circle cx={cx} cy={cy} r="4.6" fill={c.hex} />
+            <circle cx={cx} cy={cy} r="1.7" className="evo-prev__hole" />
+          </g>,
+        );
+      }
+    });
+  });
+
+  return (
+    <section className="evo-all" aria-labelledby="evo-all-t">
+      <div className="evo-all__head">
+        <h2 id="evo-all-t">Si haces los tres</h2>
+        <p className="muted">La línea completa, una al lado de otra. Pulsa un color para verlo pintado en la composición.</p>
+      </div>
+      <ul className="evo-stats evo-stats--all" aria-label="Datos de los tres diseños juntos">
+        <li className="evo-stat evo-stat--big"><span className="evo-stat__label">Total de cuentas</span><strong>{data.total.toLocaleString('es-ES')}</strong></li>
+        <li className="evo-stat"><span className="evo-stat__label">Colores distintos</span><strong>{data.colores.length}</strong></li>
+        <li className="evo-stat"><span className="evo-stat__label">Diseños</span><strong>{EVOLUCIONES.length}</strong><span className="evo-stat__sub">{EVOLUCIONES.map((f) => f.cuentas).join(' + ')}</span></li>
+      </ul>
+      <div className="evo-prev__stage evo-all__stage">
+        <svg className="evo-prev__svg" viewBox={`-6 -6 ${data.ancho * 10 + 12} ${data.alto * 10 + 12}`} role="img"
+          aria-label={`Los tres diseños juntos: ${data.total} cuentas y ${data.colores.length} colores`}>{beads}</svg>
+      </div>
+      <div className="evo-all__gama">
+        <div className="evo-all__gamahead">
+          <h3>Gama y cantidad por color</h3>
+          {sel && <button type="button" className="evo-all__reset" onClick={() => setSel(null)}>Ver todos</button>}
+        </div>
+        <ul className="evo-colors__list">
+          {data.colores.map((c) => (
+            <li key={c.codigo}>
+              <button type="button" className="evo-chip evo-chip--btn" aria-pressed={sel === c.codigo} onClick={() => setSel(sel === c.codigo ? null : c.codigo)}>
+                <span className="evo-chip__sw" style={{ backgroundColor: c.hex }} aria-hidden="true" />
+                <span className="evo-chip__code">{c.codigo}</span>
+                <span className="evo-chip__n">{c.total} {c.total === 1 ? 'cuenta' : 'cuentas'}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <p className="evo-all__detail" aria-live="polite">
+          {elegido
+            ? <>El color <strong>{elegido.codigo}</strong>: {elegido.total} cuentas en total ({EVOLUCIONES.map((f, i) => `${f.nombre} ${elegido.por[i]}`).join(' · ')}).</>
+            : 'Pulsa un color para ver cuántas cuentas lleva cada diseño.'}
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -56,6 +140,8 @@ export default function Evoluciones() {
         <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección · Entrega 1</p>
         <h1>Evoluciones</h1>
         <p className="evo-hero__lead">Una línea evolutiva completa en tres diseños. Elige una fase para ver su ficha.</p>
+        <Conjunto />
+        <p className="evo-hero__pick">O elige un diseño para ver su ficha:</p>
         <div className="evo-tabs" role="tablist" aria-label="Fases de la línea">
           {EVOLUCIONES.map((f, i) => (
             <button key={f.id} type="button" role="tab" id={`evo-tab-${i}`} aria-selected={i === sel - 1} aria-controls="evo-ficha"
