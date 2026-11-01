@@ -67,8 +67,8 @@
   .tool-page {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 41px);
-    height: calc(100dvh - 41px);
+    height: calc(100vh - 47px);
+    height: calc(100dvh - 47px);
     padding: 6px 8px 8px;
   }
   .tool-page__titles { display: none; }
@@ -94,4 +94,14 @@
   .btn--small { min-height: 48px; padding: 0 16px; }
   .tool-page__notices { flex: none; }
   .tool-page__notice { margin-bottom: 6px; padding: 6px 10px; }
+}
+
+.tool-page .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.tool-page { padding-top: 8px; }
+
+/* Escritorio: la herramienta ocupa toda la ventana; guardar y nombre del diseño flotan arriba a la derecha */
+@media (min-width: 901px) {
+  body.is-tool .tool-page { position: fixed; inset: 0; width: 100%; max-width: none; margin: 0; padding: 0; z-index: 1; }
+  .tool-page__head { display: none; }
+  .tool-page__notices { position: absolute; top: 72px; left: 72px; z-index: 8; max-width: 420px; }
 }

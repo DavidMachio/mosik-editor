@@ -151,7 +151,12 @@ $('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const st=$('imgmsg
  const rd=new FileReader();
  rd.onerror=()=>{st.textContent='No se ha podido leer el archivo'};
  rd.onload=()=>{const i=new Image();
-  i.onload=()=>{st.textContent=`Imagen cargada (${i.width}×${i.height}). Colócala en la previa.`;openPreview(i)};
+  i.onload=()=>{
+   // Pixel art: se lee cuadro a cuadro de inmediato (colores y tamaño recomendado), sin pasar por la previa de colocación.
+   const prevImg=img,prevCv=imgCv;let pa=false;
+   if(i.width*i.height<=4e6){img=i;imgCv=null;try{const R=analyzePixelArt();pa=!!(R&&R.ok&&EXACT)}catch(_){pa=false}if(!pa){EXACT=null;img=prevImg;imgCv=prevCv}}
+   if(pa){const k=Math.min(COLS/i.width,ROWS/i.height);imgT.us=k;imgT.ux=(COLS-i.width*k)/2;imgT.uy=(ROWS-i.height*k)/2;$('isc').value=100;imgT.rot=0;imgT.flip=false;$('rot').value=0;$('rotv').textContent='0°';$('showimg').checked=true;imgDirty=true;draw();autoReadPixelArt();return}
+   st.textContent=`Imagen cargada (${i.width}×${i.height}). Colócala en la previa.`;openPreview(i)};
   i.onerror=()=>{st.textContent='El navegador no puede abrir este formato (¿HEIC?). Prueba con JPG o PNG.'};
   i.src=rd.result};
  rd.readAsDataURL(f);e.target.value=''};
@@ -205,6 +210,18 @@ pvcv.addEventListener('pointermove',e=>{const old=pvpts.get(e.pointerId);if(!old
  if(pvpts.size===1){PV.ux+=(nx-old.x)/PV.k;PV.uy+=(ny-old.y)/PV.k;pvDraw()}});
 ['pointerup','pointercancel'].forEach(t=>pvcv.addEventListener(t,e=>{pvpts.delete(e.pointerId);pvLast=null}));
 const onPvKey=e=>{if(e.key==='Escape'&&!$('pvmodal').hidden){e.preventDefault();$('pvcancel').click()}};document.addEventListener('keydown',onPvKey);
+// Atajos de teclado (como en Figma): V mano, B pincel, E borrador, G bote, I cuentagotas, M imagen; Ctrl+Z/Ctrl+Y; + - 0.
+const KEYS={v:'move',b:'paint',e:'erase',g:'fill',i:'pick',m:'img'};
+const onShortcut=e=>{const tg=e.target;if(tg&&(tg.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName)&&tg.type!=='range'&&tg.type!=='checkbox'))return;if(!$('pvmodal').hidden||$('modal').classList.contains('show'))return;
+const k=e.key.toLowerCase();const mod=e.ctrlKey||e.metaKey;
+if(mod&&k==='z'){e.preventDefault();$(e.shiftKey?'redo':'undo').click();return}
+if(mod&&k==='y'){e.preventDefault();$('redo').click();return}
+if(mod||e.altKey)return;
+if(KEYS[k]){const b=document.querySelector('[data-t="'+KEYS[k]+'"]');if(b){e.preventDefault();b.click()}return}
+if(k==='+'||k==='='){$('zp').click()}else if(k==='-'){$('zm').click()}else if(k==='0'){$('fit').click()}};
+document.addEventListener('keydown',onShortcut);
+// Porcentaje de zoom y estado inferior
+const zpct=$('zpct'),zoomEl=$('zoom');const syncZ=()=>{if(zpct&&zoomEl)zpct.textContent=Math.round(zoomEl.value/16*100)+' %'};syncZ();const zInt=window.setInterval(syncZ,250);
 const onPvResize=()=>{if(!$('pvmodal').hidden&&PV.img)pvDraw()};window.addEventListener('resize',onPvResize);
 // ---- Tableros (placas) como páginas ----
 // El botón de capas abre una bandeja con una carta pequeña por tablero. Al elegir una, el área de trabajo muestra solo ese
@@ -229,7 +246,7 @@ $('clearimg').onclick=()=>{img=null;imgCv=null;draw()};
 $('zoom').addEventListener('input',()=>size(true));
 const zs=d=>{$('zoom').value=Math.max(3,Math.min(48,+$('zoom').value+d));size(true)};
 // Ajusta el zoom para que el tablero entero quepa en el área de trabajo.
-function fitToScreen(){const w=$('wrap');const bw=FOCUS?PW:COLS,bh=FOCUS?PH:ROWS;const z=Math.floor(Math.min((w.clientWidth-4)/bw,(w.clientHeight-4)/bh)*2)/2;$('zoom').value=Math.max(3,Math.min(48,z||3));size();w.scrollLeft=0;w.scrollTop=0}
+function fitToScreen(){const w=$('wrap');const bw=FOCUS?PW:COLS,bh=FOCUS?PH:ROWS;const cs=getComputedStyle(w),pw=(parseFloat(cs.paddingLeft)||0)+(parseFloat(cs.paddingRight)||0),ph=(parseFloat(cs.paddingTop)||0)+(parseFloat(cs.paddingBottom)||0);const z=Math.floor(Math.min((w.clientWidth-pw-4)/bw,(w.clientHeight-ph-4)/bh)*2)/2;$('zoom').value=Math.max(3,Math.min(48,z||3));size();w.scrollLeft=0;w.scrollTop=0}
 $('fit').onclick=fitToScreen;
 $('zm').onclick=()=>zs(-3);$('zp').onclick=()=>zs(3);
 $('wrap').addEventListener('wheel',e=>{if(e.ctrlKey||e.metaKey){e.preventDefault();zs(e.deltaY<0?2:-2)}},{passive:false});
@@ -397,5 +414,5 @@ function exportDesign(){
     c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
   return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid},preview:o.toDataURL('image/png'),beads};
 }
-return { destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
+return { destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
 }

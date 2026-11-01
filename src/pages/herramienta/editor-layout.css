@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 92px minmax(0, 1fr) minmax(330px, 390px);
   gap: 12px;
-  height: clamp(560px, calc(100dvh - 215px), 1000px);
+  height: clamp(560px, calc(100dvh - 140px), 1200px);
 }
 
 /* ---- Barra de herramientas ---- */
@@ -342,3 +342,90 @@
 }
 .mk-editor .plates__card canvas { display: block; border: 1px solid var(--bd); border-radius: 4px; }
 .mk-editor .plates__card[aria-pressed='true'] { background: #d35f03; border-color: #d35f03; color: #ffffff; }
+
+/* ---- Escritorio estilo editor de diseño: raíl de iconos, herramienta activa en naranja, zoom en % ---- */
+.mk-editor .tool__pct { min-width: 52px; text-align: center; font-weight: 600; font-size: 13px; }
+@media (min-width: 901px) {
+  .mk-editor .tool { grid-template-columns: 64px minmax(0, 1fr) minmax(330px, 380px); }
+  .mk-editor .tool__bar { align-items: center; padding: 8px 6px; }
+  .mk-editor .tool__bar .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mk-editor .tool__bar button { position: relative; width: 46px; min-height: 46px; padding: 0; justify-content: center; border-radius: 12px; }
+  .mk-editor .tool__bar button.on { background: #d35f03; border-color: #d35f03; color: #fff; }
+  .mk-editor .tool__status { padding: 6px 10px; background: var(--pn); border: 1px solid var(--bd); border-radius: 8px; font-size: 12.5px; }
+}
+
+/* Panel izquierdo de capas (solo escritorio) */
+.mk-editor .tool__layers { display: none; }
+@media (min-width: 901px) {
+  .mk-editor .tool { grid-template-columns: 64px 230px minmax(0, 1fr) minmax(330px, 380px); }
+  .mk-editor .tool__layers { display: block; min-height: 0; padding: 10px; overflow-y: auto; background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); }
+  .mk-editor .tool__layers .pn { margin: 0; padding: 0; border: 0; background: transparent; }
+  .mk-editor .tool__layers table { width: 100%; font-size: 12px; }
+  .mk-editor .tool__layers .mu { font-size: 11.5px; }
+}
+@media (min-width: 901px) and (max-width: 1180px) {
+  .mk-editor .tool { grid-template-columns: 64px 190px minmax(0, 1fr) 320px; }
+}
+
+/* ===== Escritorio: todo el escritorio es el área de trabajo; las barras flotan encima (como en Figma) =====
+   Arriba a la izquierda: cuenta de Mosik + iconos de menús. Al pulsar uno, sus opciones se despliegan flotando debajo, sin
+   empujar el lienzo. Abajo en el centro: herramientas básicas siempre a mano. Abajo a la derecha: zoom. Capas: panel flotante. */
+.mk-editor .tool__corner { display: none; }
+@media (min-width: 901px) {
+  .mk-editor { position: absolute; inset: 0; }
+  .mk-editor .tool { position: absolute; inset: 0; display: block; height: auto; min-height: 0; }
+  .mk-editor .tool__stage { position: absolute; inset: 0; display: block; }
+  .mk-editor .tool__stage #wrap { position: absolute; inset: 0; border: 0; border-radius: 0; max-height: none; height: auto; box-sizing: border-box; padding: 76px 12px 96px; }
+  .mk-editor #cvbox { margin: 0 auto; }
+  .mk-editor .tool > *:not(.tool__stage):not(.tool__side) { position: absolute; z-index: 5; }
+
+  .mk-editor .tool__topbar {
+    left: 12px; top: 12px; display: flex; align-items: center; gap: 6px; height: 52px; padding: 4px 6px;
+    background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  }
+  .mk-editor .tool__corner { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; background: transparent; border: 0; border-radius: 12px; cursor: pointer; }
+  .mk-editor .tool__corner:hover { background: var(--ac-soft); }
+  .mk-editor .tool__savebtn { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; margin-left: 4px; border: 1px solid var(--ac-bd); border-radius: 12px; background: var(--ac-soft); cursor: pointer; }
+  .mk-editor .tool__savebtn:hover { background: var(--ac); color: #fff; }
+
+  /* Herramientas básicas: barra flotante abajo en el centro */
+  .mk-editor .tool__bar {
+    left: 50%; bottom: 16px; transform: translateX(-50%); flex-direction: row; align-items: center; gap: 6px; padding: 6px 8px;
+    overflow: visible; box-shadow: 0 4px 16px rgba(0,0,0,.14);
+  }
+  .mk-editor .tool__group { flex-direction: row; gap: 6px; padding: 0 8px 0 0; border-bottom: 0; border-right: 1px solid var(--bd); }
+  .mk-editor .tool__group:last-child { border-right: 0; padding-right: 0; }
+  .mk-editor .tool__group--layers { margin: 0; }
+  .mk-editor .tool__bar button { width: 46px; min-height: 46px; }
+
+  /* El panel lateral desaparece como caja: sus pestañas son la barra superior y sus paneles flotan debajo */
+  .mk-editor .tool__side { display: contents; }
+  .mk-editor .sheet__bar { display: none; }
+  .mk-editor .tabs { gap: 6px; padding: 0 0 0 6px; margin-left: 2px; border: 0; border-left: 1px solid var(--bd); align-items: center; width: max-content; }
+  .mk-editor .tabs [role='tab'] {
+    position: relative; flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+    border: 1px solid transparent; border-radius: 12px;
+  }
+  .mk-editor .tabs .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mk-editor .tabs [role='tab'][aria-selected='true'][aria-expanded='true'] { background: #d35f03; border-color: #d35f03; color: #fff; }
+  .mk-editor .tabs [role='tab'][aria-selected='true'][aria-expanded='false'] { background: var(--ac-soft); border-color: var(--ac-bd); }
+  .mk-editor .tool[data-sheet='closed'] .tabpanel { display: none; }
+  .mk-editor .tabpanel {
+    position: absolute; z-index: 6; left: 12px; top: 72px; display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 10px;
+    width: 372px; max-width: calc(100vw - 24px); max-height: calc(100dvh - 180px); padding: 10px; overflow-x: hidden; overflow-y: auto;
+    background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); box-shadow: 0 12px 32px rgba(0,0,0,.2);
+  }
+  .mk-editor .tabpanel .pn { flex: 0 0 auto; width: auto; margin: 0; }
+  .mk-editor .tabpanel #pal { max-height: 130px; overflow-y: auto; }
+
+  /* Capas: panel flotante a la derecha, bajo el botón de guardar */
+  .mk-editor .tool__layers { right: 12px; top: 12px; width: 240px; max-height: calc(100dvh - 180px); box-shadow: 0 12px 32px rgba(0,0,0,.2); z-index: 6; }
+  .mk-editor .tool[data-layers='closed'] .tool__layers { display: none; }
+
+  /* Zoom y estado: abajo, a los lados de la barra de herramientas */
+  .mk-editor .tool__stagebar { position: absolute; z-index: 5; right: 12px; bottom: 16px; padding: 6px 8px; background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); box-shadow: 0 4px 16px rgba(0,0,0,.14); }
+  .mk-editor .tool__zoom { max-width: 150px; }
+  .mk-editor .tool__status { display: none; } /* la ayuda de cada herramienta sale al pasar el ratón por su botón */
+  .mk-editor .plates { position: absolute; z-index: 5; left: 50%; bottom: 84px; transform: translateX(-50%); width: min(560px, 90vw); }
+}
+@media (max-width: 900px) { .mk-editor .tool__group--layers, .mk-editor .tool__topbar, .mk-editor .tool__savebtn { display: none; } }

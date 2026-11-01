@@ -128,12 +128,37 @@ main:focus {
   }
 }
 
-/* Herramienta en móvil: la cabecera se reduce al logo (que lleva al inicio) y se quita el pie */
+/* Panel del menú: en el resto de páginas no existe como caja (display: contents) */
+.site-header__panel { display: contents; }
+.site-header__menu { display: none; }
+
+/* Herramienta (móvil y escritorio): la cabecera se reduce a hamburguesa + logo; el menú y el tema salen en un desplegable. Sin pie. */
+body.is-tool .site-header__inner { position: relative; min-height: 44px; padding-top: 2px; padding-bottom: 2px; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; }
+body.is-tool .site-header__beads,
+body.is-tool .site-footer { display: none; }
+body.is-tool .site-header__menu {
+  display: grid; place-items: center; flex: none; width: 40px; height: 40px; padding: 0;
+  border: 1px solid var(--mk-border); border-radius: 10px; background: var(--mk-card); color: var(--mk-text); cursor: pointer;
+}
+body.is-tool .site-header[data-menu='open'] .site-header__menu { background: var(--mk-action); border-color: var(--mk-action-border); color: var(--mk-ink); }
+body.is-tool .site-header__panel {
+  display: none; position: absolute; top: 100%; left: 12px; z-index: 30; min-width: 220px; padding: 8px;
+  flex-direction: column; align-items: stretch; gap: 4px;
+  background: var(--mk-card); border: 1px solid var(--mk-line); border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,.22);
+}
+body.is-tool .site-header[data-menu='open'] .site-header__panel { display: flex; }
+body.is-tool .site-header__panel .site-nav { order: 0; flex-direction: column; align-items: stretch; margin: 0; }
+body.is-tool .site-header__panel .site-nav__home { display: block; }
+body.is-tool .site-header__panel .theme-toggle { margin: 4px 0 0; align-self: flex-start; }
 @media (max-width: 900px) {
-  body.is-tool .site-header__inner { min-height: 40px; padding-top: 2px; padding-bottom: 2px; flex-wrap: nowrap; }
-  body.is-tool .site-header .site-nav,
-  body.is-tool .site-header .theme-toggle,
-  body.is-tool .site-header__beads,
-  body.is-tool .site-footer { display: none; }
   body.is-tool { overflow: hidden; }
+}
+
+/* Escritorio: en la herramienta la cabecera desaparece; el menú sale del botón con la cuenta de Mosik (esquina de la herramienta) */
+@media (min-width: 901px) {
+  body.is-tool .site-header { border: 0; background: transparent; }
+  body.is-tool .site-header__inner { min-height: 0; padding: 0; height: 0; }
+  body.is-tool .site-header__brand,
+  body.is-tool .site-header__menu { display: none; }
+  body.is-tool .site-header__panel { position: fixed; top: 66px; left: 16px; }
 }

@@ -7,30 +7,44 @@ import Icon from '../../components/Icon.jsx';
 export default function EditorMarkup() {
   return (
     <>
-<div className="tool" data-sheet="open">
+<div className="tool" data-sheet="open" data-layers="open">
+
 <div className="tool__bar" id="tool-strip" role="toolbar" aria-label="Herramientas de dibujo">
 <div className="tool__group" id="tools">
-<button type="button" data-t="move" className="on" title="Mano: mueve la imagen o la vista"><span aria-hidden="true"><Icon name="mover" size={22} /></span><span className="lbl">Mano</span></button>
-<button type="button" data-t="paint" title="Pincel"><span aria-hidden="true"><Icon name="pincel" size={22} /></span><span className="lbl">Pincel</span></button>
-<button type="button" data-t="erase" title="Borrador"><span aria-hidden="true"><Icon name="borrador" size={22} /></span><span className="lbl">Borrador</span></button>
+<button type="button" data-t="move" className="on" title="Mano (V): mueve la imagen o la vista"><span aria-hidden="true"><Icon name="mover" size={22} /></span><span className="lbl">Mano</span></button>
+<button type="button" data-t="paint" title="Pincel (B)"><span aria-hidden="true"><Icon name="pincel" size={22} /></span><span className="lbl">Pincel</span></button>
+<button type="button" data-t="erase" title="Borrador (E)"><span aria-hidden="true"><Icon name="borrador" size={22} /></span><span className="lbl">Borrador</span></button>
 </div>
 <div className="tool__group" id="tools2">
-<button type="button" data-t="fill" title="Bote de pintura"><span aria-hidden="true"><Icon name="bote" size={22} /></span><span className="lbl">Bote</span></button>
-<button type="button" data-t="pick" title="Cuentagotas: coge el color de una cuenta"><span aria-hidden="true"><Icon name="cuentagotas" size={22} /></span><span className="lbl">Cuentagotas</span></button>
-<button type="button" data-t="img" aria-label="Color de imagen" title="Color de imagen: pinta cada celda con el color de paleta más cercano al de la imagen"><span aria-hidden="true"><Icon name="imagen-color" size={22} /></span><span className="lbl">Imagen</span></button>
+<button type="button" data-t="fill" title="Bote de pintura (G)"><span aria-hidden="true"><Icon name="bote" size={22} /></span><span className="lbl">Bote</span></button>
+<button type="button" data-t="pick" title="Cuentagotas (I): coge el color de una cuenta"><span aria-hidden="true"><Icon name="cuentagotas" size={22} /></span><span className="lbl">Cuentagotas</span></button>
+<button type="button" data-t="img" aria-label="Color de imagen" title="Color de imagen (M): pinta cada celda con el color de paleta más cercano al de la imagen"><span aria-hidden="true"><Icon name="imagen-color" size={22} /></span><span className="lbl">Imagen</span></button>
 </div>
 <div className="tool__group">
-<button type="button" id="undo" title="Deshacer"><span aria-hidden="true"><Icon name="deshacer" size={22} /></span><span className="lbl">Deshacer</span></button>
-<button type="button" id="redo" title="Rehacer"><span aria-hidden="true"><Icon name="rehacer" size={22} /></span><span className="lbl">Rehacer</span></button>
+<button type="button" id="undo" title="Deshacer (Ctrl+Z)"><span aria-hidden="true"><Icon name="deshacer" size={22} /></span><span className="lbl">Deshacer</span></button>
+<button type="button" id="redo" title="Rehacer (Ctrl+Y)"><span aria-hidden="true"><Icon name="rehacer" size={22} /></span><span className="lbl">Rehacer</span></button>
 <button type="button" id="reset" title="Resetear tablero: quita todas las cuentas; la imagen se queda"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
 </div>
+<div className="tool__group tool__group--layers"><button type="button" id="layersbtn" aria-pressed="true" aria-controls="tool-layers" title="Capas: mostrar u ocultar las cuentas por color"><span aria-hidden="true"><Icon name="capas" size={22} /></span><span className="lbl">Capas</span></button></div>
 </div>
+<div className="tool__topbar" id="tool-topbar">
+<button type="button" className="tool__corner" id="beadmenu" aria-label="Menú de Mosik" title="Menú de Mosik"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><circle cx="16" cy="16" r="9.5" fill="none" stroke="#F57E36" strokeWidth="6.5" /></svg></button>
+<div role="tablist" aria-label="Paneles de la herramienta" className="tabs">
+<button type="button" role="tab" id="tab-tablero" title="Tablero e imagen" aria-controls="tp-tablero" aria-selected="true" tabIndex={0}><Icon name="tablero" size={18} /><span className="lbl">Tablero e imagen</span></button>
+<button type="button" role="tab" id="tab-paleta" title="Paleta" aria-controls="tp-paleta" aria-selected="false" tabIndex={-1}><Icon name="paleta" size={18} /><span className="lbl">Paleta</span></button>
+<button type="button" role="tab" id="tab-colores" title="Colores y gamas" aria-controls="tp-colores" aria-selected="false" tabIndex={-1}><Icon name="gamas" size={18} /><span className="lbl">Colores y gamas</span></button>
+<button type="button" role="tab" id="tab-descargar" title="Descargar" aria-controls="tp-descargar" aria-selected="false" tabIndex={-1}><Icon name="descargar" size={18} /><span className="lbl">Descargar</span></button>
+</div>
+<button type="button" className="tool__savebtn" id="savebtn" aria-label="Guardar en mi perfil" title="Guardar en mi perfil"><Icon name="guardar-cuenta" size={22} /></button>
+</div>
+<aside className="tool__layers" id="tool-layers" aria-label="Capas del diseño"></aside>
 <div className="tool__stage">
 <div className="tool__stagebar">
 <label className="tool__zoom">Zoom <input type="range" id="zoom" min="3" max="48" step="0.5" defaultValue="16" title="Acerca o aleja todo junto: tablero, cuentas e imagen. También con Ctrl + rueda." /></label>
-<button type="button" id="zm" title="Alejar" aria-label="Alejar"><Icon name="alejar" size={20} /></button>
-<button type="button" id="zp" title="Acercar" aria-label="Acercar"><Icon name="acercar" size={20} /></button>
-<button type="button" id="fit" title="Ajustar el tablero a la pantalla" aria-label="Ajustar el tablero a la pantalla"><Icon name="tamano" size={20} /></button>
+<output id="zpct" className="tool__pct" title="Zoom">100 %</output>
+<button type="button" id="zm" title="Alejar (-)" aria-label="Alejar"><Icon name="alejar" size={20} /></button>
+<button type="button" id="zp" title="Acercar (+)" aria-label="Acercar"><Icon name="acercar" size={20} /></button>
+<button type="button" id="fit" title="Ajustar a la pantalla (0)" aria-label="Ajustar el tablero a la pantalla"><Icon name="tamano" size={20} /></button>
 </div>
 <div id="wrap"><div id="cvbox"><canvas id="cv"></canvas></div></div>
 <div className="plates" id="platebar" hidden>
@@ -46,12 +60,6 @@ export default function EditorMarkup() {
 </div>
 <aside className="tool__side" aria-label="Controles">
 <div className="sheet__bar"><span className="sheet__grip" aria-hidden="true"></span><button type="button" className="sheet__close" aria-label="Cerrar ajustes"><Icon name="cerrar" size={18} /></button></div>
-<div role="tablist" aria-label="Paneles de la herramienta" className="tabs">
-<button type="button" role="tab" id="tab-tablero" aria-controls="tp-tablero" aria-selected="true" tabIndex={0}><Icon name="tablero" size={18} /><span className="lbl">Tablero e imagen</span></button>
-<button type="button" role="tab" id="tab-paleta" aria-controls="tp-paleta" aria-selected="false" tabIndex={-1}><Icon name="paleta" size={18} /><span className="lbl">Paleta</span></button>
-<button type="button" role="tab" id="tab-colores" aria-controls="tp-colores" aria-selected="false" tabIndex={-1}><Icon name="gamas" size={18} /><span className="lbl">Colores y gamas</span></button>
-<button type="button" role="tab" id="tab-descargar" aria-controls="tp-descargar" aria-selected="false" tabIndex={-1}><Icon name="descargar" size={18} /><span className="lbl">Descargar</span></button>
-</div>
 <div role="tabpanel" className="tabpanel" id="tp-tablero" aria-labelledby="tab-tablero">
 <section className="pn">
 <h3>Tablero</h3>
@@ -65,6 +73,10 @@ export default function EditorMarkup() {
 <label style={{ marginBottom: '6px' }}><input type="checkbox" id="guides" defaultChecked /> Guías cada 10 cuentas y división de placas</label>
 </section>
 <section className="pn">
+<h3>Vista</h3>
+<div className="row"><span>Vista</span><button id="vbead" className="on ico"><Icon name="vista-cuentas" size={18} /> Cuentas</button><button id="vpix" className="ico"><Icon name="vista-pixeles" size={18} /> Píxeles</button><label><input type="checkbox" id="showbeads" defaultChecked /> Ver diseño</label><label><input type="checkbox" id="showgrid" defaultChecked /> Ver rejilla vacía</label><label style={{ flex: '1' }}>Opac. cuentas <input type="range" id="bop" min="30" max="100" defaultValue="100" /></label></div>
+</section>
+<section className="pn">
 <h3>Imagen</h3>
 <div className="row"><input type="file" id="file" accept="image/*" /><button id="clearimg" className="ico"><Icon name="imagen-quitar" size={18} /> Quitar imagen</button></div>
 <div className="mu" id="imgmsg"></div>
@@ -72,10 +84,6 @@ export default function EditorMarkup() {
 <div className="row"><label style={{ flex: '1' }}>Tamaño de la imagen <input type="range" id="isc" min="20" max="300" defaultValue="100" /></label><label><input type="checkbox" id="lock" /> Bloquear imagen</label></div>
 <div className="row"><span>Girar imagen</span><button id="rl" title="90° a la izquierda" aria-label="Girar 90° a la izquierda"><Icon name="girar-izq" size={18} /> 90°</button><button id="rr" title="90° a la derecha" aria-label="Girar 90° a la derecha"><Icon name="girar-der" size={18} /> 90°</button><button id="fl" title="Voltear horizontalmente"><Icon name="voltear" size={18} /> Voltear</button><label style={{ flex: '1', minWidth: '140px' }}>Ángulo <input type="range" id="rot" min="-180" max="180" defaultValue="0" /></label><b id="rotv" style={{ minWidth: '42px' }}>0°</b></div>
 <div className="mu" style={{ margin: '-2px 0 6px' }}>Colócala con la Mano y bloquéala antes de dibujar: así ya no se mueve ni cambia de tamaño.</div>
-</section>
-<section className="pn">
-<h3>Vista</h3>
-<div className="row"><span>Vista</span><button id="vbead" className="on ico"><Icon name="vista-cuentas" size={18} /> Cuentas</button><button id="vpix" className="ico"><Icon name="vista-pixeles" size={18} /> Píxeles</button><label><input type="checkbox" id="showbeads" defaultChecked /> Ver diseño</label><label><input type="checkbox" id="showgrid" defaultChecked /> Ver rejilla vacía</label><label style={{ flex: '1' }}>Opac. cuentas <input type="range" id="bop" min="30" max="100" defaultValue="100" /></label></div>
 </section>
 <section className="pn">
 <h3>Leer imagen cuadro a cuadro</h3>
@@ -94,8 +102,8 @@ export default function EditorMarkup() {
 <div className="row" id="cur"></div>
 <div id="pal"></div>
 </section>
-<section className="pn">
-<h3>Cuentas usadas</h3>
+<section className="pn" id="sec-capas">
+<h3>Capas · cuentas usadas</h3>
 <div id="cnt" className="mu">Sin cuentas todavía</div>
 </section>
 </div>
