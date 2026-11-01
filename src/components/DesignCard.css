@@ -50,3 +50,17 @@
   color: var(--mk-text);
 }
 .pill--public { background: var(--mk-action-soft); border-color: var(--mk-action-border); }
+
+/* Las tarjetas se levantan 3 px al pasar el ratón; con «reducir movimiento» solo cambia el borde */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .design-card {
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      box-shadow var(--dur-base) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+  .design-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(21, 7, 2, 0.14);
+  }
+}

@@ -40,6 +40,9 @@
   text-decoration: none;
   font-weight: 500;
 }
+.site-nav a {
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
 .site-nav a:hover {
   background: var(--mk-sunken);
 }
@@ -55,6 +58,25 @@
 .site-footer p {
   margin: 0;
   font-size: 14px;
+}
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+.site-footer__nav {
+  display: flex;
+  gap: 4px;
+}
+.site-footer__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 500;
 }
 main:focus {
   outline: none;
@@ -91,4 +113,17 @@ main:focus {
   .site-header__beads { display: none; }
   .site-nav__home { display: none; } /* el logo ya lleva al inicio */
   .site-nav a, .site-nav__link { padding: 8px 10px; font-size: 15px; }
+}
+
+/* Guiño de marca: la cuenta hueca del logo sube y gira al pasar el ratón (solo escritorio, sin «reducir movimiento») */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (min-width: 701px) {
+  .mosik-logo__bead {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 400ms var(--ease-out);
+  }
+  .site-header__brand:hover .mosik-logo__bead,
+  .site-header__brand:focus-visible .mosik-logo__bead {
+    transform: translateY(-60px) rotate(90deg);
+  }
 }

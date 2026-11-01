@@ -23,6 +23,26 @@
 
   --radius-control: 8px;
   --radius-card: 12px;
+
+  /* Movimiento (propuesta aprobada 1 nov 2026): sobrio, nada se mueve más de 12 px */
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 500ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Degradados provisionales de colección (135°, OKLab); los tonos exactos están por cerrar en el libro de marca */
+  --grad-monumentos: linear-gradient(135deg in oklab, #12396b, #0b6b6a);
+  --grad-temporada: linear-gradient(135deg in oklab, #5a2a0c, #9a4309);
+  --grad-retratos: linear-gradient(135deg in oklab, #4b2a8a, #a3306f);
+  --grad-videojuegos: linear-gradient(135deg in oklab, #1e6b3a, #0e7a78);
+}
+
+/* Con «reducir movimiento»: solo fundidos cortos, sin desplazamientos */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-base: 150ms;
+    --dur-slow: 150ms;
+  }
 }
 
 :root[data-theme='light'] {

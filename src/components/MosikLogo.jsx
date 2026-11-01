@@ -19,7 +19,7 @@ export default function MosikLogo({ className = '', height = 28 }) {
         <path d="M1861 0V-483H1992V0Z" />
         <path d="M2088 0V-723H2219V-261L2395 -483H2546L2356 -253L2556 0H2396L2219 -235V0Z" />
       </g>
-      <circle cx="1926.5" cy="-698" r="102.5" fill="none" stroke="#F67214" strokeWidth="85" />
+      <circle className="mosik-logo__bead" cx="1926.5" cy="-698" r="102.5" fill="none" stroke="#F67214" strokeWidth="85" />
     </svg>
   );
 }
