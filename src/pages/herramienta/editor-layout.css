@@ -299,3 +299,46 @@
   .mk-editor .pv__card { width: 100%; max-height: none; height: 100%; border-radius: 0; padding: 10px; }
   .mk-editor .pv__view { height: auto; min-height: 160px; }
 }
+
+/* ---- Tableros como páginas ---- */
+.mk-editor #cvbox { position: relative; overflow: hidden; }
+.mk-editor #cvbox canvas { display: block; }
+.mk-editor .plates { display: flex; flex: none; flex-direction: column; gap: 6px; }
+.mk-editor .plates[hidden],
+.mk-editor .plates__tray[hidden] { display: none !important; }
+.mk-editor .plates__bar { display: flex; align-items: center; gap: 6px; }
+.mk-editor .plates__bar button {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 12px;
+}
+.mk-editor .plates__bar .flip { transform: rotate(180deg); }
+.mk-editor .plates__bar #platesbtn[aria-expanded='true'] { background: #d35f03; border-color: #d35f03; color: #ffffff; }
+.mk-editor .plates__label { flex: 1; min-width: 0; font-size: 13px; font-weight: 600; text-align: center; }
+.mk-editor .plates__tray {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  background: var(--pn);
+}
+.mk-editor .plates__card {
+  display: grid;
+  flex: none;
+  gap: 4px;
+  justify-items: center;
+  align-content: start;
+  width: 72px;
+  padding: 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.mk-editor .plates__card canvas { display: block; border: 1px solid var(--bd); border-radius: 4px; }
+.mk-editor .plates__card[aria-pressed='true'] { background: #d35f03; border-color: #d35f03; color: #ffffff; }

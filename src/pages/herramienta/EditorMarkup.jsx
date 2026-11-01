@@ -27,12 +27,21 @@ export default function EditorMarkup() {
 </div>
 <div className="tool__stage">
 <div className="tool__stagebar">
-<label className="tool__zoom">Zoom <input type="range" id="zoom" min="3" max="48" defaultValue="16" title="Acerca o aleja todo junto: tablero, cuentas e imagen. También con Ctrl + rueda." /></label>
+<label className="tool__zoom">Zoom <input type="range" id="zoom" min="3" max="48" step="0.5" defaultValue="16" title="Acerca o aleja todo junto: tablero, cuentas e imagen. También con Ctrl + rueda." /></label>
 <button type="button" id="zm" title="Alejar" aria-label="Alejar"><Icon name="alejar" size={20} /></button>
 <button type="button" id="zp" title="Acercar" aria-label="Acercar"><Icon name="acercar" size={20} /></button>
 <button type="button" id="fit" title="Ajustar el tablero a la pantalla" aria-label="Ajustar el tablero a la pantalla"><Icon name="tamano" size={20} /></button>
 </div>
-<div id="wrap"><canvas id="cv"></canvas></div>
+<div id="wrap"><div id="cvbox"><canvas id="cv"></canvas></div></div>
+<div className="plates" id="platebar" hidden>
+<div className="plates__tray" id="platetray" role="group" aria-label="Tableros del diseño" hidden></div>
+<div className="plates__bar">
+<button type="button" id="platesbtn" aria-expanded="false" aria-controls="platetray" aria-label="Ver los tableros" title="Tableros: ver cada placa por separado"><Icon name="capas" size={22} /></button>
+<button type="button" id="platesprev" aria-label="Tablero anterior" title="Tablero anterior"><Icon name="flecha" size={20} className="flip" /></button>
+<span id="platelabel" className="plates__label" aria-live="polite">Todo el diseño</span>
+<button type="button" id="platesnext" aria-label="Tablero siguiente" title="Tablero siguiente"><Icon name="flecha" size={20} /></button>
+</div>
+</div>
 <p className="tool__status mu" id="toolhelp" aria-live="polite"></p>
 </div>
 <aside className="tool__side" aria-label="Controles">

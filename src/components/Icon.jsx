@@ -14,6 +14,7 @@ const PATHS = {
   "acercar": "<circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M16.2 16.2L21 21M11 8v6M8 11h6\"/>",
   "alejar": "<circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"M16.2 16.2L21 21M8 11h6\"/>",
   "tablero": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 9h18M3 15h18M9 3v18M15 3v18\"/>",
+  "capas": "<path d=\"M12 3L3 8l9 5 9-5-9-5z\"/><path d=\"M3 12.5l9 5 9-5\"/><path d=\"M3 17l9 5 9-5\"/>",
   "guias": "<path d=\"M3 9h18M3 15h18M9 3v18M15 3v18\" stroke-dasharray=\"2 2.6\"/><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/>",
   "tamano": "<path d=\"M15 4h5v5M9 20H4v-5M20 4l-6.5 6.5M4 20l6.5-6.5\"/>",
   "imagen": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><circle cx=\"9\" cy=\"9.5\" r=\"1.6\"/><path d=\"M3 17l5.5-4.5 4 3 3-2.5L21 17\"/>",
