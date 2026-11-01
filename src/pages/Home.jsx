@@ -37,6 +37,7 @@ const AYUDAS = [
 
 // Colecciones previstas (Decisiones cerradas, 18 oct 2026). Todavía no tienen página: se muestran como «próximamente».
 const COLECCIONES = [
+  { nombre: 'Evoluciones', texto: 'Líneas evolutivas completas, una nueva cada cierto tiempo.', gradiente: 'linear-gradient(135deg, #D35A33, #F29B40)' },
   { nombre: 'Temporada', texto: 'Halloween y Navidad, pieza a pieza.', gradiente: 'var(--grad-temporada)' },
   { nombre: 'Retratos', texto: 'Personas y personajes en cuentas.', gradiente: 'var(--grad-retratos)' },
   { nombre: 'Videojuegos', texto: 'Sprites y pantallas de juego.', gradiente: 'var(--grad-videojuegos)' },
@@ -131,6 +132,29 @@ export default function Home() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* Nueva colección: Evoluciones (se irá ampliando con una línea evolutiva nueva cada cierto tiempo) */}
+      <section className="container bento-wrap" aria-labelledby="evoluciones" data-reveal>
+        <div className="evo">
+          <span className="evo__circle evo__circle--a" aria-hidden="true" />
+          <span className="evo__circle evo__circle--b" aria-hidden="true" />
+          <div className="evo__text">
+            <p className="evo__kicker"><Icon name="paleta" size={18} /> Nueva colección</p>
+            <h2 id="evoluciones">Evoluciones<br /><span className="evo__mark">Tres fases</span> en una misma línea</h2>
+            <p className="evo__lead">Cada cierto tiempo, una línea evolutiva nueva en cuentas. La primera entrega: el ratón eléctrico, de cría a forma final.</p>
+            <div className="evo__actions">
+              <Link to="/herramienta" className="evo__btn evo__btn--main"><Icon name="pincel" size={20} /> Crear mi diseño</Link>
+              <a href="#colecciones" className="evo__btn evo__btn--ghost">Más información</a>
+            </div>
+          </div>
+          <div className="evo__art" aria-hidden="true">
+            <img className="evo__sprite evo__sprite--1" src="/colecciones/evoluciones/fase-1.png" width="28" height="39" alt="" />
+            <img className="evo__sprite evo__sprite--2" src="/colecciones/evoluciones/fase-2.png" width="41" height="48" alt="" />
+            <img className="evo__sprite evo__sprite--3" src="/colecciones/evoluciones/fase-3.png" width="65" height="63" alt="" />
+          </div>
+          <a className="evo__down" href="#colecciones" aria-label="Ver las colecciones"><Icon name="flecha" size={20} className="evo__chev" /></a>
         </div>
       </section>
 
