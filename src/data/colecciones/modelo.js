@@ -21,5 +21,6 @@ export function modeloAEditor(slug, faseId, gamaParam, pinesParam) {
   g.filas.forEach((fila, y) => {
     for (let x = 0; x < fila.length; x += 1) if (fila[x] !== '.') grid[oy + y][ox + x] = porLetra[fila[x]];
   });
-  return { titulo: d.nombre, data: { v: 2, gama, cols, rows, pw: pines, ph: pines, pr, pc, grid } };
+  const hex = Object.fromEntries(g.colores.map((c) => [c.codigo, c.hex]));
+  return { titulo: d.nombre, hex, data: { v: 2, gama, cols, rows, pw: pines, ph: pines, pr, pc, grid } };
 }

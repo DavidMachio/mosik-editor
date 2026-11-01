@@ -105,3 +105,8 @@
   .evo-stats, .evo-stats--all { grid-template-columns: 1fr 1fr; }
   .evo-stats--all .evo-stat--big, .evo-stats .evo-stat--big { grid-column: 1 / -1; }
 }
+
+.evo-colors__cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.evo-colors__hint { margin: -6px 0 10px; font-size: 13.5px; }
+.evo-colors .btn--outline { background: var(--mk-card); border: 1px solid var(--mk-border); color: var(--mk-text); }
+.evo-colors .btn { gap: 8px; }

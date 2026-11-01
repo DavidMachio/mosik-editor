@@ -50,19 +50,20 @@ function Ajustes({ gama, setGama, pines, setPines }) {
 }
 
 // Vista previa del diseño: una cuenta (círculo con agujero) por cada píxel del sprite.
-function Preview({ fase, pines }) {
+function Preview({ fase, pines, resaltar }) {
   const color = useMemo(() => Object.fromEntries(fase.colores.map((c) => [c.letra, c.hex])), [fase]);
+  const letraDe = useMemo(() => Object.fromEntries(fase.colores.map((c) => [c.codigo, c.letra])), [fase]);
   const beads = [];
   fase.filas.forEach((fila, y) => {
     for (let x = 0; x < fila.length; x += 1) {
       const ch = fila[x];
       if (ch === '.') continue;
-      beads.push(<circle key={`${x}-${y}`} cx={x * 10 + 5} cy={y * 10 + 5} r="4.6" fill={color[ch]} />);
+      beads.push(<circle key={`${x}-${y}`} cx={x * 10 + 5} cy={y * 10 + 5} r="4.6" fill={color[ch]} opacity={resaltar && letraDe[resaltar] !== ch ? 0.1 : 1} />);
     }
   });
   const holes = [];
   fase.filas.forEach((fila, y) => {
-    for (let x = 0; x < fila.length; x += 1) if (fila[x] !== '.') holes.push(<circle key={`h${x}-${y}`} cx={x * 10 + 5} cy={y * 10 + 5} r="1.7" className="evo-prev__hole" />);
+    for (let x = 0; x < fila.length; x += 1) if (fila[x] !== '.') holes.push(<circle key={`h${x}-${y}`} cx={x * 10 + 5} cy={y * 10 + 5} r="1.7" className="evo-prev__hole" opacity={resaltar && letraDe[resaltar] !== fila[x] ? 0.1 : 1} />);
   });
   return (
     <svg className="evo-prev__svg" viewBox={`-6 -6 ${fase.ancho * 10 + 12} ${fase.alto * 10 + 12}`} role="img"
@@ -173,12 +174,14 @@ export default function Coleccion() {
 function ColeccionPagina({ col }) {
   const [gama, setGama] = useState('m');
   const [pines, setPines] = useState(29);
+  const [selFicha, setSelFicha] = useState(null);
   const EVOLUCIONES = useMemo(() => col.disenos.map((d) => enGama(d, gama)), [col, gama]);
   usePageTitle(`${col.titulo} · Mosik Beads`);
   const [params, setParams] = useSearchParams();
   const sel = Math.max(1, Math.min(EVOLUCIONES.length, Number(params.get('fase')) || 1));
   const fase = EVOLUCIONES[sel - 1];
   const pick = (i) => setParams({ fase: String(i + 1) }, { replace: true });
+  const resaltar = fase.colores.some((c) => c.codigo === selFicha) ? selFicha : null; // se limpia solo al cambiar de diseño o gama
   const t = col.tema;
   const style = { '--evo-bg': t.fondo, '--evo-a': t.circulo, '--evo-b': t.circulo2, '--evo-yellow': t.acento };
 
@@ -230,22 +233,28 @@ function ColeccionPagina({ col }) {
 
         <div className="evo-ficha__body">
           <figure className="evo-prev">
-            <div className="evo-prev__stage"><Preview fase={fase} pines={pines} /></div>
+            <div className="evo-prev__stage"><Preview fase={fase} pines={pines} resaltar={resaltar} /></div>
             <figcaption>Vista previa en cuentas</figcaption>
           </figure>
           <div className="evo-colors">
             <h3>Colores y cuentas</h3>
+            <p className="muted evo-colors__hint">Pulsa un color para resaltarlo en la vista previa.</p>
             <ul className="evo-colors__list">
               {fase.colores.map((c) => (
-                <li key={c.codigo} className="evo-chip">
-                  <span className="evo-chip__sw" style={{ backgroundColor: c.hex }} aria-hidden="true" />
-                  <span className="evo-chip__code">{c.codigo}</span>
-                  <span className="evo-chip__n">{c.cuentas} {c.cuentas === 1 ? 'cuenta' : 'cuentas'}</span>
+                <li key={c.codigo}>
+                  <button type="button" className="evo-chip evo-chip--btn" aria-pressed={resaltar === c.codigo} onClick={() => setSelFicha(resaltar === c.codigo ? null : c.codigo)}>
+                    <span className="evo-chip__sw" style={{ backgroundColor: c.hex }} aria-hidden="true" />
+                    <span className="evo-chip__code">{c.codigo}</span>
+                    <span className="evo-chip__n">{c.cuentas} {c.cuentas === 1 ? 'cuenta' : 'cuentas'}</span>
+                  </button>
                 </li>
               ))}
             </ul>
             <p className="muted evo-colors__note">Las cuentas son una por píxel del diseño. Los códigos son los más cercanos de la gama {GAMAS[gama].nombre}; revisa el recuento con un 10 % de margen.</p>
-            <Link to={`/herramienta?modelo=${col.slug}&fase=${fase.id}&gama=${gama}&pines=${pines}`} className="btn evo-colors__cta"><Icon name="pincel" size={18} /> Editar el mío</Link>
+            <div className="evo-colors__cta">
+              <Link to={`/herramienta?modelo=${col.slug}&fase=${fase.id}&gama=${gama}&pines=${pines}`} className="btn"><Icon name="pincel" size={18} /> Editar el mío</Link>
+              <Link to={`/montaje?modelo=${col.slug}&fase=${fase.id}&gama=${gama}&pines=${pines}`} className="btn btn--outline"><Icon name="cuentas" size={18} /> Montar</Link>
+            </div>
           </div>
         </div>
       </section>

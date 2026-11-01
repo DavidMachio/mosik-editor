@@ -97,7 +97,7 @@ function draw(){
   if(c&&sb){ctx.globalAlpha=bo;ctx.fillStyle=CODES[c].hex;
    if(VIEW==='pix'){ctx.fillRect(x*CS,y*CS,CS,CS);ctx.globalAlpha=1}
    else{ctx.beginPath();ctx.arc(cx,cy,CS/2-.7,0,7);ctx.fill();ctx.globalAlpha=Math.min(1,bo+.2);ctx.fillStyle='rgba(246,245,241,.9)';ctx.beginPath();ctx.arc(cx,cy,CS*.16,0,7);ctx.fill();ctx.globalAlpha=1}}
-  else if(sg){ctx.strokeStyle='rgba(60,60,60,.45)';ctx.lineWidth=1;ctx.beginPath();if(VIEW==='pix')ctx.rect(x*CS+.5,y*CS+.5,CS-1,CS-1);else ctx.arc(cx,cy,CS/2-.7,0,7);ctx.stroke()}
+  else if(sg){ctx.strokeStyle='rgba(60,60,60,.7)';ctx.lineWidth=1;ctx.beginPath();if(VIEW==='pix')ctx.rect(x*CS+.5,y*CS+.5,CS-1,CS-1);else ctx.arc(cx,cy,CS/2-.7,0,7);ctx.stroke()}
  }
  if($('guides').checked)drawGuides(ctx,CS,1);
  counts()
@@ -414,5 +414,9 @@ function exportDesign(){
     c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
   return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid},preview:o.toDataURL('image/png'),beads};
 }
-return { destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
+function exportMontaje(){
+    const hex={};let beads=0;grid.forEach(r=>r.forEach(c=>{if(c){beads++;hex[c]=CODES[c].hex}}));
+    return {beads,hex,data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid}};
+  }
+  return { exportMontaje, destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
 }

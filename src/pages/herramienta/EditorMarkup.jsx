@@ -25,6 +25,7 @@ export default function EditorMarkup() {
 <button type="button" id="redo" title="Rehacer (Ctrl+Y)"><span aria-hidden="true"><Icon name="rehacer" size={22} /></span><span className="lbl">Rehacer</span></button>
 <button type="button" id="reset" title="Resetear tablero: quita todas las cuentas; la imagen se queda"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
 </div>
+<div className="tool__group tool__group--assemble"><button type="button" id="montajebtn" title="Enviar el diseño a montaje: colócalo cuenta a cuenta, color a color"><span aria-hidden="true"><Icon name="cuentas" size={22} /></span><span className="lbl">Montaje</span></button></div>
 <div className="tool__group tool__group--layers"><button type="button" id="layersbtn" aria-pressed="true" aria-controls="tool-layers" title="Capas: mostrar u ocultar las cuentas por color"><span aria-hidden="true"><Icon name="capas" size={22} /></span><span className="lbl">Capas</span></button></div>
 </div>
 <div className="tool__topbar" id="tool-topbar">
@@ -80,7 +81,7 @@ export default function EditorMarkup() {
 <h3>Imagen</h3>
 <div className="row"><input type="file" id="file" accept="image/*" /><button id="clearimg" className="ico"><Icon name="imagen-quitar" size={18} /> Quitar imagen</button></div>
 <div className="mu" id="imgmsg"></div>
-<div className="row"><label style={{ flex: '1' }}>Opacidad imagen <input type="range" id="op" min="0" max="100" defaultValue="60" /></label><label><input type="checkbox" id="showimg" defaultChecked /> Ver imagen</label></div>
+<div className="row"><label style={{ flex: '1' }}>Opacidad imagen <input type="range" id="op" min="0" max="100" defaultValue="85" /></label><label><input type="checkbox" id="showimg" defaultChecked /> Ver imagen</label></div>
 <div className="row"><label style={{ flex: '1' }}>Tamaño de la imagen <input type="range" id="isc" min="20" max="300" defaultValue="100" /></label><label><input type="checkbox" id="lock" /> Bloquear imagen</label></div>
 <div className="row"><span>Girar imagen</span><button id="rl" title="90° a la izquierda" aria-label="Girar 90° a la izquierda"><Icon name="girar-izq" size={18} /> 90°</button><button id="rr" title="90° a la derecha" aria-label="Girar 90° a la derecha"><Icon name="girar-der" size={18} /> 90°</button><button id="fl" title="Voltear horizontalmente"><Icon name="voltear" size={18} /> Voltear</button><label style={{ flex: '1', minWidth: '140px' }}>Ángulo <input type="range" id="rot" min="-180" max="180" defaultValue="0" /></label><b id="rotv" style={{ minWidth: '42px' }}>0°</b></div>
 <div className="mu" style={{ margin: '-2px 0 6px' }}>Colócala con la Mano y bloquéala antes de dibujar: así ya no se mueve ni cambia de tamaño.</div>

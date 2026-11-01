@@ -154,6 +154,24 @@ export default function Herramienta() {
     return () => btn.removeEventListener('click', go);
   }, []);
 
+  // «Enviar a montaje» (botón del editor, marcado estático): guarda el diseño en el navegador y abre /montaje.
+  const montajeRef = useRef(null);
+  montajeRef.current = () => {
+    const r = editorRef.current && editorRef.current.exportMontaje();
+    if (!r || !r.beads) { setNotice({ text: 'Pinta alguna cuenta antes de enviar el diseño a montaje.', error: true }); return; }
+    try {
+      localStorage.setItem('mosik-montaje-editor', JSON.stringify({ titulo: current?.title || 'Mi diseño', data: r.data, hex: r.hex, ts: Date.now() }));
+    } catch { setNotice({ text: 'No se ha podido preparar el montaje en este navegador.', error: true }); return; }
+    navigate('/montaje?origen=editor');
+  };
+  useEffect(() => {
+    const btn = rootRef.current && rootRef.current.querySelector('#montajebtn');
+    if (!btn) return undefined;
+    const go = () => montajeRef.current && montajeRef.current();
+    btn.addEventListener('click', go);
+    return () => btn.removeEventListener('click', go);
+  }, []);
+
   return (
     <div className="container tool-page">
       <h1 className="sr-only">Herramienta de diseño</h1>
