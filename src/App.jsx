@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound.jsx';
 import Entrar from './pages/Entrar.jsx';
 import Registro from './pages/Registro.jsx';
 import Perfil from './pages/Perfil.jsx';
+import Evoluciones from './pages/Evoluciones.jsx';
 import Galeria from './pages/Galeria.jsx';
 import Diseno from './pages/Diseno.jsx';
 
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="entrar" element={<Entrar />} />
         <Route path="registro" element={<Registro />} />
         <Route path="perfil" element={<Perfil />} />
+        <Route path="colecciones/evoluciones" element={<Evoluciones />} />
         <Route path="galeria" element={<Galeria />} />
         <Route path="diseno/:id" element={<Diseno />} />
         <Route path="*" element={<NotFound />} />
