@@ -4,7 +4,8 @@ import { request } from '../lib/api.js';
 import usePageTitle from '../hooks/usePageTitle.js';
 import useReveal from '../hooks/useReveal.js';
 import ColeccionBanner from '../components/ColeccionBanner.jsx';
-import { COLECCIONES_FICHA } from '../data/colecciones/index.js';
+import { COLECCIONES_FICHA, porSlug } from '../data/colecciones/index.js';
+import { GRUPOS } from '../data/colecciones/grupos.js';
 import DesignCard from '../components/DesignCard.jsx';
 import Icon from '../components/Icon.jsx';
 import '../components/DesignCard.css';
@@ -62,10 +63,23 @@ export default function Home() {
 
   return (
     <>
-      {/* Colecciones nuevas con ficha (la más reciente primero) */}
-      {[...COLECCIONES_FICHA].reverse().map((c) => (
-        <ColeccionBanner key={c.slug} col={c} titleId={`coleccion-${c.slug}`} />
-      ))}
+      {/* Grupos de colecciones con ficha (logo en la esquina; dentro, la más reciente primero) */}
+      {GRUPOS.map((g) => {
+        const cols = g.colecciones.map(porSlug).filter(Boolean).reverse();
+        if (!cols.length) return null;
+        return (
+          <section key={g.slug} className="grupo" aria-labelledby={`grupo-${g.slug}`}>
+            <div className="container grupo__head">
+              <div>
+                <h2 id={`grupo-${g.slug}`} className="grupo__title">{g.titulo}</h2>
+                <p className="muted">{g.texto}</p>
+              </div>
+              {g.logo && <img className="grupo__logo" src={g.logo} alt={g.logoAlt} />}
+            </div>
+            {cols.map((c) => <ColeccionBanner key={c.slug} col={c} titleId={`coleccion-${c.slug}`} />)}
+          </section>
+        );
+      })}
 
       {/* Portada: una tarjeta oscura grande y dos pequeñas */}
       <section className="container bento-wrap" aria-labelledby="hero-titulo">

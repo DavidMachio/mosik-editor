@@ -1,0 +1,38 @@
+{
+  "slug": "mario",
+  "titulo": "Mario",
+  "entrega": "",
+  "lema": [
+    "Tres poses",
+    " de salto y carrera"
+  ],
+  "texto": "Tres diseños de Mario en cuentas, listos para colgar juntos.",
+  "intro": "Tres diseños de Mario. Elige uno para ver su ficha.",
+  "resumen": "Tres diseños de Mario.",
+  "tema": {
+    "fondo": "#c62828",
+    "circulo": "#ef5350",
+    "circulo2": "#a61e1e",
+    "acento": "#fbd22e"
+  },
+  "disenos": [
+    {
+      "archivo": "fase-1.png",
+      "id": "fase-1",
+      "nombre": "Mario volando",
+      "fase": "Pose 1"
+    },
+    {
+      "archivo": "fase-2.png",
+      "id": "fase-2",
+      "nombre": "Mario saltando",
+      "fase": "Pose 2"
+    },
+    {
+      "archivo": "fase-3.png",
+      "id": "fase-3",
+      "nombre": "Mario de lado",
+      "fase": "Pose 3"
+    }
+  ]
+}

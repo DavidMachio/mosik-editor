@@ -148,7 +148,7 @@ function ColeccionPagina({ col }) {
 
       <header className="evo-hero">
         <span className="evo-hero__circle" aria-hidden="true" />
-        <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección · {col.entrega}</p>
+        <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección{col.entrega ? ` · ${col.entrega}` : ''}</p>
         <h1>{col.titulo}</h1>
         <p className="evo-hero__lead">{col.intro}</p>
         {EVOLUCIONES.length > 1 && <Conjunto disenos={EVOLUCIONES} />}

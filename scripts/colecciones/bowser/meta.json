@@ -1,0 +1,38 @@
+{
+  "slug": "bowser",
+  "titulo": "Bowser",
+  "entrega": "",
+  "lema": [
+    "Tres versiones",
+    " del rey de los Koopa"
+  ],
+  "texto": "Tres diseños de Bowser en cuentas, de lo más clásico a lo más grande.",
+  "intro": "Tres diseños de Bowser. Elige uno para ver su ficha.",
+  "resumen": "Tres diseños de Bowser.",
+  "tema": {
+    "fondo": "#2e7d32",
+    "circulo": "#f2a93b",
+    "circulo2": "#1f5f25",
+    "acento": "#fbe56e"
+  },
+  "disenos": [
+    {
+      "archivo": "fase-1.png",
+      "id": "fase-1",
+      "nombre": "Bowser 8 bits",
+      "fase": "Versión 1"
+    },
+    {
+      "archivo": "fase-2.png",
+      "id": "fase-2",
+      "nombre": "Bowser grande",
+      "fase": "Versión 2"
+    },
+    {
+      "archivo": "fase-3.png",
+      "id": "fase-3",
+      "nombre": "Bowser de perfil",
+      "fase": "Versión 3"
+    }
+  ]
+}

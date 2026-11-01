@@ -459,3 +459,11 @@
   .evo__art { min-height: 200px; }
   .evo__down { display: none; }
 }
+
+/* Grupo de colecciones (p. ej. Pokémon): cabecera con el logo en la esquina y, debajo, un banner por colección */
+.grupo { padding-top: 24px; }
+.grupo__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.grupo__title { margin: 0 0 2px; font-size: clamp(24px, 3vw, 34px); }
+.grupo__head p { margin: 0; }
+.grupo__logo { flex: none; width: clamp(110px, 18vw, 220px); height: auto; }
+.grupo .bento-wrap + .bento-wrap { margin-top: 16px; }

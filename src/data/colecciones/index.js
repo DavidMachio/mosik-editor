@@ -5,6 +5,8 @@ import evoluciones from './evoluciones.js';
 import evolucionesPlanta from './evoluciones-planta.js';
 import evolucionesFuego from './evoluciones-fuego.js';
 import evolucionesAgua from './evoluciones-agua.js';
+import mario from './mario.js';
+import bowser from './bowser.js';
 
-export const COLECCIONES_FICHA = [evoluciones, evolucionesPlanta, evolucionesFuego, evolucionesAgua];
+export const COLECCIONES_FICHA = [evoluciones, evolucionesPlanta, evolucionesFuego, evolucionesAgua, mario, bowser];
 export const porSlug = (slug) => COLECCIONES_FICHA.find((c) => c.slug === slug);
