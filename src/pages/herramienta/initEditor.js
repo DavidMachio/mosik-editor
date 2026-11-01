@@ -241,7 +241,7 @@ $('clearimg').onclick=()=>{img=null;imgCv=null;draw()};
 $('zoom').addEventListener('input',()=>size(true));
 const zs=d=>{$('zoom').value=Math.max(3,Math.min(48,+$('zoom').value+d));size(true)};
 // Ajusta el zoom para que el tablero entero quepa en el área de trabajo.
-function fitToScreen(){const w=$('wrap');const bw=FOCUS?PW:COLS,bh=FOCUS?PH:ROWS;const z=Math.floor(Math.min((w.clientWidth-4)/bw,(w.clientHeight-4)/bh)*2)/2;$('zoom').value=Math.max(3,Math.min(48,z||3));size();w.scrollLeft=0;w.scrollTop=0}
+function fitToScreen(){const w=$('wrap');const bw=FOCUS?PW:COLS,bh=FOCUS?PH:ROWS;const cs=getComputedStyle(w),pw=(parseFloat(cs.paddingLeft)||0)+(parseFloat(cs.paddingRight)||0),ph=(parseFloat(cs.paddingTop)||0)+(parseFloat(cs.paddingBottom)||0);const z=Math.floor(Math.min((w.clientWidth-pw-4)/bw,(w.clientHeight-ph-4)/bh)*2)/2;$('zoom').value=Math.max(3,Math.min(48,z||3));size();w.scrollLeft=0;w.scrollTop=0}
 $('fit').onclick=fitToScreen;
 $('zm').onclick=()=>zs(-3);$('zp').onclick=()=>zs(3);
 $('wrap').addEventListener('wheel',e=>{if(e.ctrlKey||e.metaKey){e.preventDefault();zs(e.deltaY<0?2:-2)}},{passive:false});
