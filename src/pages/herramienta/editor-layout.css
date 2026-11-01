@@ -222,13 +222,80 @@
 /* En móvil la barra de herramientas y las pestañas llevan solo el icono; el nombre sigue disponible
    para lectores de pantalla (y como título al mantener pulsado o pasar el ratón). */
 @media (max-width: 900px) {
+  /* Cada botón es el contenedor de su etiqueta oculta: así no se sale de la tira y no ensancha la página en el móvil */
+  .mk-editor .tool__bar button,
+  .mk-editor .tabs [role='tab'] { position: relative; overflow: hidden; }
   .mk-editor .tool__bar .lbl,
   .mk-editor .tabs .lbl {
     position: absolute;
+    left: 0;
+    top: 0;
     width: 1px;
     height: 1px;
     overflow: hidden;
     clip: rect(0 0 0 0);
     white-space: nowrap;
   }
+}
+
+/* ---- Herramienta o ajuste seleccionado: relleno naranja y icono blanco ----
+   (Naranja de acción más intenso que el pastel, para que el icono blanco se distinga: contraste 4:1.) */
+.mk-editor .tool__bar button.on,
+.mk-editor .tool__bar .tabs [role='tab'][aria-selected='true'],
+.mk-editor .tool[data-sheet='open'] .tool__bar .tabs [role='tab'][aria-selected='true'] {
+  background: #d35f03;
+  border-color: #d35f03;
+  color: #ffffff;
+}
+.mk-editor .tool__bar button.on .icon,
+.mk-editor .tool__bar .tabs [role='tab'][aria-selected='true'] .icon { color: #ffffff; stroke: #ffffff; }
+.mk-editor .tool__bar button.on:hover { background: #bb5302; }
+
+/* ---- Previa de colocación de la imagen ---- */
+.mk-editor .pv {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.55);
+}
+.mk-editor .pv[hidden] { display: none !important; }
+.mk-editor .pv__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(760px, 100%);
+  max-height: 100%;
+  padding: 14px;
+  overflow: auto;
+  border-radius: 14px;
+  background: var(--pn);
+  color: var(--tx);
+}
+.mk-editor .pv__card h2 { margin: 0; font-size: 18px; }
+.mk-editor .pv__card p { margin: 0; }
+.mk-editor .pv__view {
+  flex: 1;
+  min-height: 200px;
+  height: min(46dvh, 460px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #cfcdc9;
+}
+.mk-editor .pv__view canvas { display: block; touch-action: none; cursor: grab; }
+.mk-editor .pv__row { margin: 0; }
+.mk-editor .pv__row button { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.mk-editor .pv__lbl { font-size: 13px; }
+.mk-editor .pv__size { flex: 1; min-width: 180px; }
+.mk-editor .pv__end { justify-content: flex-end; margin-top: 4px; }
+.mk-editor .pv__end button { min-height: 48px; }
+@media (max-width: 900px) {
+  .mk-editor .pv { padding: 0; align-items: stretch; }
+  .mk-editor .pv__card { width: 100%; max-height: none; height: 100%; border-radius: 0; padding: 10px; }
+  .mk-editor .pv__view { height: auto; min-height: 160px; }
 }

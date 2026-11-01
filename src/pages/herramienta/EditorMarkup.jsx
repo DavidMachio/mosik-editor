@@ -27,9 +27,10 @@ export default function EditorMarkup() {
 </div>
 <div className="tool__stage">
 <div className="tool__stagebar">
-<label className="tool__zoom">Zoom <input type="range" id="zoom" min="8" max="48" defaultValue="16" title="Acerca o aleja todo junto: tablero, cuentas e imagen. También con Ctrl + rueda." /></label>
+<label className="tool__zoom">Zoom <input type="range" id="zoom" min="3" max="48" defaultValue="16" title="Acerca o aleja todo junto: tablero, cuentas e imagen. También con Ctrl + rueda." /></label>
 <button type="button" id="zm" title="Alejar" aria-label="Alejar"><Icon name="alejar" size={20} /></button>
 <button type="button" id="zp" title="Acercar" aria-label="Acercar"><Icon name="acercar" size={20} /></button>
+<button type="button" id="fit" title="Ajustar el tablero a la pantalla" aria-label="Ajustar el tablero a la pantalla"><Icon name="tamano" size={20} /></button>
 </div>
 <div id="wrap"><canvas id="cv"></canvas></div>
 <p className="tool__status mu" id="toolhelp" aria-live="polite"></p>
@@ -128,6 +129,29 @@ export default function EditorMarkup() {
      <canvas id="mprev" width="360" height="360"></canvas>
      <div className="row" style={{ marginTop: '10px', justifyContent: 'flex-end' }}><span className="mu" id="mwarn" style={{ flex: '1' }}></span><button id="mcancel">Cancelar</button><button id="macc" className="on big">Aceptar y rellenar</button></div>
     </div></div>
+<div id="pvmodal" className="pv" hidden role="dialog" aria-modal="true" aria-labelledby="pvt">
+<div className="pv__card">
+<h2 id="pvt">Colocar la imagen</h2>
+<p className="mu">Ves el tablero entero. Elige cuántas placas necesitas y mueve la imagen con el dedo (con dos dedos, cambias su tamaño). Al aceptar se pasa al tablero.</p>
+<div id="pvview" className="pv__view"><canvas id="pvcv" aria-label="Previa del tablero con la imagen"></canvas></div>
+<p className="mu" id="pvinfo" aria-live="polite"></p>
+<div className="row pv__row">
+<span className="pv__lbl">Filas</span><button type="button" id="pvrm" aria-label="Quitar una fila de placas"><Icon name="menos" size={18} /></button><b id="pvrn">1</b><button type="button" id="pvrp" aria-label="Añadir una fila de placas"><Icon name="mas" size={18} /></button>
+<span className="pv__lbl">Columnas</span><button type="button" id="pvcm" aria-label="Quitar una columna de placas"><Icon name="menos" size={18} /></button><b id="pvcn">1</b><button type="button" id="pvcp" aria-label="Añadir una columna de placas"><Icon name="mas" size={18} /></button>
+</div>
+<div className="row pv__row">
+<label className="pv__size">Tamaño de la imagen <input type="range" id="pvs" min="4" max="400" defaultValue="40" /></label><span className="mu" id="pvsv"></span>
+</div>
+<div className="row pv__row">
+<button type="button" id="pvfit" className="ico"><Icon name="tamano" size={18} /> Que quepa entera</button>
+<button type="button" id="pvfill" className="ico"><Icon name="imagen" size={18} /> Rellenar el tablero</button>
+<button type="button" id="pvrl" aria-label="Girar 90° a la izquierda"><Icon name="girar-izq" size={18} /></button>
+<button type="button" id="pvrr" aria-label="Girar 90° a la derecha"><Icon name="girar-der" size={18} /></button>
+<button type="button" id="pvfl" aria-label="Voltear"><Icon name="voltear" size={18} /></button>
+</div>
+<div className="row pv__end"><button type="button" id="pvcancel">Cancelar</button><button type="button" id="pvok" className="on big ico"><Icon name="aceptar" size={18} /> Usar este encuadre</button></div>
+</div>
+</div>
     </>
   );
 }
