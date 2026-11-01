@@ -155,3 +155,25 @@
   .mk-editor .tool[data-sheet='closed'] .tabpanel { display: none; }
   .mk-editor .tabs [role='tab'] { padding: 14px 4px; min-height: 52px; }
 }
+
+/* ---- Iconos propios (src/components/Icon.jsx) ---- */
+.mk-editor .icon { flex: none; }
+.mk-editor .ico { display: inline-flex; align-items: center; gap: 6px; }
+.mk-editor .tool__bar button span:first-child { display: inline-grid; place-items: center; }
+.mk-editor .tabs [role='tab'] { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.mk-editor #zm, .mk-editor #zp { display: inline-grid; place-items: center; min-width: 40px; min-height: 40px; padding: 0; }
+
+/* En móvil la barra de herramientas y las pestañas llevan solo el icono; el nombre sigue disponible
+   para lectores de pantalla (y como título al mantener pulsado o pasar el ratón). */
+@media (max-width: 900px) {
+  .mk-editor .tool__bar .lbl,
+  .mk-editor .tabs .lbl {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .mk-editor .tool__bar button { min-width: 48px; }
+}
