@@ -205,6 +205,18 @@ pvcv.addEventListener('pointermove',e=>{const old=pvpts.get(e.pointerId);if(!old
  if(pvpts.size===1){PV.ux+=(nx-old.x)/PV.k;PV.uy+=(ny-old.y)/PV.k;pvDraw()}});
 ['pointerup','pointercancel'].forEach(t=>pvcv.addEventListener(t,e=>{pvpts.delete(e.pointerId);pvLast=null}));
 const onPvKey=e=>{if(e.key==='Escape'&&!$('pvmodal').hidden){e.preventDefault();$('pvcancel').click()}};document.addEventListener('keydown',onPvKey);
+// Atajos de teclado (como en Figma): V mano, B pincel, E borrador, G bote, I cuentagotas, M imagen; Ctrl+Z/Ctrl+Y; + - 0.
+const KEYS={v:'move',b:'paint',e:'erase',g:'fill',i:'pick',m:'img'};
+const onShortcut=e=>{const tg=e.target;if(tg&&(tg.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName)&&tg.type!=='range'&&tg.type!=='checkbox'))return;if(!$('pvmodal').hidden||$('modal').classList.contains('show'))return;
+const k=e.key.toLowerCase();const mod=e.ctrlKey||e.metaKey;
+if(mod&&k==='z'){e.preventDefault();$(e.shiftKey?'redo':'undo').click();return}
+if(mod&&k==='y'){e.preventDefault();$('redo').click();return}
+if(mod||e.altKey)return;
+if(KEYS[k]){const b=document.querySelector('[data-t="'+KEYS[k]+'"]');if(b){e.preventDefault();b.click()}return}
+if(k==='+'||k==='='){$('zp').click()}else if(k==='-'){$('zm').click()}else if(k==='0'){$('fit').click()}};
+document.addEventListener('keydown',onShortcut);
+// Porcentaje de zoom y estado inferior
+const zpct=$('zpct'),zoomEl=$('zoom');const syncZ=()=>{if(zpct&&zoomEl)zpct.textContent=Math.round(zoomEl.value/16*100)+' %'};syncZ();const zInt=window.setInterval(syncZ,250);
 const onPvResize=()=>{if(!$('pvmodal').hidden&&PV.img)pvDraw()};window.addEventListener('resize',onPvResize);
 // ---- Tableros (placas) como páginas ----
 // El botón de capas abre una bandeja con una carta pequeña por tablero. Al elegir una, el área de trabajo muestra solo ese
@@ -397,5 +409,5 @@ function exportDesign(){
     c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
   return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid},preview:o.toDataURL('image/png'),beads};
 }
-return { destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
+return { destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
 }

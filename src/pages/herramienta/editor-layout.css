@@ -342,3 +342,14 @@
 }
 .mk-editor .plates__card canvas { display: block; border: 1px solid var(--bd); border-radius: 4px; }
 .mk-editor .plates__card[aria-pressed='true'] { background: #d35f03; border-color: #d35f03; color: #ffffff; }
+
+/* ---- Escritorio estilo editor de diseño: raíl de iconos, herramienta activa en naranja, zoom en % ---- */
+.mk-editor .tool__pct { min-width: 52px; text-align: center; font-weight: 600; font-size: 13px; }
+@media (min-width: 901px) {
+  .mk-editor .tool { grid-template-columns: 64px minmax(0, 1fr) minmax(330px, 380px); }
+  .mk-editor .tool__bar { align-items: center; padding: 8px 6px; }
+  .mk-editor .tool__bar .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mk-editor .tool__bar button { position: relative; width: 46px; min-height: 46px; padding: 0; justify-content: center; border-radius: 12px; }
+  .mk-editor .tool__bar button.on { background: #d35f03; border-color: #d35f03; color: #fff; }
+  .mk-editor .tool__status { padding: 6px 10px; background: var(--pn); border: 1px solid var(--bd); border-radius: 8px; font-size: 12.5px; }
+}
