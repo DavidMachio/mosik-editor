@@ -151,7 +151,12 @@ $('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const st=$('imgmsg
  const rd=new FileReader();
  rd.onerror=()=>{st.textContent='No se ha podido leer el archivo'};
  rd.onload=()=>{const i=new Image();
-  i.onload=()=>{st.textContent=`Imagen cargada (${i.width}×${i.height}). Colócala en la previa.`;openPreview(i)};
+  i.onload=()=>{
+   // Pixel art: se lee cuadro a cuadro de inmediato (colores y tamaño recomendado), sin pasar por la previa de colocación.
+   const prevImg=img,prevCv=imgCv;let pa=false;
+   if(i.width*i.height<=4e6){img=i;imgCv=null;try{const R=analyzePixelArt();pa=!!(R&&R.ok&&EXACT)}catch(_){pa=false}if(!pa){EXACT=null;img=prevImg;imgCv=prevCv}}
+   if(pa){const k=Math.min(COLS/i.width,ROWS/i.height);imgT.us=k;imgT.ux=(COLS-i.width*k)/2;imgT.uy=(ROWS-i.height*k)/2;$('isc').value=100;imgT.rot=0;imgT.flip=false;$('rot').value=0;$('rotv').textContent='0°';$('showimg').checked=true;imgDirty=true;draw();autoReadPixelArt();return}
+   st.textContent=`Imagen cargada (${i.width}×${i.height}). Colócala en la previa.`;openPreview(i)};
   i.onerror=()=>{st.textContent='El navegador no puede abrir este formato (¿HEIC?). Prueba con JPG o PNG.'};
   i.src=rd.result};
  rd.readAsDataURL(f);e.target.value=''};
