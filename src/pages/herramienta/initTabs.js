@@ -6,6 +6,34 @@ export function initTabs(root) {
   const mq = window.matchMedia('(max-width: 900px)');
   if (!tool || !tabs.length) return () => {};
 
+  // En móvil los iconos de ajustes (Tablero, Paleta, Gamas, Descargar) van en la misma tira que las herramientas.
+  // Se mueve el DOM a mano porque el marcado es estático: React nunca lo vuelve a pintar.
+  const strip = root.querySelector('.tool__bar');
+  const side = root.querySelector('.tool__side');
+  const list = root.querySelector('[role="tablist"]');
+  const closeBtn = root.querySelector('.sheet__close');
+  function placeList() {
+    if (!strip || !side || !list) return;
+    if (mq.matches) {
+      if (list.parentElement !== strip) strip.appendChild(list);
+    } else if (list.parentElement !== side) {
+      side.insertBefore(list, side.querySelector('.tabpanel'));
+    }
+  }
+  placeList();
+  // En móvil el dibujo ocupa toda la pantalla: los ajustes empiezan cerrados.
+  if (mq.matches) tool.dataset.sheet = 'closed';
+  function onMq() {
+    placeList();
+    tool.dataset.sheet = mq.matches ? 'closed' : 'open';
+    syncExpanded();
+  }
+  function onClose() {
+    tool.dataset.sheet = 'closed';
+    syncExpanded();
+  }
+  if (closeBtn) closeBtn.addEventListener('click', onClose);
+
   const panelOf = (tab) => root.querySelector('#' + tab.getAttribute('aria-controls'));
 
   function select(tab) {
@@ -53,15 +81,16 @@ export function initTabs(root) {
     syncExpanded();
   }
 
-  const list = root.querySelector('[role="tablist"]');
   list.addEventListener('click', onClick);
   list.addEventListener('keydown', onKeyDown);
-  mq.addEventListener('change', syncExpanded);
+  mq.addEventListener('change', onMq);
   syncExpanded();
 
   return () => {
     list.removeEventListener('click', onClick);
     list.removeEventListener('keydown', onKeyDown);
-    mq.removeEventListener('change', syncExpanded);
+    mq.removeEventListener('change', onMq);
+    if (closeBtn) closeBtn.removeEventListener('click', onClose);
+    if (side && list && list.parentElement !== side) side.insertBefore(list, side.querySelector('.tabpanel'));
   };
 }

@@ -8,7 +8,7 @@ export default function EditorMarkup() {
   return (
     <>
 <div className="tool" data-sheet="open">
-<div className="tool__bar" role="toolbar" aria-label="Herramientas de dibujo">
+<div className="tool__bar" id="tool-strip" role="toolbar" aria-label="Herramientas de dibujo">
 <div className="tool__group" id="tools">
 <button type="button" data-t="move" className="on" title="Mano: mueve la imagen o la vista"><span aria-hidden="true"><Icon name="mover" size={22} /></span><span className="lbl">Mano</span></button>
 <button type="button" data-t="paint" title="Pincel"><span aria-hidden="true"><Icon name="pincel" size={22} /></span><span className="lbl">Pincel</span></button>
@@ -35,6 +35,7 @@ export default function EditorMarkup() {
 <p className="tool__status mu" id="toolhelp" aria-live="polite"></p>
 </div>
 <aside className="tool__side" aria-label="Controles">
+<div className="sheet__bar"><span className="sheet__grip" aria-hidden="true"></span><button type="button" className="sheet__close" aria-label="Cerrar ajustes"><Icon name="cerrar" size={18} /></button></div>
 <div role="tablist" aria-label="Paneles de la herramienta" className="tabs">
 <button type="button" role="tab" id="tab-tablero" aria-controls="tp-tablero" aria-selected="true" tabIndex={0}><Icon name="tablero" size={18} /><span className="lbl">Tablero e imagen</span></button>
 <button type="button" role="tab" id="tab-paleta" aria-controls="tp-paleta" aria-selected="false" tabIndex={-1}><Icon name="paleta" size={18} /><span className="lbl">Paleta</span></button>

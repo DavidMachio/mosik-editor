@@ -57,9 +57,41 @@
   font-weight: 600;
 }
 
-/* En móvil el título sobra (el menú ya indica dónde estás) y hace falta sitio para el lienzo; el botón de guardar se queda. */
+/* Hamburguesa y texto corto del botón de guardar: solo se usan en móvil */
+.tool-page__menu { display: none; }
+.tool-page__saveshort { display: none; }
+.btn--small { gap: 8px; }
+
+/* Móvil: la herramienta ocupa toda la pantalla. La fila superior lleva la hamburguesa, el nombre del diseño y el botón de guardar. */
 @media (max-width: 900px) {
-  .tool-page { padding-top: 8px; }
+  .tool-page {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 41px);
+    height: calc(100dvh - 41px);
+    padding: 6px 8px 8px;
+  }
   .tool-page__titles { display: none; }
-  .tool-page__head { margin-bottom: 8px; }
+  .tool-page__head { flex-wrap: nowrap; gap: 8px; margin-bottom: 6px; }
+  .tool-page__menu {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid var(--mk-border);
+    border-radius: 12px;
+    background: var(--mk-card);
+    color: var(--mk-text);
+    cursor: pointer;
+  }
+  .tool-page__menu[aria-expanded='true'] { background: var(--mk-action); border-color: var(--mk-action-border); color: var(--mk-ink); }
+  .tool-page__actions { flex: 1; min-width: 0; justify-content: flex-end; }
+  .tool-page__current { flex: 1; min-width: 0; max-width: none; }
+  .tool-page__savelong { display: none; }
+  .tool-page__saveshort { display: inline; }
+  .btn--small { min-height: 48px; padding: 0 16px; }
+  .tool-page__notices { flex: none; }
+  .tool-page__notice { margin-bottom: 6px; padding: 6px 10px; }
 }

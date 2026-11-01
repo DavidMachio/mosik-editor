@@ -111,49 +111,105 @@
   outline-offset: 2px;
 }
 
-/* ---- Móvil: barra horizontal + hoja inferior ---- */
+/* ---- Móvil: pantalla completa ----
+   La herramienta ocupa todo el móvil. La hamburguesa (en la cabecera de la página) despliega una tira horizontal con todos
+   los iconos (herramientas, historial y ajustes). Pulsar un icono de ajustes abre una hoja inferior de hasta el 45 % de la
+   pantalla; el dibujo se encoge para seguir visible. Los iconos de ajustes se mueven a la tira desde initTabs.js. */
 @media (max-width: 900px) {
+  .mk-editor { flex: 1; min-height: 0; display: flex; flex-direction: column; }
   .mk-editor .tool {
     display: flex;
     flex-direction: column;
+    gap: 6px;
+    flex: 1;
     height: auto;
-    padding-bottom: calc(42dvh + 12px);
+    min-height: 0;
+    padding-bottom: 0;
   }
-  .mk-editor .tool[data-sheet='closed'] { padding-bottom: 72px; }
+  .mk-editor .tool[data-sheet='open'] { padding-bottom: min(45dvh, 420px); }
 
-  .mk-editor .tool__bar {
+  /* Tira de iconos: oculta hasta pulsar la hamburguesa */
+  .mk-editor .tool__bar { display: none; }
+  .mk-editor[data-strip='open'] .tool__bar {
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 6px;
+    overscroll-behavior-x: contain;
   }
-  .mk-editor .tool__group {
+  .mk-editor .tool__group,
+  .mk-editor .tool__bar .tabs {
+    display: flex;
+    flex: none;
     flex-direction: row;
-    padding-bottom: 0;
-    padding-right: 10px;
-    border-bottom: 0;
+    gap: 6px;
+    padding: 0 8px 0 0;
+    border: 0;
     border-right: 1px solid var(--bd);
   }
-  .mk-editor .tool__group:last-child { border-right: 0; padding-right: 0; }
-  .mk-editor .tool__bar button { min-width: 62px; min-height: 52px; flex: none; }
+  .mk-editor .tool__bar .tabs { padding-right: 0; border-right: 0; }
+  .mk-editor .tool__bar button,
+  .mk-editor .tool__bar .tabs [role='tab'] {
+    justify-content: center;
+    flex: none;
+    width: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0;
+    border: 1px solid var(--bd-ctl);
+    border-radius: 12px;
+    background: var(--pn);
+  }
+  .mk-editor .tool__bar .tabs [role='tab'][aria-selected='true'] { border-bottom-color: var(--bd-ctl); background: var(--pn); }
+  .mk-editor .tool[data-sheet='open'] .tool__bar .tabs [role='tab'][aria-selected='true'] { background: var(--ac); border-color: var(--ac-bd); color: var(--ink); }
 
-  .mk-editor .tool__stage #wrap { flex: none; height: calc(58dvh - 228px); min-height: 200px; }
+  /* Lienzo: ocupa todo el alto que queda */
+  .mk-editor .tool__stage { flex: 1; min-height: 0; }
+  .mk-editor .tool__stagebar { gap: 4px; }
+  .mk-editor .tool__stage #wrap { flex: 1; height: auto; min-height: 120px; overscroll-behavior: contain; }
   .mk-editor .tool__status { display: none; }
-  .mk-editor .tool[data-sheet='closed'] .tool__stage #wrap { height: calc(100dvh - 330px); min-height: 260px; }
 
-  .mk-editor .tool__side {
+  /* Hoja de ajustes */
+  .mk-editor .tool__side { display: none; }
+  .mk-editor .tool[data-sheet='open'] .tool__side {
+    display: flex;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 5;
-    height: 42dvh;
+    height: min(45dvh, 420px);
     border-radius: var(--radius-card) var(--radius-card) 0 0;
     box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.25);
   }
-  .mk-editor .tool[data-sheet='closed'] .tool__side { height: auto; }
-  .mk-editor .tool[data-sheet='closed'] .tabpanel { display: none; }
-  .mk-editor .tabs [role='tab'] { padding: 14px 4px; min-height: 52px; }
+  .mk-editor .sheet__bar {
+    position: relative;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-bottom: 1px solid var(--bd);
+  }
+  .mk-editor .sheet__grip { width: 40px; height: 4px; border-radius: 99px; background: var(--bd-ctl); }
+  .mk-editor .sheet__close {
+    position: absolute;
+    right: 4px;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+}
+@media (min-width: 901px) {
+  .mk-editor .sheet__bar { display: none; }
 }
 
 /* ---- Iconos propios (src/components/Icon.jsx) ---- */
@@ -175,5 +231,4 @@
     clip: rect(0 0 0 0);
     white-space: nowrap;
   }
-  .mk-editor .tool__bar button { min-width: 48px; }
 }

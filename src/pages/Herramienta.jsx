@@ -4,6 +4,7 @@ import { useAuth } from '../auth/AuthContext.jsx';
 import { request } from '../lib/api.js';
 import { toEditorDesign } from '../lib/designs.js';
 import usePageTitle from '../hooks/usePageTitle.js';
+import Icon from '../components/Icon.jsx';
 import SaveDesignDialog from '../components/SaveDesignDialog.jsx';
 import EditorMarkup from './herramienta/EditorMarkup.jsx';
 import { initEditor } from './herramienta/initEditor.js';
@@ -27,6 +28,24 @@ export default function Herramienta() {
   const [current, setCurrent] = useState(null); // diseño abierto: { ...ficha, isMine }
   const [dialogOpen, setDialogOpen] = useState(false);
   const [notice, setNotice] = useState(null); // { text, error?, link? }
+  const [stripOpen, setStripOpen] = useState(false); // móvil: tira de iconos desplegada con la hamburguesa
+  // El marcado del editor no cambia nunca: se pinta una sola vez para que React no deshaga lo que hace el editor sobre el DOM.
+  const markup = useMemo(() => <EditorMarkup />, []);
+
+  // En móvil la herramienta ocupa toda la pantalla: la cabecera de la web queda reducida al logo (ver Layout.css).
+  useEffect(() => {
+    document.body.classList.add('is-tool');
+    return () => document.body.classList.remove('is-tool');
+  }, []);
+
+  // Al plegar la tira también se pliega la hoja de ajustes.
+  const firstStrip = useRef(true);
+  useEffect(() => {
+    if (firstStrip.current) { firstStrip.current = false; return; }
+    if (stripOpen) return;
+    const tool = rootRef.current && rootRef.current.querySelector('.tool');
+    if (tool) tool.dataset.sheet = 'closed';
+  }, [stripOpen]);
 
   // El editor y las pestañas trabajan sobre el DOM que acaba de pintar EditorMarkup.
   useEffect(() => {
@@ -108,6 +127,16 @@ export default function Herramienta() {
   return (
     <div className="container tool-page">
       <div className="tool-page__head">
+        <button
+          type="button"
+          className="tool-page__menu"
+          aria-label={stripOpen ? 'Ocultar herramientas' : 'Mostrar herramientas'}
+          aria-expanded={stripOpen}
+          aria-controls="tool-strip"
+          onClick={() => setStripOpen((v) => !v)}
+        >
+          <Icon name={stripOpen ? 'cerrar' : 'menu'} size={22} />
+        </button>
         <div className="tool-page__titles">
           <h1>Herramienta de diseño</h1>
           <p className="muted">Versión de prueba · los colores son aproximados.</p>
@@ -115,7 +144,9 @@ export default function Herramienta() {
         <div className="tool-page__actions">
           {current && <span className="tool-page__current muted" title={current.title}>{current.title}</span>}
           <button type="button" className="btn btn--small" onClick={onSaveClick} disabled={loading}>
-            {current?.isMine ? 'Guardar cambios' : 'Guardar en mi perfil'}
+            <Icon name="guardar-cuenta" size={18} />
+            <span className="tool-page__savelong">{current?.isMine ? 'Guardar cambios' : 'Guardar en mi perfil'}</span>
+            <span className="tool-page__saveshort">Guardar</span>
           </button>
         </div>
       </div>
@@ -133,8 +164,8 @@ export default function Herramienta() {
         )}
       </div>
 
-      <div className="mk-editor" ref={rootRef}>
-        <EditorMarkup />
+      <div className="mk-editor" ref={rootRef} data-strip={stripOpen ? 'open' : 'closed'}>
+        {markup}
       </div>
 
       <SaveDesignDialog open={dialogOpen} initial={initial} editing={Boolean(current?.isMine)}

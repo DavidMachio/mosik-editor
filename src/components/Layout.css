@@ -127,3 +127,13 @@ main:focus {
     transform: translateY(-60px) rotate(90deg);
   }
 }
+
+/* Herramienta en móvil: la cabecera se reduce al logo (que lleva al inicio) y se quita el pie */
+@media (max-width: 900px) {
+  body.is-tool .site-header__inner { min-height: 40px; padding-top: 2px; padding-bottom: 2px; flex-wrap: nowrap; }
+  body.is-tool .site-header .site-nav,
+  body.is-tool .site-header .theme-toggle,
+  body.is-tool .site-header__beads,
+  body.is-tool .site-footer { display: none; }
+  body.is-tool { overflow: hidden; }
+}
