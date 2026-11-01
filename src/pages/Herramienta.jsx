@@ -135,12 +135,9 @@ export default function Herramienta() {
           aria-controls="tool-strip"
           onClick={() => setStripOpen((v) => !v)}
         >
-          <Icon name={stripOpen ? 'cerrar' : 'menu'} size={22} />
+          <Icon name={stripOpen ? 'cerrar' : 'pincel'} size={22} />
         </button>
-        <div className="tool-page__titles">
-          <h1>Herramienta de diseño</h1>
-          <p className="muted">Versión de prueba · los colores son aproximados.</p>
-        </div>
+        <h1 className="sr-only">Herramienta de diseño</h1>
         <div className="tool-page__actions">
           {current && <span className="tool-page__current muted" title={current.title}>{current.title}</span>}
           <button type="button" className="btn btn--small" onClick={onSaveClick} disabled={loading}>
