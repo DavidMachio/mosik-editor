@@ -103,5 +103,5 @@
 @media (min-width: 901px) {
   body.is-tool .tool-page { position: fixed; inset: 0; width: 100%; max-width: none; margin: 0; padding: 0; z-index: 1; }
   .tool-page__head { display: none; }
-  .tool-page__notices { position: absolute; top: 72px; left: 72px; z-index: 8; max-width: 420px; }
+  .tool-page__notices { position: absolute; top: 12px; left: 352px; z-index: 8; max-width: min(460px, calc(100vw - 700px)); }
 }

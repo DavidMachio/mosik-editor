@@ -245,7 +245,7 @@ function ColeccionPagina({ col }) {
               ))}
             </ul>
             <p className="muted evo-colors__note">Las cuentas son una por píxel del diseño. Los códigos son los más cercanos de la gama {GAMAS[gama].nombre}; revisa el recuento con un 10 % de margen.</p>
-            <Link to="/herramienta" className="btn evo-colors__cta"><Icon name="pincel" size={18} /> Crear el mío en la herramienta</Link>
+            <Link to={`/herramienta?modelo=${col.slug}&fase=${fase.id}&gama=${gama}&pines=${pines}`} className="btn evo-colors__cta"><Icon name="pincel" size={18} /> Editar el mío</Link>
           </div>
         </div>
       </section>

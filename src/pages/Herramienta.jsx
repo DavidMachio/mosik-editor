@@ -71,6 +71,25 @@ export default function Herramienta() {
     return () => { cancelled = true; };
   }, [designId, loading, user]);
 
+  // Abrir un modelo de una colección: /herramienta?modelo=SLUG&fase=ID&gama=m|s&pines=29. Se trabaja sobre una copia:
+  // al guardar se crea un diseño nuevo (el modelo original no se toca).
+  const modeloKey = `${params.get('modelo') || ''}|${params.get('fase') || ''}|${params.get('gama') || ''}|${params.get('pines') || ''}`;
+  useEffect(() => {
+    const slug = params.get('modelo');
+    if (designId || !slug || loadedRef.current === `modelo:${modeloKey}`) return undefined;
+    let cancelled = false;
+    import('../data/colecciones/modelo.js').then(({ modeloAEditor }) => {
+      if (cancelled || !editorRef.current) return;
+      const r = modeloAEditor(slug, params.get('fase'), params.get('gama'), Number(params.get('pines')));
+      if (!r) { setNotice({ text: 'No hemos encontrado ese modelo.', error: true }); return; }
+      editorRef.current.importDesign(r.data);
+      loadedRef.current = `modelo:${modeloKey}`;
+      setCurrent({ id: null, title: r.titulo, tags: [], isMine: false, isModel: true });
+      setNotice({ text: `Modelo «${r.titulo}» abierto. Trabajas sobre una copia: al guardarlo se crea un diseño nuevo en tu perfil.` });
+    });
+    return () => { cancelled = true; };
+  }, [designId, modeloKey]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Recuperar el diseño que se estaba haciendo antes de ir a iniciar sesión
   useEffect(() => {
     if (designId || loading || !user || !editorRef.current) return;
@@ -165,7 +184,7 @@ export default function Herramienta() {
             {notice.text} {notice.link && <Link to={notice.link.to}>{notice.link.label}</Link>}
           </p>
         )}
-        {current && !current.isMine && (
+        {current && !current.isMine && !current.isModel && (
           <p className="tool-page__notice">
             Abierto desde «{current.title}» de @{current.ownerUsername}. Al guardar se creará una copia tuya.
           </p>
