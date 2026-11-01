@@ -353,3 +353,16 @@
   .mk-editor .tool__bar button.on { background: #d35f03; border-color: #d35f03; color: #fff; }
   .mk-editor .tool__status { padding: 6px 10px; background: var(--pn); border: 1px solid var(--bd); border-radius: 8px; font-size: 12.5px; }
 }
+
+/* Panel izquierdo de capas (solo escritorio) */
+.mk-editor .tool__layers { display: none; }
+@media (min-width: 901px) {
+  .mk-editor .tool { grid-template-columns: 64px 230px minmax(0, 1fr) minmax(330px, 380px); }
+  .mk-editor .tool__layers { display: block; min-height: 0; padding: 10px; overflow-y: auto; background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); }
+  .mk-editor .tool__layers .pn { margin: 0; padding: 0; border: 0; background: transparent; }
+  .mk-editor .tool__layers table { width: 100%; font-size: 12px; }
+  .mk-editor .tool__layers .mu { font-size: 11.5px; }
+}
+@media (min-width: 901px) and (max-width: 1180px) {
+  .mk-editor .tool { grid-template-columns: 64px 190px minmax(0, 1fr) 320px; }
+}

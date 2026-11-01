@@ -25,6 +25,7 @@ export default function EditorMarkup() {
 <button type="button" id="reset" title="Resetear tablero: quita todas las cuentas; la imagen se queda"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
 </div>
 </div>
+<aside className="tool__layers" id="tool-layers" aria-label="Capas del diseño"></aside>
 <div className="tool__stage">
 <div className="tool__stagebar">
 <label className="tool__zoom">Zoom <input type="range" id="zoom" min="3" max="48" step="0.5" defaultValue="16" title="Acerca o aleja todo junto: tablero, cuentas e imagen. También con Ctrl + rueda." /></label>
@@ -95,8 +96,8 @@ export default function EditorMarkup() {
 <div className="row" id="cur"></div>
 <div id="pal"></div>
 </section>
-<section className="pn">
-<h3>Cuentas usadas</h3>
+<section className="pn" id="sec-capas">
+<h3>Capas · cuentas usadas</h3>
 <div id="cnt" className="mu">Sin cuentas todavía</div>
 </section>
 </div>

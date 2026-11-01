@@ -20,11 +20,22 @@ export function initTabs(root) {
       side.insertBefore(list, side.querySelector('.tabpanel'));
     }
   }
+  // En escritorio las capas por color viven en un panel izquierdo propio; en móvil vuelven a la pestaña Paleta.
+  const layers = root.querySelector('#tool-layers');
+  const capas = root.querySelector('#sec-capas');
+  const palPanel = root.querySelector('#tp-paleta');
+  function placeLayers() {
+    if (!layers || !capas || !palPanel) return;
+    if (mq.matches) { if (capas.parentElement !== palPanel) palPanel.appendChild(capas); }
+    else if (capas.parentElement !== layers) layers.appendChild(capas);
+  }
+  placeLayers();
   placeList();
   // En móvil el dibujo ocupa toda la pantalla: los ajustes empiezan cerrados.
   if (mq.matches) tool.dataset.sheet = 'closed';
   function onMq() {
     placeList();
+    placeLayers();
     tool.dataset.sheet = mq.matches ? 'closed' : 'open';
     syncExpanded();
   }
@@ -91,6 +102,7 @@ export function initTabs(root) {
     list.removeEventListener('keydown', onKeyDown);
     mq.removeEventListener('change', onMq);
     if (closeBtn) closeBtn.removeEventListener('click', onClose);
+    if (palPanel && capas && capas.parentElement !== palPanel) palPanel.appendChild(capas);
     if (side && list && list.parentElement !== side) side.insertBefore(list, side.querySelector('.tabpanel'));
   };
 }
