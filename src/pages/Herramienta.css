@@ -98,3 +98,10 @@
 
 .tool-page .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .tool-page { padding-top: 8px; }
+
+/* Escritorio: el botón de guardar y el nombre del diseño flotan a la derecha de la barra superior de la herramienta */
+@media (min-width: 901px) {
+  .tool-page { position: relative; padding-top: 12px; }
+  .tool-page__head { position: absolute; top: 12px; right: 16px; z-index: 3; margin: 0; height: 44px; align-items: flex-start; }
+  .tool-page__notices { position: absolute; top: 70px; right: 16px; z-index: 4; max-width: 420px; }
+}

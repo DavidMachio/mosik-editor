@@ -153,3 +153,12 @@ body.is-tool .site-header__panel .theme-toggle { margin: 4px 0 0; align-self: fl
 @media (max-width: 900px) {
   body.is-tool { overflow: hidden; }
 }
+
+/* Escritorio: en la herramienta la cabecera desaparece; el menú sale del botón con la cuenta de Mosik (esquina de la herramienta) */
+@media (min-width: 901px) {
+  body.is-tool .site-header { border: 0; background: transparent; }
+  body.is-tool .site-header__inner { min-height: 0; padding: 0; height: 0; }
+  body.is-tool .site-header__brand,
+  body.is-tool .site-header__menu { display: none; }
+  body.is-tool .site-header__panel { position: fixed; top: 66px; left: 16px; }
+}

@@ -366,3 +366,49 @@
 @media (min-width: 901px) and (max-width: 1180px) {
   .mk-editor .tool { grid-template-columns: 64px 190px minmax(0, 1fr) 320px; }
 }
+
+/* ===== Escritorio, versión final: barra superior de iconos + barra de opciones + raíl + lienzo ===== */
+.mk-editor .tool__corner { display: none; }
+@media (min-width: 901px) {
+  .mk-editor .tool {
+    grid-template-columns: 64px auto minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+    grid-template-areas: "corner tabs tabs" "corner opts opts" "rail layers stage";
+    height: calc(100dvh - 76px);
+    min-height: 520px;
+    gap: 8px 12px;
+  }
+  .mk-editor .tool__corner {
+    grid-area: corner; display: grid; place-items: center; align-self: start; width: 64px; height: 52px;
+    background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); cursor: pointer; padding: 0;
+  }
+  .mk-editor .tool__corner:hover { background: var(--ac-soft); }
+  .mk-editor .tool__bar { grid-area: rail; }
+  .mk-editor .tool__stage { grid-area: stage; }
+  .mk-editor .tool__layers { grid-area: layers; width: 230px; }
+  .mk-editor .tool[data-layers='closed'] .tool__layers { display: none; }
+  .mk-editor .tool__group--layers { margin-top: auto; border-bottom: 0; }
+
+  /* El panel lateral desaparece como caja: sus pestañas pasan a la barra superior y sus paneles a la barra de opciones */
+  .mk-editor .tool__side { display: contents; }
+  .mk-editor .sheet__bar { display: none; }
+  .mk-editor .tabs {
+    grid-area: tabs; align-self: start; width: max-content; max-width: calc(100% - 300px); gap: 6px; padding: 4px 6px;
+    background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); height: 52px; align-items: center;
+  }
+  .mk-editor .tabs [role='tab'] {
+    position: relative; flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+    border: 1px solid transparent; border-radius: 12px;
+  }
+  .mk-editor .tabs .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mk-editor .tabs [role='tab'][aria-selected='true'][aria-expanded='true'] { background: #d35f03; border-color: #d35f03; color: #fff; }
+  .mk-editor .tabs [role='tab'][aria-selected='true'][aria-expanded='false'] { background: var(--ac-soft); border-color: var(--ac-bd); }
+  .mk-editor .tool[data-sheet='closed'] .tabpanel { display: none; }
+  .mk-editor .tabpanel {
+    grid-area: opts; display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 12px; max-height: 200px; padding: 10px; justify-self: start; max-width: 100%;
+    overflow: auto; background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card);
+  }
+  .mk-editor .tabpanel .pn { flex: 0 0 auto; width: 340px; margin: 0; }
+  .mk-editor .tabpanel #pal { max-height: 96px; overflow-y: auto; }
+}
+@media (max-width: 900px) { .mk-editor .tool__group--layers { display: none; } }

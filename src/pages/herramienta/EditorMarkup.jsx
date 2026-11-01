@@ -7,7 +7,8 @@ import Icon from '../../components/Icon.jsx';
 export default function EditorMarkup() {
   return (
     <>
-<div className="tool" data-sheet="open">
+<div className="tool" data-sheet="open" data-layers="open">
+<button type="button" className="tool__corner" id="beadmenu" aria-label="Menú de Mosik" title="Menú de Mosik"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><circle cx="16" cy="16" r="9.5" fill="none" stroke="#F57E36" strokeWidth="6.5" /></svg></button>
 <div className="tool__bar" id="tool-strip" role="toolbar" aria-label="Herramientas de dibujo">
 <div className="tool__group" id="tools">
 <button type="button" data-t="move" className="on" title="Mano (V): mueve la imagen o la vista"><span aria-hidden="true"><Icon name="mover" size={22} /></span><span className="lbl">Mano</span></button>
@@ -24,6 +25,7 @@ export default function EditorMarkup() {
 <button type="button" id="redo" title="Rehacer (Ctrl+Y)"><span aria-hidden="true"><Icon name="rehacer" size={22} /></span><span className="lbl">Rehacer</span></button>
 <button type="button" id="reset" title="Resetear tablero: quita todas las cuentas; la imagen se queda"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
 </div>
+<div className="tool__group tool__group--layers"><button type="button" id="layersbtn" aria-pressed="true" aria-controls="tool-layers" title="Capas: mostrar u ocultar las cuentas por color"><span aria-hidden="true"><Icon name="capas" size={22} /></span><span className="lbl">Capas</span></button></div>
 </div>
 <aside className="tool__layers" id="tool-layers" aria-label="Capas del diseño"></aside>
 <div className="tool__stage">
@@ -49,10 +51,10 @@ export default function EditorMarkup() {
 <aside className="tool__side" aria-label="Controles">
 <div className="sheet__bar"><span className="sheet__grip" aria-hidden="true"></span><button type="button" className="sheet__close" aria-label="Cerrar ajustes"><Icon name="cerrar" size={18} /></button></div>
 <div role="tablist" aria-label="Paneles de la herramienta" className="tabs">
-<button type="button" role="tab" id="tab-tablero" aria-controls="tp-tablero" aria-selected="true" tabIndex={0}><Icon name="tablero" size={18} /><span className="lbl">Tablero e imagen</span></button>
-<button type="button" role="tab" id="tab-paleta" aria-controls="tp-paleta" aria-selected="false" tabIndex={-1}><Icon name="paleta" size={18} /><span className="lbl">Paleta</span></button>
-<button type="button" role="tab" id="tab-colores" aria-controls="tp-colores" aria-selected="false" tabIndex={-1}><Icon name="gamas" size={18} /><span className="lbl">Colores y gamas</span></button>
-<button type="button" role="tab" id="tab-descargar" aria-controls="tp-descargar" aria-selected="false" tabIndex={-1}><Icon name="descargar" size={18} /><span className="lbl">Descargar</span></button>
+<button type="button" role="tab" id="tab-tablero" title="Tablero e imagen" aria-controls="tp-tablero" aria-selected="true" tabIndex={0}><Icon name="tablero" size={18} /><span className="lbl">Tablero e imagen</span></button>
+<button type="button" role="tab" id="tab-paleta" title="Paleta" aria-controls="tp-paleta" aria-selected="false" tabIndex={-1}><Icon name="paleta" size={18} /><span className="lbl">Paleta</span></button>
+<button type="button" role="tab" id="tab-colores" title="Colores y gamas" aria-controls="tp-colores" aria-selected="false" tabIndex={-1}><Icon name="gamas" size={18} /><span className="lbl">Colores y gamas</span></button>
+<button type="button" role="tab" id="tab-descargar" title="Descargar" aria-controls="tp-descargar" aria-selected="false" tabIndex={-1}><Icon name="descargar" size={18} /><span className="lbl">Descargar</span></button>
 </div>
 <div role="tabpanel" className="tabpanel" id="tp-tablero" aria-labelledby="tab-tablero">
 <section className="pn">

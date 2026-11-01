@@ -13,9 +13,14 @@ export default function Layout() {
   const { pathname } = useLocation();
   useEffect(() => { setMenuOpen(false); }, [pathname]);
   useEffect(() => {
+    const toggle = () => setMenuOpen((v) => !v);
+    window.addEventListener('mosik:menu', toggle);
+    return () => window.removeEventListener('mosik:menu', toggle);
+  }, []);
+  useEffect(() => {
     if (!menuOpen) return undefined;
     const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
-    const onDown = (e) => { if (!e.target.closest('.site-header')) setMenuOpen(false); };
+    const onDown = (e) => { if (!e.target.closest('.site-header') && !e.target.closest('#beadmenu')) setMenuOpen(false); };
     document.addEventListener('keydown', onKey);
     document.addEventListener('pointerdown', onDown);
     return () => { document.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onDown); };

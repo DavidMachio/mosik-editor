@@ -31,6 +31,18 @@ export function initTabs(root) {
   }
   placeLayers();
   placeList();
+  // Escritorio: el panel de capas se muestra u oculta con su botón del raíl; los ajustes empiezan abiertos en la Paleta.
+  const layersBtn = root.querySelector('#layersbtn');
+  function onLayers() {
+    const open = tool.dataset.layers !== 'closed';
+    tool.dataset.layers = open ? 'closed' : 'open';
+    layersBtn.setAttribute('aria-pressed', String(!open));
+    layersBtn.classList.toggle('on', !open);
+  }
+  if (layersBtn) { layersBtn.classList.add('on'); layersBtn.addEventListener('click', onLayers); }
+  const beadBtn = root.querySelector('#beadmenu');
+  const onBead = () => window.dispatchEvent(new Event('mosik:menu'));
+  if (beadBtn) beadBtn.addEventListener('click', onBead);
   // En móvil el dibujo ocupa toda la pantalla: los ajustes empiezan cerrados.
   if (mq.matches) tool.dataset.sheet = 'closed';
   function onMq() {
@@ -58,8 +70,7 @@ export function initTabs(root) {
 
   function syncExpanded() {
     tabs.forEach((t) => {
-      if (mq.matches) t.setAttribute('aria-expanded', String(tool.dataset.sheet !== 'closed' && t.getAttribute('aria-selected') === 'true'));
-      else t.removeAttribute('aria-expanded');
+      t.setAttribute('aria-expanded', String(tool.dataset.sheet !== 'closed' && t.getAttribute('aria-selected') === 'true'));
     });
   }
 
@@ -67,11 +78,11 @@ export function initTabs(root) {
     const tab = e.target.closest('[role="tab"]');
     if (!tab) return;
     const alreadySelected = tab.getAttribute('aria-selected') === 'true';
-    if (mq.matches && alreadySelected) {
+    if (alreadySelected) {
       tool.dataset.sheet = tool.dataset.sheet === 'closed' ? 'open' : 'closed';
     } else {
       select(tab);
-      if (mq.matches) tool.dataset.sheet = 'open';
+      tool.dataset.sheet = 'open';
     }
     syncExpanded();
   }
@@ -88,19 +99,22 @@ export function initTabs(root) {
     e.preventDefault();
     select(next);
     next.focus();
-    if (mq.matches) tool.dataset.sheet = 'open';
+    tool.dataset.sheet = 'open';
     syncExpanded();
   }
 
   list.addEventListener('click', onClick);
   list.addEventListener('keydown', onKeyDown);
   mq.addEventListener('change', onMq);
+  if (!mq.matches) select(root.querySelector('#tab-paleta'));
   syncExpanded();
 
   return () => {
     list.removeEventListener('click', onClick);
     list.removeEventListener('keydown', onKeyDown);
     mq.removeEventListener('change', onMq);
+    if (layersBtn) layersBtn.removeEventListener('click', onLayers);
+    if (beadBtn) beadBtn.removeEventListener('click', onBead);
     if (closeBtn) closeBtn.removeEventListener('click', onClose);
     if (palPanel && capas && capas.parentElement !== palPanel) palPanel.appendChild(capas);
     if (side && list && list.parentElement !== side) side.insertBefore(list, side.querySelector('.tabpanel'));
