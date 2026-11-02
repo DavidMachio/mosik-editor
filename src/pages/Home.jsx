@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { request } from '../lib/api.js';
 import usePageTitle from '../hooks/usePageTitle.js';
 import useReveal from '../hooks/useReveal.js';
+import ToolDemo from '../components/ToolDemo.jsx';
 import Carrusel from '../components/Carrusel.jsx';
 import ColeccionBanner from '../components/ColeccionBanner.jsx';
 import { COLECCIONES_FICHA, porSlug } from '../data/colecciones/index.js';
@@ -85,54 +86,53 @@ export default function Home() {
         );
       })}
 
-      {/* Portada: una tarjeta oscura grande y dos pequeñas */}
-      <section className="container bento-wrap" aria-labelledby="hero-titulo">
-        <div className="bento bento--hero">
-          <div className="tile tile--dark tile--glow hero">
-            <div className="hero__inner">
-              <p className="pill pill--ondark">Herramienta de diseño</p>
-              <h1 id="hero-titulo">Crea tu propio diseño de cuentas para planchar</h1>
-              <p className="hero__lead">
-                Sube una imagen, colócala sobre la rejilla y cuenta con la lista exacta de colores y
-                cuentas que necesitas.
-              </p>
-              <div className="hero__actions">
-                <Link to="/herramienta" className="btn btn--big">
-                  Abrir la herramienta <Icon name="flecha" size={18} />
-                </Link>
-                <Link to="/galeria" className="btn btn--big btn--ondark">Ver la galería</Link>
-              </div>
-              <ul className="hero__feats">
-                {AYUDAS.map((a) => (
-                  <li key={a.titulo}>
-                    <span className="icon-tile icon-tile--ondark"><Icon name={a.icono} size={22} /></span>
-                    <span>
-                      <b>{a.titulo}</b>
-                      <small>{a.texto}</small>
-                    </span>
-                  </li>
-                ))}
-              </ul>
+      {/* Portada: la tarjeta de la herramienta ocupa todo el ancho y casi todo el alto; debajo, dos tarjetas */}
+      <section className="container bento-wrap bento-wrap--wide" aria-labelledby="hero-titulo">
+        <div className="tile tile--dark tile--glow hero hero--full">
+          <div className="hero__inner">
+            <p className="pill pill--ondark">Herramienta de diseño</p>
+            <h1 id="hero-titulo">Crea tu propio diseño de cuentas para planchar</h1>
+            <p className="hero__lead">
+              Sube una imagen, colócala sobre la rejilla y cuenta con la lista exacta de colores y
+              cuentas que necesitas.
+            </p>
+            <div className="hero__actions">
+              <Link to="/herramienta" className="btn btn--big">
+                Abrir la herramienta <Icon name="flecha" size={18} />
+              </Link>
+              <Link to="/galeria" className="btn btn--big btn--ondark">Ver la galería</Link>
             </div>
+            <ul className="hero__feats">
+              {AYUDAS.map((a) => (
+                <li key={a.titulo}>
+                  <span className="icon-tile icon-tile--ondark"><Icon name={a.icono} size={22} /></span>
+                  <span>
+                    <b>{a.titulo}</b>
+                    <small>{a.texto}</small>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
+          <div className="hero__demo"><ToolDemo /></div>
+        </div>
 
-          <div className="bento__side">
-            <div className="tile tile--light">
-              {designs[0] ? (
-                <DesignCard design={designs[0]} />
-              ) : (
-                <div className="tile__empty">
-                  <span className="icon-tile"><Icon name="cuentas" size={24} /></span>
-                  <p className="muted">Tu primer diseño aparecerá aquí cuando lo compartas en la galería.</p>
-                </div>
-              )}
-            </div>
-            <div className="tile tile--warm">
-              <span className="icon-tile icon-tile--warm"><Icon name="guardar-cuenta" size={22} /></span>
-              <h2 className="tile__title">Guarda tus diseños</h2>
-              <p>Crea una cuenta para guardar lo que hagas y compartirlo en la galería. Para descargar el archivo no hace falta.</p>
-              <Link to="/registro" className="btn btn--ghost">Crear cuenta</Link>
-            </div>
+        <div className="bento__row">
+          <div className="tile tile--light">
+            {designs[0] ? (
+              <DesignCard design={designs[0]} />
+            ) : (
+              <div className="tile__empty">
+                <span className="icon-tile"><Icon name="cuentas" size={24} /></span>
+                <p className="muted">Tu primer diseño aparecerá aquí cuando lo compartas en la galería.</p>
+              </div>
+            )}
+          </div>
+          <div className="tile tile--warm">
+            <span className="icon-tile icon-tile--warm"><Icon name="guardar-cuenta" size={22} /></span>
+            <h2 className="tile__title">Guarda tus diseños</h2>
+            <p>Crea una cuenta para guardar lo que hagas y compartirlo en la galería. Para descargar el archivo no hace falta.</p>
+            <Link to="/registro" className="btn btn--ghost">Crear cuenta</Link>
           </div>
         </div>
       </section>
