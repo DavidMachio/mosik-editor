@@ -28,10 +28,17 @@ export function initTabs(root) {
   const layers = root.querySelector('#tool-layers');
   const capas = root.querySelector('#sec-capas');
   const palPanel = root.querySelector('#tp-paleta');
+  const grupos = root.querySelector('#sec-grupos');
+  const tabPanel = root.querySelector('#tp-tablero');
   function placeLayers() {
     if (!layers || !capas || !palPanel) return;
-    if (mq.matches) { if (capas.parentElement !== palPanel) palPanel.appendChild(capas); }
-    else if (capas.parentElement !== layers) layers.appendChild(capas);
+    if (mq.matches) {
+      if (capas.parentElement !== palPanel) palPanel.appendChild(capas);
+      if (grupos && tabPanel && grupos.parentElement !== tabPanel) tabPanel.insertBefore(grupos, tabPanel.firstChild);
+    } else {
+      if (grupos && grupos.parentElement !== layers) layers.insertBefore(grupos, layers.firstChild);
+      if (capas.parentElement !== layers) layers.appendChild(capas);
+    }
   }
   placeLayers();
   placeList();
@@ -121,6 +128,7 @@ export function initTabs(root) {
     if (beadBtn) beadBtn.removeEventListener('click', onBead);
     if (closeBtn) closeBtn.removeEventListener('click', onClose);
     if (palPanel && capas && capas.parentElement !== palPanel) palPanel.appendChild(capas);
+    if (grupos && tabPanel && grupos.parentElement !== tabPanel) tabPanel.insertBefore(grupos, tabPanel.firstChild);
     if (topbar && list && list.parentElement !== topbar) topbar.insertBefore(list, saveBtn);
   };
 }

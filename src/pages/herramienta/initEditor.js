@@ -50,7 +50,27 @@ const imgT={s:1,x:0,y:0,rot:0,flip:false};let hist=[],redo=[];
 const cv=$('cv'),ctx=cv.getContext('2d'),cvbox=$('cvbox');
 let FOCUS=null; // null = todo el diseño · {r,c} = ver una sola placa (tablero)
 function newGrid(c,r,old){const g=Array.from({length:r},()=>Array(c).fill(null));if(old)for(let y=0;y<Math.min(r,old.length);y++)for(let x=0;x<Math.min(c,old[0].length);x++)g[y][x]=old[y][x];return g}
-function snap(){return JSON.stringify(grid)}
+// ---- Capas (grupos): cada una con sus cuentas y, si la tiene, su imagen guía. La de arriba tapa a las de abajo. ----
+// Los globales grid/img/imgT/ajustes de imagen siempre son los de la capa ACTIVA; las demás se guardan en su objeto.
+let layers=[],activeL=0,lseq=0,pendingLayerName='';const layerById={};
+const imgUi=()=>({op:$('op').value,showimg:$('showimg').checked,isc:$('isc').value,lock:$('lock').checked});
+function mkLayer(name,g,id){const L={id:id||++lseq,name:name||('Capa '+(id||lseq)),visible:true,grid:g||newGrid(COLS,ROWS),img:null,imgT:null,ui:null};if(id&&id>lseq)lseq=id;layerById[L.id]=L;return L}
+function saveActive(){const L=layers[activeL];if(!L)return;L.grid=grid;L.img=img;L.imgT={...imgT};L.ui=imgUi()}
+function loadActive(){const L=layers[activeL];grid=L.grid;img=L.img;imgCv=null;imgDirty=true;
+ Object.assign(imgT,L.imgT||{s:1,x:0,y:0,rot:0,flip:false});if(!L.imgT){imgT.rot=0;imgT.flip=false}
+ const u=L.ui||{op:85,showimg:true,isc:100,lock:false};$('op').value=u.op;$('showimg').checked=u.showimg;$('isc').value=u.isc;$('lock').checked=u.lock;
+ $('rot').value=imgT.rot||0;$('rotv').textContent=(imgT.rot||0)+'°'}
+function cellCode(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];if(r&&r[x])return r[x]}return null}
+function compGrid(){const o=newGrid(COLS,ROWS);for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)o[y][x]=cellCode(x,y);return o}
+function mapLayers(fn){saveActive();layers.forEach(L=>{L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c))});grid=layers[activeL].grid}
+function selectLayer(i){if(i===activeL||i<0||i>=layers.length)return;saveActive();activeL=i;loadActive();renderLayers();draw()}
+function addLayer(name){push();saveActive();const L=mkLayer(name);layers.splice(activeL+1,0,L);activeL=activeL+1;loadActive();renderLayers();draw();return L}
+function ensureImageLayer(){const nm=pendingLayerName;pendingLayerName='';if(img){addLayer(nm||undefined)}else{const L=layers[activeL];if(nm&&/^Capa \d+$/.test(L.name)){L.name=nm;renderLayers()}}}
+const escH=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function renderLayers(){const ul=$('lylist');if(!ul)return;saveActive();
+ ul.innerHTML=layers.map((L,i)=>i).reverse().map(i=>{const L=layers[i];return `<li class="ly${i===activeL?' sel':''}${L.visible?'':' off'}" data-i="${i}"><button type="button" class="ly__eye" data-a="eye" aria-pressed="${L.visible}" aria-label="${L.visible?'Ocultar':'Mostrar'} ${escH(L.name)}" title="Mostrar u ocultar">${L.visible?'👁':'🚫'}</button><button type="button" class="ly__name" data-a="sel" title="Elegir esta capa (doble clic: renombrar)">${escH(L.name)}${L.img?' <i class="ly__img" title="Tiene imagen">▣</i>':''}</button><span class="ly__act"><button type="button" data-a="up" aria-label="Subir" title="Subir">↑</button><button type="button" data-a="down" aria-label="Bajar" title="Bajar">↓</button><button type="button" data-a="del" aria-label="Borrar capa" title="Borrar capa">✕</button></span></li>`}).join('')}
+function snap(){saveActive();return JSON.stringify({a:activeL,l:layers.map(L=>({id:L.id,n:L.name,v:L.visible,g:L.grid}))})}
+function restore(str){const o=JSON.parse(str);saveActive();layers=o.l.map(e=>{const L=layerById[e.id]||mkLayer(e.n,null,e.id);L.name=e.n;L.visible=e.v;L.grid=e.g;return L});activeL=Math.max(0,Math.min(o.a,layers.length-1));loadActive();renderLayers()}
 function push(){hist.push(snap());if(hist.length>80)hist.shift();redo=[];upd()}
 function upd(){$('undo').disabled=!hist.length;$('redo').disabled=!redo.length}
 function applyFocus(){
@@ -72,7 +92,7 @@ function applyBoard(keepMsg){
  const t=$('preset').value;if(t==='custom'){$('pdim').style.display='';PW=Math.max(5,Math.min(100,+$('cols').value||40));PH=Math.max(5,Math.min(100,+$('rows').value||40))}else{$('pdim').style.display='none';const[a,b]=t.split('x');PW=+a;PH=+b;$('cols').value=PW;$('rows').value=PH}
  if(platesKey==='custom'){PR=Math.max(1,Math.min(6,+$('pr').value||1));PC=Math.max(1,Math.min(6,+$('pc').value||1))}else{const p=PLATES.find(x=>x[0]===platesKey);PR=p[2];PC=p[3]}
  const c=PW*PC,r=PH*PR;if(c>300||r>300){$('boardinfo').textContent='Demasiado grande: máximo 300 cuentas por lado';return}
- if(c!==COLS||r!==ROWS){push();grid=newGrid(c,r,grid);COLS=c;ROWS=r;size()}else draw();
+ if(c!==COLS||r!==ROWS){push();saveActive();layers.forEach(L=>{L.grid=newGrid(c,r,L.grid)});grid=layers[activeL].grid;COLS=c;ROWS=r;size()}else draw();
  $('custom').classList.toggle('show',platesKey==='custom');
  $('cprev').innerHTML=plateSvg(PR,PC,54,40);
  const p=PLATES.find(x=>x[0]===platesKey);
@@ -93,7 +113,7 @@ function draw(){
  if(img&&$('showimg').checked){ctx.globalAlpha=$('op').value/100;paintImg(ctx);ctx.globalAlpha=1}
  const bo=$('bop').value/100,sb=$('showbeads').checked,sg=$('showgrid').checked;
  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){
-  let c=grid[y][x];if(c&&((solo.size&&!solo.has(c))||hidden.has(c)))c=null;const cx=x*CS+CS/2,cy=y*CS+CS/2;
+  let c=cellCode(x,y);if(c&&((solo.size&&!solo.has(c))||hidden.has(c)))c=null;const cx=x*CS+CS/2,cy=y*CS+CS/2;
   if(c&&sb){ctx.globalAlpha=bo;ctx.fillStyle=CODES[c].hex;
    if(VIEW==='pix'){ctx.fillRect(x*CS,y*CS,CS,CS);ctx.globalAlpha=1}
    else{ctx.beginPath();ctx.arc(cx,cy,CS/2-.7,0,7);ctx.fill();ctx.globalAlpha=Math.min(1,bo+.2);ctx.fillStyle='rgba(246,245,241,.9)';ctx.beginPath();ctx.arc(cx,cy,CS*.16,0,7);ctx.fill();ctx.globalAlpha=1}}
@@ -129,7 +149,7 @@ function moveMulti(){const[a,b]=[...pts.values()];const w=$('wrap');const d=Math
 cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pts.size===2){startMulti();return}if(pts.size>2)return;const c=cellAt(e);down=true;
  if(tool==='move'){const w=$('wrap');mv={x:e.clientX,y:e.clientY,ux:imgT.ux,uy:imgT.uy,sl:w.scrollLeft,st:w.scrollTop,pan:$('lock').checked||!img};cv.style.cursor='grabbing';return}
  if(!c)return;const[x,y]=c;
- if(tool==='pick'){const v=grid[y][x];if(v){cur=v;$('gama').value=CODES[v].g;renderPal()}down=false;return}
+ if(tool==='pick'){const v=cellCode(x,y);if(v){cur=v;$('gama').value=CODES[v].g;renderPal()}down=false;return}
  if(tool==='fill'){push();flood(x,y,cur);draw();down=false;return}
  push();last=c;applyAt(x,y);draw()});
 cv.addEventListener('pointermove',e=>{if(pts.has(e.pointerId))pts.set(e.pointerId,{x:e.clientX,y:e.clientY});if(multi){if(pts.size>=2)moveMulti();return}if(!down)return;
@@ -141,13 +161,13 @@ cv.addEventListener('pointermove',e=>{if(pts.has(e.pointerId))pts.set(e.pointerI
 const HELP={move:'Mano: arrastra para mover la imagen. Con dos dedos mueves la vista y haces zoom. Si la imagen está bloqueada, un dedo mueve la vista.',paint:'Pincel: pinta cuentas con el color elegido en la paleta.',erase:'Borrador: quita cuentas.',fill:'Bote: rellena una zona del mismo color.',pick:'Cuentagotas: toca una cuenta para elegir su color.',img:'Color de imagen: pinta cada celda con el color de paleta más cercano al de la imagen.'};
 function setTool(t){tool=t;document.querySelectorAll('[data-t]').forEach(x=>x.classList.toggle('on',x.dataset.t===t));cv.style.cursor=t==='move'?'grab':'crosshair';$('toolhelp').textContent=HELP[t]}
 ['tools','tools2'].forEach(i=>$(i).addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)setTool(b.dataset.t)}));
-$('undo').onclick=()=>{if(!hist.length)return;redo.push(snap());grid=JSON.parse(hist.pop());upd();draw()};
+$('undo').onclick=()=>{if(!hist.length)return;redo.push(snap());restore(hist.pop());upd();draw()};
 $('reset').onclick=()=>{if(!grid.some(r=>r.some(Boolean)))return;push();grid=newGrid(COLS,ROWS);draw();$('imgmsg').textContent='Tablero limpio. Si ha sido sin querer, pulsa Deshacer.'};
-$('redo').onclick=()=>{if(!redo.length)return;hist.push(snap());grid=JSON.parse(redo.pop());upd();draw()};
-$('pal').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const nc=b.dataset.c;if(recolorFrom){const f=recolorFrom;push();grid=grid.map(r=>r.map(v=>v===f?nc:v));if(solo.delete(f))solo.add(nc);if(hidden.delete(f))hidden.add(nc);recolorFrom=null;$('imgmsg').textContent=`${f} sustituido por ${nc}`;cur=nc;renderPal();draw();return}cur=nc;if(tool==='erase'||tool==='move')setTool('paint');renderPal()});
+$('redo').onclick=()=>{if(!redo.length)return;hist.push(snap());restore(redo.pop());upd();draw()};
+$('pal').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const nc=b.dataset.c;if(recolorFrom){const f=recolorFrom;push();mapLayers(v=>v===f?nc:v);if(solo.delete(f))solo.add(nc);if(hidden.delete(f))hidden.add(nc);recolorFrom=null;$('imgmsg').textContent=`${f} sustituido por ${nc}`;cur=nc;renderPal();draw();return}cur=nc;if(tool==='erase'||tool==='move')setTool('paint');renderPal()});
 ['gama','tipo'].forEach(i=>$(i).addEventListener('change',()=>{if(!palList().includes(cur))cur=palList()[0];renderPal()}));
 $('q').addEventListener('input',renderPal);
-$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const st=$('imgmsg');st.textContent='Cargando…';
+$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;pendingLayerName=f.name.replace(/\.[^.]+$/,'').slice(0,24);const st=$('imgmsg');st.textContent='Cargando…';
  const rd=new FileReader();
  rd.onerror=()=>{st.textContent='No se ha podido leer el archivo'};
  rd.onload=()=>{const i=new Image();
@@ -155,7 +175,7 @@ $('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const st=$('imgmsg
    // Pixel art: se lee cuadro a cuadro de inmediato (colores y tamaño recomendado), sin pasar por la previa de colocación.
    const prevImg=img,prevCv=imgCv;let pa=false;
    if(i.width*i.height<=4e6){img=i;imgCv=null;try{const R=analyzePixelArt();pa=!!(R&&R.ok&&EXACT)}catch(_){pa=false}if(!pa){EXACT=null;img=prevImg;imgCv=prevCv}}
-   if(pa){const k=Math.min(COLS/i.width,ROWS/i.height);imgT.us=k;imgT.ux=(COLS-i.width*k)/2;imgT.uy=(ROWS-i.height*k)/2;$('isc').value=100;imgT.rot=0;imgT.flip=false;$('rot').value=0;$('rotv').textContent='0°';$('showimg').checked=true;imgDirty=true;draw();autoReadPixelArt();return}
+   if(pa){img=prevImg;imgCv=prevCv;ensureImageLayer();img=i;imgCv=null;const k=Math.min(COLS/i.width,ROWS/i.height);imgT.us=k;imgT.ux=(COLS-i.width*k)/2;imgT.uy=(ROWS-i.height*k)/2;$('isc').value=100;imgT.rot=0;imgT.flip=false;$('rot').value=0;$('rotv').textContent='0°';$('showimg').checked=true;imgDirty=true;draw();autoReadPixelArt();return}
    st.textContent=`Imagen cargada (${i.width}×${i.height}). Colócala en la previa.`;openPreview(i)};
   i.onerror=()=>{st.textContent='El navegador no puede abrir este formato (¿HEIC?). Prueba con JPG o PNG.'};
   i.src=rd.result};
@@ -200,7 +220,7 @@ $('pvcancel').onclick=()=>{$('imgmsg').textContent='Imagen cancelada: el tablero
 $('pvok').onclick=()=>{if(!PV.img)return;const{W,H}=pvBoard();if(W>300||H>300)return;
  const key=PLATES.find(p=>p[0]!=='custom'&&p[2]===PV.pr&&p[3]===PV.pc);platesKey=key?key[0]:'custom';if(!key){$('pr').value=PV.pr;$('pc').value=PV.pc}
  document.querySelectorAll('.pi').forEach(x=>x.classList.toggle('sel',x.dataset.k===platesKey));applyBoard();
- img=PV.img;imgCv=null;imgT.us=PV.us;imgT.ux=PV.ux;imgT.uy=PV.uy;imgT.rot=PV.rot;imgT.flip=PV.flip;$('isc').value=100;$('rot').value=PV.rot;$('rotv').textContent=PV.rot+'°';$('showimg').checked=true;imgDirty=true;
+ ensureImageLayer();img=PV.img;imgCv=null;imgT.us=PV.us;imgT.ux=PV.ux;imgT.uy=PV.uy;imgT.rot=PV.rot;imgT.flip=PV.flip;$('isc').value=100;$('rot').value=PV.rot;$('rotv').textContent=PV.rot+'°';$('showimg').checked=true;imgDirty=true;
  $('imgmsg').textContent=`Imagen colocada (${img.width}×${img.height}) en ${PV.pr*PV.pc} ${PV.pr*PV.pc===1?'placa':'placas'}.`;closePreview();fitToScreen();draw();setTimeout(autoReadPixelArt,30)};
 // Arrastrar con un dedo mueve la imagen; con dos dedos se pellizca para cambiar su tamaño.
 pvcv.addEventListener('pointerdown',e=>{pvcv.setPointerCapture(e.pointerId);pvpts.set(e.pointerId,{x:e.clientX,y:e.clientY});
@@ -232,7 +252,7 @@ function syncPlateBar(){const n=PR*PC,bar=$('platebar');bar.hidden=n<2;if(n<2){F
  const i=plateIdx();$('platelabel').textContent=i<0?`Todo el diseño · ${n} tableros`:`Tablero ${i+1} de ${n} · F${FOCUS.r+1} · C${FOCUS.c+1}`}
 function thumb(x0,y0,w,h,wpx){const k=wpx/w,t=document.createElement('canvas'),dpr=window.devicePixelRatio||1;t.width=Math.round(wpx*dpr);t.height=Math.round(h*k*dpr);t.style.width=wpx+'px';t.style.height=(h*k)+'px';
  const c=t.getContext('2d');c.scale(dpr,dpr);c.fillStyle='#f6f5f1';c.fillRect(0,0,wpx,h*k);
- for(let y=0;y<h;y++)for(let x=0;x<w;x++){const v=grid[y0+y]&&grid[y0+y][x0+x];if(!v)continue;c.fillStyle=CODES[v].hex;c.fillRect(Math.floor(x*k),Math.floor(y*k),Math.ceil(k),Math.ceil(k))}return t}
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const v=cellCode(x0+x,y0+y);if(!v)continue;c.fillStyle=CODES[v].hex;c.fillRect(Math.floor(x*k),Math.floor(y*k),Math.ceil(k),Math.ceil(k))}return t}
 function buildTray(){const tray=$('platetray');tray.innerHTML='';const n=PR*PC,cur=plateIdx();
  const card=(i,label,cnv,aria)=>{const b=document.createElement('button');b.type='button';b.className='plates__card';b.setAttribute('aria-pressed',String(cur===i));b.setAttribute('aria-label',aria);b.appendChild(cnv);const l=document.createElement('span');l.textContent=label;b.appendChild(l);b.onclick=()=>{setFocus(i);closeTray()};return b};
  tray.appendChild(card(-1,'Todo',thumb(0,0,COLS,ROWS,56),'Ver todo el diseño'));
@@ -347,24 +367,24 @@ $('macc').onclick=()=>{
   $('imgmsg').textContent=`Leída cuadro a cuadro: ${E.W} × ${E.H} cuadros, ${plan.length} colores. La imagen queda alineada con la rejilla.`;draw();return}
  push();grid=newGrid(COLS,ROWS);assignPts(plan).forEach((ci,j)=>{const p=PT[j];grid[p.y][p.x]=plan[ci]});savedPlan=plan.slice();savedEXACT=null;$('editplan').disabled=false;solo.clear();hidden.clear();
  $('modal').classList.remove('show');$('imgmsg').textContent=`Rellenado con ${plan.length} colores. Puedes volver a editarlos con «Editar colores del relleno».`;draw()};
-$('reduce').onclick=()=>{const K=Math.max(2,Math.min(60,+$('nk').value||8));let m={};grid.forEach(r=>r.forEach(c=>{if(c)m[c]=(m[c]||0)+1}));
+$('reduce').onclick=()=>{const K=Math.max(2,Math.min(60,+$('nk').value||8));let m={};compGrid().forEach(r=>r.forEach(c=>{if(c)m[c]=(m[c]||0)+1}));
  if(Object.keys(m).length<=K){$('imgmsg').textContent='El diseño ya tiene '+Object.keys(m).length+' colores o menos';return}
  push();const map={};Object.keys(m).forEach(c=>map[c]=c);
  while(Object.keys(m).length>K){const ks=Object.keys(m);let best=null;for(let i=0;i<ks.length;i++)for(let j=i+1;j<ks.length;j++){const a=ks[i],b=ks[j],cost=de(LAB[a],LAB[b])*Math.sqrt(Math.min(m[a],m[b]));if(!best||cost<best.c)best={c:cost,a,b}}
   const keep=m[best.a]>=m[best.b]?best.a:best.b,gone=keep===best.a?best.b:best.a;m[keep]+=m[gone];delete m[gone];Object.keys(map).forEach(k=>{if(map[k]===gone)map[k]=keep})}
- grid=grid.map(r=>r.map(c=>c?map[c]:c));solo.clear();hidden.clear();$('imgmsg').textContent=`Reducido a ${Object.keys(m).length} colores`;draw()};
-$('conv').onclick=()=>{const used=[...new Set(grid.flat().filter(Boolean))];if(!used.length){$('convmsg').textContent='No hay cuentas que convertir';return}
+ mapLayers(c=>map[c]||c);solo.clear();hidden.clear();$('imgmsg').textContent=`Reducido a ${Object.keys(m).length} colores`;draw()};
+$('conv').onclick=()=>{const used=[...new Set(compGrid().flat().filter(Boolean))];if(!used.length){$('convmsg').textContent='No hay cuentas que convertir';return}
  const r=convertDesign(used,$('uniq').checked);const mp={};r.rows.forEach(x=>mp[x.o]=x.d);
- push();grid=grid.map(row=>row.map(c=>c&&mp[c]?mp[c]:c));
+ push();mapLayers(c=>mp[c]?mp[c]:c);
  const g=r.g==='m'?'s':'m';$('gama').value=g;cur=Object.values(mp)[0]||cur;renderPal();
  const fus=used.length-new Set(Object.values(mp)).size;const med=r.rows.reduce((a,x)=>a+x.de,0)/r.rows.length;
  $('convmsg').textContent=`Convertido a ${g==='s'?'Midi':'Mini'}: ${r.rows.length} colores, ΔE medio ${med.toFixed(1)}${fus?`, ${fus} colores fundidos`:''}${r.otros&&r.otros.length?`. Ya estaban en la otra gama: ${r.otros.join(', ')}`:''}`;draw()};
-function counts(){const all={},m={};let t=0;grid.forEach((r,y)=>r.forEach((c,x)=>{if(c){all[c]=(all[c]||0)+1;if(!FOCUS||(x>=FOCUS.c*PW&&x<(FOCUS.c+1)*PW&&y>=FOCUS.r*PH&&y<(FOCUS.r+1)*PH)){m[c]=(m[c]||0)+1;t++}}}));
+function counts(){const all={},m={};let t=0;compGrid().forEach((r,y)=>r.forEach((c,x)=>{if(c){all[c]=(all[c]||0)+1;if(!FOCUS||(x>=FOCUS.c*PW&&x<(FOCUS.c+1)*PW&&y>=FOCUS.r*PH&&y<(FOCUS.r+1)*PH)){m[c]=(m[c]||0)+1;t++}}}));
  [...solo].forEach(c=>{if(!all[c])solo.delete(c)});[...hidden].forEach(c=>{if(!all[c])hidden.delete(c)});
  const scope=FOCUS?`<div class="mu" style="margin-bottom:4px"><b>Tablero ${FOCUS.r*PC+FOCUS.c+1}</b>: solo las cuentas de este tablero.</div>`:'';
  const ks=Object.keys(m).sort((a,b)=>m[b]-m[a]);if(!ks.length){$('cnt').innerHTML=scope+(FOCUS?'Sin cuentas en este tablero':'Sin cuentas todavía');return m}
  const mg=n=>Math.ceil(n*1.1/10)*10;
- $('cnt').innerHTML=scope+`<div class="mu" style="margin-bottom:4px">Capas por color: pulsa un color para ver solo ese, 👁 para ocultarlo, «Cambiar» para sustituirlo por otro.</div>`+(solo.size||hidden.size?'<div class="row"><button id="showall">Mostrar todos</button></div>':'')+`<table><tr><th>Capa</th><th>Cuentas</th><th>+10 %</th><th></th></tr>${ks.map(c=>`<tr data-c="${c}" style="${solo.has(c)?'background:rgba(232,115,28,.18)':''}${hidden.has(c)?';opacity:.45':''}"><td class="lay" style="cursor:pointer"><i class="sw" style="background:${CODES[c].hex}"></i>${c}</td><td>${m[c]}</td><td>${mg(m[c])}</td><td style="white-space:nowrap"><button class="eye" style="padding:2px 6px">${hidden.has(c)?'🚫':'👁'}</button> <button class="chg" style="padding:2px 6px${recolorFrom===c?';background:var(--ac);color:#fff':''}">Cambiar</button></td></tr>`).join('')}<tr><th>Total</th><th>${t}</th><th>${ks.reduce((a,c)=>a+mg(m[c]),0)}</th><th></th></tr></table><div class="mu" style="margin-top:4px">${ks.length} colores · ${COLS}×${ROWS}</div>`;return m}
+ $('cnt').innerHTML=scope+`<div class="mu" style="margin-bottom:4px">Colores: pulsa un color para ver solo ese, 👁 para ocultarlo, «Cambiar» para sustituirlo por otro.</div>`+(solo.size||hidden.size?'<div class="row"><button id="showall">Mostrar todos</button></div>':'')+`<table><tr><th>Color</th><th>Cuentas</th><th>+10 %</th><th></th></tr>${ks.map(c=>`<tr data-c="${c}" style="${solo.has(c)?'background:rgba(232,115,28,.18)':''}${hidden.has(c)?';opacity:.45':''}"><td class="lay" style="cursor:pointer"><i class="sw" style="background:${CODES[c].hex}"></i>${c}</td><td>${m[c]}</td><td>${mg(m[c])}</td><td style="white-space:nowrap"><button class="eye" style="padding:2px 6px">${hidden.has(c)?'🚫':'👁'}</button> <button class="chg" style="padding:2px 6px${recolorFrom===c?';background:var(--ac);color:#fff':''}">Cambiar</button></td></tr>`).join('')}<tr><th>Total</th><th>${t}</th><th>${ks.reduce((a,c)=>a+mg(m[c]),0)}</th><th></th></tr></table><div class="mu" style="margin-top:4px">${ks.length} colores · ${COLS}×${ROWS}</div>`;return m}
 $('cnt').addEventListener('click',e=>{
  if(e.target.id==='showall'){solo.clear();hidden.clear();draw();return}
  const tr=e.target.closest('tr[data-c]');if(!tr)return;const c=tr.dataset.c;
@@ -372,12 +392,12 @@ $('cnt').addEventListener('click',e=>{
  if(e.target.closest('.chg')){recolorFrom=recolorFrom===c?null:c;$('imgmsg').textContent=recolorFrom?`Elige en la paleta el color que sustituirá a ${c}`:'';$('pal').scrollIntoView&&0;draw();return}
  if(e.target.closest('.lay')){solo.has(c)?solo.delete(c):solo.add(c);hidden.delete(c);draw()}});
 function dl(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
-$('save').onclick=()=>dl('diseno-rejilla.json',new Blob([JSON.stringify({v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid})],{type:'application/json'}));
-function loadDesignObject(d){if(d.gama&&$('gama')&&$('gama').value!==d.gama){$('gama').value=d.gama;$('gama').dispatchEvent(new Event('change'))}FOCUS=null;push();COLS=d.cols;ROWS=d.rows;grid=d.grid;PW=d.pw||COLS;PH=d.ph||ROWS;PR=d.pr||1;PC=d.pc||1;$('cols').value=PW;$('rows').value=PH;const std=['40x40','29x29','20x20'].includes(PW+'x'+PH);$('preset').value=std?PW+'x'+PH:'custom';platesKey=(PLATES.find(x=>x[2]===PR&&x[3]===PC&&x[0]!=='custom')||['custom'])[0];$('pr').value=PR;$('pc').value=PC;size();solo.clear();hidden.clear();applyBoard();fitToScreen()}
+$('save').onclick=()=>dl('diseno-rejilla.json',new Blob([JSON.stringify({v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:compGrid()})],{type:'application/json'}));
+function loadDesignObject(d){if(d.gama&&$('gama')&&$('gama').value!==d.gama){$('gama').value=d.gama;$('gama').dispatchEvent(new Event('change'))}FOCUS=null;push();COLS=d.cols;ROWS=d.rows;grid=d.grid;{const oldImg=img,oldT={...imgT},oldUi=imgUi();layers=[mkLayer('Capa 1',grid)];activeL=0;layers[0].img=oldImg;layers[0].imgT=oldT;layers[0].ui=oldUi;renderLayers()}PW=d.pw||COLS;PH=d.ph||ROWS;PR=d.pr||1;PC=d.pc||1;$('cols').value=PW;$('rows').value=PH;const std=['40x40','29x29','20x20'].includes(PW+'x'+PH);$('preset').value=std?PW+'x'+PH:'custom';platesKey=(PLATES.find(x=>x[2]===PR&&x[3]===PC&&x[0]!=='custom')||['custom'])[0];$('pr').value=PR;$('pc').value=PC;size();solo.clear();hidden.clear();applyBoard();fitToScreen()}
 $('load').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>loadDesignObject(JSON.parse(t)))};
-$('csv').onclick=()=>{const m={};grid.forEach(r=>r.forEach(c=>{if(c)m[c]=(m[c]||0)+1}));dl('cuentas.csv',new Blob(['codigo;cuentas;con_margen_10\n'+Object.keys(m).sort().map(c=>`${c};${m[c]};${Math.ceil(m[c]*1.1/10)*10}`).join('\n')],{type:'text/csv'}))};
+$('csv').onclick=()=>{const m={};compGrid().forEach(r=>r.forEach(c=>{if(c)m[c]=(m[c]||0)+1}));dl('cuentas.csv',new Blob(['codigo;cuentas;con_margen_10\n'+Object.keys(m).sort().map(c=>`${c};${m[c]};${Math.ceil(m[c]*1.1/10)*10}`).join('\n')],{type:'text/csv'}))};
 $('png').onclick=()=>{const o=document.createElement('canvas'),k=20;o.width=COLS*k;o.height=ROWS*k;const c=o.getContext('2d');c.fillStyle='#f6f5f1';c.fillRect(0,0,o.width,o.height);
- for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){const v=grid[y][x];if(!v)continue;c.fillStyle=CODES[v].hex;if(VIEW==='pix'){c.fillRect(x*k,y*k,k,k);continue}c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
+ for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){const v=cellCode(x,y);if(!v)continue;c.fillStyle=CODES[v].hex;if(VIEW==='pix'){c.fillRect(x*k,y*k,k,k);continue}c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
  if($('guides').checked)drawGuides(c,k,1);
  o.toBlob(b=>dl('diseno-rejilla.png',b))};
 
@@ -394,29 +414,36 @@ function renderStrip(){const f=$('famsel').value,l=scaleFor(f);$('famstrip').inn
 $('famsel').innerHTML=['Grises','Rojos','Rosas','Naranjas','Marrones','Amarillos','Verdes','Turquesas','Azules','Morados'].map(f=>`<option>${f}</option>`).join('');
 $('famsel').addEventListener('change',renderStrip);$('gama').addEventListener('change',renderStrip);
 function mapScale(f){const sc=scaleFor(f);if(!sc.length){$('scmsg').textContent='No hay escala de '+f+' en esta gama';return}
- const used=[...new Set(grid.flat().filter(Boolean))];if(!used.length){$('scmsg').textContent='No hay cuentas que convertir';return}
+ const used=[...new Set(compGrid().flat().filter(Boolean))];if(!used.length){$('scmsg').textContent='No hay cuentas que convertir';return}
  const Ls=used.map(c=>LAB[c][0]),lo=Math.min(...Ls),hi=Math.max(...Ls),sL=sc.map(c=>LAB[c][0]),smin=Math.min(...sL),smax=Math.max(...sL);
  const mp={};used.forEach((c,i)=>{const L=Ls[i],t=$('stretch').checked&&hi>lo?smin+(L-lo)/(hi-lo)*(smax-smin):L;let b=0,bd=1e9;sL.forEach((v,j)=>{const d=Math.abs(v-t);if(d<bd){bd=d;b=j}});mp[c]=sc[b]});
- push();grid=grid.map(r=>r.map(c=>c?mp[c]:c));solo.clear();hidden.clear();
+ push();mapLayers(c=>mp[c]||c);solo.clear();hidden.clear();
  const n=new Set(Object.values(mp)).size;$('scmsg').textContent=`Escala de ${f.toLowerCase()} aplicada: ${used.length} colores → ${n} tonos`+(n<used.length?` (${used.length-n} se han fundido porque la escala tiene menos pasos)`:'')+'.';draw()}
 $('togray').onclick=()=>mapScale('Grises');$('toscale').onclick=()=>mapScale($('famsel').value);
 renderStrip();
-grid=newGrid(COLS,ROWS);renderPal();size();upd();setTool('move');document.querySelector('.pi[data-k="1x1"]').classList.add('sel');applyBoard();
+grid=newGrid(COLS,ROWS);layers=[mkLayer('Capa 1',grid)];activeL=0;renderLayers();renderPal();size();upd();setTool('move');document.querySelector('.pi[data-k="1x1"]').classList.add('sel');applyBoard();
 
 // Diseño actual en el formato v2 del archivo JSON, más una vista previa PNG pequeña y el número de cuentas.
 function exportDesign(){
-  let beads=0;grid.forEach(r=>r.forEach(c=>{if(c)beads++}));
+  const G=compGrid();let beads=0;G.forEach(r=>r.forEach(c=>{if(c)beads++}));
   const k=Math.max(2,Math.min(12,Math.floor(360/Math.max(COLS,ROWS))));
   const o=document.createElement('canvas');o.width=COLS*k;o.height=ROWS*k;const c=o.getContext('2d');
   c.fillStyle='#f6f5f1';c.fillRect(0,0,o.width,o.height);
-  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){const v=grid[y][x];if(!v)continue;c.fillStyle=CODES[v].hex;
+  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){const v=G[y][x];if(!v)continue;c.fillStyle=CODES[v].hex;
     if(k<6||VIEW==='pix'){c.fillRect(x*k,y*k,k,k);continue}
     c.beginPath();c.arc(x*k+k/2,y*k+k/2,k/2-1,0,7);c.fill();c.fillStyle='rgba(246,245,241,.9)';c.beginPath();c.arc(x*k+k/2,y*k+k/2,k*.16,0,7);c.fill()}
-  return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid},preview:o.toDataURL('image/png'),beads};
+  return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G},preview:o.toDataURL('image/png'),beads};
 }
+$('lyadd').onclick=()=>addLayer();
+$('lylist').addEventListener('click',e=>{const b=e.target.closest('[data-a]');const li=e.target.closest('li[data-i]');if(!b||!li)return;const i=+li.dataset.i,a=b.dataset.a;
+ if(a==='sel')selectLayer(i);
+ else if(a==='eye'){push();layers[i].visible=!layers[i].visible;renderLayers();draw()}
+ else if(a==='up'||a==='down'){const j=a==='up'?i+1:i-1;if(j<0||j>=layers.length)return;push();saveActive();const act=layers[activeL];[layers[i],layers[j]]=[layers[j],layers[i]];activeL=layers.indexOf(act);renderLayers();draw()}
+ else if(a==='del'){if(layers.length<2){$('imgmsg').textContent='Tiene que quedar al menos una capa.';return}push();saveActive();const act=layers[activeL];layers.splice(i,1);activeL=Math.max(0,Math.min(layers.indexOf(act)>=0?layers.indexOf(act):Math.min(i,layers.length-1),layers.length-1));loadActive();renderLayers();draw()}});
+$('lylist').addEventListener('dblclick',e=>{const li=e.target.closest('li[data-i]');if(!li||!e.target.closest('.ly__name'))return;const L=layers[+li.dataset.i];const n=window.prompt('Nombre de la capa',L.name);if(n&&n.trim()){push();L.name=n.trim().slice(0,30);renderLayers()}});
 function exportMontaje(){
-    const hex={};let beads=0;grid.forEach(r=>r.forEach(c=>{if(c){beads++;hex[c]=CODES[c].hex}}));
-    return {beads,hex,data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid}};
+    const G=compGrid();const hex={};let beads=0;G.forEach(r=>r.forEach(c=>{if(c){beads++;hex[c]=CODES[c].hex}}));
+    return {beads,hex,data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G}};
   }
   return { exportMontaje, destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
 }

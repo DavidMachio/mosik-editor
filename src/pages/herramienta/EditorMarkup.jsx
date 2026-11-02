@@ -23,7 +23,7 @@ export default function EditorMarkup() {
 <div className="tool__group">
 <button type="button" id="undo" title="Deshacer (Ctrl+Z)"><span aria-hidden="true"><Icon name="deshacer" size={22} /></span><span className="lbl">Deshacer</span></button>
 <button type="button" id="redo" title="Rehacer (Ctrl+Y)"><span aria-hidden="true"><Icon name="rehacer" size={22} /></span><span className="lbl">Rehacer</span></button>
-<button type="button" id="reset" title="Resetear tablero: quita todas las cuentas; la imagen se queda"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
+<button type="button" id="reset" title="Vaciar la capa activa: quita sus cuentas; la imagen se queda"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
 </div>
 <div className="tool__group tool__group--assemble"><button type="button" id="montajebtn" title="Enviar el diseño a montaje: colócalo cuenta a cuenta, color a color"><span aria-hidden="true"><Icon name="cuentas" size={22} /></span><span className="lbl">Montaje</span></button></div>
 <div className="tool__group tool__group--layers"><button type="button" id="layersbtn" aria-pressed="true" aria-controls="tool-layers" title="Capas: mostrar u ocultar las cuentas por color"><span aria-hidden="true"><Icon name="capas" size={22} /></span><span className="lbl">Capas</span></button></div>
@@ -62,6 +62,12 @@ export default function EditorMarkup() {
 <aside className="tool__side" aria-label="Controles">
 <div className="sheet__bar"><span className="sheet__grip" aria-hidden="true"></span><button type="button" className="sheet__close" aria-label="Cerrar ajustes"><Icon name="cerrar" size={18} /></button></div>
 <div role="tabpanel" className="tabpanel" id="tp-tablero" aria-labelledby="tab-tablero">
+<section className="pn" id="sec-grupos">
+<h3>Capas</h3>
+<div className="row"><button type="button" id="lyadd" className="ico"><Icon name="mas" size={18} /> Capa nueva</button></div>
+<ul id="lylist" className="ly-list" aria-label="Capas del diseño (la de arriba tapa a las de abajo)"></ul>
+<div className="mu">Cada imagen que subes crea su propia capa. Lo que pintas va a la capa elegida; la de arriba tapa a las de abajo.</div>
+</section>
 <section className="pn">
 <h3>Tablero</h3>
 <div className="row">
@@ -104,7 +110,7 @@ export default function EditorMarkup() {
 <div id="pal"></div>
 </section>
 <section className="pn" id="sec-capas">
-<h3>Capas · cuentas usadas</h3>
+<h3>Colores usados</h3>
 <div id="cnt" className="mu">Sin cuentas todavía</div>
 </section>
 </div>
