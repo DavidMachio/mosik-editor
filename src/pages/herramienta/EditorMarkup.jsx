@@ -11,7 +11,7 @@ export default function EditorMarkup() {
 
 <div className="tool__bar" id="tool-strip" role="toolbar" aria-label="Herramientas de dibujo">
 <div className="tool__group" id="tools">
-<button type="button" data-t="move" className="on" title="Mano (V): mueve la imagen o la vista"><span aria-hidden="true"><Icon name="mover" size={22} /></span><span className="lbl">Mano</span></button>
+<button type="button" data-t="move" className="on" title="Mano (V): mueve la capa activa cuenta a cuenta; con Mayús, solo la imagen"><span aria-hidden="true"><Icon name="mover" size={22} /></span><span className="lbl">Mano</span></button>
 <button type="button" data-t="paint" title="Pincel (B)"><span aria-hidden="true"><Icon name="pincel" size={22} /></span><span className="lbl">Pincel</span></button>
 <button type="button" data-t="erase" title="Borrador (E)"><span aria-hidden="true"><Icon name="borrador" size={22} /></span><span className="lbl">Borrador</span></button>
 </div>

@@ -62,15 +62,21 @@ function loadActive(){const L=layers[activeL];grid=L.grid;img=L.img;imgCv=null;i
  $('rot').value=imgT.rot||0;$('rotv').textContent=(imgT.rot||0)+'°'}
 function cellCode(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];if(r&&r[x])return r[x]}return null}
 function compGrid(){const o=newGrid(COLS,ROWS);for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)o[y][x]=cellCode(x,y);return o}
-function mapLayers(fn){saveActive();layers.forEach(L=>{L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c))});grid=layers[activeL].grid}
+function mapLayers(fn){saveActive();layers.forEach(L=>{L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c));if(L.spill)L.spill=L.spill.map(a=>[a[0],a[1],fn(a[2])])});grid=layers[activeL].grid}
+// Mover las cuentas de la capa activa. Lo que sale del tablero no se pierde: queda guardado en «spill» y vuelve al regresar.
+function shiftLayer(dx,dy){const L=layers[activeL];const n=newGrid(COLS,ROWS);const sp=[];
+ const put=(x,y,c)=>{if(x>=0&&y>=0&&x<COLS&&y<ROWS){if(!n[y][x])n[y][x]=c}else sp.push([x,y,c])};
+ for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){const c=grid[y][x];if(c)put(x+dx,y+dy,c)}
+ (L.spill||[]).forEach(a=>put(a[0]+dx,a[1]+dy,a[2]));
+ grid=n;L.grid=n;L.spill=sp}
 function selectLayer(i){if(i===activeL||i<0||i>=layers.length)return;saveActive();activeL=i;loadActive();renderLayers();draw()}
 function addLayer(name){push();saveActive();const L=mkLayer(name);layers.splice(activeL+1,0,L);activeL=activeL+1;loadActive();renderLayers();draw();return L}
 function ensureImageLayer(){const nm=pendingLayerName;pendingLayerName='';if(img){addLayer(nm||undefined)}else{const L=layers[activeL];if(nm&&/^Capa \d+$/.test(L.name)){L.name=nm;renderLayers()}}}
 const escH=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function renderLayers(){const ul=$('lylist');if(!ul)return;saveActive();
  ul.innerHTML=layers.map((L,i)=>i).reverse().map(i=>{const L=layers[i];return `<li class="ly${i===activeL?' sel':''}${L.visible?'':' off'}" data-i="${i}"><button type="button" class="ly__eye" data-a="eye" aria-pressed="${L.visible}" aria-label="${L.visible?'Ocultar':'Mostrar'} ${escH(L.name)}" title="Mostrar u ocultar">${L.visible?'👁':'🚫'}</button><button type="button" class="ly__name" data-a="sel" title="Elegir esta capa (doble clic: renombrar)">${escH(L.name)}${L.img?' <i class="ly__img" title="Tiene imagen">▣</i>':''}</button><span class="ly__act"><button type="button" data-a="up" aria-label="Subir" title="Subir">↑</button><button type="button" data-a="down" aria-label="Bajar" title="Bajar">↓</button><button type="button" data-a="del" aria-label="Borrar capa" title="Borrar capa">✕</button></span></li>`}).join('')}
-function snap(){saveActive();return JSON.stringify({a:activeL,l:layers.map(L=>({id:L.id,n:L.name,v:L.visible,g:L.grid}))})}
-function restore(str){const o=JSON.parse(str);saveActive();layers=o.l.map(e=>{const L=layerById[e.id]||mkLayer(e.n,null,e.id);L.name=e.n;L.visible=e.v;L.grid=e.g;return L});activeL=Math.max(0,Math.min(o.a,layers.length-1));loadActive();renderLayers()}
+function snap(){saveActive();return JSON.stringify({a:activeL,l:layers.map(L=>({id:L.id,n:L.name,v:L.visible,g:L.grid,sp:L.spill||[],t:L.imgT}))})}
+function restore(str){const o=JSON.parse(str);saveActive();layers=o.l.map(e=>{const L=layerById[e.id]||mkLayer(e.n,null,e.id);L.name=e.n;L.visible=e.v;L.grid=e.g;L.spill=e.sp||[];if(e.t)L.imgT=e.t;return L});activeL=Math.max(0,Math.min(o.a,layers.length-1));loadActive();renderLayers()}
 function push(){hist.push(snap());if(hist.length>80)hist.shift();redo=[];upd()}
 function upd(){$('undo').disabled=!hist.length;$('redo').disabled=!redo.length}
 function applyFocus(){
@@ -147,22 +153,29 @@ function moveMulti(){const[a,b]=[...pts.values()];const w=$('wrap');const d=Math
  if(!multi.zoom){if(Math.abs(d/multi.d-1)<0.12)return;multi.zoom=true;multi.d=d;multi.z=+$('zoom').value;return}
  const nz=Math.max(3,Math.min(48,Math.round(multi.z*d/multi.d*2)/2));if(nz!==+$('zoom').value)zoomAt(nz,cx,cy)}
 cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pts.size===2){startMulti();return}if(pts.size>2)return;const c=cellAt(e);down=true;
- if(tool==='move'){const w=$('wrap');mv={x:e.clientX,y:e.clientY,ux:imgT.ux,uy:imgT.uy,sl:w.scrollLeft,st:w.scrollTop,pan:$('lock').checked||!img};cv.style.cursor='grabbing';return}
+ if(tool==='move'){const w=$('wrap');const hasB=grid.some(r=>r.some(Boolean))||(layers[activeL].spill||[]).length>0;
+  // Con cuentas en la capa, la Mano las mueve de cuenta en cuenta (y la imagen con ellas). Con Mayús solo se mueve la imagen.
+  const lay=hasB&&!$('lock').checked&&!e.shiftKey;
+  mv={x:e.clientX,y:e.clientY,ux:imgT.ux,uy:imgT.uy,sl:w.scrollLeft,st:w.scrollTop,pan:$('lock').checked||(!img&&!lay),lay,cx:0,cy:0,pushed:false};cv.style.cursor='grabbing';return}
  if(!c)return;const[x,y]=c;
  if(tool==='pick'){const v=cellCode(x,y);if(v){cur=v;$('gama').value=CODES[v].g;renderPal()}down=false;return}
  if(tool==='fill'){push();flood(x,y,cur);draw();down=false;return}
  push();last=c;applyAt(x,y);draw()});
 cv.addEventListener('pointermove',e=>{if(pts.has(e.pointerId))pts.set(e.pointerId,{x:e.clientX,y:e.clientY});if(multi){if(pts.size>=2)moveMulti();return}if(!down)return;
- if(tool==='move'&&mv){if(mv.pan){const w=$('wrap');w.scrollLeft=mv.sl-(e.clientX-mv.x);w.scrollTop=mv.st-(e.clientY-mv.y);return}const r=cv.getBoundingClientRect(),k=cv.width/r.width;imgT.ux=mv.ux+(e.clientX-mv.x)*k/CS;imgT.uy=mv.uy+(e.clientY-mv.y)*k/CS;imgDirty=true;draw();return}
+ if(tool==='move'&&mv){if(mv.pan){const w=$('wrap');w.scrollLeft=mv.sl-(e.clientX-mv.x);w.scrollTop=mv.st-(e.clientY-mv.y);return}const r=cv.getBoundingClientRect(),k=cv.width/r.width;
+  if(mv.lay){const cx=Math.round((e.clientX-mv.x)*k/CS),cy=Math.round((e.clientY-mv.y)*k/CS),dx=cx-mv.cx,dy=cy-mv.cy;if(!dx&&!dy)return;
+   if(!mv.pushed){push();mv.pushed=true}
+   shiftLayer(dx,dy);if(img&&imgT.ux!=null){imgT.ux+=dx;imgT.uy+=dy;imgDirty=true}mv.cx=cx;mv.cy=cy;draw();return}
+  imgT.ux=mv.ux+(e.clientX-mv.x)*k/CS;imgT.uy=mv.uy+(e.clientY-mv.y)*k/CS;imgDirty=true;draw();return}
  const c=cellAt(e);if(!c||!last)return;
  let[x0,y0]=last,[x1,y1]=c;const n=Math.max(Math.abs(x1-x0),Math.abs(y1-y0),1);for(let i=1;i<=n;i++){applyAt(Math.round(x0+(x1-x0)*i/n),Math.round(y0+(y1-y0)*i/n))}
  last=c;draw()});
 ['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,e=>{pts.delete(e.pointerId);if(pts.size<2)multi=null;down=false;last=null;mv=null;if(tool==='move')cv.style.cursor='grab'}));
-const HELP={move:'Mano: arrastra para mover la imagen. Con dos dedos mueves la vista y haces zoom. Si la imagen está bloqueada, un dedo mueve la vista.',paint:'Pincel: pinta cuentas con el color elegido en la paleta.',erase:'Borrador: quita cuentas.',fill:'Bote: rellena una zona del mismo color.',pick:'Cuentagotas: toca una cuenta para elegir su color.',img:'Color de imagen: pinta cada celda con el color de paleta más cercano al de la imagen.'};
+const HELP={move:'Mano: arrastra para mover la capa activa, cuenta a cuenta (con su imagen). Mayús: mueve solo la imagen. Con dos dedos mueves la vista y haces zoom. Si la imagen está bloqueada, un dedo mueve la vista.',paint:'Pincel: pinta cuentas con el color elegido en la paleta.',erase:'Borrador: quita cuentas.',fill:'Bote: rellena una zona del mismo color.',pick:'Cuentagotas: toca una cuenta para elegir su color.',img:'Color de imagen: pinta cada celda con el color de paleta más cercano al de la imagen.'};
 function setTool(t){tool=t;document.querySelectorAll('[data-t]').forEach(x=>x.classList.toggle('on',x.dataset.t===t));cv.style.cursor=t==='move'?'grab':'crosshair';$('toolhelp').textContent=HELP[t]}
 ['tools','tools2'].forEach(i=>$(i).addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)setTool(b.dataset.t)}));
 $('undo').onclick=()=>{if(!hist.length)return;redo.push(snap());restore(hist.pop());upd();draw()};
-$('reset').onclick=()=>{if(!grid.some(r=>r.some(Boolean)))return;push();grid=newGrid(COLS,ROWS);draw();$('imgmsg').textContent='Tablero limpio. Si ha sido sin querer, pulsa Deshacer.'};
+$('reset').onclick=()=>{if(!grid.some(r=>r.some(Boolean)))return;push();grid=newGrid(COLS,ROWS);layers[activeL].spill=[];draw();$('imgmsg').textContent='Capa vaciada. Si ha sido sin querer, pulsa Deshacer.'};
 $('redo').onclick=()=>{if(!redo.length)return;hist.push(snap());restore(redo.pop());upd();draw()};
 $('pal').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const nc=b.dataset.c;if(recolorFrom){const f=recolorFrom;push();mapLayers(v=>v===f?nc:v);if(solo.delete(f))solo.add(nc);if(hidden.delete(f))hidden.add(nc);recolorFrom=null;$('imgmsg').textContent=`${f} sustituido por ${nc}`;cur=nc;renderPal();draw();return}cur=nc;if(tool==='erase'||tool==='move')setTool('paint');renderPal()});
 ['gama','tipo'].forEach(i=>$(i).addEventListener('change',()=>{if(!palList().includes(cur))cur=palList()[0];renderPal()}));
@@ -361,11 +374,11 @@ $('macc').onclick=()=>{
   if(E.W>COLS||E.H>ROWS){const PR2=Math.ceil(E.H/PH),PC2=Math.ceil(E.W/PW);if(PR2>6||PC2>6||PC2*PW>300||PR2*PH>300){$('mwarn').textContent='No cabe: la imagen necesita más de 6 × 6 placas. Sube el tamaño de placa.';return}
    platesKey='custom';$('pr').value=Math.max(PR,PR2);$('pc').value=Math.max(PC,PC2);applyBoard()}
   const ox=Math.floor((COLS-E.W)/2),oy=Math.floor((ROWS-E.H)/2);
-  push();grid=newGrid(COLS,ROWS);PT.forEach(p=>{grid[p.y+oy][p.x+ox]=plan[p.k]});
+  push();grid=newGrid(COLS,ROWS);layers[activeL].spill=[];PT.forEach(p=>{grid[p.y+oy][p.x+ox]=plan[p.k]});
   imgT.us=1/E.cell;imgT.ux=ox-E.bx/E.cell;imgT.uy=oy-E.by/E.cell;imgT.rot=0;imgT.flip=false;$('rot').value=0;$('rotv').textContent='0°';$('isc').value=100;$('showimg').checked=true;imgDirty=true;
   savedEXACT=E;savedPlan=null;$('editplan').disabled=false;solo.clear();hidden.clear();$('modal').classList.remove('show');
   $('imgmsg').textContent=`Leída cuadro a cuadro: ${E.W} × ${E.H} cuadros, ${plan.length} colores. La imagen queda alineada con la rejilla.`;draw();return}
- push();grid=newGrid(COLS,ROWS);assignPts(plan).forEach((ci,j)=>{const p=PT[j];grid[p.y][p.x]=plan[ci]});savedPlan=plan.slice();savedEXACT=null;$('editplan').disabled=false;solo.clear();hidden.clear();
+ push();grid=newGrid(COLS,ROWS);layers[activeL].spill=[];assignPts(plan).forEach((ci,j)=>{const p=PT[j];grid[p.y][p.x]=plan[ci]});savedPlan=plan.slice();savedEXACT=null;$('editplan').disabled=false;solo.clear();hidden.clear();
  $('modal').classList.remove('show');$('imgmsg').textContent=`Rellenado con ${plan.length} colores. Puedes volver a editarlos con «Editar colores del relleno».`;draw()};
 $('reduce').onclick=()=>{const K=Math.max(2,Math.min(60,+$('nk').value||8));let m={};compGrid().forEach(r=>r.forEach(c=>{if(c)m[c]=(m[c]||0)+1}));
  if(Object.keys(m).length<=K){$('imgmsg').textContent='El diseño ya tiene '+Object.keys(m).length+' colores o menos';return}
