@@ -480,3 +480,18 @@
 .mk-editor .ly-list--drag { user-select: none; }
 .mk-editor .ly.drop-above { box-shadow: 0 -4px 0 -1px #d35f03; }
 .mk-editor .ly.drop-end { box-shadow: 0 4px 0 -1px #d35f03; }
+
+/* Popover de transformar */
+.mk-editor .trpop { position: fixed; z-index: 20; left: 50%; bottom: 92px; transform: translateX(-50%); width: min(360px, calc(100vw - 16px)); padding: 12px; background: var(--pn); border: 1px solid var(--bd); border-radius: var(--radius-card); box-shadow: 0 14px 36px rgba(0, 0, 0, .28); }
+.mk-editor .trpop[hidden] { display: none; }
+.mk-editor .trpop__t { margin: 0 0 8px; font-weight: 700; font-size: 14px; }
+.mk-editor .trpop__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.mk-editor .trpop__grid button { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 10px; font-size: 13.5px; font-weight: 600; text-align: left; }
+.mk-editor .trpop__v { display: inline-flex; transform: rotate(90deg); }
+.mk-editor .trpop .mu { margin: 8px 0 0; font-size: 12.5px; }
+@media (max-width: 900px) { .mk-editor .trpop { bottom: 12px; } .mk-editor .tool__group--transform { display: flex; } }
+@media (min-width: 901px) and (max-width: 1560px) {
+  .mk-editor .tool__zoom { max-width: 96px; font-size: 0; }
+  .mk-editor .tool__zoom input { width: 96px; }
+  .mk-editor .tool__bar { left: calc(50% - 70px); }
+}

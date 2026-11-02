@@ -524,9 +524,44 @@ $('spadd').onclick=()=>{if(!expandToFit()){$('spwarn').textContent='No cabe: har
 $('lyfile').onchange=e=>{forceNext=true;$('file').onchange({target:e.target})};
 {const vaciar=$('reset').onclick;$('reset').onclick=()=>{saveActive();const hay=layers.some(L=>L.grid.some(r=>r.some(Boolean))||(L.spill||[]).length);if(!hay){vaciar();return}
  confirmar({titulo:'¿Vaciar el tablero?',texto:'Se quitarán las cuentas de todas las capas. Las capas y sus imágenes se quedan. Puedes recuperarlo con «Deshacer».',boton:'Vaciar'},()=>vaciar())}}
+// ---- Transformar la capa activa (cuentas + imagen): voltear, girar 90° y escalar ×2 / ÷2, alrededor del centro del dibujo ----
+function placeCells(L,cells){const n=newGrid(COLS,ROWS),sp=[];cells.forEach(a=>{const x=a[0],y=a[1];if(x>=0&&y>=0&&x<COLS&&y<ROWS)n[y][x]=a[2];else sp.push(a)});L.grid=n;L.spill=sp;grid=n}
+function transformLayer(op){saveActive();const L=layers[activeL];const cells=[];grid.forEach((row,y)=>row.forEach((c,x)=>{if(c)cells.push([x,y,c])}));(L.spill||[]).forEach(a=>cells.push([a[0],a[1],a[2]]));
+ let cx,cy;
+ if(cells.length){let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;cells.forEach(a=>{x0=Math.min(x0,a[0]);x1=Math.max(x1,a[0]);y0=Math.min(y0,a[1]);y1=Math.max(y1,a[1])});cx=(x0+x1+1)/2;cy=(y0+y1+1)/2}
+ else if(img&&imgT.us!=null){const f=$('isc').value/100,w=img.width*imgT.us*f,h=img.height*imgT.us*f;cx=imgT.ux+w/2;cy=imgT.uy+h/2}
+ else{$('imgmsg').textContent='Esta capa no tiene nada que transformar.';return}
+ push();
+ // cuentas
+ let out=[];
+ if(op==='fh')out=cells.map(a=>[Math.floor(2*cx-a[0]-1),a[1],a[2]]);
+ else if(op==='fv')out=cells.map(a=>[a[0],Math.floor(2*cy-a[1]-1),a[2]]);
+ else if(op==='rr')out=cells.map(a=>[Math.floor(cx-(a[1]+.5-cy)-.5),Math.floor(cy+(a[0]+.5-cx)-.5),a[2]]);
+ else if(op==='rl')out=cells.map(a=>[Math.floor(cx+(a[1]+.5-cy)-.5),Math.floor(cy-(a[0]+.5-cx)-.5),a[2]]);
+ else if(op==='s2'){cells.forEach(a=>{const bx=Math.floor(cx+(a[0]-cx)*2),by=Math.floor(cy+(a[1]-cy)*2);for(let dy=0;dy<2;dy++)for(let dx=0;dx<2;dx++)out.push([bx+dx,by+dy,a[2]])})}
+ else if(op==='sh'){const mp=new Map();cells.forEach(a=>{const bx=Math.floor((a[0]-Math.floor(cx))/2),by=Math.floor((a[1]-Math.floor(cy))/2),k=bx+','+by;const o=mp.get(k)||{bx,by,n:{}};o.n[a[2]]=(o.n[a[2]]||0)+1;mp.set(k,o)});
+  mp.forEach(o=>{const c=Object.keys(o.n).sort((p,q)=>o.n[q]-o.n[p])[0];out.push([o.bx+Math.floor(cx),o.by+Math.floor(cy),c])})}
+ placeCells(L,out);
+ // imagen guía: se mueve con las cuentas para que sigan alineadas
+ if(img&&imgT.us!=null){const f=$('isc').value/100;let w=img.width*imgT.us*f,h=img.height*imgT.us*f;let icx=imgT.ux+w/2,icy=imgT.uy+h/2,rot=imgT.rot||0,fl=!!imgT.flip;
+  if(op==='fh'){icx=2*cx-icx;fl=!fl;rot=-rot}
+  else if(op==='fv'){icy=2*cy-icy;fl=!fl;rot=180-rot}
+  else if(op==='rr'){const dx=icx-cx,dy=icy-cy;icx=cx-dy;icy=cy+dx;rot+=90}
+  else if(op==='rl'){const dx=icx-cx,dy=icy-cy;icx=cx+dy;icy=cy-dx;rot-=90}
+  else if(op==='s2'){icx=cx+(icx-cx)*2;icy=cy+(icy-cy)*2;imgT.us*=2}
+  else if(op==='sh'){icx=cx+(icx-cx)/2;icy=cy+(icy-cy)/2;imgT.us/=2}
+  w=img.width*imgT.us*f;h=img.height*imgT.us*f;imgT.ux=icx-w/2;imgT.uy=icy-h/2;imgT.flip=fl;rot=((Math.round(rot)+180)%360+360)%360-180;imgT.rot=rot;$('rot').value=rot;$('rotv').textContent=rot+'°';imgDirty=true}
+ saveActive();renderLayers();draw();
+ $('imgmsg').textContent={fh:'Capa volteada (izquierda ↔ derecha).',fv:'Capa volteada (arriba ↔ abajo).',rr:'Capa girada 90° a la derecha.',rl:'Capa girada 90° a la izquierda.',s2:'Capa ampliada ×2.',sh:'Capa reducida a la mitad.'}[op]+' Se puede deshacer.'}
+const trbtn=$('trbtn'),trpop=$('trpop');
+function trToggle(open){const o=open===undefined?trpop.hidden:open;trpop.hidden=!o;trbtn.setAttribute('aria-expanded',String(o));trbtn.classList.toggle('on',o)}
+trbtn.onclick=e=>{e.stopPropagation();trToggle()};
+trpop.addEventListener('click',e=>{e.stopPropagation();const b=e.target.closest('[data-op]');if(b)transformLayer(b.dataset.op)});
+const onTrDoc=e=>{if(!trpop.hidden&&!e.target.closest('#trpop,#trbtn'))trToggle(false)};document.addEventListener('click',onTrDoc);
+const onTrKey=e=>{if(e.key==='Escape'&&!trpop.hidden){trToggle(false);trbtn.focus()}};document.addEventListener('keydown',onTrKey);
 function exportMontaje(){
     const G=compGrid();const hex={};let beads=0;G.forEach(r=>r.forEach(c=>{if(c){beads++;hex[c]=CODES[c].hex}}));
     return {beads,hex,data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G}};
   }
-  return { exportMontaje, confirmExport: guardExport, destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
+  return { exportMontaje, confirmExport: guardExport, destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); document.removeEventListener('click', onTrDoc); document.removeEventListener('keydown', onTrKey); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
 }

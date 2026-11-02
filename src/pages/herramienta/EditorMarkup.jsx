@@ -25,6 +25,7 @@ export default function EditorMarkup() {
 <button type="button" id="redo" title="Rehacer (Ctrl+Y)"><span aria-hidden="true"><Icon name="rehacer" size={22} /></span><span className="lbl">Rehacer</span></button>
 <button type="button" id="reset" title="Vaciar: quita las cuentas de todas las capas; las imágenes se quedan"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
 </div>
+<div className="tool__group tool__group--transform"><button type="button" id="trbtn" aria-haspopup="true" aria-expanded="false" aria-controls="trpop" title="Transformar la capa: voltear, girar o escalar"><span aria-hidden="true"><Icon name="voltear" size={22} /></span><span className="lbl">Transformar</span></button></div>
 <div className="tool__group tool__group--assemble"><button type="button" id="montajebtn" title="Enviar el diseño a montaje: colócalo cuenta a cuenta, color a color"><span aria-hidden="true"><Icon name="cuentas" size={22} /></span><span className="lbl">Montaje</span></button></div>
 <div className="tool__group tool__group--layers"><button type="button" id="layersbtn" aria-pressed="true" aria-controls="tool-layers" title="Capas: mostrar u ocultar las cuentas por color"><span aria-hidden="true"><Icon name="capas" size={22} /></span><span className="lbl">Capas</span></button></div>
 </div>
@@ -152,6 +153,18 @@ export default function EditorMarkup() {
      <canvas id="mprev" width="360" height="360"></canvas>
      <div className="row" style={{ marginTop: '10px', justifyContent: 'flex-end' }}><span className="mu" id="mwarn" style={{ flex: '1' }}></span><button id="mcancel">Cancelar</button><button id="macc" className="on big">Aceptar y rellenar</button></div>
     </div></div>
+<div id="trpop" className="trpop" hidden role="group" aria-label="Transformar la capa activa">
+<p className="trpop__t">Transformar la capa activa</p>
+<div className="trpop__grid">
+<button type="button" data-op="fh"><Icon name="voltear" size={20} /> Voltear ↔</button>
+<button type="button" data-op="fv"><span className="trpop__v"><Icon name="voltear" size={20} /></span> Voltear ↕</button>
+<button type="button" data-op="rl"><Icon name="girar-izq" size={20} /> Girar 90° izq.</button>
+<button type="button" data-op="rr"><Icon name="girar-der" size={20} /> Girar 90° der.</button>
+<button type="button" data-op="s2"><Icon name="acercar" size={20} /> Escalar ×2</button>
+<button type="button" data-op="sh"><Icon name="alejar" size={20} /> Escalar ÷2</button>
+</div>
+<p className="mu">Mueve las cuentas y la imagen de la capa a la vez, desde el centro del dibujo.</p>
+</div>
 <div id="cfmodal" className="pv" hidden role="alertdialog" aria-modal="true" aria-labelledby="cft" aria-describedby="cftxt">
 <div className="pv__card">
 <h2 id="cft">¿Seguro?</h2>
