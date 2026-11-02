@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { request } from '../lib/api.js';
 import usePageTitle from '../hooks/usePageTitle.js';
 import useReveal from '../hooks/useReveal.js';
+import Carrusel from '../components/Carrusel.jsx';
 import ColeccionBanner from '../components/ColeccionBanner.jsx';
 import { COLECCIONES_FICHA, porSlug } from '../data/colecciones/index.js';
 import { GRUPOS } from '../data/colecciones/grupos.js';
@@ -76,7 +77,10 @@ export default function Home() {
               </div>
               {g.logo && <img className="grupo__logo" src={g.logo} alt={g.logoAlt} />}
             </div>
-            {cols.map((c) => <ColeccionBanner key={c.slug} col={c} titleId={`coleccion-${c.slug}`} />)}
+            <div className="container bento-wrap">
+              <Carrusel etiqueta={`Colecciones de ${g.titulo}`}
+                items={cols.map((c) => ({ key: c.slug, node: <ColeccionBanner col={c} titleId={`coleccion-${c.slug}`} slide /> }))} />
+            </div>
           </section>
         );
       })}

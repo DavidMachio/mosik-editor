@@ -2,15 +2,14 @@ import { Link } from 'react-router-dom';
 import Icon from './Icon.jsx';
 
 // Banner de una colección con ficha (datos en src/data/colecciones). Los sprites crecen con la misma escala de píxel.
-export default function ColeccionBanner({ col, titleId }) {
+export default function ColeccionBanner({ col, titleId, slide = false }) {
   const t = col.tema;
   const GAP = 5;
   const suma = col.disenos.reduce((a, d) => a + d.ancho, 0) + (col.disenos.length - 1) * GAP;
   const escala = Math.max(1.2, Math.min(4, 520 / suma)); // cabe en la mitad del banner
   const style = { '--evo-bg': t.fondo, '--evo-a': t.circulo, '--evo-b': t.circulo2, '--evo-yellow': t.acento, '--s': escala };
   const [marca, resto] = col.lema;
-  return (
-    <section className="container bento-wrap" aria-labelledby={titleId} data-reveal>
+  const banner = (
       <div className="evo" style={style}>
         <span className="evo__circle evo__circle--a" aria-hidden="true" />
         <span className="evo__circle evo__circle--b" aria-hidden="true" />
@@ -31,6 +30,11 @@ export default function ColeccionBanner({ col, titleId }) {
         </div>
         <a className="evo__down" href="#como-funciona" aria-label="Seguir bajando"><Icon name="flecha" size={20} className="evo__chev" /></a>
       </div>
+  );
+  if (slide) return banner;
+  return (
+    <section className="container bento-wrap" aria-labelledby={titleId} data-reveal>
+      {banner}
     </section>
   );
 }
