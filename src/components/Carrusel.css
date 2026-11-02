@@ -15,8 +15,7 @@
 .carr__dot::before { content: ''; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--mk-border); transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out); }
 .carr__dot[aria-current='true']::before { background: var(--mk-text); transform: scale(1.35); }
 .carr__dot:focus-visible { outline: 3px solid var(--mk-action-border); outline-offset: -2px; border-radius: 50%; }
-.carr__pause { position: absolute; right: 0; top: 50%; transform: translateY(-50%); min-height: 32px; padding: 0 12px; border: 1px solid var(--mk-border); border-radius: 999px; background: var(--mk-card); color: var(--mk-text); font: 600 13px var(--font-body); cursor: pointer; }
-@media (max-width: 820px) { .carr__arrow { display: none; } .carr__pause { position: static; transform: none; margin-left: 12px; } }
+@media (max-width: 820px) { .carr__arrow { display: none; } }
 
 /* Todas las diapositivas con la misma altura: la de contenido más alto manda y el resto se estira */
 .carr__track { align-items: stretch; }

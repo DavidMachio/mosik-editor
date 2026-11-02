@@ -96,14 +96,9 @@ export default function Home() {
         if (!cols.length) return null;
         return (
           <section key={g.slug} className="grupo" aria-labelledby={`grupo-${g.slug}`}>
-            <div className="container grupo__head">
-              <div>
-                <h2 id={`grupo-${g.slug}`} className="grupo__title">{g.titulo}</h2>
-                <p className="muted">{g.texto}</p>
-              </div>
+            <h2 id={`grupo-${g.slug}`} className="sr-only">{g.titulo}</h2>
+            <div className="container bento-wrap grupo__wrap">
               {g.logo && <img className="grupo__logo" src={g.logo} alt={g.logoAlt} />}
-            </div>
-            <div className="container bento-wrap">
               <Carrusel etiqueta={`Colecciones de ${g.titulo}`}
                 items={cols.map((c) => ({ key: c.slug, node: <ColeccionBanner col={c} titleId={`coleccion-${c.slug}`} slide /> }))} />
             </div>

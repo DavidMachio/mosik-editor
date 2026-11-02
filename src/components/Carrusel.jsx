@@ -2,12 +2,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Icon from './Icon.jsx';
 import './Carrusel.css';
 
-// Carrusel de diapositivas con desplazamiento suave, flechas, puntos y paso automático (con botón de pausa).
+// Carrusel de diapositivas con desplazamiento suave, flechas, puntos y paso automático (siempre en marcha; se detiene mientras el ratón o el teclado están dentro).
 // Respeta «reducir movimiento»: sin paso automático y sin animación de desplazamiento.
 export default function Carrusel({ items, etiqueta, intervalo = 7000 }) {
   const pista = useRef(null);
   const [idx, setIdx] = useState(0);
-  const [pausa, setPausa] = useState(false); // pausa elegida por la persona
   const encima = useRef(false); // ratón o foco encima (sin re-render, para no interferir con los clics)
   const idxRef = useRef(0);
   const reducir = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -35,17 +34,17 @@ export default function Carrusel({ items, etiqueta, intervalo = 7000 }) {
 
   // Paso automático
   useEffect(() => {
-    if (reducir || pausa || n < 2) return undefined;
+    if (reducir || n < 2) return undefined;
     const id = window.setInterval(() => { if (!encima.current) ir(idxRef.current + 1); }, intervalo);
     return () => window.clearInterval(id);
-  }, [reducir, pausa, n, intervalo, ir]);
+  }, [reducir, n, intervalo, ir]);
 
   if (!n) return null;
   return (
     <div className="carr" role="region" aria-roledescription="carrusel" aria-label={etiqueta}
       onMouseEnter={() => { encima.current = true; }} onMouseLeave={() => { encima.current = false; }} onFocus={() => { encima.current = true; }} onBlur={() => { encima.current = false; }}>
       <div className="carr__frame">
-        <ul className="carr__track" ref={pista} aria-live={pausa || reducir ? 'polite' : 'off'}>
+        <ul className="carr__track" ref={pista} aria-live={reducir ? 'polite' : 'off'}>
           {items.map((it, i) => (
             <li key={it.key} className="carr__slide" role="group" aria-roledescription="diapositiva" aria-label={`${i + 1} de ${n}`}>{it.node}</li>
           ))}
@@ -64,9 +63,6 @@ export default function Carrusel({ items, etiqueta, intervalo = 7000 }) {
               <button key={it.key} type="button" className="carr__dot" aria-label={`Ir a la diapositiva ${i + 1}`} aria-current={i === idx ? 'true' : undefined} onClick={() => ir(i)} />
             ))}
           </div>
-          {!reducir && (
-            <button type="button" className="carr__pause" onClick={() => setPausa((p) => !p)} aria-pressed={pausa}>{pausa ? 'Reanudar' : 'Pausar'}</button>
-          )}
         </div>
       )}
     </div>
