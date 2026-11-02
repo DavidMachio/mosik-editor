@@ -534,17 +534,49 @@ function updateTrButtons(){const L=layers[activeL];if(!L)return;const lv=scaleLe
  const set=(op,txt,off)=>{const b=document.querySelector(`#trpop [data-op="${op}"]`);if(!b)return;const t=b.querySelector('.trl');if(t)t.textContent=txt;b.disabled=!!off;b.setAttribute('aria-disabled',String(!!off))};
  set('s2',lv===-1?'Volver al original':lv===1?'Ya ampliada ×2':'Escalar ×2',lv===1);
  set('sh',lv===1?'Volver al original':lv===-1?'Ya reducida ÷2':'Escalar ÷2',lv===-1)}
+// Operaciones geométricas (voltear / girar 90°) sobre cuentas e imagen, con el mismo punto de giro (cx, cy) en coordenadas de borde de celda.
+function opCells(cells,op,cx,cy){
+ if(op==='fh')return cells.map(a=>[2*cx-a[0]-1,a[1],a[2]]);
+ if(op==='fv')return cells.map(a=>[a[0],2*cy-a[1]-1,a[2]]);
+ if(op==='rr')return cells.map(a=>[cx+cy-a[1]-1,cy-cx+a[0],a[2]]);
+ if(op==='rl')return cells.map(a=>[cx-cy+a[1],cx+cy-a[0]-1,a[2]]);
+ return cells}
+function opImg(im,op,cx,cy,f){const o={...im};const w=img.width*o.us*f,h=img.height*o.us*f;let icx=o.ux+w/2,icy=o.uy+h/2,rot=o.rot||0,fl=!!o.flip;
+ if(op==='fh'){icx=2*cx-icx;fl=!fl;rot=-rot}
+ else if(op==='fv'){icy=2*cy-icy;fl=!fl;rot=180-rot}
+ else if(op==='rr'){const dx=icx-cx,dy=icy-cy;icx=cx-dy;icy=cy+dx;rot+=90}
+ else if(op==='rl'){const dx=icx-cx,dy=icy-cy;icx=cx+dy;icy=cy-dx;rot-=90}
+ o.ux=icx-w/2;o.uy=icy-h/2;o.flip=fl;o.rot=((Math.round(rot)+180)%360+360)%360-180;return o}
+function setImgState(o){imgT.ux=o.ux;imgT.uy=o.uy;imgT.us=o.us;imgT.flip=o.flip;imgT.rot=o.rot;$('rot').value=o.rot;$('rotv').textContent=o.rot+'°';imgDirty=true}
 function transformLayer(op){saveActive();const L=layers[activeL];const cells=[];grid.forEach((row,y)=>row.forEach((c,x)=>{if(c)cells.push([x,y,c])}));(L.spill||[]).forEach(a=>cells.push([a[0],a[1],a[2]]));
+ const f=$('isc').value/100;const hasImg=!!(img&&imgT.us!=null);const imgNow=()=>({ux:imgT.ux,uy:imgT.uy,us:imgT.us,rot:imgT.rot||0,flip:!!imgT.flip});
+ const lv=scaleLevel(L),sc=lv?L.scale:null;
  let baseScale=null;
- if(op==='s2'||op==='sh'){const lv=scaleLevel(L);
-  if((lv===1&&op==='sh')||(lv===-1&&op==='s2')){const sc=L.scale;push();placeCells(L,sc.cells.map(a=>a.slice()));
-   if(img&&sc.img){imgT.ux=sc.img.ux;imgT.uy=sc.img.uy;imgT.us=sc.img.us;imgDirty=true}
+ if(op==='s2'||op==='sh'){
+  // Paso contrario al ya aplicado: volver al original conservando lo que se haya volteado o girado entre medias
+  if(sc&&((lv===1&&op==='sh')||(lv===-1&&op==='s2'))){push();
+   if(lv===-1){ // reducida -> original: se repiten sobre el original las mismas operaciones, con el punto de giro llevado a su escala
+    let cs=sc.cells.map(a=>a.slice()),im=sc.img?{...sc.img}:null;
+    sc.ops.forEach(o=>{const bx=2*o.cx-sc.px,by=2*o.cy-sc.py;cs=opCells(cs,o.op,bx,by);if(im)im=opImg(im,o.op,bx,by,f)});
+    placeCells(L,cs);if(im&&hasImg)setImgState(im)}
+   else{ // ampliada -> original: se detecta la cuadrícula de bloques 2×2 y se reduce sin deformar
+    const key=(x,y)=>x+','+y;const m=new Map(cells.map(a=>[key(a[0],a[1]),a[2]]));let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;cells.forEach(a=>{x0=Math.min(x0,a[0]);x1=Math.max(x1,a[0]);y0=Math.min(y0,a[1]);y1=Math.max(y1,a[1])});
+    let found=null;for(const ox of[0,1]){for(const oy of[0,1]){const blk=new Map();let ok=true;for(const a of cells){const k=Math.floor((a[0]-ox)/2)+','+Math.floor((a[1]-oy)/2);const b=blk.get(k)||{n:0,c:a[2]};if(b.c!==a[2]){ok=false;break}b.n++;blk.set(k,b)}
+      if(ok&&[...blk.values()].every(b=>b.n===4)){found=[ox,oy];break}}if(found)break}
+    const par=(v,o)=>{let c=Math.round(v);if((((c-o)%2)+2)%2!==0)c+=1;return c};
+    const ox=found?found[0]:0,oy=found?found[1]:0;const pcx=par((x0+x1+1)/2,ox),pcy=par((y0+y1+1)/2,oy);
+    const seen=new Set(),out2=[];cells.forEach(a=>{const bx=Math.floor((a[0]-pcx)/2),by=Math.floor((a[1]-pcy)/2),k=bx+','+by;if(seen.has(k))return;seen.add(k);
+     // color más frecuente del bloque (todos iguales si la detección fue exacta)
+     const cnt={};for(let dy=0;dy<2;dy++)for(let dx=0;dx<2;dx++){const v=m.get(key(pcx+2*bx+dx,pcy+2*by+dy));if(v)cnt[v]=(cnt[v]||0)+1}
+     out2.push([pcx+bx,pcy+by,Object.keys(cnt).sort((p,q)=>cnt[q]-cnt[p])[0]])});
+    placeCells(L,out2);
+    if(hasImg){const im=imgNow();const w=img.width*im.us*f,h=img.height*im.us*f;const icx=pcx+((im.ux+w/2)-pcx)/2,icy=pcy+((im.uy+h/2)-pcy)/2;im.us/=2;const w2=img.width*im.us*f,h2=img.height*im.us*f;im.ux=icx-w2/2;im.uy=icy-h2/2;setImgState(im)}}
    L.scale=null;saveActive();renderLayers();draw();updateTrButtons();$('imgmsg').textContent='Capa devuelta al tamaño original. Se puede deshacer.';return}
   if(lv!==0){$('imgmsg').textContent='Ese paso ya está aplicado; pulsa el otro botón para volver al original.';return}
-  baseScale={cells:cells.map(a=>a.slice()),img:img&&imgT.us!=null?{ux:imgT.ux,uy:imgT.uy,us:imgT.us}:null,level:op==='s2'?1:-1}}
+  baseScale={cells:cells.map(a=>a.slice()),img:hasImg?imgNow():null,level:op==='s2'?1:-1,ops:[]}}
  let cx,cy;
  if(cells.length){let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;cells.forEach(a=>{x0=Math.min(x0,a[0]);x1=Math.max(x1,a[0]);y0=Math.min(y0,a[1]);y1=Math.max(y1,a[1])});cx=(x0+x1+1)/2;cy=(y0+y1+1)/2}
- else if(img&&imgT.us!=null){const f=$('isc').value/100,w=img.width*imgT.us*f,h=img.height*imgT.us*f;cx=imgT.ux+w/2;cy=imgT.uy+h/2}
+ else if(hasImg){const w=img.width*imgT.us*f,h=img.height*imgT.us*f;cx=imgT.ux+w/2;cy=imgT.uy+h/2}
  else{$('imgmsg').textContent='Esta capa no tiene nada que transformar.';return}
  // El punto de giro se ajusta a la rejilla para que cada cuenta caiga exactamente en una cuenta y la imagen use el mismo punto
  const h2=v=>Math.round(v*2)/2;
@@ -553,23 +585,19 @@ function transformLayer(op){saveActive();const L=layers[activeL];const cells=[];
  else{cx=Math.round(cx);cy=Math.round(cy)}
  push();
  let out=[];
- if(op==='fh')out=cells.map(a=>[2*cx-a[0]-1,a[1],a[2]]);
- else if(op==='fv')out=cells.map(a=>[a[0],2*cy-a[1]-1,a[2]]);
- else if(op==='rr')out=cells.map(a=>[cx+cy-a[1]-1,cy-cx+a[0],a[2]]);
- else if(op==='rl')out=cells.map(a=>[cx-cy+a[1],cx+cy-a[0]-1,a[2]]);
- else if(op==='s2'){cells.forEach(a=>{const bx=2*a[0]-cx,by=2*a[1]-cy;for(let dy=0;dy<2;dy++)for(let dx=0;dx<2;dx++)out.push([bx+dx,by+dy,a[2]])})}
+ if(op==='s2'){cells.forEach(a=>{const bx=2*a[0]-cx,by=2*a[1]-cy;for(let dy=0;dy<2;dy++)for(let dx=0;dx<2;dx++)out.push([bx+dx,by+dy,a[2]])})}
  else if(op==='sh'){const mp=new Map();cells.forEach(a=>{const bx=Math.floor((a[0]-cx)/2),by=Math.floor((a[1]-cy)/2),k=bx+','+by;const o=mp.get(k)||{bx,by,n:{}};o.n[a[2]]=(o.n[a[2]]||0)+1;mp.set(k,o)});
   mp.forEach(o=>{const c=Object.keys(o.n).sort((p,q)=>o.n[q]-o.n[p])[0];out.push([o.bx+cx,o.by+cy,c])})}
- placeCells(L,out);if(baseScale){baseScale.sig=layerSig(L);L.scale=baseScale}else L.scale=null;
+ else out=opCells(cells,op,cx,cy);
+ placeCells(L,out);
+ if(baseScale){baseScale.px=cx;baseScale.py=cy;baseScale.sig=layerSig(L);L.scale=baseScale}
+ else if(sc&&(op==='fh'||op==='fv'||op==='rr'||op==='rl')){sc.ops.push({op,cx,cy});sc.sig=layerSig(L)} // se mantiene el estado de escala para poder volver al original
+ else L.scale=null;
  // imagen guía: mismo punto de giro que las cuentas, para que sigan alineadas
- if(img&&imgT.us!=null){const f=$('isc').value/100;let w=img.width*imgT.us*f,h=img.height*imgT.us*f;let icx=imgT.ux+w/2,icy=imgT.uy+h/2,rot=imgT.rot||0,fl=!!imgT.flip;
-  if(op==='fh'){icx=2*cx-icx;fl=!fl;rot=-rot}
-  else if(op==='fv'){icy=2*cy-icy;fl=!fl;rot=180-rot}
-  else if(op==='rr'){const dx=icx-cx,dy=icy-cy;icx=cx-dy;icy=cy+dx;rot+=90}
-  else if(op==='rl'){const dx=icx-cx,dy=icy-cy;icx=cx+dy;icy=cy-dx;rot-=90}
-  else if(op==='s2'){icx=cx+(icx-cx)*2;icy=cy+(icy-cy)*2;imgT.us*=2}
-  else if(op==='sh'){icx=cx+(icx-cx)/2;icy=cy+(icy-cy)/2;imgT.us/=2}
-  w=img.width*imgT.us*f;h=img.height*imgT.us*f;imgT.ux=icx-w/2;imgT.uy=icy-h/2;imgT.flip=fl;rot=((Math.round(rot)+180)%360+360)%360-180;imgT.rot=rot;$('rot').value=rot;$('rotv').textContent=rot+'°';imgDirty=true}
+ if(hasImg){if(op==='s2'||op==='sh'){const im=imgNow();const w=img.width*im.us*f,h=img.height*im.us*f;let icx=im.ux+w/2,icy=im.uy+h/2;
+   if(op==='s2'){icx=cx+(icx-cx)*2;icy=cy+(icy-cy)*2;im.us*=2}else{icx=cx+(icx-cx)/2;icy=cy+(icy-cy)/2;im.us/=2}
+   const w2=img.width*im.us*f,h2b=img.height*im.us*f;im.ux=icx-w2/2;im.uy=icy-h2b/2;setImgState(im)}
+  else setImgState(opImg(imgNow(),op,cx,cy,f))}
  saveActive();renderLayers();draw();updateTrButtons();
  $('imgmsg').textContent={fh:'Capa volteada (izquierda ↔ derecha).',fv:'Capa volteada (arriba ↔ abajo).',rr:'Capa girada 90° a la derecha.',rl:'Capa girada 90° a la izquierda.',s2:'Capa ampliada ×2.',sh:'Capa reducida a la mitad.'}[op]+' Se puede deshacer.'}
 const trbtn=$('trbtn'),trpop=$('trpop');
