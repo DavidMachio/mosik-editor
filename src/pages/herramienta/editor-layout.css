@@ -469,3 +469,6 @@
 .mk-editor .ly__name { padding: 0 4px; font-size: 13.5px; }
 .mk-editor .lc > button:not(.lc__main) { min-width: 28px; }
 @media (min-width: 901px) and (max-width: 1180px) { .mk-editor .tool__layers { width: 280px; } }
+.mk-editor .ly__thumbbtn { background: #f6f5f1; }
+.mk-editor .ly__thumb { object-fit: contain; }
+.mk-editor .ly__thumb--img { object-fit: cover; opacity: .75; }
