@@ -66,6 +66,8 @@ export default function EditorMarkup() {
 <h3>Capas</h3>
 <div className="row"><button type="button" id="lyadd" className="ico"><Icon name="mas" size={18} /> Capa nueva</button></div>
 <ul id="lylist" className="ly-list" aria-label="Capas del diseño (la de arriba tapa a las de abajo)"></ul>
+<div id="lyfoot" className="ly-foot"></div>
+<input type="file" id="lyfile" accept="image/*" hidden />
 <div className="mu">Cada imagen que subes crea su propia capa. Lo que pintas va a la capa elegida; la de arriba tapa a las de abajo.</div>
 </section>
 <section className="pn">
@@ -109,10 +111,7 @@ export default function EditorMarkup() {
 <div className="row" id="cur"></div>
 <div id="pal"></div>
 </section>
-<section className="pn" id="sec-capas">
-<h3>Colores usados</h3>
-<div id="cnt" className="mu">Sin cuentas todavía</div>
-</section>
+
 </div>
 <div role="tabpanel" className="tabpanel" id="tp-colores" aria-labelledby="tab-colores" hidden>
 <section className="pn">

@@ -26,18 +26,15 @@ export function initTabs(root) {
   }
   // En escritorio las capas por color viven en un panel izquierdo propio; en móvil vuelven a la pestaña Paleta.
   const layers = root.querySelector('#tool-layers');
-  const capas = root.querySelector('#sec-capas');
   const palPanel = root.querySelector('#tp-paleta');
   const grupos = root.querySelector('#sec-grupos');
   const tabPanel = root.querySelector('#tp-tablero');
   function placeLayers() {
-    if (!layers || !capas || !palPanel) return;
+    if (!layers || !grupos) return;
     if (mq.matches) {
-      if (capas.parentElement !== palPanel) palPanel.appendChild(capas);
-      if (grupos && tabPanel && grupos.parentElement !== tabPanel) tabPanel.insertBefore(grupos, tabPanel.firstChild);
-    } else {
-      if (grupos && grupos.parentElement !== layers) layers.insertBefore(grupos, layers.firstChild);
-      if (capas.parentElement !== layers) layers.appendChild(capas);
+      if (tabPanel && grupos.parentElement !== tabPanel) tabPanel.insertBefore(grupos, tabPanel.firstChild);
+    } else if (grupos.parentElement !== layers) {
+      layers.insertBefore(grupos, layers.firstChild);
     }
   }
   placeLayers();
@@ -127,7 +124,6 @@ export function initTabs(root) {
     if (layersBtn) layersBtn.removeEventListener('click', onLayers);
     if (beadBtn) beadBtn.removeEventListener('click', onBead);
     if (closeBtn) closeBtn.removeEventListener('click', onClose);
-    if (palPanel && capas && capas.parentElement !== palPanel) palPanel.appendChild(capas);
     if (grupos && tabPanel && grupos.parentElement !== tabPanel) tabPanel.insertBefore(grupos, tabPanel.firstChild);
     if (topbar && list && list.parentElement !== topbar) topbar.insertBefore(list, saveBtn);
   };

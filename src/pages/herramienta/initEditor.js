@@ -44,7 +44,7 @@ const as=hungarian(a);out=src.map((s,i)=>{const j=as[i];if(j<dest.length&&a[i][j
 return{rows:out,otros,unknown:codes.filter(c=>!CODES[c]),g}}
 const $=id=>document.getElementById(id);
 let VIEW='bead',PW=40,PH=40,PR=1,PC=1,platesKey='1x1';
-let solo=new Set(),hidden=new Set(),recolorFrom=null;
+let solo=new Set(),hidden=new Set(),recolorFrom=null,recolorL=null;
 let COLS=40,ROWS=40,grid=[],CS=16,tool='move',cur='A10',img=null,imgCv=null,imgDirty=true;
 const imgT={s:1,x:0,y:0,rot:0,flip:false};let hist=[],redo=[];
 const cv=$('cv'),ctx=cv.getContext('2d'),cvbox=$('cvbox');
@@ -61,7 +61,9 @@ function loadActive(){const L=layers[activeL];grid=L.grid;img=L.img;imgCv=null;i
  const u=L.ui||{op:85,showimg:true,isc:100,lock:false};$('op').value=u.op;$('showimg').checked=u.showimg;$('isc').value=u.isc;$('lock').checked=u.lock;
  $('rot').value=imgT.rot||0;$('rotv').textContent=(imgT.rot||0)+'°'}
 function cellCode(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];if(r&&r[x])return r[x]}return null}
+function cellCodeView(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];const c=r&&r[x];if(c&&!(L.hid&&L.hid.has(c)))return c}return null}
 function compGrid(){const o=newGrid(COLS,ROWS);for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)o[y][x]=cellCode(x,y);return o}
+function mapLayer(i,fn){saveActive();const L=layers[i];if(!L)return;L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c));if(L.spill)L.spill=L.spill.map(a=>[a[0],a[1],fn(a[2])]);grid=layers[activeL].grid}
 function mapLayers(fn){saveActive();layers.forEach(L=>{L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c));if(L.spill)L.spill=L.spill.map(a=>[a[0],a[1],fn(a[2])])});grid=layers[activeL].grid}
 function resizeLayer(L,c,r){const n=newGrid(c,r);const sp=[];const put=(x,y,v)=>{if(x>=0&&y>=0&&x<c&&y<r){if(!n[y][x])n[y][x]=v}else sp.push([x,y,v])};
  L.grid.forEach((row,y)=>row.forEach((v,x)=>{if(v)put(x,y,v)}));(L.spill||[]).forEach(a=>put(a[0],a[1],a[2]));L.grid=n;L.spill=sp}
@@ -73,12 +75,25 @@ function shiftLayer(dx,dy){const L=layers[activeL];const n=newGrid(COLS,ROWS);co
  grid=n;L.grid=n;L.spill=sp}
 function selectLayer(i){if(i===activeL||i<0||i>=layers.length)return;saveActive();activeL=i;loadActive();renderLayers();draw()}
 function addLayer(name){push();saveActive();const L=mkLayer(name);layers.splice(activeL+1,0,L);activeL=activeL+1;loadActive();renderLayers();draw();return L}
-let pendingImg=null;
+let pendingImg=null,forceActive=false,forceNext=false;
 function restorePending(){const P=pendingImg;if(!P)return;pendingImg=null;img=P.img;imgCv=null;Object.assign(imgT,P.t);const u=P.ui;$('op').value=u.op;$('showimg').checked=u.showimg;$('isc').value=u.isc;$('lock').checked=u.lock;imgDirty=true;draw()}
-function ensureImageLayer(){const nm=pendingLayerName;pendingLayerName='';if(img){addLayer(nm||undefined)}else{const L=layers[activeL];if(nm&&/^Capa \d+$/.test(L.name)){L.name=nm;renderLayers()}}}
+function ensureImageLayer(){const nm=pendingLayerName;pendingLayerName='';if(forceActive){forceActive=false;return}if(img){addLayer(nm||undefined)}else{const L=layers[activeL];if(nm&&/^Capa \d+$/.test(L.name)){L.name=nm;renderLayers()}}}
 const escH=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function layerCounts(i){const L=layers[i];const g=i===activeL?grid:L.grid;const m={};g.forEach((row,y)=>row.forEach((c,x)=>{if(c&&(!FOCUS||(x>=FOCUS.c*PW&&x<(FOCUS.c+1)*PW&&y>=FOCUS.r*PH&&y<(FOCUS.r+1)*PH)))m[c]=(m[c]||0)+1}));return m}
+const mg10=n=>Math.ceil(n*1.1/10)*10;
 function renderLayers(){const ul=$('lylist');if(!ul)return;saveActive();
- ul.innerHTML=layers.map((L,i)=>i).reverse().map(i=>{const L=layers[i];return `<li class="ly${i===activeL?' sel':''}${L.visible?'':' off'}" data-i="${i}"><button type="button" class="ly__eye" data-a="eye" aria-pressed="${L.visible}" aria-label="${L.visible?'Ocultar':'Mostrar'} ${escH(L.name)}" title="Mostrar u ocultar">${L.visible?'👁':'🚫'}</button><button type="button" class="ly__name" data-a="sel" title="Elegir esta capa (doble clic: renombrar)">${escH(L.name)}${L.img?' <i class="ly__img" title="Tiene imagen">▣</i>':''}</button><span class="ly__act"><button type="button" data-a="up" aria-label="Subir" title="Subir">↑</button><button type="button" data-a="down" aria-label="Bajar" title="Bajar">↓</button><button type="button" data-a="del" aria-label="Borrar capa" title="Borrar capa">✕</button></span></li>`}).join('')}
+ ul.innerHTML=layers.map((L,i)=>i).reverse().map(i=>{const L=layers[i];const m=layerCounts(i);const ks=Object.keys(m).sort((a,b)=>m[b]-m[a]);const n=ks.reduce((a,c)=>a+m[c],0);
+  const open=L.open!==undefined?L.open:i===activeL;
+  const thumb=L.img&&L.img.src?`<img class="ly__thumb" src="${L.img.src}" alt="">`:`<span class="ly__thumb ly__thumb--none" aria-hidden="true">▦</span>`;
+  const rows=ks.map(c=>`<li class="lc${solo.has(c)?' solo':''}${L.hid&&L.hid.has(c)?' off':''}" data-c="${c}"><button type="button" class="lc__main" data-a="csolo" title="Ver solo este color"><i class="sw" style="background:${CODES[c].hex}"></i><b>${c}</b><span>${m[c]}</span><span class="mu">${mg10(m[c])}</span></button><button type="button" data-a="chide" aria-label="${L.hid&&L.hid.has(c)?'Mostrar':'Ocultar'} ${c} en esta capa" title="Mostrar u ocultar en esta capa">${L.hid&&L.hid.has(c)?'🚫':'👁'}</button><button type="button" data-a="cchg" class="${recolorFrom===c&&recolorL===i?'on':''}" aria-label="Sustituir ${c} por otro color" title="Sustituir este color por otro">⇄</button></li>`).join('');
+  return `<li class="ly${i===activeL?' sel':''}${L.visible?'':' off'}" data-i="${i}"><div class="ly__row"><button type="button" class="ly__thumbbtn" data-a="sel" aria-label="Elegir ${escH(L.name)}" title="Elegir esta capa">${thumb}</button><button type="button" class="ly__name" data-a="sel" title="Elegir esta capa (doble clic: renombrar)">${escH(L.name)}</button><span class="ly__act"><span class="ly__ud"><button type="button" data-a="up" aria-label="Subir capa" title="Subir">↑</button><button type="button" data-a="down" aria-label="Bajar capa" title="Bajar">↓</button></span><button type="button" class="ly__eye" data-a="eye" aria-pressed="${L.visible}" aria-label="${L.visible?'Ocultar':'Mostrar'} ${escH(L.name)}" title="Mostrar u ocultar la capa">${L.visible?'👁':'🚫'}</button><button type="button" data-a="upload" aria-label="Subir imagen a ${escH(L.name)}" title="Subir una imagen a esta capa">⬆</button><button type="button" data-a="del" aria-label="Borrar capa" title="Borrar capa">✕</button></span></div><button type="button" class="ly__fold" data-a="fold" aria-expanded="${open}">${ks.length} ${ks.length===1?'color':'colores'} · ${n} cuentas <span aria-hidden="true">${open?'▾':'▸'}</span></button>${open&&ks.length?`<ul class="lc-list">${rows}</ul>`:''}</li>`}).join('');
+ // Total visible (lo que se monta) y avisos
+ const all=compGrid();let t=0,mm={};all.forEach((r,y)=>r.forEach((c,x)=>{if(c&&(!FOCUS||(x>=FOCUS.c*PW&&x<(FOCUS.c+1)*PW&&y>=FOCUS.r*PH&&y<(FOCUS.r+1)*PH))){mm[c]=(mm[c]||0)+1;t++}}));
+ const tot=Object.keys(mm).reduce((a,c)=>a+mg10(mm[c]),0);
+ const scope=FOCUS?`<b>Tablero ${FOCUS.r*PC+FOCUS.c+1}</b>: solo las cuentas de este tablero. `:'';
+ const hayFiltro=solo.size||hidden.size||layers.some(L=>L.hid&&L.hid.size);
+ $('lyfoot').innerHTML=`<div class="ly__total">${scope}Total visible <b>${t}</b> cuentas · con +10 % <b>${tot}</b> · ${Object.keys(mm).length} colores · ${COLS}×${ROWS}</div>${hayFiltro?'<button type="button" data-a="showall">Mostrar todos los colores</button>':''}`;
+ return mm}
 function snap(){saveActive();return JSON.stringify({a:activeL,l:layers.map(L=>({id:L.id,n:L.name,v:L.visible,g:L.grid,sp:L.spill||[],t:L.imgT}))})}
 function restore(str){const o=JSON.parse(str);saveActive();layers=o.l.map(e=>{const L=layerById[e.id]||mkLayer(e.n,null,e.id);L.name=e.n;L.visible=e.v;L.grid=e.g;L.spill=e.sp||[];if(e.t)L.imgT=e.t;return L});activeL=Math.max(0,Math.min(o.a,layers.length-1));loadActive();renderLayers()}
 function push(){hist.push(snap());if(hist.length>80)hist.shift();redo=[];upd()}
@@ -123,7 +138,7 @@ function draw(){
  if(img&&$('showimg').checked){ctx.globalAlpha=$('op').value/100;paintImg(ctx);ctx.globalAlpha=1}
  const bo=$('bop').value/100,sb=$('showbeads').checked,sg=$('showgrid').checked;
  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){
-  let c=cellCode(x,y);if(c&&((solo.size&&!solo.has(c))||hidden.has(c)))c=null;const cx=x*CS+CS/2,cy=y*CS+CS/2;
+  let c=cellCodeView(x,y);if(c&&((solo.size&&!solo.has(c))||hidden.has(c)))c=null;const cx=x*CS+CS/2,cy=y*CS+CS/2;
   if(c&&sb){ctx.globalAlpha=bo;ctx.fillStyle=CODES[c].hex;
    if(VIEW==='pix'){ctx.fillRect(x*CS,y*CS,CS,CS);ctx.globalAlpha=1}
    else{ctx.beginPath();ctx.arc(cx,cy,CS/2-.7,0,7);ctx.fill();ctx.globalAlpha=Math.min(1,bo+.2);ctx.fillStyle='rgba(246,245,241,.9)';ctx.beginPath();ctx.arc(cx,cy,CS*.16,0,7);ctx.fill();ctx.globalAlpha=1}}
@@ -181,10 +196,10 @@ function setTool(t){tool=t;document.querySelectorAll('[data-t]').forEach(x=>x.cl
 $('undo').onclick=()=>{if(!hist.length)return;redo.push(snap());restore(hist.pop());upd();draw()};
 $('reset').onclick=()=>{saveActive();if(!layers.some(L=>L.grid.some(r=>r.some(Boolean))||(L.spill||[]).length))return;push();layers.forEach(L=>{L.grid=newGrid(COLS,ROWS);L.spill=[]});grid=layers[activeL].grid;draw();$('imgmsg').textContent='Se han quitado las cuentas de todas las capas. Si ha sido sin querer, pulsa Deshacer.'};
 $('redo').onclick=()=>{if(!redo.length)return;hist.push(snap());restore(redo.pop());upd();draw()};
-$('pal').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const nc=b.dataset.c;if(recolorFrom){const f=recolorFrom;push();mapLayers(v=>v===f?nc:v);if(solo.delete(f))solo.add(nc);if(hidden.delete(f))hidden.add(nc);recolorFrom=null;$('imgmsg').textContent=`${f} sustituido por ${nc}`;cur=nc;renderPal();draw();return}cur=nc;if(tool==='erase'||tool==='move')setTool('paint');renderPal()});
+$('pal').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const nc=b.dataset.c;if(recolorFrom){const f=recolorFrom;push();if(recolorL!=null)mapLayer(recolorL,v=>v===f?nc:v);else mapLayers(v=>v===f?nc:v);recolorL=null;if(solo.delete(f))solo.add(nc);if(hidden.delete(f))hidden.add(nc);recolorFrom=null;$('imgmsg').textContent=`${f} sustituido por ${nc}`;cur=nc;renderPal();draw();return}cur=nc;if(tool==='erase'||tool==='move')setTool('paint');renderPal()});
 ['gama','tipo'].forEach(i=>$(i).addEventListener('change',()=>{if(!palList().includes(cur))cur=palList()[0];renderPal()}));
 $('q').addEventListener('input',renderPal);
-$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;pendingLayerName=f.name.replace(/\.[^.]+$/,'').slice(0,24);const st=$('imgmsg');st.textContent='Cargando…';
+$('file').onchange=e=>{forceActive=forceNext;forceNext=false;const f=e.target.files[0];if(!f)return;pendingLayerName=f.name.replace(/\.[^.]+$/,'').slice(0,24);const st=$('imgmsg');st.textContent='Cargando…';
  const rd=new FileReader();
  rd.onerror=()=>{st.textContent='No se ha podido leer el archivo'};
  rd.onload=()=>{const i=new Image();
@@ -364,7 +379,7 @@ function openPlan(p){EXACT=null;if(!img){$('imgmsg').textContent='Sube primero u
  plan=p?p.slice():autoPlan(Math.max(2,Math.min(60,+$('nk').value||8)));pickIdx=null;$('modal').classList.add('show');renderModal()}
 $('auto').onclick=()=>openPlan(null);
 $('editplan').onclick=()=>{if(savedEXACT){EXACT=savedEXACT;openExact()}else if(savedPlan)openPlan(savedPlan)};
-$('mcancel').onclick=()=>{$('modal').classList.remove('show');restorePending()};
+$('mcancel').onclick=()=>{$('modal').classList.remove('show');restorePending();forceActive=false};
 $('modal').addEventListener('click',e=>{if(e.target.id==='modal'){$('modal').classList.remove('show');restorePending()}});
 $('mauto').onclick=()=>{plan=autoPlan(plan.length);pickIdx=null;renderModal()};
 $('mplus').onclick=()=>{if(plan.length>=60)return;addColor();renderModal()};
@@ -377,7 +392,7 @@ $('mq').addEventListener('input',renderMpal);
 $('macc').onclick=()=>{
  if(EXACT){const E=EXACT;
   if(E.W>COLS||E.H>ROWS){const PR2=Math.ceil(E.H/PH),PC2=Math.ceil(E.W/PW);if(PR2>6||PC2>6||PC2*PW>300||PR2*PH>300){$('mwarn').textContent='No cabe: la imagen necesita más de 6 × 6 placas. Sube el tamaño de placa.';return}
-   platesKey='custom';$('pr').value=Math.max(PR,PR2);$('pc').value=Math.max(PC,PC2);applyBoard()}
+   platesKey='custom';$('pr').value=Math.max(PR,PR2);$('pc').value=Math.max(PC,PC2);applyBoard();fitToScreen()}
   if(pendingImg){const ni=img;restorePending();ensureImageLayer();img=ni;imgCv=null}
   const ox=Math.floor((COLS-E.W)/2),oy=Math.floor((ROWS-E.H)/2);
   push();grid=newGrid(COLS,ROWS);layers[activeL].spill=[];PT.forEach(p=>{grid[p.y+oy][p.x+ox]=plan[p.k]});
@@ -398,18 +413,8 @@ $('conv').onclick=()=>{const used=[...new Set(compGrid().flat().filter(Boolean))
  const g=r.g==='m'?'s':'m';$('gama').value=g;cur=Object.values(mp)[0]||cur;renderPal();
  const fus=used.length-new Set(Object.values(mp)).size;const med=r.rows.reduce((a,x)=>a+x.de,0)/r.rows.length;
  $('convmsg').textContent=`Convertido a ${g==='s'?'Midi':'Mini'}: ${r.rows.length} colores, ΔE medio ${med.toFixed(1)}${fus?`, ${fus} colores fundidos`:''}${r.otros&&r.otros.length?`. Ya estaban en la otra gama: ${r.otros.join(', ')}`:''}`;draw()};
-function counts(){const all={},m={};let t=0;compGrid().forEach((r,y)=>r.forEach((c,x)=>{if(c){all[c]=(all[c]||0)+1;if(!FOCUS||(x>=FOCUS.c*PW&&x<(FOCUS.c+1)*PW&&y>=FOCUS.r*PH&&y<(FOCUS.r+1)*PH)){m[c]=(m[c]||0)+1;t++}}}));
- [...solo].forEach(c=>{if(!all[c])solo.delete(c)});[...hidden].forEach(c=>{if(!all[c])hidden.delete(c)});
- const scope=FOCUS?`<div class="mu" style="margin-bottom:4px"><b>Tablero ${FOCUS.r*PC+FOCUS.c+1}</b>: solo las cuentas de este tablero.</div>`:'';
- const ks=Object.keys(m).sort((a,b)=>m[b]-m[a]);if(!ks.length){$('cnt').innerHTML=scope+(FOCUS?'Sin cuentas en este tablero':'Sin cuentas todavía');return m}
- const mg=n=>Math.ceil(n*1.1/10)*10;
- $('cnt').innerHTML=scope+`<div class="mu" style="margin-bottom:4px">Colores: pulsa un color para ver solo ese, 👁 para ocultarlo, «Cambiar» para sustituirlo por otro.</div>`+(solo.size||hidden.size?'<div class="row"><button id="showall">Mostrar todos</button></div>':'')+`<table><tr><th>Color</th><th>Cuentas</th><th>+10 %</th><th></th></tr>${ks.map(c=>`<tr data-c="${c}" style="${solo.has(c)?'background:rgba(232,115,28,.18)':''}${hidden.has(c)?';opacity:.45':''}"><td class="lay" style="cursor:pointer"><i class="sw" style="background:${CODES[c].hex}"></i>${c}</td><td>${m[c]}</td><td>${mg(m[c])}</td><td style="white-space:nowrap"><button class="eye" style="padding:2px 6px">${hidden.has(c)?'🚫':'👁'}</button> <button class="chg" style="padding:2px 6px${recolorFrom===c?';background:var(--ac);color:#fff':''}">Cambiar</button></td></tr>`).join('')}<tr><th>Total</th><th>${t}</th><th>${ks.reduce((a,c)=>a+mg(m[c]),0)}</th><th></th></tr></table><div class="mu" style="margin-top:4px">${ks.length} colores · ${COLS}×${ROWS}</div>`;return m}
-$('cnt').addEventListener('click',e=>{
- if(e.target.id==='showall'){solo.clear();hidden.clear();draw();return}
- const tr=e.target.closest('tr[data-c]');if(!tr)return;const c=tr.dataset.c;
- if(e.target.closest('.eye')){hidden.has(c)?hidden.delete(c):hidden.add(c);draw();return}
- if(e.target.closest('.chg')){recolorFrom=recolorFrom===c?null:c;$('imgmsg').textContent=recolorFrom?`Elige en la paleta el color que sustituirá a ${c}`:'';$('pal').scrollIntoView&&0;draw();return}
- if(e.target.closest('.lay')){solo.has(c)?solo.delete(c):solo.add(c);hidden.delete(c);draw()}});
+function counts(){const m=renderLayers();const all={};compGrid().forEach(r=>r.forEach(c=>{if(c)all[c]=1}));
+ [...solo].forEach(c=>{if(!all[c])solo.delete(c)});[...hidden].forEach(c=>{if(!all[c])hidden.delete(c)});return m}
 function dl(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
 $('save').onclick=()=>dl('diseno-rejilla.json',new Blob([JSON.stringify({v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:compGrid()})],{type:'application/json'}));
 function loadDesignObject(d){if(d.gama&&$('gama')&&$('gama').value!==d.gama){$('gama').value=d.gama;$('gama').dispatchEvent(new Event('change'))}FOCUS=null;push();COLS=d.cols;ROWS=d.rows;grid=d.grid;{const oldImg=img,oldT={...imgT},oldUi=imgUi();layers=[mkLayer('Capa 1',grid)];activeL=0;layers[0].img=oldImg;layers[0].imgT=oldT;layers[0].ui=oldUi;renderLayers()}PW=d.pw||COLS;PH=d.ph||ROWS;PR=d.pr||1;PC=d.pc||1;$('cols').value=PW;$('rows').value=PH;const std=['40x40','29x29','20x20'].includes(PW+'x'+PH);$('preset').value=std?PW+'x'+PH:'custom';platesKey=(PLATES.find(x=>x[2]===PR&&x[3]===PC&&x[0]!=='custom')||['custom'])[0];$('pr').value=PR;$('pc').value=PC;size();solo.clear();hidden.clear();applyBoard();fitToScreen()}
@@ -454,12 +459,18 @@ function exportDesign(){
   return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G},preview:o.toDataURL('image/png'),beads};
 }
 $('lyadd').onclick=()=>addLayer();
-$('lylist').addEventListener('click',e=>{const b=e.target.closest('[data-a]');const li=e.target.closest('li[data-i]');if(!b||!li)return;const i=+li.dataset.i,a=b.dataset.a;
+$('lylist').addEventListener('click',e=>{const b=e.target.closest('[data-a]');const li=e.target.closest('li.ly[data-i]');if(!b||!li)return;const i=+li.dataset.i,a=b.dataset.a;const L=layers[i];
  if(a==='sel')selectLayer(i);
- else if(a==='eye'){push();layers[i].visible=!layers[i].visible;renderLayers();draw()}
+ else if(a==='eye'){push();L.visible=!L.visible;renderLayers();draw()}
+ else if(a==='fold'){L.open=!(L.open!==undefined?L.open:i===activeL);renderLayers()}
+ else if(a==='upload'){selectLayer(i);$('lyfile').click()}
+ else if(a==='csolo'){const c=b.closest('li.lc').dataset.c;solo.has(c)?solo.delete(c):solo.add(c);hidden.delete(c);draw()}
+ else if(a==='chide'){const c=b.closest('li.lc').dataset.c;if(!L.hid)L.hid=new Set();L.hid.has(c)?L.hid.delete(c):L.hid.add(c);draw()}
+ else if(a==='cchg'){const c=b.closest('li.lc').dataset.c;if(recolorFrom===c&&recolorL===i){recolorFrom=null;recolorL=null}else{recolorFrom=c;recolorL=i}$('imgmsg').textContent=recolorFrom?`Elige en la paleta el color que sustituirá a ${c} en ${L.name}`:'';draw()}
  else if(a==='up'||a==='down'){const j=a==='up'?i+1:i-1;if(j<0||j>=layers.length)return;push();saveActive();const act=layers[activeL];[layers[i],layers[j]]=[layers[j],layers[i]];activeL=layers.indexOf(act);renderLayers();draw()}
  else if(a==='del'){if(layers.length<2){$('imgmsg').textContent='Tiene que quedar al menos una capa.';return}push();saveActive();const act=layers[activeL];layers.splice(i,1);activeL=Math.max(0,Math.min(layers.indexOf(act)>=0?layers.indexOf(act):Math.min(i,layers.length-1),layers.length-1));loadActive();renderLayers();draw()}});
-$('lylist').addEventListener('dblclick',e=>{const li=e.target.closest('li[data-i]');if(!li||!e.target.closest('.ly__name'))return;const L=layers[+li.dataset.i];const n=window.prompt('Nombre de la capa',L.name);if(n&&n.trim()){push();L.name=n.trim().slice(0,30);renderLayers()}});
+$('lyfoot').addEventListener('click',e=>{if(e.target.closest('[data-a="showall"]')){solo.clear();hidden.clear();layers.forEach(L=>{L.hid=null});draw()}});
+$('lylist').addEventListener('dblclick',e=>{const li=e.target.closest('li.ly[data-i]');if(!li||!e.target.closest('.ly__name'))return;const L=layers[+li.dataset.i];const n=window.prompt('Nombre de la capa',L.name);if(n&&n.trim()){push();L.name=n.trim().slice(0,30);renderLayers()}});
 // ---- Aviso al exportar si parte del diseño quedó fuera del tablero ----
 function outsideCount(){saveActive();let n=0;layers.forEach(L=>{if(L.visible)n+=(L.spill||[]).length});return n}
 function shiftData(L,dx,dy){const act=L===layers[activeL];const g=act?grid:L.grid;const n=newGrid(COLS,ROWS);const sp=[];
@@ -475,10 +486,12 @@ function expandToFit(){saveActive();let minX=0,minY=0,maxX=COLS-1,maxY=ROWS-1;
  $('imgmsg').textContent=`Tablero ampliado a ${pr} × ${pc} placas; el recuento está actualizado.`;return true}
 let spCb=null;
 function guardExport(cb){const n=outsideCount();if(!n){cb();return}spCb=cb;$('spn').textContent=n;$('spwarn').textContent='';$('spmodal').hidden=false;$('spadd').focus()}
+$('pvcancel').addEventListener('click',()=>{forceActive=false});
 $('spcancel').onclick=()=>{$('spmodal').hidden=true;spCb=null};
 $('spcont').onclick=()=>{$('spmodal').hidden=true;const f=spCb;spCb=null;f&&f()};
 $('spadd').onclick=()=>{if(!expandToFit()){$('spwarn').textContent='No cabe: harían falta más de 6 × 6 placas o más de 300 cuentas por lado. Acerca el diseño al tablero o continúa sin esa parte.';return}$('spmodal').hidden=true;spCb=null};
 ['png','csv','save'].forEach(id=>{const f=$(id).onclick;$(id).onclick=e=>guardExport(()=>f.call($(id),e))});
+$('lyfile').onchange=e=>{forceNext=true;$('file').onchange({target:e.target})};
 function exportMontaje(){
     const G=compGrid();const hex={};let beads=0;G.forEach(r=>r.forEach(c=>{if(c){beads++;hex[c]=CODES[c].hex}}));
     return {beads,hex,data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G}};
