@@ -531,18 +531,22 @@ function transformLayer(op){saveActive();const L=layers[activeL];const cells=[];
  if(cells.length){let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;cells.forEach(a=>{x0=Math.min(x0,a[0]);x1=Math.max(x1,a[0]);y0=Math.min(y0,a[1]);y1=Math.max(y1,a[1])});cx=(x0+x1+1)/2;cy=(y0+y1+1)/2}
  else if(img&&imgT.us!=null){const f=$('isc').value/100,w=img.width*imgT.us*f,h=img.height*imgT.us*f;cx=imgT.ux+w/2;cy=imgT.uy+h/2}
  else{$('imgmsg').textContent='Esta capa no tiene nada que transformar.';return}
+ // El punto de giro se ajusta a la rejilla para que cada cuenta caiga exactamente en una cuenta y la imagen use el mismo punto
+ const h2=v=>Math.round(v*2)/2;
+ if(op==='fh')cx=h2(cx);else if(op==='fv')cy=h2(cy);
+ else if(op==='rr'||op==='rl'){cx=h2(cx);cy=h2(cy);if(Math.abs(cx+cy-Math.round(cx+cy))>1e-9)cy+=0.5}
+ else{cx=Math.round(cx);cy=Math.round(cy)}
  push();
- // cuentas
  let out=[];
- if(op==='fh')out=cells.map(a=>[Math.floor(2*cx-a[0]-1),a[1],a[2]]);
- else if(op==='fv')out=cells.map(a=>[a[0],Math.floor(2*cy-a[1]-1),a[2]]);
- else if(op==='rr')out=cells.map(a=>[Math.floor(cx-(a[1]+.5-cy)-.5),Math.floor(cy+(a[0]+.5-cx)-.5),a[2]]);
- else if(op==='rl')out=cells.map(a=>[Math.floor(cx+(a[1]+.5-cy)-.5),Math.floor(cy-(a[0]+.5-cx)-.5),a[2]]);
- else if(op==='s2'){cells.forEach(a=>{const bx=Math.floor(cx+(a[0]-cx)*2),by=Math.floor(cy+(a[1]-cy)*2);for(let dy=0;dy<2;dy++)for(let dx=0;dx<2;dx++)out.push([bx+dx,by+dy,a[2]])})}
- else if(op==='sh'){const mp=new Map();cells.forEach(a=>{const bx=Math.floor((a[0]-Math.floor(cx))/2),by=Math.floor((a[1]-Math.floor(cy))/2),k=bx+','+by;const o=mp.get(k)||{bx,by,n:{}};o.n[a[2]]=(o.n[a[2]]||0)+1;mp.set(k,o)});
-  mp.forEach(o=>{const c=Object.keys(o.n).sort((p,q)=>o.n[q]-o.n[p])[0];out.push([o.bx+Math.floor(cx),o.by+Math.floor(cy),c])})}
+ if(op==='fh')out=cells.map(a=>[2*cx-a[0]-1,a[1],a[2]]);
+ else if(op==='fv')out=cells.map(a=>[a[0],2*cy-a[1]-1,a[2]]);
+ else if(op==='rr')out=cells.map(a=>[cx+cy-a[1]-1,cy-cx+a[0],a[2]]);
+ else if(op==='rl')out=cells.map(a=>[cx-cy+a[1],cx+cy-a[0]-1,a[2]]);
+ else if(op==='s2'){cells.forEach(a=>{const bx=2*a[0]-cx,by=2*a[1]-cy;for(let dy=0;dy<2;dy++)for(let dx=0;dx<2;dx++)out.push([bx+dx,by+dy,a[2]])})}
+ else if(op==='sh'){const mp=new Map();cells.forEach(a=>{const bx=Math.floor((a[0]-cx)/2),by=Math.floor((a[1]-cy)/2),k=bx+','+by;const o=mp.get(k)||{bx,by,n:{}};o.n[a[2]]=(o.n[a[2]]||0)+1;mp.set(k,o)});
+  mp.forEach(o=>{const c=Object.keys(o.n).sort((p,q)=>o.n[q]-o.n[p])[0];out.push([o.bx+cx,o.by+cy,c])})}
  placeCells(L,out);
- // imagen guía: se mueve con las cuentas para que sigan alineadas
+ // imagen guía: mismo punto de giro que las cuentas, para que sigan alineadas
  if(img&&imgT.us!=null){const f=$('isc').value/100;let w=img.width*imgT.us*f,h=img.height*imgT.us*f;let icx=imgT.ux+w/2,icy=imgT.uy+h/2,rot=imgT.rot||0,fl=!!imgT.flip;
   if(op==='fh'){icx=2*cx-icx;fl=!fl;rot=-rot}
   else if(op==='fv'){icy=2*cy-icy;fl=!fl;rot=180-rot}
