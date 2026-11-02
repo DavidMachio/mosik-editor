@@ -87,14 +87,14 @@ function makeThumb(L,i){const g=i===activeL?grid:L.grid;let x0=1e9,y0=1e9,x1=-1,
  if(x1<0)return null;const w=x1-x0+1,h=y1-y0+1,S=96,k=S/Math.max(w,h);const c=document.createElement('canvas');c.width=S;c.height=S;const t=c.getContext('2d');
  const ox=(S-w*k)/2,oy=(S-h*k)/2;for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const v=g[y][x];if(!v)continue;t.fillStyle=CODES[v].hex;t.fillRect(Math.floor(ox+(x-x0)*k),Math.floor(oy+(y-y0)*k),Math.ceil(k),Math.ceil(k))}
  return c.toDataURL('image/png')}
-let thumbTimer=null;
+let thumbTimer=null,layerDrag=null;
 function scheduleThumbs(){if(thumbTimer)return;thumbTimer=window.setTimeout(()=>{thumbTimer=null;saveActive();layers.forEach((L,i)=>{L.thumb=makeThumb(L,i)});renderLayers(true)},400)}
-function renderLayers(noSched){const ul=$('lylist');if(!ul)return;saveActive();layers.forEach((L,i)=>{if(L.thumb===undefined)L.thumb=makeThumb(L,i)});if(!noSched)scheduleThumbs();
+function renderLayers(noSched){const ul=$('lylist');if(!ul||layerDrag)return;saveActive();layers.forEach((L,i)=>{if(L.thumb===undefined)L.thumb=makeThumb(L,i)});if(!noSched)scheduleThumbs();
  ul.innerHTML=layers.map((L,i)=>i).reverse().map(i=>{const L=layers[i];const m=layerCounts(i);const ks=Object.keys(m).sort((a,b)=>m[b]-m[a]);const n=ks.reduce((a,c)=>a+m[c],0);
   const open=L.open!==undefined?L.open:i===activeL;
   const thumb=L.thumb?`<img class="ly__thumb" src="${L.thumb}" alt="">`:(L.img&&L.img.src?`<img class="ly__thumb ly__thumb--img" src="${L.img.src}" alt="">`:`<span class="ly__thumb ly__thumb--none" aria-hidden="true">▦</span>`);
   const rows=ks.map(c=>`<li class="lc${solo.has(c)?' solo':''}${L.hid&&L.hid.has(c)?' off':''}" data-c="${c}"><button type="button" class="lc__main" data-a="csolo" title="Ver solo este color"><i class="sw" style="background:${CODES[c].hex}"></i><b>${c}</b><span>${m[c]}</span><span class="mu">${mg10(m[c])}</span></button><button type="button" data-a="chide" aria-label="${L.hid&&L.hid.has(c)?'Mostrar':'Ocultar'} ${c} en esta capa" title="Mostrar u ocultar en esta capa">${L.hid&&L.hid.has(c)?'🚫':'👁'}</button><button type="button" data-a="cchg" class="${recolorFrom===c&&recolorL===i?'on':''}" aria-label="Sustituir ${c} por otro color" title="Sustituir este color por otro">⇄</button></li>`).join('');
-  return `<li class="ly${i===activeL?' sel':''}${L.visible?'':' off'}" data-i="${i}"><div class="ly__row"><button type="button" class="ly__thumbbtn" data-a="fold" aria-expanded="${open}" aria-label="${open?'Recoger':'Desplegar'} los colores de ${escH(L.name)}" title="Desplegar o recoger los colores">${thumb}</button><button type="button" class="ly__name" data-a="sel" title="Elegir esta capa (doble clic: renombrar)">${escH(L.name)}</button><span class="ly__act"><span class="ly__ud"><button type="button" data-a="up" aria-label="Subir capa" title="Subir">↑</button><button type="button" data-a="down" aria-label="Bajar capa" title="Bajar">↓</button></span><button type="button" class="ly__eye" data-a="eye" aria-pressed="${L.visible}" aria-label="${L.visible?'Ocultar':'Mostrar'} ${escH(L.name)}" title="Mostrar u ocultar la capa">${L.visible?'👁':'🚫'}</button><button type="button" data-a="upload" aria-label="Subir imagen a ${escH(L.name)}" title="Subir una imagen a esta capa">⬆</button><button type="button" data-a="del" aria-label="Borrar capa" title="Borrar capa">✕</button></span></div><button type="button" class="ly__fold" data-a="fold" aria-expanded="${open}">${ks.length} ${ks.length===1?'color':'colores'} · ${n} cuentas <span aria-hidden="true">${open?'▾':'▸'}</span></button>${open&&ks.length?`<ul class="lc-list">${rows}</ul>`:''}</li>`}).join('');
+  return `<li class="ly${i===activeL?' sel':''}${L.visible?'':' off'}" data-i="${i}"><div class="ly__row"><button type="button" class="ly__grip" data-a="grip" aria-label="Arrastrar para cambiar el orden de ${escH(L.name)}" title="Arrastra para cambiar el orden">⋮⋮</button><button type="button" class="ly__thumbbtn" data-a="fold" aria-expanded="${open}" aria-label="${open?'Recoger':'Desplegar'} los colores de ${escH(L.name)}" title="Desplegar o recoger los colores">${thumb}</button><button type="button" class="ly__name" data-a="sel" title="Elegir esta capa (doble clic: renombrar)">${escH(L.name)}</button><span class="ly__act"><span class="ly__ud"><button type="button" data-a="up" aria-label="Subir capa" title="Subir">↑</button><button type="button" data-a="down" aria-label="Bajar capa" title="Bajar">↓</button></span><button type="button" class="ly__eye" data-a="eye" aria-pressed="${L.visible}" aria-label="${L.visible?'Ocultar':'Mostrar'} ${escH(L.name)}" title="Mostrar u ocultar la capa">${L.visible?'👁':'🚫'}</button><button type="button" data-a="upload" aria-label="Subir imagen a ${escH(L.name)}" title="Subir una imagen a esta capa">⬆</button><button type="button" data-a="del" aria-label="Borrar capa" title="Borrar capa">✕</button></span></div><button type="button" class="ly__fold" data-a="fold" aria-expanded="${open}">${ks.length} ${ks.length===1?'color':'colores'} · ${n} cuentas <span aria-hidden="true">${open?'▾':'▸'}</span></button>${open&&ks.length?`<ul class="lc-list">${rows}</ul>`:''}</li>`}).join('');
  // Total visible (lo que se monta) y avisos
  const all=compGrid();let t=0,mm={};all.forEach((r,y)=>r.forEach((c,x)=>{if(c&&(!FOCUS||(x>=FOCUS.c*PW&&x<(FOCUS.c+1)*PW&&y>=FOCUS.r*PH&&y<(FOCUS.r+1)*PH))){mm[c]=(mm[c]||0)+1;t++}}));
  const tot=Object.keys(mm).reduce((a,c)=>a+mg10(mm[c]),0);
@@ -270,10 +270,10 @@ pvcv.addEventListener('pointermove',e=>{const old=pvpts.get(e.pointerId);if(!old
  if(pvpts.size===2&&pvLast){const[a,b]=[...pvpts.values()];const d=Math.hypot(a.x-b.x,a.y-b.y)||1;pvSetScale(Math.max(.02,pvLast.us*d/pvLast.d));pvRefresh();return}
  if(pvpts.size===1){PV.ux+=(nx-old.x)/PV.k;PV.uy+=(ny-old.y)/PV.k;pvDraw()}});
 ['pointerup','pointercancel'].forEach(t=>pvcv.addEventListener(t,e=>{pvpts.delete(e.pointerId);pvLast=null}));
-const onPvKey=e=>{if(e.key==='Escape'&&!$('pvmodal').hidden){e.preventDefault();$('pvcancel').click()}if(e.key==='Escape'&&!$('spmodal').hidden){e.preventDefault();$('spcancel').click()}};document.addEventListener('keydown',onPvKey);
+const onPvKey=e=>{if(e.key==='Escape'&&!$('pvmodal').hidden){e.preventDefault();$('pvcancel').click()}if(e.key==='Escape'&&!$('spmodal').hidden){e.preventDefault();$('spcancel').click()}if(e.key==='Escape'&&!$('cfmodal').hidden){e.preventDefault();$('cfcancel').click()}};document.addEventListener('keydown',onPvKey);
 // Atajos de teclado (como en Figma): V mano, B pincel, E borrador, G bote, I cuentagotas, M imagen; Ctrl+Z/Ctrl+Y; + - 0.
 const KEYS={v:'move',b:'paint',e:'erase',g:'fill',i:'pick',m:'img'};
-const onShortcut=e=>{const tg=e.target;if(tg&&(tg.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName)&&tg.type!=='range'&&tg.type!=='checkbox'))return;if(!$('pvmodal').hidden||!$('spmodal').hidden||$('modal').classList.contains('show'))return;
+const onShortcut=e=>{const tg=e.target;if(tg&&(tg.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName)&&tg.type!=='range'&&tg.type!=='checkbox'))return;if(!$('pvmodal').hidden||!$('spmodal').hidden||!$('cfmodal').hidden||$('modal').classList.contains('show'))return;
 const k=e.key.toLowerCase();const mod=e.ctrlKey||e.metaKey;
 if(mod&&k==='z'){e.preventDefault();$(e.shiftKey?'redo':'undo').click();return}
 if(mod&&k==='y'){e.preventDefault();$('redo').click();return}
@@ -467,6 +467,25 @@ function exportDesign(){
   return {data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G},preview:o.toDataURL('image/png'),beads};
 }
 $('lyadd').onclick=()=>addLayer();
+// Aviso de confirmación (ventana propia de la herramienta)
+let cfCb=null;
+function confirmar(o,cb){$('cft').textContent=o.titulo;$('cftxt').textContent=o.texto;$('cfok').textContent=o.boton||'Confirmar';cfCb=cb;$('cfmodal').hidden=false;$('cfcancel').focus()}
+$('cfcancel').onclick=()=>{$('cfmodal').hidden=true;cfCb=null};
+$('cfok').onclick=()=>{$('cfmodal').hidden=true;const f=cfCb;cfCb=null;f&&f()};
+// Arrastrar las capas para cambiar su orden (ratón y táctil): se agarran por el asa ⋮⋮
+$('lylist').addEventListener('pointerdown',e=>{const g=e.target.closest('.ly__grip');if(!g||e.button>0)return;const li=g.closest('li.ly');if(!li)return;e.preventDefault();
+ const ul=$('lylist');const items=[...ul.children].filter(x=>x.matches('li.ly'));const from=items.indexOf(li);
+ layerDrag={li,items,from,to:from,y0:e.clientY,id:e.pointerId};g.setPointerCapture(e.pointerId);li.classList.add('ly--drag');ul.classList.add('ly-list--drag')});
+$('lylist').addEventListener('pointermove',e=>{const d=layerDrag;if(!d||e.pointerId!==d.id)return;const dy=e.clientY-d.y0;d.li.style.transform=`translateY(${dy}px)`;
+ let to=d.items.length;for(let k=0;k<d.items.length;k++){if(k===d.from)continue;const r=d.items[k].getBoundingClientRect();if(e.clientY<r.top+r.height/2){to=k;break}}
+ d.to=to;d.items.forEach((it,k)=>{it.classList.toggle('drop-above',k===to&&k!==d.from&&to!==d.from+1);it.classList.toggle('drop-end',false)});
+ if(to===d.items.length&&d.from!==d.items.length-1)d.items[d.items.length-1].classList.add('drop-end')});
+function endLayerDrag(e,cancel){const d=layerDrag;if(!d||(e&&e.pointerId!==d.id))return;layerDrag=null;const ul=$('lylist');ul.classList.remove('ly-list--drag');d.items.forEach(it=>{it.classList.remove('drop-above','drop-end','ly--drag');it.style.transform=''});
+ if(!cancel&&d.to!==d.from&&d.to!==d.from+1){push();saveActive();const act=layers[activeL];
+  const dom=layers.map((L,i)=>L).reverse();const moved=dom.splice(d.from,1)[0];dom.splice(d.to>d.from?d.to-1:d.to,0,moved);layers=dom.reverse();activeL=layers.indexOf(act);renderLayers();draw()}
+ else renderLayers()}
+$('lylist').addEventListener('pointerup',e=>endLayerDrag(e,false));
+$('lylist').addEventListener('pointercancel',e=>endLayerDrag(e,true));
 $('lylist').addEventListener('click',e=>{const b=e.target.closest('[data-a]');const li=e.target.closest('li.ly[data-i]');if(!b||!li)return;const i=+li.dataset.i,a=b.dataset.a;const L=layers[i];
  if(a==='sel')selectLayer(i);
  else if(a==='eye'){push();L.visible=!L.visible;renderLayers();draw()}
@@ -476,7 +495,10 @@ $('lylist').addEventListener('click',e=>{const b=e.target.closest('[data-a]');co
  else if(a==='chide'){const c=b.closest('li.lc').dataset.c;if(!L.hid)L.hid=new Set();L.hid.has(c)?L.hid.delete(c):L.hid.add(c);draw()}
  else if(a==='cchg'){const c=b.closest('li.lc').dataset.c;if(recolorFrom===c&&recolorL===i){recolorFrom=null;recolorL=null}else{recolorFrom=c;recolorL=i}$('imgmsg').textContent=recolorFrom?`Elige en la paleta el color que sustituirá a ${c} en ${L.name}`:'';draw()}
  else if(a==='up'||a==='down'){const j=a==='up'?i+1:i-1;if(j<0||j>=layers.length)return;push();saveActive();const act=layers[activeL];[layers[i],layers[j]]=[layers[j],layers[i]];activeL=layers.indexOf(act);renderLayers();draw()}
- else if(a==='del'){if(layers.length<2){$('imgmsg').textContent='Tiene que quedar al menos una capa.';return}push();saveActive();const act=layers[activeL];layers.splice(i,1);activeL=Math.max(0,Math.min(layers.indexOf(act)>=0?layers.indexOf(act):Math.min(i,layers.length-1),layers.length-1));loadActive();renderLayers();draw()}});
+ else if(a==='del'){if(layers.length<2){$('imgmsg').textContent='Tiene que quedar al menos una capa.';return}
+  const n=Object.values(layerCounts(i)).reduce((a,v)=>a+v,0);
+  confirmar({titulo:`¿Borrar la capa «${L.name}»?`,texto:`Se quitará la capa con su dibujo${n?` (${n} cuentas)`:''}${L.img?' y su imagen':''}. Puedes recuperarla con «Deshacer».`,boton:'Borrar capa'},()=>{
+   const k=layers.indexOf(L);if(k<0)return;push();saveActive();const act=layers[activeL];layers.splice(k,1);activeL=Math.max(0,Math.min(layers.indexOf(act)>=0?layers.indexOf(act):Math.min(k,layers.length-1),layers.length-1));loadActive();renderLayers();draw()})}});
 $('lyfoot').addEventListener('click',e=>{if(e.target.closest('[data-a="showall"]')){solo.clear();hidden.clear();layers.forEach(L=>{L.hid=null});draw()}});
 $('lylist').addEventListener('dblclick',e=>{const li=e.target.closest('li.ly[data-i]');if(!li||!e.target.closest('.ly__name'))return;const L=layers[+li.dataset.i];const n=window.prompt('Nombre de la capa',L.name);if(n&&n.trim()){push();L.name=n.trim().slice(0,30);renderLayers()}});
 // ---- Aviso al exportar si parte del diseño quedó fuera del tablero ----
@@ -500,6 +522,8 @@ $('spcont').onclick=()=>{$('spmodal').hidden=true;const f=spCb;spCb=null;f&&f()}
 $('spadd').onclick=()=>{if(!expandToFit()){$('spwarn').textContent='No cabe: harían falta más de 6 × 6 placas o más de 300 cuentas por lado. Acerca el diseño al tablero o continúa sin esa parte.';return}$('spmodal').hidden=true;spCb=null};
 ['png','csv','save'].forEach(id=>{const f=$(id).onclick;$(id).onclick=e=>guardExport(()=>f.call($(id),e))});
 $('lyfile').onchange=e=>{forceNext=true;$('file').onchange({target:e.target})};
+{const vaciar=$('reset').onclick;$('reset').onclick=()=>{saveActive();const hay=layers.some(L=>L.grid.some(r=>r.some(Boolean))||(L.spill||[]).length);if(!hay){vaciar();return}
+ confirmar({titulo:'¿Vaciar el tablero?',texto:'Se quitarán las cuentas de todas las capas. Las capas y sus imágenes se quedan. Puedes recuperarlo con «Deshacer».',boton:'Vaciar'},()=>vaciar())}}
 function exportMontaje(){
     const G=compGrid();const hex={};let beads=0;G.forEach(r=>r.forEach(c=>{if(c){beads++;hex[c]=CODES[c].hex}}));
     return {beads,hex,data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G}};

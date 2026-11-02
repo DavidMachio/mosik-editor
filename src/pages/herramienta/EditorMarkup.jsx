@@ -152,6 +152,13 @@ export default function EditorMarkup() {
      <canvas id="mprev" width="360" height="360"></canvas>
      <div className="row" style={{ marginTop: '10px', justifyContent: 'flex-end' }}><span className="mu" id="mwarn" style={{ flex: '1' }}></span><button id="mcancel">Cancelar</button><button id="macc" className="on big">Aceptar y rellenar</button></div>
     </div></div>
+<div id="cfmodal" className="pv" hidden role="alertdialog" aria-modal="true" aria-labelledby="cft" aria-describedby="cftxt">
+<div className="pv__card">
+<h2 id="cft">¿Seguro?</h2>
+<p className="mu" id="cftxt"></p>
+<div className="row pv__end"><button type="button" id="cfcancel">Cancelar</button><button type="button" id="cfok" className="on big">Confirmar</button></div>
+</div>
+</div>
 <div id="spmodal" className="pv" hidden role="dialog" aria-modal="true" aria-labelledby="spt">
 <div className="pv__card">
 <h2 id="spt">Parte del diseño queda fuera del tablero</h2>

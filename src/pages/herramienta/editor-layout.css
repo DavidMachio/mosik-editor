@@ -472,3 +472,11 @@
 .mk-editor .ly__thumbbtn { background: #f6f5f1; }
 .mk-editor .ly__thumb { object-fit: contain; }
 .mk-editor .ly__thumb--img { object-fit: cover; opacity: .75; }
+
+/* Arrastrar capas */
+.mk-editor .ly__grip { flex: none; width: 16px; min-height: 40px; padding: 0; border: 0; background: transparent; color: var(--mk-muted); font-size: 14px; line-height: 1; letter-spacing: -2px; cursor: grab; touch-action: none; }
+.mk-editor .ly__grip:active { cursor: grabbing; }
+.mk-editor .ly--drag { position: relative; z-index: 3; opacity: .85; box-shadow: 0 10px 24px rgba(0, 0, 0, .25); }
+.mk-editor .ly-list--drag { user-select: none; }
+.mk-editor .ly.drop-above { box-shadow: 0 -4px 0 -1px #d35f03; }
+.mk-editor .ly.drop-end { box-shadow: 0 4px 0 -1px #d35f03; }
