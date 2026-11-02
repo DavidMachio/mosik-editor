@@ -62,6 +62,8 @@ function loadActive(){const L=layers[activeL];grid=L.grid;img=L.img;imgCv=null;i
  $('rot').value=imgT.rot||0;$('rotv').textContent=(imgT.rot||0)+'°'}
 function cellCode(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];if(r&&r[x])return r[x]}return null}
 function cellCodeView(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];const c=r&&r[x];if(c&&!(L.hid&&L.hid.has(c)))return c}return null}
+// Capa con cuentas visibles en una celda (la de más arriba); -1 si no hay ninguna
+function layerAt(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];const c=r&&r[x];if(c&&!(L.hid&&L.hid.has(c)))return i}return -1}
 function compGrid(){const o=newGrid(COLS,ROWS);for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)o[y][x]=cellCode(x,y);return o}
 function mapLayer(i,fn){saveActive();const L=layers[i];if(!L)return;L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c));if(L.spill)L.spill=L.spill.map(a=>[a[0],a[1],fn(a[2])]);grid=layers[activeL].grid}
 function mapLayers(fn){saveActive();layers.forEach(L=>{L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c));if(L.spill)L.spill=L.spill.map(a=>[a[0],a[1],fn(a[2])])});grid=layers[activeL].grid}
@@ -180,6 +182,7 @@ function moveMulti(){const[a,b]=[...pts.values()];const w=$('wrap');const d=Math
  if(!multi.zoom){if(Math.abs(d/multi.d-1)<0.12)return;multi.zoom=true;multi.d=d;multi.z=+$('zoom').value;return}
  const nz=Math.max(3,Math.min(48,Math.round(multi.z*d/multi.d*2)/2));if(nz!==+$('zoom').value)zoomAt(nz,cx,cy)}
 cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pts.size===2){startMulti();return}if(pts.size>2)return;const c=cellAt(e);down=true;
+ if(tool==='move'&&c){const li=layerAt(c[0],c[1]);if(li>=0&&li!==activeL){selectLayer(li);$('imgmsg').textContent=`Capa «${layers[li].name}» elegida.`}}
  if(tool==='move'){const w=$('wrap');const hasB=grid.some(r=>r.some(Boolean))||(layers[activeL].spill||[]).length>0;
   // Con cuentas en la capa, la Mano las mueve de cuenta en cuenta (y la imagen con ellas). Con Mayús solo se mueve la imagen.
   const lay=hasB&&!$('lock').checked&&!e.shiftKey;
