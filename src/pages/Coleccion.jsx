@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle.js';
 import Icon from '../components/Icon.jsx';
 import { porSlug } from '../data/colecciones/index.js';
+import { usuarioPorHandle } from '../data/usuarios.js';
 import NotFound from './NotFound.jsx';
 import './Coleccion.css';
 
@@ -182,6 +183,14 @@ function ColeccionPagina({ col }) {
   const fase = EVOLUCIONES[sel - 1];
   const pick = (i) => setParams({ fase: String(i + 1) }, { replace: true });
   const resaltar = fase.colores.some((c) => c.codigo === selFicha) ? selFicha : null; // se limpia solo al cambiar de diseño o gama
+  const autor = usuarioPorHandle(params.get('autor'));
+  // Llegando desde el perfil o los recomendados: se baja directo a la ficha del diseño (la tarjeta del autor se queda pegada arriba)
+  useEffect(() => {
+    if (!params.get('autor')) return;
+    const el = document.getElementById('evo-ficha');
+    if (el) el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const t = col.tema;
   const style = { '--evo-bg': t.fondo, '--evo-a': t.circulo, '--evo-b': t.circulo2, '--evo-yellow': t.acento };
 
@@ -197,6 +206,18 @@ function ColeccionPagina({ col }) {
 
   return (
     <div className="container evo-page" style={style}>
+      {autor && (
+        <aside className="evo-author" aria-label="Autor del diseño">
+          <span className="evo-author__av" style={{ background: autor.tono }} aria-hidden="true">{autor.nombre[0]}</span>
+          <div className="evo-author__txt">
+            <p className="evo-author__by">Diseño de</p>
+            <p className="evo-author__name">@{autor.handle}</p>
+            <p className="evo-author__bio">{autor.nombre} · {autor.bio}</p>
+          </div>
+          <div className="evo-author__stats"><b>{autor.disenos.length}</b><span>diseños</span></div>
+          <Link to={`/usuario/${autor.handle}`} className="btn evo-author__btn"><Icon name="usuario" size={18} /> Ver perfil</Link>
+        </aside>
+      )}
       <nav className="evo-page__crumbs" aria-label="Dónde estás"><Link to="/">Inicio</Link> <span aria-hidden="true">/</span> <span>{col.titulo}</span></nav>
 
       <header className="evo-hero">

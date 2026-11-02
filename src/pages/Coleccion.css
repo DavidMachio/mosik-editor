@@ -110,3 +110,18 @@
 .evo-colors__hint { margin: -6px 0 10px; font-size: 13.5px; }
 .evo-colors .btn--outline { background: var(--mk-card); border: 1px solid var(--mk-border); color: var(--mk-text); }
 .evo-colors .btn { gap: 8px; }
+
+/* Tarjeta del autor (arriba de la ficha) */
+.evo-author { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 14px 22px; margin-bottom: 14px; padding: 14px 18px; border: 1px solid var(--mk-line); border-radius: 18px; background: var(--mk-card); }
+.evo-author__av { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; color: #fff; font: 600 24px var(--font-display); box-shadow: 0 0 0 3px var(--mk-card), 0 0 0 5px #d35f03; }
+.evo-author p { margin: 0; }
+.evo-author__by { font-size: 12.5px; color: var(--mk-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.evo-author__name { font: 600 20px var(--font-display); overflow-wrap: anywhere; }
+.evo-author__bio { font-size: 14px; color: var(--mk-muted); }
+.evo-author__stats { display: grid; justify-items: center; }
+.evo-author__stats b { font: 600 22px var(--font-display); }
+.evo-author__stats span { font-size: 12.5px; color: var(--mk-muted); }
+.evo-author__btn { gap: 8px; }
+@media (max-width: 700px) { .evo-author { grid-template-columns: auto minmax(0, 1fr); } .evo-author__stats { display: none; } .evo-author__btn { grid-column: 1 / -1; justify-content: center; } }
+.evo-author { position: sticky; top: 8px; z-index: 6; box-shadow: 0 8px 22px rgba(21, 7, 2, .12); }
+#evo-ficha { scroll-margin-top: 112px; }
