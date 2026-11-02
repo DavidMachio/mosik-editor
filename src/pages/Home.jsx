@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { request } from '../lib/api.js';
 import usePageTitle from '../hooks/usePageTitle.js';
@@ -48,6 +48,22 @@ const COLECCIONES = [
   { nombre: 'Videojuegos', texto: 'Sprites y pantallas de juego.', gradiente: 'var(--grad-videojuegos)' },
 ];
 
+// Usuarios ficticios de muestra para los recomendados (se sustituirán por autores reales cuando haya comunidad).
+const USUARIOS_DEMO = ['lucia_cuentas', 'marcos.pixel', 'nuria_hama', 'pablo_planchado', 'irene_beads', 'tomas_pixel', 'carla_mosaicos', 'dani_8bits',
+  'sara_retro', 'hugo_cuentas', 'alba_planchas', 'jorge_pix', 'marta_micro', 'andres_hama', 'noa_beads', 'pau_arcade'];
+const TONOS_AVATAR = ['#d35a33', '#2f6fb5', '#3f8f4f', '#7b3fc4', '#b3362b', '#1f5f25', '#c62828', '#a61e1e'];
+
+// Los diseños de muestra de todas las colecciones, mezclados entre colecciones, y agrupados en páginas de 4 para el carrusel.
+function recomendadosEnPaginas(porPagina) {
+  const listas = COLECCIONES_FICHA.map((c) => c.disenos.map((d, i) => ({ col: c, d, fase: i + 1 })));
+  const mezcla = [];
+  for (let i = 0; i < 6; i += 1) listas.forEach((l) => { if (l[i]) mezcla.push(l[i]); });
+  const items = mezcla.map((m, i) => ({ ...m, usuario: USUARIOS_DEMO[i % USUARIOS_DEMO.length], tono: TONOS_AVATAR[i % TONOS_AVATAR.length] }));
+  const pags = [];
+  for (let i = 0; i < items.length; i += porPagina) pags.push(items.slice(i, i + porPagina));
+  return pags;
+}
+
 export default function Home() {
   usePageTitle('Mosik Beads · Crea tu diseño de cuentas para planchar');
 
@@ -62,6 +78,15 @@ export default function Home() {
   }, []);
 
   useReveal([designs.length]);
+  // 3 tarjetas por página en pantallas anchas y 2 en móvil
+  const [estrecho, setEstrecho] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 700px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 700px)');
+    const on = () => setEstrecho(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  const recPaginas = useMemo(() => recomendadosEnPaginas(estrecho ? 2 : 3), [estrecho]);
 
   return (
     <>
@@ -195,6 +220,38 @@ export default function Home() {
       </section>
 
       {/* Franja ancha: la herramienta, con una tarjeta flotante encima */}
+      {/* Recomendados: diseños de muestra con usuarios ficticios */}
+      <section className="container bento-wrap" aria-labelledby="recomendados" data-reveal>
+        <div className="tile tile--light tile--section">
+          <header className="section-head">
+            <p className="section-head__row"><span className="pill">Recomendados</span></p>
+            <h2 id="recomendados">Diseños para empezar</h2>
+            <p className="muted">Una selección de diseños de muestra. Ábrelos, mira sus colores y cuentas, y edítalos o móntalos.</p>
+          </header>
+          <Carrusel key={estrecho ? 'rec2' : 'rec3'} etiqueta="Diseños recomendados" intervalo={8000}
+            items={recPaginas.map((pag, n) => ({
+              key: `rec-${n}`,
+              node: (
+                <ul className="rec__grid">
+                  {pag.map(({ col, d, fase, usuario, tono }) => (
+                    <li key={`${col.slug}-${d.id}`} className="rec__card">
+                      <Link to={`/colecciones/${col.slug}?fase=${fase}`} className="rec__art" style={{ background: `linear-gradient(135deg, ${col.tema.fondo}, ${col.tema.circulo})` }} aria-label={`Ver el diseño ${d.nombre}`}>
+                        <img src={`/colecciones/${col.slug}/${d.id}.png`} alt="" width={d.ancho} height={d.alto} loading="lazy" />
+                      </Link>
+                      <div className="rec__body">
+                        <h3>{d.nombre}</h3>
+                        <p className="rec__by"><span className="rec__av" style={{ background: tono }} aria-hidden="true">{usuario[0].toUpperCase()}</span>@{usuario}</p>
+                        <p className="rec__meta">{d.cuentas.toLocaleString('es-ES')} cuentas · {d.gamas.m.colores.length} colores</p>
+                        <Link to={`/colecciones/${col.slug}?fase=${fase}`} className="rec__link">Ver diseño <Icon name="flecha" size={16} /></Link>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ),
+            }))} />
+        </div>
+      </section>
+
       <section className="container bento-wrap" aria-labelledby="crea" data-reveal>
         <div className="tile tile--dark tile--glow band">
           <div className="band__text">

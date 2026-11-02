@@ -22,3 +22,4 @@
 .carr__track { align-items: stretch; }
 .carr__slide { display: flex; }
 .carr__slide > * { flex: 1 1 auto; min-width: 0; }
+.carr { min-width: 0; max-width: 100%; }
