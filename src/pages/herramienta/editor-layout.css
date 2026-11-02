@@ -495,3 +495,4 @@
   .mk-editor .tool__zoom input { width: 96px; }
   .mk-editor .tool__bar { left: calc(50% - 70px); }
 }
+.mk-editor .trpop__grid button:disabled { opacity: .45; cursor: default; }

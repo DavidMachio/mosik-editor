@@ -160,10 +160,10 @@ export default function EditorMarkup() {
 <button type="button" data-op="fv"><span className="trpop__v"><Icon name="voltear" size={20} /></span> Voltear ↕</button>
 <button type="button" data-op="rl"><Icon name="girar-izq" size={20} /> Girar 90° izq.</button>
 <button type="button" data-op="rr"><Icon name="girar-der" size={20} /> Girar 90° der.</button>
-<button type="button" data-op="s2"><Icon name="acercar" size={20} /> Escalar ×2</button>
-<button type="button" data-op="sh"><Icon name="alejar" size={20} /> Escalar ÷2</button>
+<button type="button" data-op="s2"><Icon name="acercar" size={20} /> <span className="trl">Escalar ×2</span></button>
+<button type="button" data-op="sh"><Icon name="alejar" size={20} /> <span className="trl">Escalar ÷2</span></button>
 </div>
-<p className="mu">Mueve las cuentas y la imagen de la capa a la vez, desde el centro del dibujo.</p>
+<p className="mu">Mueve las cuentas y la imagen de la capa a la vez, desde el centro del dibujo. Escalar tiene un solo paso en cada sentido: el botón contrario vuelve al original.</p>
 </div>
 <div id="cfmodal" className="pv" hidden role="alertdialog" aria-modal="true" aria-labelledby="cft" aria-describedby="cftxt">
 <div className="pv__card">
