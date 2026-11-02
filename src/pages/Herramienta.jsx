@@ -113,6 +113,11 @@ export default function Herramienta() {
   }, [current]);
 
   function onSaveClick() {
+    // Si parte del diseño quedó fuera del tablero, el editor avisa antes de seguir.
+    editorRef.current.confirmExport(guardarDiseno);
+  }
+
+  function guardarDiseno() {
     const { data, beads } = editorRef.current.exportDesign();
     if (!beads) {
       setNotice({ text: 'Pinta alguna cuenta antes de guardar el diseño.', error: true });
@@ -156,7 +161,8 @@ export default function Herramienta() {
 
   // «Enviar a montaje» (botón del editor, marcado estático): guarda el diseño en el navegador y abre /montaje.
   const montajeRef = useRef(null);
-  montajeRef.current = () => {
+  montajeRef.current = () => editorRef.current && editorRef.current.confirmExport(enviarAMontaje);
+  const enviarAMontaje = () => {
     const r = editorRef.current && editorRef.current.exportMontaje();
     if (!r || !r.beads) { setNotice({ text: 'Pinta alguna cuenta antes de enviar el diseño a montaje.', error: true }); return; }
     try {

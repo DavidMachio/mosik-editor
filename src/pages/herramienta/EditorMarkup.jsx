@@ -23,7 +23,7 @@ export default function EditorMarkup() {
 <div className="tool__group">
 <button type="button" id="undo" title="Deshacer (Ctrl+Z)"><span aria-hidden="true"><Icon name="deshacer" size={22} /></span><span className="lbl">Deshacer</span></button>
 <button type="button" id="redo" title="Rehacer (Ctrl+Y)"><span aria-hidden="true"><Icon name="rehacer" size={22} /></span><span className="lbl">Rehacer</span></button>
-<button type="button" id="reset" title="Vaciar la capa activa: quita sus cuentas; la imagen se queda"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
+<button type="button" id="reset" title="Vaciar: quita las cuentas de todas las capas; las imágenes se quedan"><span aria-hidden="true"><Icon name="vaciar" size={22} /></span><span className="lbl">Vaciar</span></button>
 </div>
 <div className="tool__group tool__group--assemble"><button type="button" id="montajebtn" title="Enviar el diseño a montaje: colócalo cuenta a cuenta, color a color"><span aria-hidden="true"><Icon name="cuentas" size={22} /></span><span className="lbl">Montaje</span></button></div>
 <div className="tool__group tool__group--layers"><button type="button" id="layersbtn" aria-pressed="true" aria-controls="tool-layers" title="Capas: mostrar u ocultar las cuentas por color"><span aria-hidden="true"><Icon name="capas" size={22} /></span><span className="lbl">Capas</span></button></div>
@@ -153,6 +153,14 @@ export default function EditorMarkup() {
      <canvas id="mprev" width="360" height="360"></canvas>
      <div className="row" style={{ marginTop: '10px', justifyContent: 'flex-end' }}><span className="mu" id="mwarn" style={{ flex: '1' }}></span><button id="mcancel">Cancelar</button><button id="macc" className="on big">Aceptar y rellenar</button></div>
     </div></div>
+<div id="spmodal" className="pv" hidden role="dialog" aria-modal="true" aria-labelledby="spt">
+<div className="pv__card">
+<h2 id="spt">Parte del diseño queda fuera del tablero</h2>
+<p className="mu">Hay <b id="spn">0</b> cuentas fuera del tablero. Si continúas, no se incluirán. También puedes añadir tableros para que quepan; el recuento se recalcula.</p>
+<p className="mu" id="spwarn" aria-live="polite"></p>
+<div className="row pv__end"><button type="button" id="spcancel">Cancelar</button><button type="button" id="spcont">Continuar sin esa parte</button><button type="button" id="spadd" className="on big ico"><Icon name="mas" size={18} /> Añadir tableros y recalcular</button></div>
+</div>
+</div>
 <div id="pvmodal" className="pv" hidden role="dialog" aria-modal="true" aria-labelledby="pvt">
 <div className="pv__card">
 <h2 id="pvt">Colocar la imagen</h2>

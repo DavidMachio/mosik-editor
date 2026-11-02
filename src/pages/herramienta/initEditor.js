@@ -63,6 +63,8 @@ function loadActive(){const L=layers[activeL];grid=L.grid;img=L.img;imgCv=null;i
 function cellCode(x,y){for(let i=layers.length-1;i>=0;i--){const L=layers[i];if(!L.visible)continue;const g=i===activeL?grid:L.grid;const r=g[y];if(r&&r[x])return r[x]}return null}
 function compGrid(){const o=newGrid(COLS,ROWS);for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)o[y][x]=cellCode(x,y);return o}
 function mapLayers(fn){saveActive();layers.forEach(L=>{L.grid=L.grid.map(r=>r.map(c=>c?fn(c):c));if(L.spill)L.spill=L.spill.map(a=>[a[0],a[1],fn(a[2])])});grid=layers[activeL].grid}
+function resizeLayer(L,c,r){const n=newGrid(c,r);const sp=[];const put=(x,y,v)=>{if(x>=0&&y>=0&&x<c&&y<r){if(!n[y][x])n[y][x]=v}else sp.push([x,y,v])};
+ L.grid.forEach((row,y)=>row.forEach((v,x)=>{if(v)put(x,y,v)}));(L.spill||[]).forEach(a=>put(a[0],a[1],a[2]));L.grid=n;L.spill=sp}
 // Mover las cuentas de la capa activa. Lo que sale del tablero no se pierde: queda guardado en «spill» y vuelve al regresar.
 function shiftLayer(dx,dy){const L=layers[activeL];const n=newGrid(COLS,ROWS);const sp=[];
  const put=(x,y,c)=>{if(x>=0&&y>=0&&x<COLS&&y<ROWS){if(!n[y][x])n[y][x]=c}else sp.push([x,y,c])};
@@ -71,6 +73,8 @@ function shiftLayer(dx,dy){const L=layers[activeL];const n=newGrid(COLS,ROWS);co
  grid=n;L.grid=n;L.spill=sp}
 function selectLayer(i){if(i===activeL||i<0||i>=layers.length)return;saveActive();activeL=i;loadActive();renderLayers();draw()}
 function addLayer(name){push();saveActive();const L=mkLayer(name);layers.splice(activeL+1,0,L);activeL=activeL+1;loadActive();renderLayers();draw();return L}
+let pendingImg=null;
+function restorePending(){const P=pendingImg;if(!P)return;pendingImg=null;img=P.img;imgCv=null;Object.assign(imgT,P.t);const u=P.ui;$('op').value=u.op;$('showimg').checked=u.showimg;$('isc').value=u.isc;$('lock').checked=u.lock;imgDirty=true;draw()}
 function ensureImageLayer(){const nm=pendingLayerName;pendingLayerName='';if(img){addLayer(nm||undefined)}else{const L=layers[activeL];if(nm&&/^Capa \d+$/.test(L.name)){L.name=nm;renderLayers()}}}
 const escH=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function renderLayers(){const ul=$('lylist');if(!ul)return;saveActive();
@@ -98,7 +102,7 @@ function applyBoard(keepMsg){
  const t=$('preset').value;if(t==='custom'){$('pdim').style.display='';PW=Math.max(5,Math.min(100,+$('cols').value||40));PH=Math.max(5,Math.min(100,+$('rows').value||40))}else{$('pdim').style.display='none';const[a,b]=t.split('x');PW=+a;PH=+b;$('cols').value=PW;$('rows').value=PH}
  if(platesKey==='custom'){PR=Math.max(1,Math.min(6,+$('pr').value||1));PC=Math.max(1,Math.min(6,+$('pc').value||1))}else{const p=PLATES.find(x=>x[0]===platesKey);PR=p[2];PC=p[3]}
  const c=PW*PC,r=PH*PR;if(c>300||r>300){$('boardinfo').textContent='Demasiado grande: máximo 300 cuentas por lado';return}
- if(c!==COLS||r!==ROWS){push();saveActive();layers.forEach(L=>{L.grid=newGrid(c,r,L.grid)});grid=layers[activeL].grid;COLS=c;ROWS=r;size()}else draw();
+ if(c!==COLS||r!==ROWS){push();saveActive();layers.forEach(L=>resizeLayer(L,c,r));grid=layers[activeL].grid;COLS=c;ROWS=r;size()}else draw();
  $('custom').classList.toggle('show',platesKey==='custom');
  $('cprev').innerHTML=plateSvg(PR,PC,54,40);
  const p=PLATES.find(x=>x[0]===platesKey);
@@ -175,7 +179,7 @@ const HELP={move:'Mano: arrastra para mover la capa activa, cuenta a cuenta (con
 function setTool(t){tool=t;document.querySelectorAll('[data-t]').forEach(x=>x.classList.toggle('on',x.dataset.t===t));cv.style.cursor=t==='move'?'grab':'crosshair';$('toolhelp').textContent=HELP[t]}
 ['tools','tools2'].forEach(i=>$(i).addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)setTool(b.dataset.t)}));
 $('undo').onclick=()=>{if(!hist.length)return;redo.push(snap());restore(hist.pop());upd();draw()};
-$('reset').onclick=()=>{if(!grid.some(r=>r.some(Boolean)))return;push();grid=newGrid(COLS,ROWS);layers[activeL].spill=[];draw();$('imgmsg').textContent='Capa vaciada. Si ha sido sin querer, pulsa Deshacer.'};
+$('reset').onclick=()=>{saveActive();if(!layers.some(L=>L.grid.some(r=>r.some(Boolean))||(L.spill||[]).length))return;push();layers.forEach(L=>{L.grid=newGrid(COLS,ROWS);L.spill=[]});grid=layers[activeL].grid;draw();$('imgmsg').textContent='Se han quitado las cuentas de todas las capas. Si ha sido sin querer, pulsa Deshacer.'};
 $('redo').onclick=()=>{if(!redo.length)return;hist.push(snap());restore(redo.pop());upd();draw()};
 $('pal').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const nc=b.dataset.c;if(recolorFrom){const f=recolorFrom;push();mapLayers(v=>v===f?nc:v);if(solo.delete(f))solo.add(nc);if(hidden.delete(f))hidden.add(nc);recolorFrom=null;$('imgmsg').textContent=`${f} sustituido por ${nc}`;cur=nc;renderPal();draw();return}cur=nc;if(tool==='erase'||tool==='move')setTool('paint');renderPal()});
 ['gama','tipo'].forEach(i=>$(i).addEventListener('change',()=>{if(!palList().includes(cur))cur=palList()[0];renderPal()}));
@@ -188,7 +192,8 @@ $('file').onchange=e=>{const f=e.target.files[0];if(!f)return;pendingLayerName=f
    // Pixel art: se lee cuadro a cuadro de inmediato (colores y tamaño recomendado), sin pasar por la previa de colocación.
    const prevImg=img,prevCv=imgCv;let pa=false;
    if(i.width*i.height<=4e6){img=i;imgCv=null;try{const R=analyzePixelArt();pa=!!(R&&R.ok&&EXACT)}catch(_){pa=false}if(!pa){EXACT=null;img=prevImg;imgCv=prevCv}}
-   if(pa){img=prevImg;imgCv=prevCv;ensureImageLayer();img=i;imgCv=null;const k=Math.min(COLS/i.width,ROWS/i.height);imgT.us=k;imgT.ux=(COLS-i.width*k)/2;imgT.uy=(ROWS-i.height*k)/2;$('isc').value=100;imgT.rot=0;imgT.flip=false;$('rot').value=0;$('rotv').textContent='0°';$('showimg').checked=true;imgDirty=true;draw();autoReadPixelArt();return}
+   // Se trata primero (colores y tamaño); la capa nueva solo se crea y se coloca al aceptar. Si cancelas, todo queda como estaba.
+   if(pa){pendingImg={img:prevImg,t:{...imgT},ui:imgUi()};autoReadPixelArt();return}
    st.textContent=`Imagen cargada (${i.width}×${i.height}). Colócala en la previa.`;openPreview(i)};
   i.onerror=()=>{st.textContent='El navegador no puede abrir este formato (¿HEIC?). Prueba con JPG o PNG.'};
   i.src=rd.result};
@@ -242,10 +247,10 @@ pvcv.addEventListener('pointermove',e=>{const old=pvpts.get(e.pointerId);if(!old
  if(pvpts.size===2&&pvLast){const[a,b]=[...pvpts.values()];const d=Math.hypot(a.x-b.x,a.y-b.y)||1;pvSetScale(Math.max(.02,pvLast.us*d/pvLast.d));pvRefresh();return}
  if(pvpts.size===1){PV.ux+=(nx-old.x)/PV.k;PV.uy+=(ny-old.y)/PV.k;pvDraw()}});
 ['pointerup','pointercancel'].forEach(t=>pvcv.addEventListener(t,e=>{pvpts.delete(e.pointerId);pvLast=null}));
-const onPvKey=e=>{if(e.key==='Escape'&&!$('pvmodal').hidden){e.preventDefault();$('pvcancel').click()}};document.addEventListener('keydown',onPvKey);
+const onPvKey=e=>{if(e.key==='Escape'&&!$('pvmodal').hidden){e.preventDefault();$('pvcancel').click()}if(e.key==='Escape'&&!$('spmodal').hidden){e.preventDefault();$('spcancel').click()}};document.addEventListener('keydown',onPvKey);
 // Atajos de teclado (como en Figma): V mano, B pincel, E borrador, G bote, I cuentagotas, M imagen; Ctrl+Z/Ctrl+Y; + - 0.
 const KEYS={v:'move',b:'paint',e:'erase',g:'fill',i:'pick',m:'img'};
-const onShortcut=e=>{const tg=e.target;if(tg&&(tg.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName)&&tg.type!=='range'&&tg.type!=='checkbox'))return;if(!$('pvmodal').hidden||$('modal').classList.contains('show'))return;
+const onShortcut=e=>{const tg=e.target;if(tg&&(tg.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName)&&tg.type!=='range'&&tg.type!=='checkbox'))return;if(!$('pvmodal').hidden||!$('spmodal').hidden||$('modal').classList.contains('show'))return;
 const k=e.key.toLowerCase();const mod=e.ctrlKey||e.metaKey;
 if(mod&&k==='z'){e.preventDefault();$(e.shiftKey?'redo':'undo').click();return}
 if(mod&&k==='y'){e.preventDefault();$('redo').click();return}
@@ -359,8 +364,8 @@ function openPlan(p){EXACT=null;if(!img){$('imgmsg').textContent='Sube primero u
  plan=p?p.slice():autoPlan(Math.max(2,Math.min(60,+$('nk').value||8)));pickIdx=null;$('modal').classList.add('show');renderModal()}
 $('auto').onclick=()=>openPlan(null);
 $('editplan').onclick=()=>{if(savedEXACT){EXACT=savedEXACT;openExact()}else if(savedPlan)openPlan(savedPlan)};
-$('mcancel').onclick=()=>$('modal').classList.remove('show');
-$('modal').addEventListener('click',e=>{if(e.target.id==='modal')$('modal').classList.remove('show')});
+$('mcancel').onclick=()=>{$('modal').classList.remove('show');restorePending()};
+$('modal').addEventListener('click',e=>{if(e.target.id==='modal'){$('modal').classList.remove('show');restorePending()}});
 $('mauto').onclick=()=>{plan=autoPlan(plan.length);pickIdx=null;renderModal()};
 $('mplus').onclick=()=>{if(plan.length>=60)return;addColor();renderModal()};
 $('mminus').onclick=()=>{if(plan.length<=2)return;const n=cover();plan.splice(n.indexOf(Math.min(...n)),1);pickIdx=null;renderModal()};
@@ -373,6 +378,7 @@ $('macc').onclick=()=>{
  if(EXACT){const E=EXACT;
   if(E.W>COLS||E.H>ROWS){const PR2=Math.ceil(E.H/PH),PC2=Math.ceil(E.W/PW);if(PR2>6||PC2>6||PC2*PW>300||PR2*PH>300){$('mwarn').textContent='No cabe: la imagen necesita más de 6 × 6 placas. Sube el tamaño de placa.';return}
    platesKey='custom';$('pr').value=Math.max(PR,PR2);$('pc').value=Math.max(PC,PC2);applyBoard()}
+  if(pendingImg){const ni=img;restorePending();ensureImageLayer();img=ni;imgCv=null}
   const ox=Math.floor((COLS-E.W)/2),oy=Math.floor((ROWS-E.H)/2);
   push();grid=newGrid(COLS,ROWS);layers[activeL].spill=[];PT.forEach(p=>{grid[p.y+oy][p.x+ox]=plan[p.k]});
   imgT.us=1/E.cell;imgT.ux=ox-E.bx/E.cell;imgT.uy=oy-E.by/E.cell;imgT.rot=0;imgT.flip=false;$('rot').value=0;$('rotv').textContent='0°';$('isc').value=100;$('showimg').checked=true;imgDirty=true;
@@ -454,9 +460,28 @@ $('lylist').addEventListener('click',e=>{const b=e.target.closest('[data-a]');co
  else if(a==='up'||a==='down'){const j=a==='up'?i+1:i-1;if(j<0||j>=layers.length)return;push();saveActive();const act=layers[activeL];[layers[i],layers[j]]=[layers[j],layers[i]];activeL=layers.indexOf(act);renderLayers();draw()}
  else if(a==='del'){if(layers.length<2){$('imgmsg').textContent='Tiene que quedar al menos una capa.';return}push();saveActive();const act=layers[activeL];layers.splice(i,1);activeL=Math.max(0,Math.min(layers.indexOf(act)>=0?layers.indexOf(act):Math.min(i,layers.length-1),layers.length-1));loadActive();renderLayers();draw()}});
 $('lylist').addEventListener('dblclick',e=>{const li=e.target.closest('li[data-i]');if(!li||!e.target.closest('.ly__name'))return;const L=layers[+li.dataset.i];const n=window.prompt('Nombre de la capa',L.name);if(n&&n.trim()){push();L.name=n.trim().slice(0,30);renderLayers()}});
+// ---- Aviso al exportar si parte del diseño quedó fuera del tablero ----
+function outsideCount(){saveActive();let n=0;layers.forEach(L=>{if(L.visible)n+=(L.spill||[]).length});return n}
+function shiftData(L,dx,dy){const act=L===layers[activeL];const g=act?grid:L.grid;const n=newGrid(COLS,ROWS);const sp=[];
+ const put=(x,y,c)=>{if(x>=0&&y>=0&&x<COLS&&y<ROWS){if(!n[y][x])n[y][x]=c}else sp.push([x,y,c])};
+ g.forEach((row,y)=>row.forEach((c,x)=>{if(c)put(x+dx,y+dy,c)}));(L.spill||[]).forEach(a=>put(a[0]+dx,a[1]+dy,a[2]));
+ L.grid=n;L.spill=sp;if(act)grid=n;const t=act?imgT:L.imgT;if(t&&t.ux!=null){t.ux+=dx;t.uy+=dy;imgDirty=true}}
+function expandToFit(){saveActive();let minX=0,minY=0,maxX=COLS-1,maxY=ROWS-1;
+ layers.forEach(L=>{if(!L.visible)return;(L.spill||[]).forEach(a=>{minX=Math.min(minX,a[0]);maxX=Math.max(maxX,a[0]);minY=Math.min(minY,a[1]);maxY=Math.max(maxY,a[1])})});
+ const pc=Math.ceil((maxX-minX+1)/PW),pr=Math.ceil((maxY-minY+1)/PH);
+ if(pc>6||pr>6||pc*PW>300||pr*PH>300)return false;
+ push();if(minX<0||minY<0)layers.forEach(L=>shiftData(L,-minX,-minY));
+ platesKey='custom';$('pr').value=pr;$('pc').value=pc;document.querySelectorAll('.pi').forEach(x=>x.classList.toggle('sel',x.dataset.k==='custom'));applyBoard();
+ $('imgmsg').textContent=`Tablero ampliado a ${pr} × ${pc} placas; el recuento está actualizado.`;return true}
+let spCb=null;
+function guardExport(cb){const n=outsideCount();if(!n){cb();return}spCb=cb;$('spn').textContent=n;$('spwarn').textContent='';$('spmodal').hidden=false;$('spadd').focus()}
+$('spcancel').onclick=()=>{$('spmodal').hidden=true;spCb=null};
+$('spcont').onclick=()=>{$('spmodal').hidden=true;const f=spCb;spCb=null;f&&f()};
+$('spadd').onclick=()=>{if(!expandToFit()){$('spwarn').textContent='No cabe: harían falta más de 6 × 6 placas o más de 300 cuentas por lado. Acerca el diseño al tablero o continúa sin esa parte.';return}$('spmodal').hidden=true;spCb=null};
+['png','csv','save'].forEach(id=>{const f=$(id).onclick;$(id).onclick=e=>guardExport(()=>f.call($(id),e))});
 function exportMontaje(){
     const G=compGrid();const hex={};let beads=0;G.forEach(r=>r.forEach(c=>{if(c){beads++;hex[c]=CODES[c].hex}}));
     return {beads,hex,data:{v:2,cols:COLS,rows:ROWS,pw:PW,ph:PH,pr:PR,pc:PC,grid:G}};
   }
-  return { exportMontaje, destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
+  return { exportMontaje, confirmExport: guardExport, destroy: () => { document.removeEventListener('click', onDocClick); document.removeEventListener('keydown', onPvKey); document.removeEventListener('keydown', onShortcut); window.clearInterval(zInt); window.removeEventListener('resize', onPvResize); __timers.forEach(id => window.clearTimeout(id)); }, exportDesign, importDesign: loadDesignObject };
 }
