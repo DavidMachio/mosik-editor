@@ -5,10 +5,10 @@ import usePageTitle from '../hooks/usePageTitle.js';
 import useReveal from '../hooks/useReveal.js';
 import ToolDemo from '../components/ToolDemo.jsx';
 import Carrusel from '../components/Carrusel.jsx';
-import ColeccionBanner from '../components/ColeccionBanner.jsx';
-import { COLECCIONES_FICHA, porSlug } from '../data/colecciones/index.js';
+import HomeColecciones from '../components/home/HomeColecciones.jsx';
+import HomeCascada from '../components/home/HomeCascada.jsx';
+import { porSlug } from '../data/colecciones/index.js';
 import { DISENOS_MUESTRA, autorPrincipal } from '../data/usuarios.js';
-import { GRUPOS } from '../data/colecciones/grupos.js';
 import DesignCard from '../components/DesignCard.jsx';
 import Icon from '../components/Icon.jsx';
 import '../components/DesignCard.css';
@@ -39,14 +39,6 @@ const AYUDAS = [
   { icono: 'imagen-color', titulo: 'Colores a partir de tu imagen', texto: 'La herramienta propone una paleta de cuentas.' },
   { icono: 'csv', titulo: 'Recuento por color', texto: 'Sabrás cuántas cuentas necesitas antes de empezar.' },
   { icono: 'guardar-cuenta', titulo: 'Guarda y comparte', texto: 'Con una cuenta, tus diseños se quedan en «Mis diseños».' },
-];
-
-// Colecciones previstas (Decisiones cerradas, 18 oct 2026). Todavía no tienen página: se muestran como «próximamente».
-const COLECCIONES = [
-  ...[...COLECCIONES_FICHA].reverse().map((c) => ({ nombre: c.titulo, texto: c.resumen, gradiente: `linear-gradient(135deg, ${c.tema.fondo}, ${c.tema.circulo})` })),
-  { nombre: 'Temporada', texto: 'Halloween y Navidad, pieza a pieza.', gradiente: 'var(--grad-temporada)' },
-  { nombre: 'Retratos', texto: 'Personas y personajes en cuentas.', gradiente: 'var(--grad-retratos)' },
-  { nombre: 'Videojuegos', texto: 'Sprites y pantallas de juego.', gradiente: 'var(--grad-videojuegos)' },
 ];
 
 // Los diseños de muestra con su autor ficticio (ver data/usuarios.js), agrupados en páginas para el carrusel.
@@ -83,21 +75,11 @@ export default function Home() {
 
   return (
     <>
-      {/* Grupos de colecciones con ficha (logo en la esquina; dentro, la más reciente primero) */}
-      {GRUPOS.map((g) => {
-        const cols = g.colecciones.map(porSlug).filter(Boolean).reverse();
-        if (!cols.length) return null;
-        return (
-          <section key={g.slug} className="grupo" aria-labelledby={`grupo-${g.slug}`}>
-            <h2 id={`grupo-${g.slug}`} className="sr-only">{g.titulo}</h2>
-            <div className="container bento-wrap grupo__wrap">
-              {g.logo && <img className="grupo__logo" src={g.logo} alt={g.logoAlt} />}
-              <Carrusel etiqueta={`Colecciones de ${g.titulo}`}
-                items={cols.map((c) => ({ key: c.slug, node: <ColeccionBanner col={c} titleId={`coleccion-${c.slug}`} slide /> }))} />
-            </div>
-          </section>
-        );
-      })}
+      {/* 1 · Colección de ejemplo a todo el ancho y tres tarjetas por afición */}
+      <HomeColecciones />
+
+      {/* 2 · «Entre todos…»: cascada de diseños con profundidad */}
+      <HomeCascada />
 
       {/* Recomendados: diseños de muestra con usuarios ficticios */}
       <section className="container bento-wrap" aria-labelledby="recomendados" data-reveal>
@@ -136,7 +118,7 @@ export default function Home() {
         <div className="tile tile--dark tile--glow hero hero--full">
           <div className="hero__inner">
             <p className="pill pill--ondark">Herramienta de diseño</p>
-            <h1 id="hero-titulo">Crea tu propio diseño de cuentas para planchar</h1>
+            <h2 id="hero-titulo" className="hero__h">Crea tu propio diseño de cuentas para planchar</h2>
             <p className="hero__lead">
               Sube una imagen, colócala sobre la rejilla y cuenta con la lista exacta de colores y
               cuentas que necesitas.
@@ -202,73 +184,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* 02 · Colecciones (próximamente) */}
-      <section className="container bento-wrap" aria-labelledby="colecciones" data-reveal>
-        <div className="tile tile--light tile--section tile--head">
-          <header className="section-head">
-            <p className="section-head__row"><span className="num">02</span><span className="pill">Colecciones</span></p>
-            <h2 id="colecciones">Colecciones que vienen</h2>
-            <p className="muted">
-              Cada colección tendrá una medida común, para colgar todas las piezas juntas. Patrones gratis y kits, cuando
-              abramos la tienda.
-            </p>
-          </header>
-        </div>
-        <div className="bento bento--collections">
-          <div className="tile tile--dark tile--glow collection collection--feature" data-reveal>
-            <p className="pill pill--ondark">Primera colección</p>
-            <h3>Monumentos</h3>
-            <p>Iconos del mundo en la misma medida, para colgarlos juntos.</p>
-            <span className="pill pill--ondark">Próximamente</span>
-          </div>
-          <ul className="collections">
-            {COLECCIONES.map((c, i) => (
-              <li key={c.nombre} className="collection" data-reveal style={{ '--i': i }}>
-                <div className="collection__art" style={{ backgroundColor: '#150702', backgroundImage: c.gradiente }} aria-hidden="true" />
-                <div className="collection__body">
-                  <h3>{c.nombre}</h3>
-                  <p className="muted">{c.texto}</p>
-                  <span className="pill">Próximamente</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Franja ancha: la herramienta, con una tarjeta flotante encima */}
-      <section className="container bento-wrap" aria-labelledby="crea" data-reveal>
-        <div className="tile tile--dark tile--glow band">
-          <div className="band__text">
-            <p className="pill pill--ondark">Herramienta de diseño</p>
-            <h2 id="crea">Crea tu diseño</h2>
-            <p>
-              Dibuja con cuentas, mira tu lista de colores y descarga el archivo. Para guardar el diseño y compartirlo en
-              la galería, necesitas una cuenta.
-            </p>
-            <div className="hero__actions">
-              <Link to="/herramienta" className="btn btn--big">
-                Abrir la herramienta <Icon name="flecha" size={18} />
-              </Link>
-            </div>
-          </div>
-          <div className="band__tool" aria-hidden="true">
-            <div className="band__tools">
-              {['mover', 'pincel', 'borrador', 'bote', 'cuentagotas'].map((n) => (
-                <span key={n} className={n === 'pincel' ? 'on' : ''}><Icon name={n} size={22} /></span>
-              ))}
-            </div>
-            <div className="band__beads">
-              {Array.from({ length: 56 }, (_, i) => <i key={i} className={`c${(i * 3 + Math.floor(i / 8) * 2 + Math.floor(((i % 8) * Math.floor(i / 8)) / 3)) % 8}`} />)}
-            </div>
-            <div className="band__actions">
-              <span><Icon name="descargar" size={18} /> PNG</span>
-              <span className="on"><Icon name="guardar-cuenta" size={18} /> Guardar</span>
-            </div>
-          </div>
         </div>
       </section>
 
