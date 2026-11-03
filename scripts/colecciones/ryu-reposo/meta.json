@@ -10,10 +10,10 @@
   "intro": "Los tres fotogramas de Ryu en reposo. Elige uno para ver su ficha o mira lo que lleva hacerlos todos.",
   "resumen": "Ryu en reposo, en tres fotogramas.",
   "tema": {
-    "fondo": "#1f2a47",
-    "circulo": "#c8281e",
-    "circulo2": "#121a30",
-    "acento": "#f3efe6"
+    "fondo": "#785848",
+    "circulo": "#d88868",
+    "circulo2": "#483828",
+    "acento": "#f0d090"
   },
   "disenos": [
     {

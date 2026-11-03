@@ -12,7 +12,9 @@ import json, os, re, sys, unicodedata, hashlib
 from PIL import Image
 
 pid, nombre, pais, carpeta, cara = sys.argv[1:6]
-tema = json.loads(sys.argv[6]) if len(sys.argv) > 6 else None  # colores de los fondos: los del jugador
+# colores de los fondos: los del jugador. JSON con fondo/circulo/circulo2/acento, o «auto» para sacarlos de la piel y la ropa de los sprites
+tema = None if len(sys.argv) <= 6 else (None if sys.argv[6] == 'auto' else json.loads(sys.argv[6]))
+AUTO = len(sys.argv) > 6 and sys.argv[6] == 'auto'
 PUB = os.path.join('public', 'luchadores', pid)
 os.makedirs(PUB, exist_ok=True)
 
@@ -119,6 +121,29 @@ for nom in sorted(os.listdir(carpeta)):
     movs.append({'cat': cat, 'orden': orden(cat, nom), 'id': sl, 'nombre': nom, 'frames': rutas, 'gif': gif, 'gifPeq': gif_s, 'gifAncho': W * K, 'gifAlto': H * K, 'bordes': cerca, 'fotogramas': len(fr),
                  'datos': {'cuentasMin': min(cu), 'cuentasMax': max(cu), 'colores': max(co), 'ancho': max(an), 'alto': max(al)}})
 
+def tema_auto():
+    """Paleta de la piel del luchador (tonos oscuro, medio y claro más frecuentes) para el fondo, los círculos y el acento."""
+    import colorsys, collections
+    cnt = collections.Counter()
+    for nom in os.listdir(carpeta):
+        d = os.path.join(carpeta, nom)
+        if not os.path.isdir(d): continue
+        for f in frames_de(d):
+            for r, g, b, a in f.getdata():
+                if a >= 128: cnt[(r, g, b)] += 1
+    piel = []
+    for c, n in cnt.items():
+        h, sa, v = colorsys.rgb_to_hsv(*[x / 255 for x in c])
+        if 8 <= h * 360 <= 40 and 0.35 <= sa <= 0.75 and 0.25 <= v <= 0.97: piel.append((v, n, c))
+    piel.sort(); tot = sum(n for _, n, _ in piel); acum = 0; tonos = []
+    for v, n, c in piel:  # tonos con peso suficiente, de oscuro a claro
+        if n / tot >= 0.04: tonos.append(c)
+    hx = lambda c: '#%02x%02x%02x' % c
+    k = lambda q: tonos[round(q * (len(tonos) - 1))]
+    print('tonos de piel:', [hx(c) for c in tonos])
+    return {'fondo': hx(k(0.3)), 'circulo': hx(k(0.65)), 'circulo2': hx(k(0)), 'acento': hx(k(0.85))}
+
+if AUTO: tema = tema_auto(); print('tema automático:', tema)
 categorias = []
 for cid, titulo in CATS:
     ms = sorted([m for m in movs if m['cat'] == cid], key=lambda m: m['orden'])

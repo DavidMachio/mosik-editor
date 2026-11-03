@@ -27,16 +27,18 @@ export default function FilaMovimiento({ luchador, mov, tema, coleccion, tituloH
       <div className="fila__vineta" ref={ref}>
         {src && <img className="fila__gif" src={src} alt={`${luchador.nombre}: ${mov.nombre}, animación`} width={mov.gifAncho} height={mov.gifAlto} decoding="async" />}
       </div>
-      <div className="fila__body">
+      <div className="fila__title">
         <p className="fila__who">{luchador.nombre}</p>
         <Titulo className="fila__name">{mov.nombre}</Titulo>
+        {!coleccion && <span className="fila__soon">Ficha próximamente</span>}
+      </div>
+      <div className="fila__body">
         <ul className="fila__frames" aria-hidden="true">
           {mov.frames.map((f) => (
             <li key={f}><img src={f} alt="" loading="lazy" decoding="async" style={{ height: `${d.alto * escala}px` }} /></li>
           ))}
         </ul>
       </div>
-      {!coleccion && <span className="fila__soon">Ficha próximamente</span>}
       <p className="fila__data" aria-label="Datos de cada diseño">
         <span><b>{masDe(d.cuentasMin)}</b> cuentas</span>
         <span><b>{d.colores}</b> colores</span>

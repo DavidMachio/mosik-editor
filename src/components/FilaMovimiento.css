@@ -17,22 +17,24 @@ a.fila:focus-visible { outline: 3px solid var(--mk-action-border); outline-offse
 }
 .fila__gif { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
 
-.fila__body { display: grid; gap: 6px; justify-items: start; min-width: 0; }
+.fila__body { display: grid; align-self: end; justify-items: start; min-width: 0; padding-bottom: 20px; }
+/* el nombre, alineado a la derecha de la tarjeta y siempre en una línea */
+.fila__title { position: absolute; top: 20px; right: clamp(20px, 3vw, 36px); display: grid; justify-items: end; gap: 4px; max-width: calc(100% - 260px); text-align: right; }
 .fila__who { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
-/* el nombre del movimiento, siempre en una línea */
 .fila__name { margin: 0; max-width: 100%; overflow: hidden; color: #fff; font-size: clamp(22px, 2.8vw, 36px); line-height: 1.1; white-space: nowrap; text-overflow: ellipsis; }
-.fila__frames { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; margin: 6px 0 0; padding: 0; list-style: none; }
+.fila__frames { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .fila__frames img { display: block; width: auto; image-rendering: pixelated; filter: drop-shadow(0 8px 6px rgba(21, 7, 2, .35)); }
 
 /* datos en una línea, sin tarjetas, esquina inferior derecha */
 .fila__data { position: absolute; right: clamp(20px, 3vw, 36px); bottom: 16px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 14px; margin: 0; color: #fff; font-size: 14px; opacity: .92; }
 .fila__data b { font-weight: 700; }
 .fila__data span + span::before { content: '·'; margin-right: 14px; opacity: .6; }
-.fila__soon { position: absolute; top: 14px; right: clamp(16px, 3vw, 28px); padding: 3px 10px; border: 1px solid rgba(255, 255, 255, .35); border-radius: 999px; font-size: 12px; color: #fff; opacity: .85; }
+.fila__soon { margin-top: 4px; padding: 3px 10px; border: 1px solid rgba(255, 255, 255, .35); border-radius: 999px; font-size: 12px; color: #fff; opacity: .85; }
 @media (prefers-reduced-motion: reduce) { .fila, a.fila:hover { transition: none; transform: none; } }
 @media (max-width: 700px) {
   .fila { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; padding-bottom: 60px; }
-  .fila__body { justify-items: center; width: 100%; }
+  .fila__title { position: static; justify-items: center; max-width: 100%; text-align: center; order: -1; }
+  .fila__body { justify-items: center; width: 100%; padding-bottom: 0; }
   .fila__frames { justify-content: center; }
   .fila__data { left: 20px; right: 20px; justify-content: center; }
 }
