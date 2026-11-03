@@ -26,6 +26,6 @@ export const GRUPOS = [
     logoAlt: 'Street Fighter II',
     colecciones: ['street-fighter-ii'],
     // Al pulsar su tarjeta de Inicio se abre /grupo/street-fighter: una tarjeta con la cara de cada luchador (ver src/data/luchadores).
-    luchadores: ['ryu'],
+    luchadores: ['ryu', 'e-honda', 'blanka', 'guile', 'ken', 'chun-li', 'zangief', 'dhalsim', 't-hawk', 'fei-long', 'dee-jay', 'cammy', 'balrog', 'vega', 'sagat', 'm-bison'],
   },
 ];

@@ -1,0 +1,1051 @@
+{
+ "id": "blanka",
+ "nombre": "Blanka",
+ "pais": "Brasil",
+ "tema": {
+  "fondo": "#c9702a",
+  "circulo": "#e8a040",
+  "circulo2": "#7a3a10",
+  "acento": "#e8a040",
+  "texto": "#1b0f0a",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/blanka/cara.png",
+ "total": 35,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/blanka/reposo/f1.png",
+      "/luchadores/blanka/reposo/f2.png",
+      "/luchadores/blanka/reposo/f3.png",
+      "/luchadores/blanka/reposo/f4.png"
+     ],
+     "gif": "/luchadores/blanka/reposo/anim.gif",
+     "gifPeq": "/luchadores/blanka/reposo/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2865,
+      "cuentasMax": 2909,
+      "colores": 16,
+      "ancho": 64,
+      "alto": 88
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/blanka/caminar/f1.png",
+      "/luchadores/blanka/caminar/f2.png",
+      "/luchadores/blanka/caminar/f3.png",
+      "/luchadores/blanka/caminar/f4.png",
+      "/luchadores/blanka/caminar/f5.png"
+     ],
+     "gif": "/luchadores/blanka/caminar/anim.gif",
+     "gifPeq": "/luchadores/blanka/caminar/anim-s.gif",
+     "gifAncho": 280,
+     "gifAlto": 316,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2232,
+      "cuentasMax": 2631,
+      "colores": 16,
+      "ancho": 64,
+      "alto": 73
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/blanka/salto/f1.png",
+      "/luchadores/blanka/salto/f2.png",
+      "/luchadores/blanka/salto/f3.png",
+      "/luchadores/blanka/salto/f4.png",
+      "/luchadores/blanka/salto/f5.png"
+     ],
+     "gif": "/luchadores/blanka/salto/anim.gif",
+     "gifPeq": "/luchadores/blanka/salto/anim-s.gif",
+     "gifAncho": 195,
+     "gifAlto": 333,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 364,
+      "cuentasMax": 2806,
+      "colores": 15,
+      "ancho": 59,
+      "alto": 105
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/blanka/agachado/f1.png",
+      "/luchadores/blanka/agachado/f2.png"
+     ],
+     "gif": "/luchadores/blanka/agachado/anim.gif",
+     "gifPeq": "/luchadores/blanka/agachado/anim-s.gif",
+     "gifAncho": 260,
+     "gifAlto": 280,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2121,
+      "cuentasMax": 2265,
+      "colores": 16,
+      "ancho": 59,
+      "alto": 64
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/blanka/bloqueo/f1.png",
+      "/luchadores/blanka/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/blanka/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/blanka/bloqueo/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1964,
+      "cuentasMax": 2646,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 82
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/blanka/puno-debil/f1.png",
+      "/luchadores/blanka/puno-debil/f2.png",
+      "/luchadores/blanka/puno-debil/f3.png",
+      "/luchadores/blanka/puno-debil/f4.png",
+      "/luchadores/blanka/puno-debil/f5.png"
+     ],
+     "gif": "/luchadores/blanka/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/blanka/puno-debil/anim-s.gif",
+     "gifAncho": 279,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2592,
+      "cuentasMax": 3166,
+      "colores": 15,
+      "ancho": 87,
+      "alto": 87
+     }
+    },
+    {
+     "id": "puno-medio",
+     "nombre": "Puño medio",
+     "frames": [
+      "/luchadores/blanka/puno-medio/f1.png",
+      "/luchadores/blanka/puno-medio/f2.png",
+      "/luchadores/blanka/puno-medio/f3.png"
+     ],
+     "gif": "/luchadores/blanka/puno-medio/anim.gif",
+     "gifPeq": "/luchadores/blanka/puno-medio/anim-s.gif",
+     "gifAncho": 285,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2701,
+      "cuentasMax": 3158,
+      "colores": 15,
+      "ancho": 89,
+      "alto": 91
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/blanka/puno-fuerte/f1.png",
+      "/luchadores/blanka/puno-fuerte/f2.png",
+      "/luchadores/blanka/puno-fuerte/f3.png",
+      "/luchadores/blanka/puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/blanka/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/blanka/puno-fuerte/anim-s.gif",
+     "gifAncho": 273,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2724,
+      "cuentasMax": 3191,
+      "colores": 15,
+      "ancho": 85,
+      "alto": 104
+     }
+    },
+    {
+     "id": "adelante-puno-debil",
+     "nombre": "Adelante puño débil",
+     "frames": [
+      "/luchadores/blanka/adelante-puno-debil/f1.png",
+      "/luchadores/blanka/adelante-puno-debil/f2.png",
+      "/luchadores/blanka/adelante-puno-debil/f3.png",
+      "/luchadores/blanka/adelante-puno-debil/f4.png",
+      "/luchadores/blanka/adelante-puno-debil/f5.png"
+     ],
+     "gif": "/luchadores/blanka/adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/blanka/adelante-puno-debil/anim-s.gif",
+     "gifAncho": 297,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2773,
+      "cuentasMax": 3198,
+      "colores": 17,
+      "ancho": 93,
+      "alto": 89
+     }
+    },
+    {
+     "id": "adelante-puno-medio",
+     "nombre": "Adelante puño medio",
+     "frames": [
+      "/luchadores/blanka/adelante-puno-medio/f1.png",
+      "/luchadores/blanka/adelante-puno-medio/f2.png",
+      "/luchadores/blanka/adelante-puno-medio/f3.png",
+      "/luchadores/blanka/adelante-puno-medio/f4.png",
+      "/luchadores/blanka/adelante-puno-medio/f5.png"
+     ],
+     "gif": "/luchadores/blanka/adelante-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/blanka/adelante-puno-medio/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2301,
+      "cuentasMax": 2653,
+      "colores": 16,
+      "ancho": 77,
+      "alto": 88
+     }
+    },
+    {
+     "id": "agachado-puno-debil",
+     "nombre": "Agachado puño débil",
+     "frames": [
+      "/luchadores/blanka/agachado-puno-debil/f1.png",
+      "/luchadores/blanka/agachado-puno-debil/f2.png",
+      "/luchadores/blanka/agachado-puno-debil/f3.png",
+      "/luchadores/blanka/agachado-puno-debil/f4.png",
+      "/luchadores/blanka/agachado-puno-debil/f5.png"
+     ],
+     "gif": "/luchadores/blanka/agachado-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/blanka/agachado-puno-debil/anim-s.gif",
+     "gifAncho": 485,
+     "gifAlto": 295,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2151,
+      "cuentasMax": 2275,
+      "colores": 16,
+      "ancho": 91,
+      "alto": 53
+     }
+    },
+    {
+     "id": "agachado-puno-medio-fuerte",
+     "nombre": "Agachado puño medio-fuerte",
+     "frames": [
+      "/luchadores/blanka/agachado-puno-medio-fuerte/f1.png",
+      "/luchadores/blanka/agachado-puno-medio-fuerte/f2.png",
+      "/luchadores/blanka/agachado-puno-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/blanka/agachado-puno-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/blanka/agachado-puno-medio-fuerte/anim-s.gif",
+     "gifAncho": 448,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2026,
+      "cuentasMax": 2733,
+      "colores": 15,
+      "ancho": 106,
+      "alto": 75
+     }
+    },
+    {
+     "id": "salto-puno-debil-medio-fuerte",
+     "nombre": "Salto puño débil-medio-fuerte",
+     "frames": [
+      "/luchadores/blanka/salto-puno-debil-medio-fuerte/f1.png",
+      "/luchadores/blanka/salto-puno-debil-medio-fuerte/f2.png",
+      "/luchadores/blanka/salto-puno-debil-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/blanka/salto-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/blanka/salto-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 300,
+     "gifAlto": 316,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1957,
+      "cuentasMax": 2235,
+      "colores": 14,
+      "ancho": 69,
+      "alto": 73
+     }
+    },
+    {
+     "id": "salto-adelante-puno-fuerte",
+     "nombre": "Salto adelante puño fuerte",
+     "frames": [
+      "/luchadores/blanka/salto-adelante-puno-fuerte/f1.png",
+      "/luchadores/blanka/salto-adelante-puno-fuerte/f2.png",
+      "/luchadores/blanka/salto-adelante-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/blanka/salto-adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/blanka/salto-adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 320,
+     "gifAlto": 340,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2038,
+      "cuentasMax": 2179,
+      "colores": 14,
+      "ancho": 74,
+      "alto": 79
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil-medio",
+     "nombre": "Patada débil-medio",
+     "frames": [
+      "/luchadores/blanka/patada-debil-medio/f1.png",
+      "/luchadores/blanka/patada-debil-medio/f2.png",
+      "/luchadores/blanka/patada-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/blanka/patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/blanka/patada-debil-medio/anim-s.gif",
+     "gifAncho": 285,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2883,
+      "cuentasMax": 3051,
+      "colores": 15,
+      "ancho": 89,
+      "alto": 82
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/blanka/patada-fuerte/f1.png",
+      "/luchadores/blanka/patada-fuerte/f2.png",
+      "/luchadores/blanka/patada-fuerte/f3.png",
+      "/luchadores/blanka/patada-fuerte/f4.png",
+      "/luchadores/blanka/patada-fuerte/f5.png",
+      "/luchadores/blanka/patada-fuerte/f6.png",
+      "/luchadores/blanka/patada-fuerte/f7.png"
+     ],
+     "gif": "/luchadores/blanka/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/blanka/patada-fuerte/anim-s.gif",
+     "gifAncho": 306,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 376,
+      "cuentasMax": 3146,
+      "colores": 16,
+      "ancho": 96,
+      "alto": 96
+     }
+    },
+    {
+     "id": "patada-fuerte-2",
+     "nombre": "Patada fuerte (2)",
+     "frames": [
+      "/luchadores/blanka/patada-fuerte-2/f1.png",
+      "/luchadores/blanka/patada-fuerte-2/f2.png",
+      "/luchadores/blanka/patada-fuerte-2/f3.png"
+     ],
+     "gif": "/luchadores/blanka/patada-fuerte-2/anim.gif",
+     "gifPeq": "/luchadores/blanka/patada-fuerte-2/anim-s.gif",
+     "gifAncho": 321,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2824,
+      "cuentasMax": 3156,
+      "colores": 14,
+      "ancho": 101,
+      "alto": 89
+     }
+    },
+    {
+     "id": "adelante-patada-debil-medio",
+     "nombre": "Adelante patada débil-medio",
+     "frames": [
+      "/luchadores/blanka/adelante-patada-debil-medio/f1.png",
+      "/luchadores/blanka/adelante-patada-debil-medio/f2.png",
+      "/luchadores/blanka/adelante-patada-debil-medio/f3.png",
+      "/luchadores/blanka/adelante-patada-debil-medio/f4.png",
+      "/luchadores/blanka/adelante-patada-debil-medio/f5.png",
+      "/luchadores/blanka/adelante-patada-debil-medio/f6.png"
+     ],
+     "gif": "/luchadores/blanka/adelante-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/blanka/adelante-patada-debil-medio/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 342,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 365,
+      "cuentasMax": 2714,
+      "colores": 15,
+      "ancho": 65,
+      "alto": 108
+     }
+    },
+    {
+     "id": "agachado-patada-debil-medio",
+     "nombre": "Agachado patada débil-medio",
+     "frames": [
+      "/luchadores/blanka/agachado-patada-debil-medio/f1.png",
+      "/luchadores/blanka/agachado-patada-debil-medio/f2.png",
+      "/luchadores/blanka/agachado-patada-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/blanka/agachado-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/blanka/agachado-patada-debil-medio/anim-s.gif",
+     "gifAncho": 372,
+     "gifAlto": 308,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2443,
+      "cuentasMax": 2607,
+      "colores": 15,
+      "ancho": 87,
+      "alto": 71
+     }
+    },
+    {
+     "id": "agachado-patada-fuerte",
+     "nombre": "Agachado patada fuerte",
+     "frames": [
+      "/luchadores/blanka/agachado-patada-fuerte/f1.png",
+      "/luchadores/blanka/agachado-patada-fuerte/f2.png",
+      "/luchadores/blanka/agachado-patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/blanka/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/blanka/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 400,
+     "gifAlto": 316,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2592,
+      "cuentasMax": 2640,
+      "colores": 16,
+      "ancho": 94,
+      "alto": 73
+     }
+    },
+    {
+     "id": "salto-patada-debil-medio",
+     "nombre": "Salto patada débil-medio",
+     "frames": [
+      "/luchadores/blanka/salto-patada-debil-medio/f1.png",
+      "/luchadores/blanka/salto-patada-debil-medio/f2.png",
+      "/luchadores/blanka/salto-patada-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/blanka/salto-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/blanka/salto-patada-debil-medio/anim-s.gif",
+     "gifAncho": 328,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2263,
+      "cuentasMax": 2392,
+      "colores": 14,
+      "ancho": 76,
+      "alto": 75
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "beast-leap",
+     "nombre": "Beast Leap",
+     "frames": [
+      "/luchadores/blanka/beast-leap/f1.png",
+      "/luchadores/blanka/beast-leap/f2.png",
+      "/luchadores/blanka/beast-leap/f3.png",
+      "/luchadores/blanka/beast-leap/f4.png",
+      "/luchadores/blanka/beast-leap/f5.png",
+      "/luchadores/blanka/beast-leap/f6.png",
+      "/luchadores/blanka/beast-leap/f7.png",
+      "/luchadores/blanka/beast-leap/f8.png",
+      "/luchadores/blanka/beast-leap/f9.png",
+      "/luchadores/blanka/beast-leap/f10.png",
+      "/luchadores/blanka/beast-leap/f11.png",
+      "/luchadores/blanka/beast-leap/f12.png",
+      "/luchadores/blanka/beast-leap/f13.png"
+     ],
+     "gif": "/luchadores/blanka/beast-leap/anim.gif",
+     "gifPeq": "/luchadores/blanka/beast-leap/anim-s.gif",
+     "gifAncho": 306,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 13,
+     "datos": {
+      "cuentasMin": 1675,
+      "cuentasMax": 2410,
+      "colores": 16,
+      "ancho": 96,
+      "alto": 87
+     }
+    },
+    {
+     "id": "electric-shock",
+     "nombre": "Electric Shock",
+     "frames": [
+      "/luchadores/blanka/electric-shock/f1.png",
+      "/luchadores/blanka/electric-shock/f2.png",
+      "/luchadores/blanka/electric-shock/f3.png",
+      "/luchadores/blanka/electric-shock/f4.png",
+      "/luchadores/blanka/electric-shock/f5.png",
+      "/luchadores/blanka/electric-shock/f6.png"
+     ],
+     "gif": "/luchadores/blanka/electric-shock/anim.gif",
+     "gifPeq": "/luchadores/blanka/electric-shock/anim-s.gif",
+     "gifAncho": 312,
+     "gifAlto": 316,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1848,
+      "cuentasMax": 3077,
+      "colores": 15,
+      "ancho": 72,
+      "alto": 73
+     }
+    },
+    {
+     "id": "head-bite-grab",
+     "nombre": "Head Bite Grab",
+     "frames": [
+      "/luchadores/blanka/head-bite-grab/f1.png",
+      "/luchadores/blanka/head-bite-grab/f2.png",
+      "/luchadores/blanka/head-bite-grab/f3.png",
+      "/luchadores/blanka/head-bite-grab/f4.png",
+      "/luchadores/blanka/head-bite-grab/f5.png",
+      "/luchadores/blanka/head-bite-grab/f6.png",
+      "/luchadores/blanka/head-bite-grab/f7.png",
+      "/luchadores/blanka/head-bite-grab/f8.png",
+      "/luchadores/blanka/head-bite-grab/f9.png"
+     ],
+     "gif": "/luchadores/blanka/head-bite-grab/anim.gif",
+     "gifPeq": "/luchadores/blanka/head-bite-grab/anim-s.gif",
+     "gifAncho": 306,
+     "gifAlto": 342,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 12,
+     "datos": {
+      "cuentasMin": 365,
+      "cuentasMax": 2714,
+      "colores": 15,
+      "ancho": 96,
+      "alto": 108
+     }
+    },
+    {
+     "id": "rolling-attack",
+     "nombre": "Rolling Attack",
+     "frames": [
+      "/luchadores/blanka/rolling-attack/f1.png",
+      "/luchadores/blanka/rolling-attack/f2.png",
+      "/luchadores/blanka/rolling-attack/f3.png",
+      "/luchadores/blanka/rolling-attack/f4.png",
+      "/luchadores/blanka/rolling-attack/f5.png",
+      "/luchadores/blanka/rolling-attack/f6.png"
+     ],
+     "gif": "/luchadores/blanka/rolling-attack/anim.gif",
+     "gifPeq": "/luchadores/blanka/rolling-attack/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1675,
+      "cuentasMax": 2865,
+      "colores": 16,
+      "ancho": 64,
+      "alto": 84
+     }
+    },
+    {
+     "id": "vertical-rolling-attack",
+     "nombre": "Vertical Rolling Attack",
+     "frames": [
+      "/luchadores/blanka/vertical-rolling-attack/f1.png",
+      "/luchadores/blanka/vertical-rolling-attack/f2.png",
+      "/luchadores/blanka/vertical-rolling-attack/f3.png",
+      "/luchadores/blanka/vertical-rolling-attack/f4.png",
+      "/luchadores/blanka/vertical-rolling-attack/f5.png",
+      "/luchadores/blanka/vertical-rolling-attack/f6.png",
+      "/luchadores/blanka/vertical-rolling-attack/f7.png",
+      "/luchadores/blanka/vertical-rolling-attack/f8.png",
+      "/luchadores/blanka/vertical-rolling-attack/f9.png",
+      "/luchadores/blanka/vertical-rolling-attack/f10.png"
+     ],
+     "gif": "/luchadores/blanka/vertical-rolling-attack/anim.gif",
+     "gifPeq": "/luchadores/blanka/vertical-rolling-attack/anim-s.gif",
+     "gifAncho": 306,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 1675,
+      "cuentasMax": 2801,
+      "colores": 15,
+      "ancho": 96,
+      "alto": 96
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "derribo-y-recuperacion",
+     "nombre": "Derribo y recuperación",
+     "frames": [
+      "/luchadores/blanka/derribo-y-recuperacion/f1.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f2.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f3.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f4.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f5.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f6.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f7.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f8.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f9.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f10.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f11.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f12.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f13.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f14.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f15.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f16.png",
+      "/luchadores/blanka/derribo-y-recuperacion/f17.png"
+     ],
+     "gif": "/luchadores/blanka/derribo-y-recuperacion/anim.gif",
+     "gifPeq": "/luchadores/blanka/derribo-y-recuperacion/anim-s.gif",
+     "gifAncho": 333,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 18,
+     "datos": {
+      "cuentasMin": 376,
+      "cuentasMax": 3146,
+      "colores": 16,
+      "ancho": 105,
+      "alto": 96
+     }
+    },
+    {
+     "id": "golpe-en-la-cabeza",
+     "nombre": "Golpe en la cabeza",
+     "frames": [
+      "/luchadores/blanka/golpe-en-la-cabeza/f1.png",
+      "/luchadores/blanka/golpe-en-la-cabeza/f2.png"
+     ],
+     "gif": "/luchadores/blanka/golpe-en-la-cabeza/anim.gif",
+     "gifPeq": "/luchadores/blanka/golpe-en-la-cabeza/anim-s.gif",
+     "gifAncho": 340,
+     "gifAlto": 332,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2553,
+      "cuentasMax": 2788,
+      "colores": 17,
+      "ancho": 79,
+      "alto": 77
+     }
+    },
+    {
+     "id": "golpe-fuerte",
+     "nombre": "Golpe fuerte",
+     "frames": [
+      "/luchadores/blanka/golpe-fuerte/f1.png",
+      "/luchadores/blanka/golpe-fuerte/f2.png",
+      "/luchadores/blanka/golpe-fuerte/f3.png",
+      "/luchadores/blanka/golpe-fuerte/f4.png",
+      "/luchadores/blanka/golpe-fuerte/f5.png",
+      "/luchadores/blanka/golpe-fuerte/f6.png"
+     ],
+     "gif": "/luchadores/blanka/golpe-fuerte/anim.gif",
+     "gifPeq": "/luchadores/blanka/golpe-fuerte/anim-s.gif",
+     "gifAncho": 204,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 2385,
+      "cuentasMax": 3193,
+      "colores": 16,
+      "ancho": 62,
+      "alto": 103
+     }
+    },
+    {
+     "id": "golpeado",
+     "nombre": "Golpeado",
+     "frames": [
+      "/luchadores/blanka/golpeado/f1.png",
+      "/luchadores/blanka/golpeado/f2.png"
+     ],
+     "gif": "/luchadores/blanka/golpeado/anim.gif",
+     "gifPeq": "/luchadores/blanka/golpeado/anim-s.gif",
+     "gifAncho": 225,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2652,
+      "cuentasMax": 2813,
+      "colores": 15,
+      "ancho": 69,
+      "alto": 88
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/blanka/victoria-1/f1.png",
+      "/luchadores/blanka/victoria-1/f2.png",
+      "/luchadores/blanka/victoria-1/f3.png",
+      "/luchadores/blanka/victoria-1/f4.png",
+      "/luchadores/blanka/victoria-1/f5.png",
+      "/luchadores/blanka/victoria-1/f6.png",
+      "/luchadores/blanka/victoria-1/f7.png",
+      "/luchadores/blanka/victoria-1/f8.png",
+      "/luchadores/blanka/victoria-1/f9.png",
+      "/luchadores/blanka/victoria-1/f10.png",
+      "/luchadores/blanka/victoria-1/f11.png"
+     ],
+     "gif": "/luchadores/blanka/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/blanka/victoria-1/anim-s.gif",
+     "gifAncho": 246,
+     "gifAlto": 336,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 12,
+     "datos": {
+      "cuentasMin": 376,
+      "cuentasMax": 3146,
+      "colores": 16,
+      "ancho": 76,
+      "alto": 106
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/blanka/victoria-2/f1.png",
+      "/luchadores/blanka/victoria-2/f2.png",
+      "/luchadores/blanka/victoria-2/f3.png",
+      "/luchadores/blanka/victoria-2/f4.png",
+      "/luchadores/blanka/victoria-2/f5.png"
+     ],
+     "gif": "/luchadores/blanka/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/blanka/victoria-2/anim-s.gif",
+     "gifAncho": 144,
+     "gifAlto": 278,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2909,
+      "cuentasMax": 3900,
+      "colores": 16,
+      "ancho": 66,
+      "alto": 133
+     }
+    },
+    {
+     "id": "tiempo-agotado",
+     "nombre": "Tiempo agotado",
+     "frames": [
+      "/luchadores/blanka/tiempo-agotado/f1.png"
+     ],
+     "gif": "/luchadores/blanka/tiempo-agotado/anim.png",
+     "gifPeq": "/luchadores/blanka/tiempo-agotado/anim-s.png",
+     "gifAncho": 186,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 2646,
+      "cuentasMax": 2646,
+      "colores": 15,
+      "ancho": 56,
+      "alto": 82
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/blanka/paletas-alternativas/f1.png",
+      "/luchadores/blanka/paletas-alternativas/f2.png",
+      "/luchadores/blanka/paletas-alternativas/f3.png",
+      "/luchadores/blanka/paletas-alternativas/f4.png",
+      "/luchadores/blanka/paletas-alternativas/f5.png",
+      "/luchadores/blanka/paletas-alternativas/f6.png",
+      "/luchadores/blanka/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/blanka/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/blanka/paletas-alternativas/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 2865,
+      "cuentasMax": 2905,
+      "colores": 18,
+      "ancho": 64,
+      "alto": 84
+     }
+    },
+    {
+     "id": "retratos",
+     "nombre": "Retratos",
+     "frames": [
+      "/luchadores/blanka/retratos/f1.png",
+      "/luchadores/blanka/retratos/f2.png",
+      "/luchadores/blanka/retratos/f3.png",
+      "/luchadores/blanka/retratos/f4.png"
+     ],
+     "gif": "/luchadores/blanka/retratos/anim.gif",
+     "gifPeq": "/luchadores/blanka/retratos/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 672,
+      "cuentasMax": 6126,
+      "colores": 15,
+      "ancho": 72,
+      "alto": 96
+     }
+    }
+   ]
+  }
+ ]
+}

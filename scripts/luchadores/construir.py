@@ -48,6 +48,7 @@ BASE = {'Reposo': 'reposo', 'Caminar': 'mov', 'Salto': 'mov', 'Salto adelante': 
         'Victoria 1': 'final', 'Victoria 2': 'final', 'Tiempo agotado': 'final', 'Paletas alternativas': 'final', 'Retratos': 'final', 'Intro': 'final'}
 CATS = [('reposo', 'Reposo'), ('mov', 'Movimiento'), ('def', 'Defensas'), ('puno', 'Puños'), ('patada', 'Patadas'), ('esp', 'Especiales'), ('golpes', 'Golpes recibidos'), ('final', 'Victoria y extras')]
 def categoria(n):
+    n = re.sub(r' \(\d+\)$', '', n)  # «Salto adelante (2)» se clasifica como «Salto adelante»
     if n in BASE: return BASE[n]
     if n.startswith('Golpeado'): return 'golpes'
     if 'puño' in n.lower(): return 'puno'

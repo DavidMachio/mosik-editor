@@ -1,0 +1,1282 @@
+{
+ "id": "ken",
+ "nombre": "Ken",
+ "pais": "EE. UU.",
+ "tema": {
+  "fondo": "#b8350a",
+  "circulo": "#e0662a",
+  "circulo2": "#7a1f00",
+  "acento": "#f0a030",
+  "texto": "#ffffff",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/ken/cara.png",
+ "total": 45,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/ken/reposo/f1.png",
+      "/luchadores/ken/reposo/f2.png",
+      "/luchadores/ken/reposo/f3.png"
+     ],
+     "gif": "/luchadores/ken/reposo/anim.gif",
+     "gifPeq": "/luchadores/ken/reposo/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1845,
+      "cuentasMax": 1900,
+      "colores": 15,
+      "ancho": 43,
+      "alto": 82
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/ken/caminar/f1.png",
+      "/luchadores/ken/caminar/f2.png",
+      "/luchadores/ken/caminar/f3.png",
+      "/luchadores/ken/caminar/f4.png",
+      "/luchadores/ken/caminar/f5.png"
+     ],
+     "gif": "/luchadores/ken/caminar/anim.gif",
+     "gifPeq": "/luchadores/ken/caminar/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1679,
+      "cuentasMax": 1896,
+      "colores": 15,
+      "ancho": 43,
+      "alto": 82
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/ken/salto/f1.png",
+      "/luchadores/ken/salto/f2.png",
+      "/luchadores/ken/salto/f3.png",
+      "/luchadores/ken/salto/f4.png"
+     ],
+     "gif": "/luchadores/ken/salto/anim.gif",
+     "gifPeq": "/luchadores/ken/salto/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1293,
+      "cuentasMax": 1712,
+      "colores": 15,
+      "ancho": 43,
+      "alto": 90
+     }
+    },
+    {
+     "id": "salto-adelante",
+     "nombre": "Salto adelante",
+     "frames": [
+      "/luchadores/ken/salto-adelante/f1.png",
+      "/luchadores/ken/salto-adelante/f2.png",
+      "/luchadores/ken/salto-adelante/f3.png",
+      "/luchadores/ken/salto-adelante/f4.png",
+      "/luchadores/ken/salto-adelante/f5.png",
+      "/luchadores/ken/salto-adelante/f6.png"
+     ],
+     "gif": "/luchadores/ken/salto-adelante/anim.gif",
+     "gifPeq": "/luchadores/ken/salto-adelante/anim-s.gif",
+     "gifAncho": 240,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1293,
+      "cuentasMax": 1712,
+      "colores": 15,
+      "ancho": 74,
+      "alto": 90
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/ken/agachado/f1.png",
+      "/luchadores/ken/agachado/f2.png"
+     ],
+     "gif": "/luchadores/ken/agachado/anim.gif",
+     "gifPeq": "/luchadores/ken/agachado/anim-s.gif",
+     "gifAncho": 196,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1482,
+      "cuentasMax": 1679,
+      "colores": 15,
+      "ancho": 43,
+      "alto": 75
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/ken/bloqueo/f1.png",
+      "/luchadores/ken/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/ken/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/ken/bloqueo/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1558,
+      "cuentasMax": 1924,
+      "colores": 15,
+      "ancho": 43,
+      "alto": 83
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/ken/puno-debil/f1.png",
+      "/luchadores/ken/puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/ken/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ken/puno-debil/anim-s.gif",
+     "gifAncho": 189,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1936,
+      "cuentasMax": 1949,
+      "colores": 14,
+      "ancho": 57,
+      "alto": 81
+     }
+    },
+    {
+     "id": "puno-medio-fuerte",
+     "nombre": "Puño medio-fuerte",
+     "frames": [
+      "/luchadores/ken/puno-medio-fuerte/f1.png",
+      "/luchadores/ken/puno-medio-fuerte/f2.png",
+      "/luchadores/ken/puno-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/ken/puno-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/puno-medio-fuerte/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1936,
+      "cuentasMax": 2148,
+      "colores": 14,
+      "ancho": 72,
+      "alto": 85
+     }
+    },
+    {
+     "id": "adelante-puno-debil",
+     "nombre": "Adelante puño débil",
+     "frames": [
+      "/luchadores/ken/adelante-puno-debil/f1.png",
+      "/luchadores/ken/adelante-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/ken/adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ken/adelante-puno-debil/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1936,
+      "cuentasMax": 2068,
+      "colores": 15,
+      "ancho": 47,
+      "alto": 88
+     }
+    },
+    {
+     "id": "adelante-puno-medio",
+     "nombre": "Adelante puño medio",
+     "frames": [
+      "/luchadores/ken/adelante-puno-medio/f1.png",
+      "/luchadores/ken/adelante-puno-medio/f2.png",
+      "/luchadores/ken/adelante-puno-medio/f3.png",
+      "/luchadores/ken/adelante-puno-medio/f4.png",
+      "/luchadores/ken/adelante-puno-medio/f5.png"
+     ],
+     "gif": "/luchadores/ken/adelante-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/ken/adelante-puno-medio/anim-s.gif",
+     "gifAncho": 201,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1883,
+      "cuentasMax": 2076,
+      "colores": 15,
+      "ancho": 61,
+      "alto": 85
+     }
+    },
+    {
+     "id": "adelante-puno-fuerte",
+     "nombre": "Adelante puño fuerte",
+     "frames": [
+      "/luchadores/ken/adelante-puno-fuerte/f1.png",
+      "/luchadores/ken/adelante-puno-fuerte/f2.png",
+      "/luchadores/ken/adelante-puno-fuerte/f3.png",
+      "/luchadores/ken/adelante-puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/ken/adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 198,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1843,
+      "cuentasMax": 2202,
+      "colores": 15,
+      "ancho": 60,
+      "alto": 103
+     }
+    },
+    {
+     "id": "agachado-puno-debil",
+     "nombre": "Agachado puño débil",
+     "frames": [
+      "/luchadores/ken/agachado-puno-debil/f1.png",
+      "/luchadores/ken/agachado-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/ken/agachado-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ken/agachado-puno-debil/anim-s.gif",
+     "gifAncho": 340,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1537,
+      "cuentasMax": 1579,
+      "colores": 15,
+      "ancho": 62,
+      "alto": 54
+     }
+    },
+    {
+     "id": "agachado-puno-medio",
+     "nombre": "Agachado puño medio",
+     "frames": [
+      "/luchadores/ken/agachado-puno-medio/f1.png",
+      "/luchadores/ken/agachado-puno-medio/f2.png",
+      "/luchadores/ken/agachado-puno-medio/f3.png"
+     ],
+     "gif": "/luchadores/ken/agachado-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/ken/agachado-puno-medio/anim-s.gif",
+     "gifAncho": 335,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1467,
+      "cuentasMax": 1560,
+      "colores": 15,
+      "ancho": 61,
+      "alto": 56
+     }
+    },
+    {
+     "id": "agachado-puno-fuerte",
+     "nombre": "Agachado puño fuerte",
+     "frames": [
+      "/luchadores/ken/agachado-puno-fuerte/f1.png",
+      "/luchadores/ken/agachado-puno-fuerte/f2.png",
+      "/luchadores/ken/agachado-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/ken/agachado-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/agachado-puno-fuerte/anim-s.gif",
+     "gifAncho": 165,
+     "gifAlto": 354,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1685,
+      "cuentasMax": 2048,
+      "colores": 15,
+      "ancho": 49,
+      "alto": 112
+     }
+    },
+    {
+     "id": "salto-puno-debil-medio-fuerte",
+     "nombre": "Salto puño débil-medio-fuerte",
+     "frames": [
+      "/luchadores/ken/salto-puno-debil-medio-fuerte/f1.png",
+      "/luchadores/ken/salto-puno-debil-medio-fuerte/f2.png",
+      "/luchadores/ken/salto-puno-debil-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/ken/salto-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/salto-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 292,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1293,
+      "cuentasMax": 1460,
+      "colores": 13,
+      "ancho": 51,
+      "alto": 67
+     }
+    },
+    {
+     "id": "salto-adelante-puno-debil",
+     "nombre": "Salto adelante puño débil",
+     "frames": [
+      "/luchadores/ken/salto-adelante-puno-debil/f1.png",
+      "/luchadores/ken/salto-adelante-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/ken/salto-adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ken/salto-adelante-puno-debil/anim-s.gif",
+     "gifAncho": 180,
+     "gifAlto": 292,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1293,
+      "cuentasMax": 1414,
+      "colores": 14,
+      "ancho": 39,
+      "alto": 67
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil-medio",
+     "nombre": "Patada débil-medio",
+     "frames": [
+      "/luchadores/ken/patada-debil-medio/f1.png",
+      "/luchadores/ken/patada-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/ken/patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/ken/patada-debil-medio/anim-s.gif",
+     "gifAncho": 219,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1870,
+      "cuentasMax": 2062,
+      "colores": 14,
+      "ancho": 67,
+      "alto": 85
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/ken/patada-fuerte/f1.png",
+      "/luchadores/ken/patada-fuerte/f2.png",
+      "/luchadores/ken/patada-fuerte/f3.png",
+      "/luchadores/ken/patada-fuerte/f4.png",
+      "/luchadores/ken/patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/ken/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/patada-fuerte/anim-s.gif",
+     "gifAncho": 225,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1458,
+      "cuentasMax": 1925,
+      "colores": 15,
+      "ancho": 69,
+      "alto": 84
+     }
+    },
+    {
+     "id": "adelante-patada-debil",
+     "nombre": "Adelante patada débil",
+     "frames": [
+      "/luchadores/ken/adelante-patada-debil/f1.png",
+      "/luchadores/ken/adelante-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/ken/adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/ken/adelante-patada-debil/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1528,
+      "cuentasMax": 1700,
+      "colores": 16,
+      "ancho": 71,
+      "alto": 84
+     }
+    },
+    {
+     "id": "adelante-patada-medio",
+     "nombre": "Adelante patada medio",
+     "frames": [
+      "/luchadores/ken/adelante-patada-medio/f1.png",
+      "/luchadores/ken/adelante-patada-medio/f2.png",
+      "/luchadores/ken/adelante-patada-medio/f3.png"
+     ],
+     "gif": "/luchadores/ken/adelante-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/ken/adelante-patada-medio/anim-s.gif",
+     "gifAncho": 183,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1635,
+      "cuentasMax": 1857,
+      "colores": 15,
+      "ancho": 55,
+      "alto": 92
+     }
+    },
+    {
+     "id": "adelante-patada-fuerte",
+     "nombre": "Adelante patada fuerte",
+     "frames": [
+      "/luchadores/ken/adelante-patada-fuerte/f1.png",
+      "/luchadores/ken/adelante-patada-fuerte/f2.png",
+      "/luchadores/ken/adelante-patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/ken/adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 345,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1544,
+      "cuentasMax": 2087,
+      "colores": 15,
+      "ancho": 79,
+      "alto": 109
+     }
+    },
+    {
+     "id": "agachado-patada-debil",
+     "nombre": "Agachado patada débil",
+     "frames": [
+      "/luchadores/ken/agachado-patada-debil/f1.png",
+      "/luchadores/ken/agachado-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/ken/agachado-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/ken/agachado-patada-debil/anim-s.gif",
+     "gifAncho": 385,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1518,
+      "cuentasMax": 1749,
+      "colores": 15,
+      "ancho": 71,
+      "alto": 56
+     }
+    },
+    {
+     "id": "agachado-patada-medio",
+     "nombre": "Agachado patada medio",
+     "frames": [
+      "/luchadores/ken/agachado-patada-medio/f1.png",
+      "/luchadores/ken/agachado-patada-medio/f2.png"
+     ],
+     "gif": "/luchadores/ken/agachado-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/ken/agachado-patada-medio/anim-s.gif",
+     "gifAncho": 475,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1518,
+      "cuentasMax": 1998,
+      "colores": 15,
+      "ancho": 89,
+      "alto": 56
+     }
+    },
+    {
+     "id": "agachado-patada-fuerte",
+     "nombre": "Agachado patada fuerte",
+     "frames": [
+      "/luchadores/ken/agachado-patada-fuerte/f1.png",
+      "/luchadores/ken/agachado-patada-fuerte/f2.png",
+      "/luchadores/ken/agachado-patada-fuerte/f3.png",
+      "/luchadores/ken/agachado-patada-fuerte/f4.png",
+      "/luchadores/ken/agachado-patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/ken/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 380,
+     "gifAlto": 305,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1205,
+      "cuentasMax": 1756,
+      "colores": 15,
+      "ancho": 70,
+      "alto": 55
+     }
+    },
+    {
+     "id": "salto-patada-debil-medio",
+     "nombre": "Salto patada débil-medio",
+     "frames": [
+      "/luchadores/ken/salto-patada-debil-medio/f1.png",
+      "/luchadores/ken/salto-patada-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/ken/salto-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/ken/salto-patada-debil-medio/anim-s.gif",
+     "gifAncho": 153,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1293,
+      "cuentasMax": 1473,
+      "colores": 14,
+      "ancho": 45,
+      "alto": 82
+     }
+    },
+    {
+     "id": "salto-patada-fuerte",
+     "nombre": "Salto patada fuerte",
+     "frames": [
+      "/luchadores/ken/salto-patada-fuerte/f1.png",
+      "/luchadores/ken/salto-patada-fuerte/f2.png",
+      "/luchadores/ken/salto-patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/ken/salto-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/salto-patada-fuerte/anim-s.gif",
+     "gifAncho": 177,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1240,
+      "cuentasMax": 1476,
+      "colores": 14,
+      "ancho": 53,
+      "alto": 89
+     }
+    },
+    {
+     "id": "salto-adelante-patada-medio-fuerte",
+     "nombre": "Salto adelante patada medio-fuerte",
+     "frames": [
+      "/luchadores/ken/salto-adelante-patada-medio-fuerte/f1.png",
+      "/luchadores/ken/salto-adelante-patada-medio-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/ken/salto-adelante-patada-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ken/salto-adelante-patada-medio-fuerte/anim-s.gif",
+     "gifAncho": 276,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1288,
+      "cuentasMax": 1783,
+      "colores": 14,
+      "ancho": 63,
+      "alto": 63
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "brasas",
+     "nombre": "Brasas",
+     "frames": [
+      "/luchadores/ken/brasas/f1.png",
+      "/luchadores/ken/brasas/f2.png",
+      "/luchadores/ken/brasas/f3.png",
+      "/luchadores/ken/brasas/f4.png",
+      "/luchadores/ken/brasas/f5.png",
+      "/luchadores/ken/brasas/f6.png",
+      "/luchadores/ken/brasas/f7.png",
+      "/luchadores/ken/brasas/f8.png",
+      "/luchadores/ken/brasas/f9.png"
+     ],
+     "gif": "/luchadores/ken/brasas/anim.gif",
+     "gifPeq": "/luchadores/ken/brasas/anim-s.gif",
+     "gifAncho": 65,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 16,
+      "cuentasMax": 61,
+      "colores": 4,
+      "ancho": 7,
+      "alto": 56
+     }
+    },
+    {
+     "id": "fiery-shoryuken",
+     "nombre": "Fiery Shoryuken",
+     "frames": [
+      "/luchadores/ken/fiery-shoryuken/f1.png",
+      "/luchadores/ken/fiery-shoryuken/f2.png",
+      "/luchadores/ken/fiery-shoryuken/f3.png",
+      "/luchadores/ken/fiery-shoryuken/f4.png",
+      "/luchadores/ken/fiery-shoryuken/f5.png",
+      "/luchadores/ken/fiery-shoryuken/f6.png"
+     ],
+     "gif": "/luchadores/ken/fiery-shoryuken/anim.gif",
+     "gifPeq": "/luchadores/ken/fiery-shoryuken/anim-s.gif",
+     "gifAncho": 177,
+     "gifAlto": 345,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1482,
+      "cuentasMax": 2040,
+      "colores": 19,
+      "ancho": 53,
+      "alto": 109
+     }
+    },
+    {
+     "id": "hadouken",
+     "nombre": "Hadouken",
+     "frames": [
+      "/luchadores/ken/hadouken/f1.png",
+      "/luchadores/ken/hadouken/f2.png",
+      "/luchadores/ken/hadouken/f3.png",
+      "/luchadores/ken/hadouken/f4.png"
+     ],
+     "gif": "/luchadores/ken/hadouken/anim.gif",
+     "gifPeq": "/luchadores/ken/hadouken/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1910,
+      "cuentasMax": 2144,
+      "colores": 16,
+      "ancho": 70,
+      "alto": 82
+     }
+    },
+    {
+     "id": "hadouken-2",
+     "nombre": "Hadouken (2)",
+     "frames": [
+      "/luchadores/ken/hadouken-2/f1.png",
+      "/luchadores/ken/hadouken-2/f2.png"
+     ],
+     "gif": "/luchadores/ken/hadouken-2/anim.gif",
+     "gifPeq": "/luchadores/ken/hadouken-2/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 198,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 488,
+      "cuentasMax": 505,
+      "colores": 9,
+      "ancho": 32,
+      "alto": 27
+     }
+    },
+    {
+     "id": "hadouken-proyectil",
+     "nombre": "Hadouken (Proyectil)",
+     "frames": [
+      "/luchadores/ken/hadouken-proyectil/f1.png",
+      "/luchadores/ken/hadouken-proyectil/f2.png",
+      "/luchadores/ken/hadouken-proyectil/f3.png",
+      "/luchadores/ken/hadouken-proyectil/f4.png",
+      "/luchadores/ken/hadouken-proyectil/f5.png",
+      "/luchadores/ken/hadouken-proyectil/f6.png",
+      "/luchadores/ken/hadouken-proyectil/f7.png",
+      "/luchadores/ken/hadouken-proyectil/f8.png",
+      "/luchadores/ken/hadouken-proyectil/f9.png"
+     ],
+     "gif": "/luchadores/ken/hadouken-proyectil/anim.gif",
+     "gifPeq": "/luchadores/ken/hadouken-proyectil/anim-s.gif",
+     "gifAncho": 141,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 16,
+      "cuentasMax": 1731,
+      "colores": 14,
+      "ancho": 41,
+      "alto": 91
+     }
+    },
+    {
+     "id": "lanzamiento-de-hombro",
+     "nombre": "Lanzamiento de hombro",
+     "frames": [
+      "/luchadores/ken/lanzamiento-de-hombro/f1.png",
+      "/luchadores/ken/lanzamiento-de-hombro/f2.png",
+      "/luchadores/ken/lanzamiento-de-hombro/f3.png",
+      "/luchadores/ken/lanzamiento-de-hombro/f4.png",
+      "/luchadores/ken/lanzamiento-de-hombro/f5.png"
+     ],
+     "gif": "/luchadores/ken/lanzamiento-de-hombro/anim.gif",
+     "gifPeq": "/luchadores/ken/lanzamiento-de-hombro/anim-s.gif",
+     "gifAncho": 186,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1397,
+      "cuentasMax": 2088,
+      "colores": 15,
+      "ancho": 56,
+      "alto": 82
+     }
+    },
+    {
+     "id": "shoryuken",
+     "nombre": "Shoryuken",
+     "frames": [
+      "/luchadores/ken/shoryuken/f1.png",
+      "/luchadores/ken/shoryuken/f2.png",
+      "/luchadores/ken/shoryuken/f3.png",
+      "/luchadores/ken/shoryuken/f4.png",
+      "/luchadores/ken/shoryuken/f5.png",
+      "/luchadores/ken/shoryuken/f6.png",
+      "/luchadores/ken/shoryuken/f7.png"
+     ],
+     "gif": "/luchadores/ken/shoryuken/anim.gif",
+     "gifPeq": "/luchadores/ken/shoryuken/anim-s.gif",
+     "gifAncho": 168,
+     "gifAlto": 342,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1482,
+      "cuentasMax": 1969,
+      "colores": 15,
+      "ancho": 50,
+      "alto": 108
+     }
+    },
+    {
+     "id": "tatsumaki-senpukyaku",
+     "nombre": "Tatsumaki Senpukyaku",
+     "frames": [
+      "/luchadores/ken/tatsumaki-senpukyaku/f1.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f2.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f3.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f4.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f5.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f6.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f7.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f8.png",
+      "/luchadores/ken/tatsumaki-senpukyaku/f9.png"
+     ],
+     "gif": "/luchadores/ken/tatsumaki-senpukyaku/anim.gif",
+     "gifPeq": "/luchadores/ken/tatsumaki-senpukyaku/anim-s.gif",
+     "gifAncho": 183,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 12,
+     "datos": {
+      "cuentasMin": 257,
+      "cuentasMax": 1679,
+      "colores": 15,
+      "ancho": 55,
+      "alto": 87
+     }
+    },
+    {
+     "id": "voltereta-atras-giratoria",
+     "nombre": "Voltereta atrás giratoria",
+     "frames": [
+      "/luchadores/ken/voltereta-atras-giratoria/f1.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f2.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f3.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f4.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f5.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f6.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f7.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f8.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f9.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f10.png",
+      "/luchadores/ken/voltereta-atras-giratoria/f11.png"
+     ],
+     "gif": "/luchadores/ken/voltereta-atras-giratoria/anim.gif",
+     "gifPeq": "/luchadores/ken/voltereta-atras-giratoria/anim-s.gif",
+     "gifAncho": 222,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 11,
+     "datos": {
+      "cuentasMin": 1421,
+      "cuentasMax": 1905,
+      "colores": 16,
+      "ancho": 68,
+      "alto": 82
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "agachado-golpeado",
+     "nombre": "Agachado golpeado",
+     "frames": [
+      "/luchadores/ken/agachado-golpeado/f1.png"
+     ],
+     "gif": "/luchadores/ken/agachado-golpeado/anim.png",
+     "gifPeq": "/luchadores/ken/agachado-golpeado/anim-s.png",
+     "gifAncho": 212,
+     "gifAlto": 272,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1530,
+      "cuentasMax": 1530,
+      "colores": 15,
+      "ancho": 47,
+      "alto": 62
+     }
+    },
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/ken/aturdido/f1.png",
+      "/luchadores/ken/aturdido/f2.png",
+      "/luchadores/ken/aturdido/f3.png",
+      "/luchadores/ken/aturdido/f4.png",
+      "/luchadores/ken/aturdido/f5.png",
+      "/luchadores/ken/aturdido/f6.png"
+     ],
+     "gif": "/luchadores/ken/aturdido/anim.gif",
+     "gifPeq": "/luchadores/ken/aturdido/anim-s.gif",
+     "gifAncho": 243,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1464,
+      "cuentasMax": 1901,
+      "colores": 15,
+      "ancho": 75,
+      "alto": 81
+     }
+    },
+    {
+     "id": "derribo-y-recuperacion",
+     "nombre": "Derribo y recuperación",
+     "frames": [
+      "/luchadores/ken/derribo-y-recuperacion/f1.png",
+      "/luchadores/ken/derribo-y-recuperacion/f2.png",
+      "/luchadores/ken/derribo-y-recuperacion/f3.png",
+      "/luchadores/ken/derribo-y-recuperacion/f4.png",
+      "/luchadores/ken/derribo-y-recuperacion/f5.png",
+      "/luchadores/ken/derribo-y-recuperacion/f6.png",
+      "/luchadores/ken/derribo-y-recuperacion/f7.png",
+      "/luchadores/ken/derribo-y-recuperacion/f8.png",
+      "/luchadores/ken/derribo-y-recuperacion/f9.png"
+     ],
+     "gif": "/luchadores/ken/derribo-y-recuperacion/anim.gif",
+     "gifPeq": "/luchadores/ken/derribo-y-recuperacion/anim-s.gif",
+     "gifAncho": 243,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 257,
+      "cuentasMax": 1915,
+      "colores": 15,
+      "ancho": 75,
+      "alto": 102
+     }
+    },
+    {
+     "id": "golpe-en-la-cara",
+     "nombre": "Golpe en la cara",
+     "frames": [
+      "/luchadores/ken/golpe-en-la-cara/f1.png",
+      "/luchadores/ken/golpe-en-la-cara/f2.png",
+      "/luchadores/ken/golpe-en-la-cara/f3.png",
+      "/luchadores/ken/golpe-en-la-cara/f4.png"
+     ],
+     "gif": "/luchadores/ken/golpe-en-la-cara/anim.gif",
+     "gifPeq": "/luchadores/ken/golpe-en-la-cara/anim-s.gif",
+     "gifAncho": 198,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1733,
+      "cuentasMax": 1837,
+      "colores": 15,
+      "ancho": 60,
+      "alto": 83
+     }
+    },
+    {
+     "id": "golpeado",
+     "nombre": "Golpeado",
+     "frames": [
+      "/luchadores/ken/golpeado/f1.png",
+      "/luchadores/ken/golpeado/f2.png",
+      "/luchadores/ken/golpeado/f3.png",
+      "/luchadores/ken/golpeado/f4.png"
+     ],
+     "gif": "/luchadores/ken/golpeado/anim.gif",
+     "gifPeq": "/luchadores/ken/golpeado/anim-s.gif",
+     "gifAncho": 165,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1645,
+      "cuentasMax": 1816,
+      "colores": 15,
+      "ancho": 49,
+      "alto": 81
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/ken/victoria-1/f1.png",
+      "/luchadores/ken/victoria-1/f2.png",
+      "/luchadores/ken/victoria-1/f3.png"
+     ],
+     "gif": "/luchadores/ken/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/ken/victoria-1/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 345,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1679,
+      "cuentasMax": 2142,
+      "colores": 15,
+      "ancho": 43,
+      "alto": 109
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/ken/victoria-2/f1.png",
+      "/luchadores/ken/victoria-2/f2.png",
+      "/luchadores/ken/victoria-2/f3.png"
+     ],
+     "gif": "/luchadores/ken/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/ken/victoria-2/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1679,
+      "cuentasMax": 1990,
+      "colores": 15,
+      "ancho": 43,
+      "alto": 87
+     }
+    },
+    {
+     "id": "tiempo-agotado",
+     "nombre": "Tiempo agotado",
+     "frames": [
+      "/luchadores/ken/tiempo-agotado/f1.png"
+     ],
+     "gif": "/luchadores/ken/tiempo-agotado/anim.png",
+     "gifPeq": "/luchadores/ken/tiempo-agotado/anim-s.png",
+     "gifAncho": 147,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1964,
+      "cuentasMax": 1964,
+      "colores": 14,
+      "ancho": 43,
+      "alto": 87
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/ken/paletas-alternativas/f1.png",
+      "/luchadores/ken/paletas-alternativas/f2.png",
+      "/luchadores/ken/paletas-alternativas/f3.png",
+      "/luchadores/ken/paletas-alternativas/f4.png",
+      "/luchadores/ken/paletas-alternativas/f5.png",
+      "/luchadores/ken/paletas-alternativas/f6.png",
+      "/luchadores/ken/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/ken/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/ken/paletas-alternativas/anim-s.gif",
+     "gifAncho": 150,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1870,
+      "cuentasMax": 1878,
+      "colores": 16,
+      "ancho": 44,
+      "alto": 81
+     }
+    }
+   ]
+  }
+ ]
+}

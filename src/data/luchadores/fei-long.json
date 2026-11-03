@@ -1,0 +1,1353 @@
+{
+ "id": "fei-long",
+ "nombre": "Fei Long",
+ "pais": "Hong Kong",
+ "tema": {
+  "fondo": "#4a4a52",
+  "circulo": "#8a8a94",
+  "circulo2": "#26262c",
+  "acento": "#d8d8e0",
+  "texto": "#ffffff",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/fei-long/cara.png",
+ "total": 47,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/fei-long/reposo/f1.png",
+      "/luchadores/fei-long/reposo/f2.png",
+      "/luchadores/fei-long/reposo/f3.png",
+      "/luchadores/fei-long/reposo/f4.png",
+      "/luchadores/fei-long/reposo/f5.png",
+      "/luchadores/fei-long/reposo/f6.png",
+      "/luchadores/fei-long/reposo/f7.png",
+      "/luchadores/fei-long/reposo/f8.png",
+      "/luchadores/fei-long/reposo/f9.png",
+      "/luchadores/fei-long/reposo/f10.png"
+     ],
+     "gif": "/luchadores/fei-long/reposo/anim.gif",
+     "gifPeq": "/luchadores/fei-long/reposo/anim-s.gif",
+     "gifAncho": 279,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 14,
+     "datos": {
+      "cuentasMin": 1496,
+      "cuentasMax": 3282,
+      "colores": 13,
+      "ancho": 87,
+      "alto": 100
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/fei-long/salto/f1.png",
+      "/luchadores/fei-long/salto/f2.png",
+      "/luchadores/fei-long/salto/f3.png",
+      "/luchadores/fei-long/salto/f4.png"
+     ],
+     "gif": "/luchadores/fei-long/salto/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto/anim-s.gif",
+     "gifAncho": 153,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 936,
+      "cuentasMax": 1552,
+      "colores": 12,
+      "ancho": 45,
+      "alto": 92
+     }
+    },
+    {
+     "id": "salto-adelante",
+     "nombre": "Salto adelante",
+     "frames": [
+      "/luchadores/fei-long/salto-adelante/f1.png",
+      "/luchadores/fei-long/salto-adelante/f2.png",
+      "/luchadores/fei-long/salto-adelante/f3.png",
+      "/luchadores/fei-long/salto-adelante/f4.png",
+      "/luchadores/fei-long/salto-adelante/f5.png",
+      "/luchadores/fei-long/salto-adelante/f6.png",
+      "/luchadores/fei-long/salto-adelante/f7.png",
+      "/luchadores/fei-long/salto-adelante/f8.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-adelante/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-adelante/anim-s.gif",
+     "gifAncho": 180,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 936,
+      "cuentasMax": 1622,
+      "colores": 12,
+      "ancho": 54,
+      "alto": 92
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/fei-long/agachado/f1.png",
+      "/luchadores/fei-long/agachado/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/agachado/anim.gif",
+     "gifPeq": "/luchadores/fei-long/agachado/anim-s.gif",
+     "gifAncho": 212,
+     "gifAlto": 316,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1416,
+      "cuentasMax": 1552,
+      "colores": 12,
+      "ancho": 47,
+      "alto": 73
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/fei-long/bloqueo/f1.png",
+      "/luchadores/fei-long/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/fei-long/bloqueo/anim-s.gif",
+     "gifAncho": 220,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1343,
+      "cuentasMax": 1619,
+      "colores": 12,
+      "ancho": 49,
+      "alto": 75
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/fei-long/puno-debil/f1.png",
+      "/luchadores/fei-long/puno-debil/f2.png",
+      "/luchadores/fei-long/puno-debil/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/fei-long/puno-debil/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 258,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1564,
+      "cuentasMax": 1818,
+      "colores": 12,
+      "ancho": 65,
+      "alto": 80
+     }
+    },
+    {
+     "id": "puno-medio",
+     "nombre": "Puño medio",
+     "frames": [
+      "/luchadores/fei-long/puno-medio/f1.png",
+      "/luchadores/fei-long/puno-medio/f2.png",
+      "/luchadores/fei-long/puno-medio/f3.png",
+      "/luchadores/fei-long/puno-medio/f4.png"
+     ],
+     "gif": "/luchadores/fei-long/puno-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/puno-medio/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 258,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1564,
+      "cuentasMax": 1794,
+      "colores": 12,
+      "ancho": 70,
+      "alto": 80
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/fei-long/puno-fuerte/f1.png",
+      "/luchadores/fei-long/puno-fuerte/f2.png",
+      "/luchadores/fei-long/puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/puno-fuerte/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1673,
+      "cuentasMax": 2015,
+      "colores": 12,
+      "ancho": 79,
+      "alto": 81
+     }
+    },
+    {
+     "id": "adelante-puno-debil",
+     "nombre": "Adelante puño débil",
+     "frames": [
+      "/luchadores/fei-long/adelante-puno-debil/f1.png",
+      "/luchadores/fei-long/adelante-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/fei-long/adelante-puno-debil/anim-s.gif",
+     "gifAncho": 276,
+     "gifAlto": 336,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1744,
+      "cuentasMax": 1755,
+      "colores": 12,
+      "ancho": 63,
+      "alto": 78
+     }
+    },
+    {
+     "id": "adelante-puno-medio",
+     "nombre": "Adelante puño medio",
+     "frames": [
+      "/luchadores/fei-long/adelante-puno-medio/f1.png",
+      "/luchadores/fei-long/adelante-puno-medio/f2.png",
+      "/luchadores/fei-long/adelante-puno-medio/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/adelante-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/adelante-puno-medio/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 258,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1767,
+      "cuentasMax": 1818,
+      "colores": 12,
+      "ancho": 65,
+      "alto": 80
+     }
+    },
+    {
+     "id": "adelante-puno-fuerte",
+     "nombre": "Adelante puño fuerte",
+     "frames": [
+      "/luchadores/fei-long/adelante-puno-fuerte/f1.png",
+      "/luchadores/fei-long/adelante-puno-fuerte/f2.png",
+      "/luchadores/fei-long/adelante-puno-fuerte/f3.png",
+      "/luchadores/fei-long/adelante-puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/fei-long/adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1767,
+      "cuentasMax": 1892,
+      "colores": 12,
+      "ancho": 58,
+      "alto": 99
+     }
+    },
+    {
+     "id": "agachado-puno-debil",
+     "nombre": "Agachado puño débil",
+     "frames": [
+      "/luchadores/fei-long/agachado-puno-debil/f1.png",
+      "/luchadores/fei-long/agachado-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/agachado-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/fei-long/agachado-puno-debil/anim-s.gif",
+     "gifAncho": 256,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1363,
+      "cuentasMax": 1426,
+      "colores": 12,
+      "ancho": 58,
+      "alto": 63
+     }
+    },
+    {
+     "id": "agachado-puno-medio",
+     "nombre": "Agachado puño medio",
+     "frames": [
+      "/luchadores/fei-long/agachado-puno-medio/f1.png",
+      "/luchadores/fei-long/agachado-puno-medio/f2.png",
+      "/luchadores/fei-long/agachado-puno-medio/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/agachado-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/agachado-puno-medio/anim-s.gif",
+     "gifAncho": 356,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1363,
+      "cuentasMax": 1662,
+      "colores": 12,
+      "ancho": 83,
+      "alto": 63
+     }
+    },
+    {
+     "id": "agachado-puno-fuerte",
+     "nombre": "Agachado puño fuerte",
+     "frames": [
+      "/luchadores/fei-long/agachado-puno-fuerte/f1.png",
+      "/luchadores/fei-long/agachado-puno-fuerte/f2.png",
+      "/luchadores/fei-long/agachado-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/agachado-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/agachado-puno-fuerte/anim-s.gif",
+     "gifAncho": 296,
+     "gifAlto": 268,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1348,
+      "cuentasMax": 1581,
+      "colores": 12,
+      "ancho": 68,
+      "alto": 61
+     }
+    },
+    {
+     "id": "salto-puno-fuerte",
+     "nombre": "Salto puño fuerte",
+     "frames": [
+      "/luchadores/fei-long/salto-puno-fuerte/f1.png",
+      "/luchadores/fei-long/salto-puno-fuerte/f2.png",
+      "/luchadores/fei-long/salto-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-puno-fuerte/anim-s.gif",
+     "gifAncho": 236,
+     "gifAlto": 328,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1147,
+      "cuentasMax": 1303,
+      "colores": 17,
+      "ancho": 53,
+      "alto": 76
+     }
+    },
+    {
+     "id": "salto-puno",
+     "nombre": "Salto puño",
+     "frames": [
+      "/luchadores/fei-long/salto-puno/f1.png",
+      "/luchadores/fei-long/salto-puno/f2.png",
+      "/luchadores/fei-long/salto-puno/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-puno/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-puno/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1052,
+      "cuentasMax": 1274,
+      "colores": 17,
+      "ancho": 47,
+      "alto": 88
+     }
+    },
+    {
+     "id": "salto-adelante-puno-debil-medio",
+     "nombre": "Salto adelante puño débil-medio",
+     "frames": [
+      "/luchadores/fei-long/salto-adelante-puno-debil-medio/f1.png",
+      "/luchadores/fei-long/salto-adelante-puno-debil-medio/f2.png",
+      "/luchadores/fei-long/salto-adelante-puno-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-adelante-puno-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-adelante-puno-debil-medio/anim-s.gif",
+     "gifAncho": 252,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1102,
+      "cuentasMax": 1374,
+      "colores": 17,
+      "ancho": 57,
+      "alto": 66
+     }
+    },
+    {
+     "id": "salto-adelante-puno-fuerte",
+     "nombre": "Salto adelante puño fuerte",
+     "frames": [
+      "/luchadores/fei-long/salto-adelante-puno-fuerte/f1.png",
+      "/luchadores/fei-long/salto-adelante-puno-fuerte/f2.png",
+      "/luchadores/fei-long/salto-adelante-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 208,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1053,
+      "cuentasMax": 1239,
+      "colores": 17,
+      "ancho": 46,
+      "alto": 66
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil-medio",
+     "nombre": "Patada débil-medio",
+     "frames": [
+      "/luchadores/fei-long/patada-debil-medio/f1.png",
+      "/luchadores/fei-long/patada-debil-medio/f2.png",
+      "/luchadores/fei-long/patada-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/patada-debil-medio/anim-s.gif",
+     "gifAncho": 279,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1609,
+      "cuentasMax": 1898,
+      "colores": 12,
+      "ancho": 87,
+      "alto": 81
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/fei-long/patada-fuerte/f1.png",
+      "/luchadores/fei-long/patada-fuerte/f2.png",
+      "/luchadores/fei-long/patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/patada-fuerte/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1480,
+      "cuentasMax": 1833,
+      "colores": 12,
+      "ancho": 77,
+      "alto": 86
+     }
+    },
+    {
+     "id": "adelante-patada-debil",
+     "nombre": "Adelante patada débil",
+     "frames": [
+      "/luchadores/fei-long/adelante-patada-debil/f1.png",
+      "/luchadores/fei-long/adelante-patada-debil/f2.png",
+      "/luchadores/fei-long/adelante-patada-debil/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/fei-long/adelante-patada-debil/anim-s.gif",
+     "gifAncho": 171,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1609,
+      "cuentasMax": 1748,
+      "colores": 12,
+      "ancho": 51,
+      "alto": 84
+     }
+    },
+    {
+     "id": "adelante-patada-medio",
+     "nombre": "Adelante patada medio",
+     "frames": [
+      "/luchadores/fei-long/adelante-patada-medio/f1.png",
+      "/luchadores/fei-long/adelante-patada-medio/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/adelante-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/adelante-patada-medio/anim-s.gif",
+     "gifAncho": 195,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1673,
+      "cuentasMax": 1822,
+      "colores": 12,
+      "ancho": 59,
+      "alto": 85
+     }
+    },
+    {
+     "id": "adelante-patada-fuerte",
+     "nombre": "Adelante patada fuerte",
+     "frames": [
+      "/luchadores/fei-long/adelante-patada-fuerte/f1.png",
+      "/luchadores/fei-long/adelante-patada-fuerte/f2.png",
+      "/luchadores/fei-long/adelante-patada-fuerte/f3.png",
+      "/luchadores/fei-long/adelante-patada-fuerte/f4.png",
+      "/luchadores/fei-long/adelante-patada-fuerte/f5.png",
+      "/luchadores/fei-long/adelante-patada-fuerte/f6.png",
+      "/luchadores/fei-long/adelante-patada-fuerte/f7.png"
+     ],
+     "gif": "/luchadores/fei-long/adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 309,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1480,
+      "cuentasMax": 1768,
+      "colores": 12,
+      "ancho": 77,
+      "alto": 97
+     }
+    },
+    {
+     "id": "agachado-patada-debil",
+     "nombre": "Agachado patada débil",
+     "frames": [
+      "/luchadores/fei-long/agachado-patada-debil/f1.png",
+      "/luchadores/fei-long/agachado-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/agachado-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/fei-long/agachado-patada-debil/anim-s.gif",
+     "gifAncho": 324,
+     "gifAlto": 268,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1319,
+      "cuentasMax": 1474,
+      "colores": 12,
+      "ancho": 75,
+      "alto": 61
+     }
+    },
+    {
+     "id": "agachado-patada-medio",
+     "nombre": "Agachado patada medio",
+     "frames": [
+      "/luchadores/fei-long/agachado-patada-medio/f1.png",
+      "/luchadores/fei-long/agachado-patada-medio/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/agachado-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/agachado-patada-medio/anim-s.gif",
+     "gifAncho": 430,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1420,
+      "cuentasMax": 1481,
+      "colores": 12,
+      "ancho": 80,
+      "alto": 56
+     }
+    },
+    {
+     "id": "agachado-patada-fuerte",
+     "nombre": "Agachado patada fuerte",
+     "frames": [
+      "/luchadores/fei-long/agachado-patada-fuerte/f1.png",
+      "/luchadores/fei-long/agachado-patada-fuerte/f2.png",
+      "/luchadores/fei-long/agachado-patada-fuerte/f3.png",
+      "/luchadores/fei-long/agachado-patada-fuerte/f4.png",
+      "/luchadores/fei-long/agachado-patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/fei-long/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 400,
+     "gifAlto": 325,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1234,
+      "cuentasMax": 1566,
+      "colores": 12,
+      "ancho": 74,
+      "alto": 59
+     }
+    },
+    {
+     "id": "salto-patada-debil",
+     "nombre": "Salto patada débil",
+     "frames": [
+      "/luchadores/fei-long/salto-patada-debil/f1.png",
+      "/luchadores/fei-long/salto-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-patada-debil/anim-s.gif",
+     "gifAncho": 240,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1215,
+      "cuentasMax": 1412,
+      "colores": 17,
+      "ancho": 54,
+      "alto": 75
+     }
+    },
+    {
+     "id": "salto-patada-medio",
+     "nombre": "Salto patada medio",
+     "frames": [
+      "/luchadores/fei-long/salto-patada-medio/f1.png",
+      "/luchadores/fei-long/salto-patada-medio/f2.png",
+      "/luchadores/fei-long/salto-patada-medio/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-patada-medio/anim-s.gif",
+     "gifAncho": 260,
+     "gifAlto": 328,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1095,
+      "cuentasMax": 1358,
+      "colores": 17,
+      "ancho": 59,
+      "alto": 76
+     }
+    },
+    {
+     "id": "salto-patada-medio-2",
+     "nombre": "Salto patada medio (2)",
+     "frames": [
+      "/luchadores/fei-long/salto-patada-medio-2/f1.png",
+      "/luchadores/fei-long/salto-patada-medio-2/f2.png",
+      "/luchadores/fei-long/salto-patada-medio-2/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-patada-medio-2/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-patada-medio-2/anim-s.gif",
+     "gifAncho": 195,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1227,
+      "cuentasMax": 1376,
+      "colores": 17,
+      "ancho": 59,
+      "alto": 88
+     }
+    },
+    {
+     "id": "salto-patada-fuerte",
+     "nombre": "Salto patada fuerte",
+     "frames": [
+      "/luchadores/fei-long/salto-patada-fuerte/f1.png",
+      "/luchadores/fei-long/salto-patada-fuerte/f2.png",
+      "/luchadores/fei-long/salto-patada-fuerte/f3.png",
+      "/luchadores/fei-long/salto-patada-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-patada-fuerte/anim-s.gif",
+     "gifAncho": 392,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1123,
+      "cuentasMax": 1659,
+      "colores": 17,
+      "ancho": 92,
+      "alto": 75
+     }
+    },
+    {
+     "id": "salto-adelante-patada-debil",
+     "nombre": "Salto adelante patada débil",
+     "frames": [
+      "/luchadores/fei-long/salto-adelante-patada-debil/f1.png",
+      "/luchadores/fei-long/salto-adelante-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-adelante-patada-debil/anim-s.gif",
+     "gifAncho": 330,
+     "gifAlto": 325,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1061,
+      "cuentasMax": 1204,
+      "colores": 17,
+      "ancho": 60,
+      "alto": 59
+     }
+    },
+    {
+     "id": "salto-adelante-patada-fuerte",
+     "nombre": "Salto adelante patada fuerte",
+     "frames": [
+      "/luchadores/fei-long/salto-adelante-patada-fuerte/f1.png",
+      "/luchadores/fei-long/salto-adelante-patada-fuerte/f2.png",
+      "/luchadores/fei-long/salto-adelante-patada-fuerte/f3.png",
+      "/luchadores/fei-long/salto-adelante-patada-fuerte/f4.png",
+      "/luchadores/fei-long/salto-adelante-patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/fei-long/salto-adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/fei-long/salto-adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 267,
+     "gifAlto": 297,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1123,
+      "cuentasMax": 1511,
+      "colores": 17,
+      "ancho": 83,
+      "alto": 93
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "brasas",
+     "nombre": "Brasas",
+     "frames": [
+      "/luchadores/fei-long/brasas/f1.png"
+     ],
+     "gif": "/luchadores/fei-long/brasas/anim.gif",
+     "gifPeq": "/luchadores/fei-long/brasas/anim-s.gif",
+     "gifAncho": 42,
+     "gifAlto": 138,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 17,
+      "cuentasMax": 17,
+      "colores": 1,
+      "ancho": 1,
+      "alto": 17
+     }
+    },
+    {
+     "id": "head-throw",
+     "nombre": "Head Throw",
+     "frames": [
+      "/luchadores/fei-long/head-throw/f1.png",
+      "/luchadores/fei-long/head-throw/f2.png",
+      "/luchadores/fei-long/head-throw/f3.png",
+      "/luchadores/fei-long/head-throw/f4.png",
+      "/luchadores/fei-long/head-throw/f5.png",
+      "/luchadores/fei-long/head-throw/f6.png",
+      "/luchadores/fei-long/head-throw/f7.png",
+      "/luchadores/fei-long/head-throw/f8.png"
+     ],
+     "gif": "/luchadores/fei-long/head-throw/anim.gif",
+     "gifPeq": "/luchadores/fei-long/head-throw/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1054,
+      "cuentasMax": 1795,
+      "colores": 12,
+      "ancho": 73,
+      "alto": 86
+     }
+    },
+    {
+     "id": "power-toss",
+     "nombre": "Power Toss",
+     "frames": [
+      "/luchadores/fei-long/power-toss/f1.png",
+      "/luchadores/fei-long/power-toss/f2.png",
+      "/luchadores/fei-long/power-toss/f3.png",
+      "/luchadores/fei-long/power-toss/f4.png",
+      "/luchadores/fei-long/power-toss/f5.png",
+      "/luchadores/fei-long/power-toss/f6.png"
+     ],
+     "gif": "/luchadores/fei-long/power-toss/anim.gif",
+     "gifPeq": "/luchadores/fei-long/power-toss/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1620,
+      "cuentasMax": 1869,
+      "colores": 12,
+      "ancho": 73,
+      "alto": 89
+     }
+    },
+    {
+     "id": "rekka-ken",
+     "nombre": "Rekka Ken",
+     "frames": [
+      "/luchadores/fei-long/rekka-ken/f1.png",
+      "/luchadores/fei-long/rekka-ken/f2.png",
+      "/luchadores/fei-long/rekka-ken/f3.png",
+      "/luchadores/fei-long/rekka-ken/f4.png",
+      "/luchadores/fei-long/rekka-ken/f5.png",
+      "/luchadores/fei-long/rekka-ken/f6.png",
+      "/luchadores/fei-long/rekka-ken/f7.png",
+      "/luchadores/fei-long/rekka-ken/f8.png",
+      "/luchadores/fei-long/rekka-ken/f9.png",
+      "/luchadores/fei-long/rekka-ken/f10.png"
+     ],
+     "gif": "/luchadores/fei-long/rekka-ken/anim.gif",
+     "gifPeq": "/luchadores/fei-long/rekka-ken/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 1564,
+      "cuentasMax": 1940,
+      "colores": 17,
+      "ancho": 72,
+      "alto": 81
+     }
+    },
+    {
+     "id": "shien-kyaku",
+     "nombre": "Shien Kyaku",
+     "frames": [
+      "/luchadores/fei-long/shien-kyaku/f1.png",
+      "/luchadores/fei-long/shien-kyaku/f2.png",
+      "/luchadores/fei-long/shien-kyaku/f3.png",
+      "/luchadores/fei-long/shien-kyaku/f4.png",
+      "/luchadores/fei-long/shien-kyaku/f5.png",
+      "/luchadores/fei-long/shien-kyaku/f6.png",
+      "/luchadores/fei-long/shien-kyaku/f7.png",
+      "/luchadores/fei-long/shien-kyaku/f8.png",
+      "/luchadores/fei-long/shien-kyaku/f9.png",
+      "/luchadores/fei-long/shien-kyaku/f10.png",
+      "/luchadores/fei-long/shien-kyaku/f11.png",
+      "/luchadores/fei-long/shien-kyaku/f12.png",
+      "/luchadores/fei-long/shien-kyaku/f13.png",
+      "/luchadores/fei-long/shien-kyaku/f14.png",
+      "/luchadores/fei-long/shien-kyaku/f15.png",
+      "/luchadores/fei-long/shien-kyaku/f16.png"
+     ],
+     "gif": "/luchadores/fei-long/shien-kyaku/anim.gif",
+     "gifPeq": "/luchadores/fei-long/shien-kyaku/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 16,
+     "datos": {
+      "cuentasMin": 1179,
+      "cuentasMax": 2148,
+      "colores": 24,
+      "ancho": 77,
+      "alto": 102
+     }
+    },
+    {
+     "id": "thrust-kick",
+     "nombre": "Thrust Kick",
+     "frames": [
+      "/luchadores/fei-long/thrust-kick/f1.png",
+      "/luchadores/fei-long/thrust-kick/f2.png",
+      "/luchadores/fei-long/thrust-kick/f3.png",
+      "/luchadores/fei-long/thrust-kick/f4.png",
+      "/luchadores/fei-long/thrust-kick/f5.png",
+      "/luchadores/fei-long/thrust-kick/f6.png"
+     ],
+     "gif": "/luchadores/fei-long/thrust-kick/anim.gif",
+     "gifPeq": "/luchadores/fei-long/thrust-kick/anim-s.gif",
+     "gifAncho": 225,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 974,
+      "cuentasMax": 1753,
+      "colores": 17,
+      "ancho": 69,
+      "alto": 86
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/fei-long/aturdido/f1.png",
+      "/luchadores/fei-long/aturdido/f2.png",
+      "/luchadores/fei-long/aturdido/f3.png",
+      "/luchadores/fei-long/aturdido/f4.png",
+      "/luchadores/fei-long/aturdido/f5.png",
+      "/luchadores/fei-long/aturdido/f6.png"
+     ],
+     "gif": "/luchadores/fei-long/aturdido/anim.gif",
+     "gifPeq": "/luchadores/fei-long/aturdido/anim-s.gif",
+     "gifAncho": 352,
+     "gifAlto": 340,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1128,
+      "cuentasMax": 1745,
+      "colores": 12,
+      "ancho": 82,
+      "alto": 79
+     }
+    },
+    {
+     "id": "derribo-y-recuperacion",
+     "nombre": "Derribo y recuperación",
+     "frames": [
+      "/luchadores/fei-long/derribo-y-recuperacion/f1.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f2.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f3.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f4.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f5.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f6.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f7.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f8.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f9.png",
+      "/luchadores/fei-long/derribo-y-recuperacion/f10.png"
+     ],
+     "gif": "/luchadores/fei-long/derribo-y-recuperacion/anim.gif",
+     "gifPeq": "/luchadores/fei-long/derribo-y-recuperacion/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 290,
+      "cuentasMax": 1508,
+      "colores": 12,
+      "ancho": 77,
+      "alto": 84
+     }
+    },
+    {
+     "id": "golpe-en-el-estomago",
+     "nombre": "Golpe en el estómago",
+     "frames": [
+      "/luchadores/fei-long/golpe-en-el-estomago/f1.png",
+      "/luchadores/fei-long/golpe-en-el-estomago/f2.png",
+      "/luchadores/fei-long/golpe-en-el-estomago/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/golpe-en-el-estomago/anim.gif",
+     "gifPeq": "/luchadores/fei-long/golpe-en-el-estomago/anim-s.gif",
+     "gifAncho": 244,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1583,
+      "cuentasMax": 1751,
+      "colores": 12,
+      "ancho": 55,
+      "alto": 75
+     }
+    },
+    {
+     "id": "golpe-en-la-cabeza",
+     "nombre": "Golpe en la cabeza",
+     "frames": [
+      "/luchadores/fei-long/golpe-en-la-cabeza/f1.png",
+      "/luchadores/fei-long/golpe-en-la-cabeza/f2.png",
+      "/luchadores/fei-long/golpe-en-la-cabeza/f3.png"
+     ],
+     "gif": "/luchadores/fei-long/golpe-en-la-cabeza/anim.gif",
+     "gifPeq": "/luchadores/fei-long/golpe-en-la-cabeza/anim-s.gif",
+     "gifAncho": 165,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1475,
+      "cuentasMax": 1643,
+      "colores": 12,
+      "ancho": 49,
+      "alto": 83
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/fei-long/victoria-1/f1.png",
+      "/luchadores/fei-long/victoria-1/f2.png",
+      "/luchadores/fei-long/victoria-1/f3.png",
+      "/luchadores/fei-long/victoria-1/f4.png",
+      "/luchadores/fei-long/victoria-1/f5.png",
+      "/luchadores/fei-long/victoria-1/f6.png",
+      "/luchadores/fei-long/victoria-1/f7.png",
+      "/luchadores/fei-long/victoria-1/f8.png",
+      "/luchadores/fei-long/victoria-1/f9.png",
+      "/luchadores/fei-long/victoria-1/f10.png"
+     ],
+     "gif": "/luchadores/fei-long/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/fei-long/victoria-1/anim-s.gif",
+     "gifAncho": 189,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 12,
+     "datos": {
+      "cuentasMin": 1757,
+      "cuentasMax": 1904,
+      "colores": 12,
+      "ancho": 57,
+      "alto": 96
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/fei-long/victoria-2/f1.png",
+      "/luchadores/fei-long/victoria-2/f2.png",
+      "/luchadores/fei-long/victoria-2/f3.png",
+      "/luchadores/fei-long/victoria-2/f4.png",
+      "/luchadores/fei-long/victoria-2/f5.png"
+     ],
+     "gif": "/luchadores/fei-long/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/fei-long/victoria-2/anim-s.gif",
+     "gifAncho": 168,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1690,
+      "cuentasMax": 1843,
+      "colores": 12,
+      "ancho": 50,
+      "alto": 81
+     }
+    },
+    {
+     "id": "tiempo-agotado",
+     "nombre": "Tiempo agotado",
+     "frames": [
+      "/luchadores/fei-long/tiempo-agotado/f1.png"
+     ],
+     "gif": "/luchadores/fei-long/tiempo-agotado/anim.png",
+     "gifPeq": "/luchadores/fei-long/tiempo-agotado/anim-s.png",
+     "gifAncho": 220,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1509,
+      "cuentasMax": 1509,
+      "colores": 12,
+      "ancho": 49,
+      "alto": 69
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/fei-long/paletas-alternativas/f1.png",
+      "/luchadores/fei-long/paletas-alternativas/f2.png",
+      "/luchadores/fei-long/paletas-alternativas/f3.png",
+      "/luchadores/fei-long/paletas-alternativas/f4.png",
+      "/luchadores/fei-long/paletas-alternativas/f5.png",
+      "/luchadores/fei-long/paletas-alternativas/f6.png",
+      "/luchadores/fei-long/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/fei-long/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/fei-long/paletas-alternativas/anim-s.gif",
+     "gifAncho": 168,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1712,
+      "cuentasMax": 1720,
+      "colores": 14,
+      "ancho": 50,
+      "alto": 81
+     }
+    },
+    {
+     "id": "retratos",
+     "nombre": "Retratos",
+     "frames": [
+      "/luchadores/fei-long/retratos/f1.png",
+      "/luchadores/fei-long/retratos/f2.png",
+      "/luchadores/fei-long/retratos/f3.png",
+      "/luchadores/fei-long/retratos/f4.png"
+     ],
+     "gif": "/luchadores/fei-long/retratos/anim.gif",
+     "gifPeq": "/luchadores/fei-long/retratos/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 608,
+      "cuentasMax": 4411,
+      "colores": 16,
+      "ancho": 70,
+      "alto": 91
+     }
+    }
+   ]
+  }
+ ]
+}

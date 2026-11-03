@@ -1,0 +1,1223 @@
+{
+ "id": "zangief",
+ "nombre": "Zangief",
+ "pais": "URSS",
+ "tema": {
+  "fondo": "#b01818",
+  "circulo": "#e04a3a",
+  "circulo2": "#6a0c0c",
+  "acento": "#e04a3a",
+  "texto": "#ffffff",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/zangief/cara.png",
+ "total": 43,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/zangief/reposo/f1.png",
+      "/luchadores/zangief/reposo/f2.png",
+      "/luchadores/zangief/reposo/f3.png"
+     ],
+     "gif": "/luchadores/zangief/reposo/anim.gif",
+     "gifPeq": "/luchadores/zangief/reposo/anim-s.gif",
+     "gifAncho": 216,
+     "gifAlto": 309,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 3079,
+      "cuentasMax": 3107,
+      "colores": 14,
+      "ancho": 66,
+      "alto": 97
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/zangief/caminar/f1.png",
+      "/luchadores/zangief/caminar/f2.png",
+      "/luchadores/zangief/caminar/f3.png",
+      "/luchadores/zangief/caminar/f4.png"
+     ],
+     "gif": "/luchadores/zangief/caminar/anim.gif",
+     "gifPeq": "/luchadores/zangief/caminar/anim-s.gif",
+     "gifAncho": 219,
+     "gifAlto": 312,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2736,
+      "cuentasMax": 2947,
+      "colores": 14,
+      "ancho": 67,
+      "alto": 98
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/zangief/salto/f1.png",
+      "/luchadores/zangief/salto/f2.png",
+      "/luchadores/zangief/salto/f3.png"
+     ],
+     "gif": "/luchadores/zangief/salto/anim.gif",
+     "gifPeq": "/luchadores/zangief/salto/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 309,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 364,
+      "cuentasMax": 2468,
+      "colores": 14,
+      "ancho": 73,
+      "alto": 97
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/zangief/agachado/f1.png",
+      "/luchadores/zangief/agachado/f2.png"
+     ],
+     "gif": "/luchadores/zangief/agachado/anim.gif",
+     "gifPeq": "/luchadores/zangief/agachado/anim-s.gif",
+     "gifAncho": 260,
+     "gifAlto": 332,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2496,
+      "cuentasMax": 2546,
+      "colores": 14,
+      "ancho": 59,
+      "alto": 77
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/zangief/bloqueo/f1.png",
+      "/luchadores/zangief/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/zangief/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/zangief/bloqueo/anim-s.gif",
+     "gifAncho": 180,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2260,
+      "cuentasMax": 3009,
+      "colores": 14,
+      "ancho": 54,
+      "alto": 94
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil-medio",
+     "nombre": "Puño débil-medio",
+     "frames": [
+      "/luchadores/zangief/puno-debil-medio/f1.png",
+      "/luchadores/zangief/puno-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/zangief/puno-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/zangief/puno-debil-medio/anim-s.gif",
+     "gifAncho": 252,
+     "gifAlto": 303,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2908,
+      "cuentasMax": 2960,
+      "colores": 14,
+      "ancho": 78,
+      "alto": 95
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/zangief/puno-fuerte/f1.png",
+      "/luchadores/zangief/puno-fuerte/f2.png",
+      "/luchadores/zangief/puno-fuerte/f3.png",
+      "/luchadores/zangief/puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/zangief/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/puno-fuerte/anim-s.gif",
+     "gifAncho": 252,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 2843,
+      "cuentasMax": 2999,
+      "colores": 14,
+      "ancho": 78,
+      "alto": 99
+     }
+    },
+    {
+     "id": "adelante-puno-debil",
+     "nombre": "Adelante puño débil",
+     "frames": [
+      "/luchadores/zangief/adelante-puno-debil/f1.png",
+      "/luchadores/zangief/adelante-puno-debil/f2.png",
+      "/luchadores/zangief/adelante-puno-debil/f3.png",
+      "/luchadores/zangief/adelante-puno-debil/f4.png"
+     ],
+     "gif": "/luchadores/zangief/adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/zangief/adelante-puno-debil/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 348,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 3031,
+      "cuentasMax": 3185,
+      "colores": 15,
+      "ancho": 77,
+      "alto": 110
+     }
+    },
+    {
+     "id": "agachado-puno-debil",
+     "nombre": "Agachado puño débil",
+     "frames": [
+      "/luchadores/zangief/agachado-puno-debil/f1.png"
+     ],
+     "gif": "/luchadores/zangief/agachado-puno-debil/anim.png",
+     "gifPeq": "/luchadores/zangief/agachado-puno-debil/anim-s.png",
+     "gifAncho": 316,
+     "gifAlto": 320,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 2798,
+      "cuentasMax": 2798,
+      "colores": 14,
+      "ancho": 73,
+      "alto": 74
+     }
+    },
+    {
+     "id": "agachado-puno-medio-fuerte",
+     "nombre": "Agachado puño medio-fuerte",
+     "frames": [
+      "/luchadores/zangief/agachado-puno-medio-fuerte/f1.png",
+      "/luchadores/zangief/agachado-puno-medio-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/zangief/agachado-puno-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/agachado-puno-medio-fuerte/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2738,
+      "cuentasMax": 2742,
+      "colores": 14,
+      "ancho": 79,
+      "alto": 85
+     }
+    },
+    {
+     "id": "salto-puno-debil-medio-fuerte",
+     "nombre": "Salto puño débil-medio-fuerte",
+     "frames": [
+      "/luchadores/zangief/salto-puno-debil-medio-fuerte/f1.png",
+      "/luchadores/zangief/salto-puno-debil-medio-fuerte/f2.png",
+      "/luchadores/zangief/salto-puno-debil-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/zangief/salto-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/salto-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 352,
+     "gifAlto": 332,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2084,
+      "cuentasMax": 2178,
+      "colores": 14,
+      "ancho": 82,
+      "alto": 77
+     }
+    },
+    {
+     "id": "salto-adelante-puno-fuerte",
+     "nombre": "Salto adelante puño fuerte",
+     "frames": [
+      "/luchadores/zangief/salto-adelante-puno-fuerte/f1.png",
+      "/luchadores/zangief/salto-adelante-puno-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/zangief/salto-adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/salto-adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 440,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2284,
+      "cuentasMax": 2416,
+      "colores": 14,
+      "ancho": 104,
+      "alto": 75
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil",
+     "nombre": "Patada débil",
+     "frames": [
+      "/luchadores/zangief/patada-debil/f1.png",
+      "/luchadores/zangief/patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/zangief/patada-debil/anim.gif",
+     "gifPeq": "/luchadores/zangief/patada-debil/anim-s.gif",
+     "gifAncho": 282,
+     "gifAlto": 321,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2777,
+      "cuentasMax": 2892,
+      "colores": 14,
+      "ancho": 88,
+      "alto": 101
+     }
+    },
+    {
+     "id": "patada-medio",
+     "nombre": "Patada medio",
+     "frames": [
+      "/luchadores/zangief/patada-medio/f1.png",
+      "/luchadores/zangief/patada-medio/f2.png",
+      "/luchadores/zangief/patada-medio/f3.png"
+     ],
+     "gif": "/luchadores/zangief/patada-medio/anim.gif",
+     "gifPeq": "/luchadores/zangief/patada-medio/anim-s.gif",
+     "gifAncho": 306,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2635,
+      "cuentasMax": 2892,
+      "colores": 14,
+      "ancho": 96,
+      "alto": 102
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/zangief/patada-fuerte/f1.png",
+      "/luchadores/zangief/patada-fuerte/f2.png",
+      "/luchadores/zangief/patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/zangief/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/patada-fuerte/anim-s.gif",
+     "gifAncho": 276,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2842,
+      "cuentasMax": 3197,
+      "colores": 14,
+      "ancho": 86,
+      "alto": 104
+     }
+    },
+    {
+     "id": "adelante-patada-debil",
+     "nombre": "Adelante patada débil",
+     "frames": [
+      "/luchadores/zangief/adelante-patada-debil/f1.png",
+      "/luchadores/zangief/adelante-patada-debil/f2.png",
+      "/luchadores/zangief/adelante-patada-debil/f3.png"
+     ],
+     "gif": "/luchadores/zangief/adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/zangief/adelante-patada-debil/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 364,
+      "cuentasMax": 2793,
+      "colores": 14,
+      "ancho": 73,
+      "alto": 99
+     }
+    },
+    {
+     "id": "adelante-patada-fuerte",
+     "nombre": "Adelante patada fuerte",
+     "frames": [
+      "/luchadores/zangief/adelante-patada-fuerte/f1.png",
+      "/luchadores/zangief/adelante-patada-fuerte/f2.png",
+      "/luchadores/zangief/adelante-patada-fuerte/f3.png",
+      "/luchadores/zangief/adelante-patada-fuerte/f4.png",
+      "/luchadores/zangief/adelante-patada-fuerte/f5.png",
+      "/luchadores/zangief/adelante-patada-fuerte/f6.png",
+      "/luchadores/zangief/adelante-patada-fuerte/f7.png"
+     ],
+     "gif": "/luchadores/zangief/adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 342,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 364,
+      "cuentasMax": 3141,
+      "colores": 14,
+      "ancho": 70,
+      "alto": 108
+     }
+    },
+    {
+     "id": "agachado-patada-debil-medio-fuerte",
+     "nombre": "Agachado patada débil-medio-fuerte",
+     "frames": [
+      "/luchadores/zangief/agachado-patada-debil-medio-fuerte/f1.png",
+      "/luchadores/zangief/agachado-patada-debil-medio-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/zangief/agachado-patada-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/agachado-patada-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 279,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2586,
+      "cuentasMax": 2820,
+      "colores": 14,
+      "ancho": 87,
+      "alto": 82
+     }
+    },
+    {
+     "id": "salto-patada-debil-medio-fuerte",
+     "nombre": "Salto patada débil-medio-fuerte",
+     "frames": [
+      "/luchadores/zangief/salto-patada-debil-medio-fuerte/f1.png",
+      "/luchadores/zangief/salto-patada-debil-medio-fuerte/f2.png",
+      "/luchadores/zangief/salto-patada-debil-medio-fuerte/f3.png",
+      "/luchadores/zangief/salto-patada-debil-medio-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/zangief/salto-patada-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/zangief/salto-patada-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 220,
+     "gifAlto": 244,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2417,
+      "cuentasMax": 3160,
+      "colores": 14,
+      "ancho": 104,
+      "alto": 116
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "agarre-de-cara",
+     "nombre": "Agarre de cara",
+     "frames": [
+      "/luchadores/zangief/agarre-de-cara/f1.png",
+      "/luchadores/zangief/agarre-de-cara/f2.png"
+     ],
+     "gif": "/luchadores/zangief/agarre-de-cara/anim.gif",
+     "gifPeq": "/luchadores/zangief/agarre-de-cara/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 303,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2750,
+      "cuentasMax": 2795,
+      "colores": 14,
+      "ancho": 71,
+      "alto": 95
+     }
+    },
+    {
+     "id": "agarre-de-pecho",
+     "nombre": "Agarre de pecho",
+     "frames": [
+      "/luchadores/zangief/agarre-de-pecho/f1.png",
+      "/luchadores/zangief/agarre-de-pecho/f2.png"
+     ],
+     "gif": "/luchadores/zangief/agarre-de-pecho/anim.gif",
+     "gifPeq": "/luchadores/zangief/agarre-de-pecho/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2583,
+      "cuentasMax": 2624,
+      "colores": 14,
+      "ancho": 72,
+      "alto": 86
+     }
+    },
+    {
+     "id": "atomic-drop",
+     "nombre": "Atomic Drop",
+     "frames": [
+      "/luchadores/zangief/atomic-drop/f1.png",
+      "/luchadores/zangief/atomic-drop/f2.png",
+      "/luchadores/zangief/atomic-drop/f3.png",
+      "/luchadores/zangief/atomic-drop/f4.png",
+      "/luchadores/zangief/atomic-drop/f5.png",
+      "/luchadores/zangief/atomic-drop/f6.png",
+      "/luchadores/zangief/atomic-drop/f7.png",
+      "/luchadores/zangief/atomic-drop/f8.png",
+      "/luchadores/zangief/atomic-drop/f9.png",
+      "/luchadores/zangief/atomic-drop/f10.png",
+      "/luchadores/zangief/atomic-drop/f11.png",
+      "/luchadores/zangief/atomic-drop/f12.png"
+     ],
+     "gif": "/luchadores/zangief/atomic-drop/anim.gif",
+     "gifPeq": "/luchadores/zangief/atomic-drop/anim-s.gif",
+     "gifAncho": 303,
+     "gifAlto": 342,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 12,
+     "datos": {
+      "cuentasMin": 2019,
+      "cuentasMax": 3258,
+      "colores": 14,
+      "ancho": 95,
+      "alto": 108
+     }
+    },
+    {
+     "id": "bite-grab",
+     "nombre": "Bite Grab",
+     "frames": [
+      "/luchadores/zangief/bite-grab/f1.png",
+      "/luchadores/zangief/bite-grab/f2.png",
+      "/luchadores/zangief/bite-grab/f3.png"
+     ],
+     "gif": "/luchadores/zangief/bite-grab/anim.gif",
+     "gifPeq": "/luchadores/zangief/bite-grab/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2819,
+      "cuentasMax": 2849,
+      "colores": 14,
+      "ancho": 79,
+      "alto": 92
+     }
+    },
+    {
+     "id": "double-russian-suplex",
+     "nombre": "Double Russian Suplex",
+     "frames": [
+      "/luchadores/zangief/double-russian-suplex/f1.png",
+      "/luchadores/zangief/double-russian-suplex/f2.png",
+      "/luchadores/zangief/double-russian-suplex/f3.png",
+      "/luchadores/zangief/double-russian-suplex/f4.png",
+      "/luchadores/zangief/double-russian-suplex/f5.png",
+      "/luchadores/zangief/double-russian-suplex/f6.png",
+      "/luchadores/zangief/double-russian-suplex/f7.png",
+      "/luchadores/zangief/double-russian-suplex/f8.png",
+      "/luchadores/zangief/double-russian-suplex/f9.png",
+      "/luchadores/zangief/double-russian-suplex/f10.png",
+      "/luchadores/zangief/double-russian-suplex/f11.png",
+      "/luchadores/zangief/double-russian-suplex/f12.png",
+      "/luchadores/zangief/double-russian-suplex/f13.png",
+      "/luchadores/zangief/double-russian-suplex/f14.png",
+      "/luchadores/zangief/double-russian-suplex/f15.png",
+      "/luchadores/zangief/double-russian-suplex/f16.png"
+     ],
+     "gif": "/luchadores/zangief/double-russian-suplex/anim.gif",
+     "gifPeq": "/luchadores/zangief/double-russian-suplex/anim-s.gif",
+     "gifAncho": 202,
+     "gifAlto": 266,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 19,
+     "datos": {
+      "cuentasMin": 364,
+      "cuentasMax": 3054,
+      "colores": 14,
+      "ancho": 95,
+      "alto": 127
+     }
+    },
+    {
+     "id": "grounder",
+     "nombre": "Grounder",
+     "frames": [
+      "/luchadores/zangief/grounder/f1.png",
+      "/luchadores/zangief/grounder/f2.png"
+     ],
+     "gif": "/luchadores/zangief/grounder/anim.gif",
+     "gifPeq": "/luchadores/zangief/grounder/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 339,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2216,
+      "cuentasMax": 2705,
+      "colores": 14,
+      "ancho": 58,
+      "alto": 107
+     }
+    },
+    {
+     "id": "jump-headbutt",
+     "nombre": "Jump Headbutt",
+     "frames": [
+      "/luchadores/zangief/jump-headbutt/f1.png"
+     ],
+     "gif": "/luchadores/zangief/jump-headbutt/anim.png",
+     "gifPeq": "/luchadores/zangief/jump-headbutt/anim-s.png",
+     "gifAncho": 198,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 2266,
+      "cuentasMax": 2266,
+      "colores": 14,
+      "ancho": 60,
+      "alto": 82
+     }
+    },
+    {
+     "id": "knee-drop",
+     "nombre": "Knee Drop",
+     "frames": [
+      "/luchadores/zangief/knee-drop/f1.png"
+     ],
+     "gif": "/luchadores/zangief/knee-drop/anim.png",
+     "gifPeq": "/luchadores/zangief/knee-drop/anim-s.png",
+     "gifAncho": 316,
+     "gifAlto": 308,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 2359,
+      "cuentasMax": 2359,
+      "colores": 14,
+      "ancho": 73,
+      "alto": 71
+     }
+    },
+    {
+     "id": "lanzamiento-de-hombro-aereo",
+     "nombre": "Lanzamiento de hombro aéreo",
+     "frames": [
+      "/luchadores/zangief/lanzamiento-de-hombro-aereo/f1.png",
+      "/luchadores/zangief/lanzamiento-de-hombro-aereo/f2.png",
+      "/luchadores/zangief/lanzamiento-de-hombro-aereo/f3.png"
+     ],
+     "gif": "/luchadores/zangief/lanzamiento-de-hombro-aereo/anim.gif",
+     "gifPeq": "/luchadores/zangief/lanzamiento-de-hombro-aereo/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 321,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2019,
+      "cuentasMax": 2223,
+      "colores": 14,
+      "ancho": 73,
+      "alto": 101
+     }
+    },
+    {
+     "id": "piledriver",
+     "nombre": "Piledriver",
+     "frames": [
+      "/luchadores/zangief/piledriver/f1.png",
+      "/luchadores/zangief/piledriver/f2.png",
+      "/luchadores/zangief/piledriver/f3.png",
+      "/luchadores/zangief/piledriver/f4.png",
+      "/luchadores/zangief/piledriver/f5.png"
+     ],
+     "gif": "/luchadores/zangief/piledriver/anim.gif",
+     "gifPeq": "/luchadores/zangief/piledriver/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 309,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1828,
+      "cuentasMax": 2819,
+      "colores": 14,
+      "ancho": 79,
+      "alto": 97
+     }
+    },
+    {
+     "id": "siberian-splash",
+     "nombre": "Siberian Splash",
+     "frames": [
+      "/luchadores/zangief/siberian-splash/f1.png",
+      "/luchadores/zangief/siberian-splash/f2.png"
+     ],
+     "gif": "/luchadores/zangief/siberian-splash/anim.gif",
+     "gifPeq": "/luchadores/zangief/siberian-splash/anim-s.gif",
+     "gifAncho": 440,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2416,
+      "cuentasMax": 2492,
+      "colores": 14,
+      "ancho": 104,
+      "alto": 75
+     }
+    },
+    {
+     "id": "spinning-clothesline",
+     "nombre": "Spinning Clothesline",
+     "frames": [
+      "/luchadores/zangief/spinning-clothesline/f1.png",
+      "/luchadores/zangief/spinning-clothesline/f2.png",
+      "/luchadores/zangief/spinning-clothesline/f3.png",
+      "/luchadores/zangief/spinning-clothesline/f4.png"
+     ],
+     "gif": "/luchadores/zangief/spinning-clothesline/anim.gif",
+     "gifPeq": "/luchadores/zangief/spinning-clothesline/anim-s.gif",
+     "gifAncho": 267,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1983,
+      "cuentasMax": 2891,
+      "colores": 14,
+      "ancho": 83,
+      "alto": 103
+     }
+    },
+    {
+     "id": "spinning-lariat",
+     "nombre": "Spinning Lariat",
+     "frames": [
+      "/luchadores/zangief/spinning-lariat/f1.png",
+      "/luchadores/zangief/spinning-lariat/f2.png",
+      "/luchadores/zangief/spinning-lariat/f3.png",
+      "/luchadores/zangief/spinning-lariat/f4.png",
+      "/luchadores/zangief/spinning-lariat/f5.png"
+     ],
+     "gif": "/luchadores/zangief/spinning-lariat/anim.gif",
+     "gifPeq": "/luchadores/zangief/spinning-lariat/anim-s.gif",
+     "gifAncho": 267,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1983,
+      "cuentasMax": 2891,
+      "colores": 14,
+      "ancho": 83,
+      "alto": 103
+     }
+    },
+    {
+     "id": "spinning-piledriver",
+     "nombre": "Spinning Piledriver",
+     "frames": [
+      "/luchadores/zangief/spinning-piledriver/f1.png",
+      "/luchadores/zangief/spinning-piledriver/f2.png",
+      "/luchadores/zangief/spinning-piledriver/f3.png",
+      "/luchadores/zangief/spinning-piledriver/f4.png",
+      "/luchadores/zangief/spinning-piledriver/f5.png",
+      "/luchadores/zangief/spinning-piledriver/f6.png",
+      "/luchadores/zangief/spinning-piledriver/f7.png",
+      "/luchadores/zangief/spinning-piledriver/f8.png",
+      "/luchadores/zangief/spinning-piledriver/f9.png",
+      "/luchadores/zangief/spinning-piledriver/f10.png"
+     ],
+     "gif": "/luchadores/zangief/spinning-piledriver/anim.gif",
+     "gifPeq": "/luchadores/zangief/spinning-piledriver/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 336,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 1828,
+      "cuentasMax": 3258,
+      "colores": 14,
+      "ancho": 79,
+      "alto": 106
+     }
+    },
+    {
+     "id": "suplex",
+     "nombre": "Suplex",
+     "frames": [
+      "/luchadores/zangief/suplex/f1.png",
+      "/luchadores/zangief/suplex/f2.png",
+      "/luchadores/zangief/suplex/f3.png",
+      "/luchadores/zangief/suplex/f4.png",
+      "/luchadores/zangief/suplex/f5.png",
+      "/luchadores/zangief/suplex/f6.png",
+      "/luchadores/zangief/suplex/f7.png"
+     ],
+     "gif": "/luchadores/zangief/suplex/anim.gif",
+     "gifPeq": "/luchadores/zangief/suplex/anim-s.gif",
+     "gifAncho": 303,
+     "gifAlto": 342,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 2189,
+      "cuentasMax": 2819,
+      "colores": 14,
+      "ancho": 95,
+      "alto": 108
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/zangief/aturdido/f1.png",
+      "/luchadores/zangief/aturdido/f2.png",
+      "/luchadores/zangief/aturdido/f3.png",
+      "/luchadores/zangief/aturdido/f4.png",
+      "/luchadores/zangief/aturdido/f5.png",
+      "/luchadores/zangief/aturdido/f6.png",
+      "/luchadores/zangief/aturdido/f7.png",
+      "/luchadores/zangief/aturdido/f8.png"
+     ],
+     "gif": "/luchadores/zangief/aturdido/anim.gif",
+     "gifPeq": "/luchadores/zangief/aturdido/anim-s.gif",
+     "gifAncho": 276,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 2067,
+      "cuentasMax": 2874,
+      "colores": 14,
+      "ancho": 86,
+      "alto": 96
+     }
+    },
+    {
+     "id": "derribo",
+     "nombre": "Derribo",
+     "frames": [
+      "/luchadores/zangief/derribo/f1.png",
+      "/luchadores/zangief/derribo/f2.png",
+      "/luchadores/zangief/derribo/f3.png",
+      "/luchadores/zangief/derribo/f4.png",
+      "/luchadores/zangief/derribo/f5.png",
+      "/luchadores/zangief/derribo/f6.png",
+      "/luchadores/zangief/derribo/f7.png"
+     ],
+     "gif": "/luchadores/zangief/derribo/anim.gif",
+     "gifPeq": "/luchadores/zangief/derribo/anim-s.gif",
+     "gifAncho": 267,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1913,
+      "cuentasMax": 2546,
+      "colores": 14,
+      "ancho": 83,
+      "alto": 81
+     }
+    },
+    {
+     "id": "golpe-en-el-estomago",
+     "nombre": "Golpe en el estómago",
+     "frames": [
+      "/luchadores/zangief/golpe-en-el-estomago/f1.png",
+      "/luchadores/zangief/golpe-en-el-estomago/f2.png",
+      "/luchadores/zangief/golpe-en-el-estomago/f3.png",
+      "/luchadores/zangief/golpe-en-el-estomago/f4.png"
+     ],
+     "gif": "/luchadores/zangief/golpe-en-el-estomago/anim.gif",
+     "gifPeq": "/luchadores/zangief/golpe-en-el-estomago/anim-s.gif",
+     "gifAncho": 219,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2731,
+      "cuentasMax": 2937,
+      "colores": 14,
+      "ancho": 67,
+      "alto": 89
+     }
+    },
+    {
+     "id": "golpe-en-la-cara",
+     "nombre": "Golpe en la cara",
+     "frames": [
+      "/luchadores/zangief/golpe-en-la-cara/f1.png",
+      "/luchadores/zangief/golpe-en-la-cara/f2.png",
+      "/luchadores/zangief/golpe-en-la-cara/f3.png"
+     ],
+     "gif": "/luchadores/zangief/golpe-en-la-cara/anim.gif",
+     "gifPeq": "/luchadores/zangief/golpe-en-la-cara/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 354,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 3111,
+      "cuentasMax": 3391,
+      "colores": 14,
+      "ancho": 70,
+      "alto": 112
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/zangief/victoria-1/f1.png",
+      "/luchadores/zangief/victoria-1/f2.png"
+     ],
+     "gif": "/luchadores/zangief/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/zangief/victoria-1/anim-s.gif",
+     "gifAncho": 136,
+     "gifAlto": 290,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 3669,
+      "cuentasMax": 3860,
+      "colores": 14,
+      "ancho": 62,
+      "alto": 139
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/zangief/victoria-2/f1.png",
+      "/luchadores/zangief/victoria-2/f2.png"
+     ],
+     "gif": "/luchadores/zangief/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/zangief/victoria-2/anim-s.gif",
+     "gifAncho": 204,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2976,
+      "cuentasMax": 3669,
+      "colores": 14,
+      "ancho": 62,
+      "alto": 104
+     }
+    },
+    {
+     "id": "tiempo-agotado",
+     "nombre": "Tiempo agotado",
+     "frames": [
+      "/luchadores/zangief/tiempo-agotado/f1.png"
+     ],
+     "gif": "/luchadores/zangief/tiempo-agotado/anim.png",
+     "gifPeq": "/luchadores/zangief/tiempo-agotado/anim-s.png",
+     "gifAncho": 204,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 3669,
+      "cuentasMax": 3669,
+      "colores": 14,
+      "ancho": 62,
+      "alto": 104
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/zangief/paletas-alternativas/f1.png",
+      "/luchadores/zangief/paletas-alternativas/f2.png",
+      "/luchadores/zangief/paletas-alternativas/f3.png",
+      "/luchadores/zangief/paletas-alternativas/f4.png",
+      "/luchadores/zangief/paletas-alternativas/f5.png",
+      "/luchadores/zangief/paletas-alternativas/f6.png",
+      "/luchadores/zangief/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/zangief/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/zangief/paletas-alternativas/anim-s.gif",
+     "gifAncho": 189,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 3079,
+      "cuentasMax": 3079,
+      "colores": 14,
+      "ancho": 57,
+      "alto": 94
+     }
+    },
+    {
+     "id": "retratos",
+     "nombre": "Retratos",
+     "frames": [
+      "/luchadores/zangief/retratos/f1.png",
+      "/luchadores/zangief/retratos/f2.png",
+      "/luchadores/zangief/retratos/f3.png",
+      "/luchadores/zangief/retratos/f4.png"
+     ],
+     "gif": "/luchadores/zangief/retratos/anim.gif",
+     "gifPeq": "/luchadores/zangief/retratos/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 608,
+      "cuentasMax": 5015,
+      "colores": 18,
+      "ancho": 72,
+      "alto": 96
+     }
+    }
+   ]
+  }
+ ]
+}

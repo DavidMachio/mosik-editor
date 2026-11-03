@@ -1,0 +1,1058 @@
+{
+ "id": "m-bison",
+ "nombre": "M. Bison",
+ "pais": "Tailandia",
+ "tema": {
+  "fondo": "#b51821",
+  "circulo": "#e04a50",
+  "circulo2": "#6e0d12",
+  "acento": "#e04a50",
+  "texto": "#ffffff",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/m-bison/cara.png",
+ "total": 37,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/m-bison/reposo/f1.png",
+      "/luchadores/m-bison/reposo/f2.png",
+      "/luchadores/m-bison/reposo/f3.png"
+     ],
+     "gif": "/luchadores/m-bison/reposo/anim.gif",
+     "gifPeq": "/luchadores/m-bison/reposo/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2197,
+      "cuentasMax": 2297,
+      "colores": 15,
+      "ancho": 65,
+      "alto": 88
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/m-bison/caminar/f1.png",
+      "/luchadores/m-bison/caminar/f2.png",
+      "/luchadores/m-bison/caminar/f3.png",
+      "/luchadores/m-bison/caminar/f4.png"
+     ],
+     "gif": "/luchadores/m-bison/caminar/anim.gif",
+     "gifPeq": "/luchadores/m-bison/caminar/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 297,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2108,
+      "cuentasMax": 2226,
+      "colores": 16,
+      "ancho": 65,
+      "alto": 93
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/m-bison/salto/f1.png",
+      "/luchadores/m-bison/salto/f2.png",
+      "/luchadores/m-bison/salto/f3.png",
+      "/luchadores/m-bison/salto/f4.png"
+     ],
+     "gif": "/luchadores/m-bison/salto/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto/anim-s.gif",
+     "gifAncho": 207,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 364,
+      "cuentasMax": 2109,
+      "colores": 15,
+      "ancho": 63,
+      "alto": 85
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/m-bison/agachado/f1.png",
+      "/luchadores/m-bison/agachado/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/agachado/anim.gif",
+     "gifPeq": "/luchadores/m-bison/agachado/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1980,
+      "cuentasMax": 2243,
+      "colores": 16,
+      "ancho": 65,
+      "alto": 83
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/m-bison/bloqueo/f1.png",
+      "/luchadores/m-bison/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/m-bison/bloqueo/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1974,
+      "cuentasMax": 2203,
+      "colores": 16,
+      "ancho": 64,
+      "alto": 83
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/m-bison/puno-debil/f1.png",
+      "/luchadores/m-bison/puno-debil/f2.png",
+      "/luchadores/m-bison/puno-debil/f3.png",
+      "/luchadores/m-bison/puno-debil/f4.png"
+     ],
+     "gif": "/luchadores/m-bison/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/m-bison/puno-debil/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2342,
+      "cuentasMax": 2538,
+      "colores": 22,
+      "ancho": 71,
+      "alto": 81
+     }
+    },
+    {
+     "id": "puno-medio",
+     "nombre": "Puño medio",
+     "frames": [
+      "/luchadores/m-bison/puno-medio/f1.png",
+      "/luchadores/m-bison/puno-medio/f2.png",
+      "/luchadores/m-bison/puno-medio/f3.png",
+      "/luchadores/m-bison/puno-medio/f4.png",
+      "/luchadores/m-bison/puno-medio/f5.png",
+      "/luchadores/m-bison/puno-medio/f6.png"
+     ],
+     "gif": "/luchadores/m-bison/puno-medio/anim.gif",
+     "gifPeq": "/luchadores/m-bison/puno-medio/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1836,
+      "cuentasMax": 2318,
+      "colores": 21,
+      "ancho": 79,
+      "alto": 83
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/m-bison/puno-fuerte/f1.png",
+      "/luchadores/m-bison/puno-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/puno-fuerte/anim-s.gif",
+     "gifAncho": 304,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2230,
+      "cuentasMax": 2230,
+      "colores": 20,
+      "ancho": 70,
+      "alto": 75
+     }
+    },
+    {
+     "id": "agachado-puno-debil",
+     "nombre": "Agachado puño débil",
+     "frames": [
+      "/luchadores/m-bison/agachado-puno-debil/f1.png",
+      "/luchadores/m-bison/agachado-puno-debil/f2.png",
+      "/luchadores/m-bison/agachado-puno-debil/f3.png"
+     ],
+     "gif": "/luchadores/m-bison/agachado-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/m-bison/agachado-puno-debil/anim-s.gif",
+     "gifAncho": 280,
+     "gifAlto": 272,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1974,
+      "cuentasMax": 2213,
+      "colores": 21,
+      "ancho": 64,
+      "alto": 62
+     }
+    },
+    {
+     "id": "agachado-puno-medio-fuerte",
+     "nombre": "Agachado puño medio-fuerte",
+     "frames": [
+      "/luchadores/m-bison/agachado-puno-medio-fuerte/f1.png",
+      "/luchadores/m-bison/agachado-puno-medio-fuerte/f2.png",
+      "/luchadores/m-bison/agachado-puno-medio-fuerte/f3.png",
+      "/luchadores/m-bison/agachado-puno-medio-fuerte/f4.png",
+      "/luchadores/m-bison/agachado-puno-medio-fuerte/f5.png",
+      "/luchadores/m-bison/agachado-puno-medio-fuerte/f6.png"
+     ],
+     "gif": "/luchadores/m-bison/agachado-puno-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/agachado-puno-medio-fuerte/anim-s.gif",
+     "gifAncho": 324,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1992,
+      "cuentasMax": 2264,
+      "colores": 21,
+      "ancho": 75,
+      "alto": 66
+     }
+    },
+    {
+     "id": "salto-puno-debil",
+     "nombre": "Salto puño débil",
+     "frames": [
+      "/luchadores/m-bison/salto-puno-debil/f1.png",
+      "/luchadores/m-bison/salto-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto-puno-debil/anim-s.gif",
+     "gifAncho": 236,
+     "gifAlto": 304,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1703,
+      "cuentasMax": 1703,
+      "colores": 20,
+      "ancho": 53,
+      "alto": 70
+     }
+    },
+    {
+     "id": "salto-puno-medio",
+     "nombre": "Salto puño medio",
+     "frames": [
+      "/luchadores/m-bison/salto-puno-medio/f1.png",
+      "/luchadores/m-bison/salto-puno-medio/f2.png",
+      "/luchadores/m-bison/salto-puno-medio/f3.png",
+      "/luchadores/m-bison/salto-puno-medio/f4.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto-puno-medio/anim-s.gif",
+     "gifAncho": 272,
+     "gifAlto": 336,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1352,
+      "cuentasMax": 1815,
+      "colores": 20,
+      "ancho": 62,
+      "alto": 78
+     }
+    },
+    {
+     "id": "salto-adelante-puno-debil-medio",
+     "nombre": "Salto adelante puño débil-medio",
+     "frames": [
+      "/luchadores/m-bison/salto-adelante-puno-debil-medio/f1.png",
+      "/luchadores/m-bison/salto-adelante-puno-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-adelante-puno-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto-adelante-puno-debil-medio/anim-s.gif",
+     "gifAncho": 490,
+     "gifAlto": 325,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1205,
+      "cuentasMax": 1665,
+      "colores": 14,
+      "ancho": 92,
+      "alto": 59
+     }
+    },
+    {
+     "id": "salto-adelante-puno-fuerte",
+     "nombre": "Salto adelante puño fuerte",
+     "frames": [
+      "/luchadores/m-bison/salto-adelante-puno-fuerte/f1.png",
+      "/luchadores/m-bison/salto-adelante-puno-fuerte/f2.png",
+      "/luchadores/m-bison/salto-adelante-puno-fuerte/f3.png",
+      "/luchadores/m-bison/salto-adelante-puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto-adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 460,
+     "gifAlto": 325,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1226,
+      "cuentasMax": 1864,
+      "colores": 20,
+      "ancho": 86,
+      "alto": 59
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil",
+     "nombre": "Patada débil",
+     "frames": [
+      "/luchadores/m-bison/patada-debil/f1.png",
+      "/luchadores/m-bison/patada-debil/f2.png",
+      "/luchadores/m-bison/patada-debil/f3.png"
+     ],
+     "gif": "/luchadores/m-bison/patada-debil/anim.gif",
+     "gifPeq": "/luchadores/m-bison/patada-debil/anim-s.gif",
+     "gifAncho": 222,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1926,
+      "cuentasMax": 2228,
+      "colores": 16,
+      "ancho": 68,
+      "alto": 91
+     }
+    },
+    {
+     "id": "patada-medio-fuerte",
+     "nombre": "Patada medio-fuerte",
+     "frames": [
+      "/luchadores/m-bison/patada-medio-fuerte/f1.png",
+      "/luchadores/m-bison/patada-medio-fuerte/f2.png",
+      "/luchadores/m-bison/patada-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/m-bison/patada-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/patada-medio-fuerte/anim-s.gif",
+     "gifAncho": 258,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2191,
+      "cuentasMax": 2228,
+      "colores": 16,
+      "ancho": 80,
+      "alto": 91
+     }
+    },
+    {
+     "id": "agachado-patada-debil-medio",
+     "nombre": "Agachado patada débil-medio",
+     "frames": [
+      "/luchadores/m-bison/agachado-patada-debil-medio/f1.png",
+      "/luchadores/m-bison/agachado-patada-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/agachado-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/m-bison/agachado-patada-debil-medio/anim-s.gif",
+     "gifAncho": 344,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1967,
+      "cuentasMax": 2045,
+      "colores": 16,
+      "ancho": 80,
+      "alto": 63
+     }
+    },
+    {
+     "id": "agachado-patada-fuerte",
+     "nombre": "Agachado patada fuerte",
+     "frames": [
+      "/luchadores/m-bison/agachado-patada-fuerte/f1.png",
+      "/luchadores/m-bison/agachado-patada-fuerte/f2.png",
+      "/luchadores/m-bison/agachado-patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/m-bison/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 267,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1967,
+      "cuentasMax": 2241,
+      "colores": 16,
+      "ancho": 83,
+      "alto": 86
+     }
+    },
+    {
+     "id": "salto-patada-debil",
+     "nombre": "Salto patada débil",
+     "frames": [
+      "/luchadores/m-bison/salto-patada-debil/f1.png",
+      "/luchadores/m-bison/salto-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto-patada-debil/anim-s.gif",
+     "gifAncho": 276,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1593,
+      "cuentasMax": 1643,
+      "colores": 15,
+      "ancho": 63,
+      "alto": 75
+     }
+    },
+    {
+     "id": "salto-patada-medio-fuerte",
+     "nombre": "Salto patada medio-fuerte",
+     "frames": [
+      "/luchadores/m-bison/salto-patada-medio-fuerte/f1.png",
+      "/luchadores/m-bison/salto-patada-medio-fuerte/f2.png",
+      "/luchadores/m-bison/salto-patada-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-patada-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto-patada-medio-fuerte/anim-s.gif",
+     "gifAncho": 258,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1533,
+      "cuentasMax": 1656,
+      "colores": 15,
+      "ancho": 80,
+      "alto": 86
+     }
+    },
+    {
+     "id": "salto-adelante-patada-debil",
+     "nombre": "Salto adelante patada débil",
+     "frames": [
+      "/luchadores/m-bison/salto-adelante-patada-debil/f1.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-adelante-patada-debil/anim.png",
+     "gifPeq": "/luchadores/m-bison/salto-adelante-patada-debil/anim-s.png",
+     "gifAncho": 168,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1733,
+      "cuentasMax": 1733,
+      "colores": 15,
+      "ancho": 50,
+      "alto": 81
+     }
+    },
+    {
+     "id": "salto-adelante-patada-fuerte",
+     "nombre": "Salto adelante patada fuerte",
+     "frames": [
+      "/luchadores/m-bison/salto-adelante-patada-fuerte/f1.png",
+      "/luchadores/m-bison/salto-adelante-patada-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/salto-adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/salto-adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 332,
+     "gifAlto": 296,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1561,
+      "cuentasMax": 1661,
+      "colores": 14,
+      "ancho": 77,
+      "alto": 68
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "flying-psycho-fist",
+     "nombre": "Flying Psycho Fist",
+     "frames": [
+      "/luchadores/m-bison/flying-psycho-fist/f1.png",
+      "/luchadores/m-bison/flying-psycho-fist/f2.png",
+      "/luchadores/m-bison/flying-psycho-fist/f3.png",
+      "/luchadores/m-bison/flying-psycho-fist/f4.png",
+      "/luchadores/m-bison/flying-psycho-fist/f5.png",
+      "/luchadores/m-bison/flying-psycho-fist/f6.png",
+      "/luchadores/m-bison/flying-psycho-fist/f7.png",
+      "/luchadores/m-bison/flying-psycho-fist/f8.png",
+      "/luchadores/m-bison/flying-psycho-fist/f9.png",
+      "/luchadores/m-bison/flying-psycho-fist/f10.png",
+      "/luchadores/m-bison/flying-psycho-fist/f11.png",
+      "/luchadores/m-bison/flying-psycho-fist/f12.png",
+      "/luchadores/m-bison/flying-psycho-fist/f13.png",
+      "/luchadores/m-bison/flying-psycho-fist/f14.png",
+      "/luchadores/m-bison/flying-psycho-fist/f15.png"
+     ],
+     "gif": "/luchadores/m-bison/flying-psycho-fist/anim.gif",
+     "gifPeq": "/luchadores/m-bison/flying-psycho-fist/anim-s.gif",
+     "gifAncho": 182,
+     "gifAlto": 266,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 16,
+     "datos": {
+      "cuentasMin": 672,
+      "cuentasMax": 4450,
+      "colores": 23,
+      "ancho": 85,
+      "alto": 127
+     }
+    },
+    {
+     "id": "head-stomp",
+     "nombre": "Head Stomp",
+     "frames": [
+      "/luchadores/m-bison/head-stomp/f1.png",
+      "/luchadores/m-bison/head-stomp/f2.png",
+      "/luchadores/m-bison/head-stomp/f3.png",
+      "/luchadores/m-bison/head-stomp/f4.png",
+      "/luchadores/m-bison/head-stomp/f5.png",
+      "/luchadores/m-bison/head-stomp/f6.png"
+     ],
+     "gif": "/luchadores/m-bison/head-stomp/anim.gif",
+     "gifPeq": "/luchadores/m-bison/head-stomp/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1205,
+      "cuentasMax": 1616,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 96
+     }
+    },
+    {
+     "id": "lanzamiento",
+     "nombre": "Lanzamiento",
+     "frames": [
+      "/luchadores/m-bison/lanzamiento/f1.png",
+      "/luchadores/m-bison/lanzamiento/f2.png",
+      "/luchadores/m-bison/lanzamiento/f3.png",
+      "/luchadores/m-bison/lanzamiento/f4.png",
+      "/luchadores/m-bison/lanzamiento/f5.png",
+      "/luchadores/m-bison/lanzamiento/f6.png",
+      "/luchadores/m-bison/lanzamiento/f7.png"
+     ],
+     "gif": "/luchadores/m-bison/lanzamiento/anim.gif",
+     "gifPeq": "/luchadores/m-bison/lanzamiento/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1599,
+      "cuentasMax": 2243,
+      "colores": 16,
+      "ancho": 65,
+      "alto": 85
+     }
+    },
+    {
+     "id": "psycho-crusher",
+     "nombre": "Psycho Crusher",
+     "frames": [
+      "/luchadores/m-bison/psycho-crusher/f1.png",
+      "/luchadores/m-bison/psycho-crusher/f2.png",
+      "/luchadores/m-bison/psycho-crusher/f3.png",
+      "/luchadores/m-bison/psycho-crusher/f4.png",
+      "/luchadores/m-bison/psycho-crusher/f5.png",
+      "/luchadores/m-bison/psycho-crusher/f6.png",
+      "/luchadores/m-bison/psycho-crusher/f7.png"
+     ],
+     "gif": "/luchadores/m-bison/psycho-crusher/anim.gif",
+     "gifPeq": "/luchadores/m-bison/psycho-crusher/anim-s.gif",
+     "gifAncho": 312,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1835,
+      "cuentasMax": 2352,
+      "colores": 16,
+      "ancho": 98,
+      "alto": 83
+     }
+    },
+    {
+     "id": "scissors-kick",
+     "nombre": "Scissors Kick",
+     "frames": [
+      "/luchadores/m-bison/scissors-kick/f1.png",
+      "/luchadores/m-bison/scissors-kick/f2.png",
+      "/luchadores/m-bison/scissors-kick/f3.png",
+      "/luchadores/m-bison/scissors-kick/f4.png",
+      "/luchadores/m-bison/scissors-kick/f5.png"
+     ],
+     "gif": "/luchadores/m-bison/scissors-kick/anim.gif",
+     "gifPeq": "/luchadores/m-bison/scissors-kick/anim-s.gif",
+     "gifAncho": 273,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1592,
+      "cuentasMax": 2109,
+      "colores": 15,
+      "ancho": 85,
+      "alto": 91
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "agachado-golpeado",
+     "nombre": "Agachado golpeado",
+     "frames": [
+      "/luchadores/m-bison/agachado-golpeado/f1.png"
+     ],
+     "gif": "/luchadores/m-bison/agachado-golpeado/anim.png",
+     "gifPeq": "/luchadores/m-bison/agachado-golpeado/anim-s.png",
+     "gifAncho": 256,
+     "gifAlto": 312,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 2063,
+      "cuentasMax": 2063,
+      "colores": 16,
+      "ancho": 58,
+      "alto": 72
+     }
+    },
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/m-bison/aturdido/f1.png",
+      "/luchadores/m-bison/aturdido/f2.png",
+      "/luchadores/m-bison/aturdido/f3.png",
+      "/luchadores/m-bison/aturdido/f4.png",
+      "/luchadores/m-bison/aturdido/f5.png"
+     ],
+     "gif": "/luchadores/m-bison/aturdido/anim.gif",
+     "gifPeq": "/luchadores/m-bison/aturdido/anim-s.gif",
+     "gifAncho": 282,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1536,
+      "cuentasMax": 2204,
+      "colores": 15,
+      "ancho": 88,
+      "alto": 83
+     }
+    },
+    {
+     "id": "derribo",
+     "nombre": "Derribo",
+     "frames": [
+      "/luchadores/m-bison/derribo/f1.png",
+      "/luchadores/m-bison/derribo/f2.png",
+      "/luchadores/m-bison/derribo/f3.png",
+      "/luchadores/m-bison/derribo/f4.png",
+      "/luchadores/m-bison/derribo/f5.png"
+     ],
+     "gif": "/luchadores/m-bison/derribo/anim.gif",
+     "gifPeq": "/luchadores/m-bison/derribo/anim-s.gif",
+     "gifAncho": 470,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1335,
+      "cuentasMax": 1980,
+      "colores": 16,
+      "ancho": 88,
+      "alto": 57
+     }
+    },
+    {
+     "id": "golpe-en-la-cara",
+     "nombre": "Golpe en la cara",
+     "frames": [
+      "/luchadores/m-bison/golpe-en-la-cara/f1.png",
+      "/luchadores/m-bison/golpe-en-la-cara/f2.png",
+      "/luchadores/m-bison/golpe-en-la-cara/f3.png"
+     ],
+     "gif": "/luchadores/m-bison/golpe-en-la-cara/anim.gif",
+     "gifPeq": "/luchadores/m-bison/golpe-en-la-cara/anim-s.gif",
+     "gifAncho": 282,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2296,
+      "cuentasMax": 2397,
+      "colores": 16,
+      "ancho": 88,
+      "alto": 96
+     }
+    },
+    {
+     "id": "golpe-fuerte",
+     "nombre": "Golpe fuerte",
+     "frames": [
+      "/luchadores/m-bison/golpe-fuerte/f1.png",
+      "/luchadores/m-bison/golpe-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/golpe-fuerte/anim.gif",
+     "gifPeq": "/luchadores/m-bison/golpe-fuerte/anim-s.gif",
+     "gifAncho": 340,
+     "gifAlto": 336,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1953,
+      "cuentasMax": 2121,
+      "colores": 16,
+      "ancho": 79,
+      "alto": 78
+     }
+    },
+    {
+     "id": "golpeado",
+     "nombre": "Golpeado",
+     "frames": [
+      "/luchadores/m-bison/golpeado/f1.png"
+     ],
+     "gif": "/luchadores/m-bison/golpeado/anim.png",
+     "gifPeq": "/luchadores/m-bison/golpeado/anim-s.png",
+     "gifAncho": 204,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 2155,
+      "cuentasMax": 2155,
+      "colores": 15,
+      "ancho": 62,
+      "alto": 84
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/m-bison/victoria-1/f1.png",
+      "/luchadores/m-bison/victoria-1/f2.png"
+     ],
+     "gif": "/luchadores/m-bison/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/m-bison/victoria-1/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1693,
+      "cuentasMax": 2234,
+      "colores": 16,
+      "ancho": 70,
+      "alto": 99
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/m-bison/victoria-2/f1.png",
+      "/luchadores/m-bison/victoria-2/f2.png",
+      "/luchadores/m-bison/victoria-2/f3.png",
+      "/luchadores/m-bison/victoria-2/f4.png"
+     ],
+     "gif": "/luchadores/m-bison/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/m-bison/victoria-2/anim-s.gif",
+     "gifAncho": 216,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2360,
+      "cuentasMax": 2627,
+      "colores": 15,
+      "ancho": 66,
+      "alto": 90
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/m-bison/paletas-alternativas/f1.png",
+      "/luchadores/m-bison/paletas-alternativas/f2.png",
+      "/luchadores/m-bison/paletas-alternativas/f3.png",
+      "/luchadores/m-bison/paletas-alternativas/f4.png",
+      "/luchadores/m-bison/paletas-alternativas/f5.png",
+      "/luchadores/m-bison/paletas-alternativas/f6.png",
+      "/luchadores/m-bison/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/m-bison/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/m-bison/paletas-alternativas/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 2973,
+      "cuentasMax": 2974,
+      "colores": 29,
+      "ancho": 71,
+      "alto": 104
+     }
+    },
+    {
+     "id": "intro",
+     "nombre": "Intro",
+     "frames": [
+      "/luchadores/m-bison/intro/f1.png",
+      "/luchadores/m-bison/intro/f2.png",
+      "/luchadores/m-bison/intro/f3.png",
+      "/luchadores/m-bison/intro/f4.png",
+      "/luchadores/m-bison/intro/f5.png"
+     ],
+     "gif": "/luchadores/m-bison/intro/anim.gif",
+     "gifPeq": "/luchadores/m-bison/intro/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1732,
+      "cuentasMax": 3476,
+      "colores": 20,
+      "ancho": 65,
+      "alto": 99
+     }
+    }
+   ]
+  }
+ ]
+}

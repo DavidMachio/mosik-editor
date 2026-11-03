@@ -1,0 +1,1269 @@
+{
+ "id": "cammy",
+ "nombre": "Cammy",
+ "pais": "Reino Unido",
+ "tema": {
+  "fondo": "#3f8a3a",
+  "circulo": "#c2301f",
+  "circulo2": "#235220",
+  "acento": "#c2301f",
+  "texto": "#1b0f0a",
+  "acentoTexto": "#ffffff"
+ },
+ "cara": "/luchadores/cammy/cara.png",
+ "total": 43,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/cammy/reposo/f1.png",
+      "/luchadores/cammy/reposo/f2.png",
+      "/luchadores/cammy/reposo/f3.png",
+      "/luchadores/cammy/reposo/f4.png",
+      "/luchadores/cammy/reposo/f5.png"
+     ],
+     "gif": "/luchadores/cammy/reposo/anim.gif",
+     "gifPeq": "/luchadores/cammy/reposo/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1520,
+      "cuentasMax": 1538,
+      "colores": 16,
+      "ancho": 47,
+      "alto": 84
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/cammy/caminar/f1.png",
+      "/luchadores/cammy/caminar/f2.png",
+      "/luchadores/cammy/caminar/f3.png",
+      "/luchadores/cammy/caminar/f4.png",
+      "/luchadores/cammy/caminar/f5.png",
+      "/luchadores/cammy/caminar/f6.png"
+     ],
+     "gif": "/luchadores/cammy/caminar/anim.gif",
+     "gifPeq": "/luchadores/cammy/caminar/anim-s.gif",
+     "gifAncho": 153,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1307,
+      "cuentasMax": 1467,
+      "colores": 17,
+      "ancho": 45,
+      "alto": 87
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/cammy/salto/f1.png",
+      "/luchadores/cammy/salto/f2.png",
+      "/luchadores/cammy/salto/f3.png",
+      "/luchadores/cammy/salto/f4.png",
+      "/luchadores/cammy/salto/f5.png",
+      "/luchadores/cammy/salto/f6.png",
+      "/luchadores/cammy/salto/f7.png"
+     ],
+     "gif": "/luchadores/cammy/salto/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 257,
+      "cuentasMax": 1379,
+      "colores": 16,
+      "ancho": 47,
+      "alto": 104
+     }
+    },
+    {
+     "id": "salto-adelante",
+     "nombre": "Salto adelante",
+     "frames": [
+      "/luchadores/cammy/salto-adelante/f1.png",
+      "/luchadores/cammy/salto-adelante/f2.png",
+      "/luchadores/cammy/salto-adelante/f3.png",
+      "/luchadores/cammy/salto-adelante/f4.png",
+      "/luchadores/cammy/salto-adelante/f5.png",
+      "/luchadores/cammy/salto-adelante/f6.png",
+      "/luchadores/cammy/salto-adelante/f7.png"
+     ],
+     "gif": "/luchadores/cammy/salto-adelante/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto-adelante/anim-s.gif",
+     "gifAncho": 216,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1075,
+      "cuentasMax": 1379,
+      "colores": 15,
+      "ancho": 66,
+      "alto": 104
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/cammy/agachado/f1.png",
+      "/luchadores/cammy/agachado/f2.png"
+     ],
+     "gif": "/luchadores/cammy/agachado/anim.gif",
+     "gifPeq": "/luchadores/cammy/agachado/anim-s.gif",
+     "gifAncho": 212,
+     "gifAlto": 320,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1161,
+      "cuentasMax": 1379,
+      "colores": 17,
+      "ancho": 47,
+      "alto": 74
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/cammy/bloqueo/f1.png",
+      "/luchadores/cammy/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/cammy/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/cammy/bloqueo/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1152,
+      "cuentasMax": 1435,
+      "colores": 17,
+      "ancho": 47,
+      "alto": 81
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/cammy/puno-debil/f1.png",
+      "/luchadores/cammy/puno-debil/f2.png",
+      "/luchadores/cammy/puno-debil/f3.png"
+     ],
+     "gif": "/luchadores/cammy/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/puno-debil/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1480,
+      "cuentasMax": 1575,
+      "colores": 16,
+      "ancho": 70,
+      "alto": 84
+     }
+    },
+    {
+     "id": "puno-medio",
+     "nombre": "Puño medio",
+     "frames": [
+      "/luchadores/cammy/puno-medio/f1.png",
+      "/luchadores/cammy/puno-medio/f2.png"
+     ],
+     "gif": "/luchadores/cammy/puno-medio/anim.gif",
+     "gifPeq": "/luchadores/cammy/puno-medio/anim-s.gif",
+     "gifAncho": 243,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1480,
+      "cuentasMax": 1522,
+      "colores": 16,
+      "ancho": 75,
+      "alto": 84
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/cammy/puno-fuerte/f1.png",
+      "/luchadores/cammy/puno-fuerte/f2.png",
+      "/luchadores/cammy/puno-fuerte/f3.png",
+      "/luchadores/cammy/puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/cammy/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/puno-fuerte/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1480,
+      "cuentasMax": 1646,
+      "colores": 16,
+      "ancho": 77,
+      "alto": 84
+     }
+    },
+    {
+     "id": "adelante-puno-debil",
+     "nombre": "Adelante puño débil",
+     "frames": [
+      "/luchadores/cammy/adelante-puno-debil/f1.png",
+      "/luchadores/cammy/adelante-puno-debil/f2.png",
+      "/luchadores/cammy/adelante-puno-debil/f3.png"
+     ],
+     "gif": "/luchadores/cammy/adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/adelante-puno-debil/anim-s.gif",
+     "gifAncho": 174,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1387,
+      "cuentasMax": 1529,
+      "colores": 16,
+      "ancho": 52,
+      "alto": 85
+     }
+    },
+    {
+     "id": "adelante-puno-medio-fuerte",
+     "nombre": "Adelante puño medio-fuerte",
+     "frames": [
+      "/luchadores/cammy/adelante-puno-medio-fuerte/f1.png",
+      "/luchadores/cammy/adelante-puno-medio-fuerte/f2.png",
+      "/luchadores/cammy/adelante-puno-medio-fuerte/f3.png",
+      "/luchadores/cammy/adelante-puno-medio-fuerte/f4.png",
+      "/luchadores/cammy/adelante-puno-medio-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/cammy/adelante-puno-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/adelante-puno-medio-fuerte/anim-s.gif",
+     "gifAncho": 222,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1412,
+      "cuentasMax": 1587,
+      "colores": 16,
+      "ancho": 68,
+      "alto": 90
+     }
+    },
+    {
+     "id": "agachado-puno-debil",
+     "nombre": "Agachado puño débil",
+     "frames": [
+      "/luchadores/cammy/agachado-puno-debil/f1.png",
+      "/luchadores/cammy/agachado-puno-debil/f2.png",
+      "/luchadores/cammy/agachado-puno-debil/f3.png"
+     ],
+     "gif": "/luchadores/cammy/agachado-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/agachado-puno-debil/anim-s.gif",
+     "gifAncho": 350,
+     "gifAlto": 275,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1150,
+      "cuentasMax": 1311,
+      "colores": 16,
+      "ancho": 64,
+      "alto": 49
+     }
+    },
+    {
+     "id": "agachado-puno-medio",
+     "nombre": "Agachado puño medio",
+     "frames": [
+      "/luchadores/cammy/agachado-puno-medio/f1.png",
+      "/luchadores/cammy/agachado-puno-medio/f2.png",
+      "/luchadores/cammy/agachado-puno-medio/f3.png"
+     ],
+     "gif": "/luchadores/cammy/agachado-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/cammy/agachado-puno-medio/anim-s.gif",
+     "gifAncho": 365,
+     "gifAlto": 275,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1138,
+      "cuentasMax": 1228,
+      "colores": 15,
+      "ancho": 67,
+      "alto": 49
+     }
+    },
+    {
+     "id": "agachado-puno-fuerte",
+     "nombre": "Agachado puño fuerte",
+     "frames": [
+      "/luchadores/cammy/agachado-puno-fuerte/f1.png",
+      "/luchadores/cammy/agachado-puno-fuerte/f2.png",
+      "/luchadores/cammy/agachado-puno-fuerte/f3.png",
+      "/luchadores/cammy/agachado-puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/cammy/agachado-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/agachado-puno-fuerte/anim-s.gif",
+     "gifAncho": 312,
+     "gifAlto": 328,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1318,
+      "cuentasMax": 1596,
+      "colores": 16,
+      "ancho": 72,
+      "alto": 76
+     }
+    },
+    {
+     "id": "salto-puno-debil",
+     "nombre": "Salto puño débil",
+     "frames": [
+      "/luchadores/cammy/salto-puno-debil/f1.png",
+      "/luchadores/cammy/salto-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/cammy/salto-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto-puno-debil/anim-s.gif",
+     "gifAncho": 177,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 957,
+      "cuentasMax": 1058,
+      "colores": 16,
+      "ancho": 53,
+      "alto": 84
+     }
+    },
+    {
+     "id": "salto-puno-fuerte",
+     "nombre": "Salto puño fuerte",
+     "frames": [
+      "/luchadores/cammy/salto-puno-fuerte/f1.png",
+      "/luchadores/cammy/salto-puno-fuerte/f2.png",
+      "/luchadores/cammy/salto-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/cammy/salto-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto-puno-fuerte/anim-s.gif",
+     "gifAncho": 219,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 993,
+      "cuentasMax": 1096,
+      "colores": 14,
+      "ancho": 67,
+      "alto": 86
+     }
+    },
+    {
+     "id": "salto-puno",
+     "nombre": "Salto puño",
+     "frames": [
+      "/luchadores/cammy/salto-puno/f1.png",
+      "/luchadores/cammy/salto-puno/f2.png",
+      "/luchadores/cammy/salto-puno/f3.png"
+     ],
+     "gif": "/luchadores/cammy/salto-puno/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto-puno/anim-s.gif",
+     "gifAncho": 177,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1058,
+      "cuentasMax": 1180,
+      "colores": 15,
+      "ancho": 53,
+      "alto": 86
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil",
+     "nombre": "Patada débil",
+     "frames": [
+      "/luchadores/cammy/patada-debil/f1.png",
+      "/luchadores/cammy/patada-debil/f2.png",
+      "/luchadores/cammy/patada-debil/f3.png"
+     ],
+     "gif": "/luchadores/cammy/patada-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/patada-debil/anim-s.gif",
+     "gifAncho": 198,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1305,
+      "cuentasMax": 1414,
+      "colores": 16,
+      "ancho": 60,
+      "alto": 82
+     }
+    },
+    {
+     "id": "patada-medio",
+     "nombre": "Patada medio",
+     "frames": [
+      "/luchadores/cammy/patada-medio/f1.png",
+      "/luchadores/cammy/patada-medio/f2.png",
+      "/luchadores/cammy/patada-medio/f3.png",
+      "/luchadores/cammy/patada-medio/f4.png",
+      "/luchadores/cammy/patada-medio/f5.png"
+     ],
+     "gif": "/luchadores/cammy/patada-medio/anim.gif",
+     "gifPeq": "/luchadores/cammy/patada-medio/anim-s.gif",
+     "gifAncho": 270,
+     "gifAlto": 312,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1460,
+      "cuentasMax": 1793,
+      "colores": 15,
+      "ancho": 84,
+      "alto": 98
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/cammy/patada-fuerte/f1.png",
+      "/luchadores/cammy/patada-fuerte/f2.png",
+      "/luchadores/cammy/patada-fuerte/f3.png",
+      "/luchadores/cammy/patada-fuerte/f4.png",
+      "/luchadores/cammy/patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/cammy/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/patada-fuerte/anim-s.gif",
+     "gifAncho": 332,
+     "gifAlto": 320,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1161,
+      "cuentasMax": 1466,
+      "colores": 17,
+      "ancho": 77,
+      "alto": 74
+     }
+    },
+    {
+     "id": "adelante-patada-debil",
+     "nombre": "Adelante patada débil",
+     "frames": [
+      "/luchadores/cammy/adelante-patada-debil/f1.png",
+      "/luchadores/cammy/adelante-patada-debil/f2.png",
+      "/luchadores/cammy/adelante-patada-debil/f3.png"
+     ],
+     "gif": "/luchadores/cammy/adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/adelante-patada-debil/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1385,
+      "cuentasMax": 1437,
+      "colores": 18,
+      "ancho": 47,
+      "alto": 84
+     }
+    },
+    {
+     "id": "adelante-patada-medio-fuerte",
+     "nombre": "Adelante patada medio-fuerte",
+     "frames": [
+      "/luchadores/cammy/adelante-patada-medio-fuerte/f1.png",
+      "/luchadores/cammy/adelante-patada-medio-fuerte/f2.png",
+      "/luchadores/cammy/adelante-patada-medio-fuerte/f3.png",
+      "/luchadores/cammy/adelante-patada-medio-fuerte/f4.png",
+      "/luchadores/cammy/adelante-patada-medio-fuerte/f5.png",
+      "/luchadores/cammy/adelante-patada-medio-fuerte/f6.png",
+      "/luchadores/cammy/adelante-patada-medio-fuerte/f7.png"
+     ],
+     "gif": "/luchadores/cammy/adelante-patada-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/adelante-patada-medio-fuerte/anim-s.gif",
+     "gifAncho": 162,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1180,
+      "cuentasMax": 1287,
+      "colores": 16,
+      "ancho": 48,
+      "alto": 100
+     }
+    },
+    {
+     "id": "agachado-patada-debil",
+     "nombre": "Agachado patada débil",
+     "frames": [
+      "/luchadores/cammy/agachado-patada-debil/f1.png",
+      "/luchadores/cammy/agachado-patada-debil/f2.png",
+      "/luchadores/cammy/agachado-patada-debil/f3.png"
+     ],
+     "gif": "/luchadores/cammy/agachado-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/agachado-patada-debil/anim-s.gif",
+     "gifAncho": 432,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1064,
+      "cuentasMax": 1254,
+      "colores": 17,
+      "ancho": 66,
+      "alto": 45
+     }
+    },
+    {
+     "id": "agachado-patada-medio",
+     "nombre": "Agachado patada medio",
+     "frames": [
+      "/luchadores/cammy/agachado-patada-medio/f1.png",
+      "/luchadores/cammy/agachado-patada-medio/f2.png",
+      "/luchadores/cammy/agachado-patada-medio/f3.png",
+      "/luchadores/cammy/agachado-patada-medio/f4.png",
+      "/luchadores/cammy/agachado-patada-medio/f5.png",
+      "/luchadores/cammy/agachado-patada-medio/f6.png",
+      "/luchadores/cammy/agachado-patada-medio/f7.png",
+      "/luchadores/cammy/agachado-patada-medio/f8.png",
+      "/luchadores/cammy/agachado-patada-medio/f9.png"
+     ],
+     "gif": "/luchadores/cammy/agachado-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/cammy/agachado-patada-medio/anim-s.gif",
+     "gifAncho": 364,
+     "gifAlto": 320,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 306,
+      "cuentasMax": 1379,
+      "colores": 16,
+      "ancho": 85,
+      "alto": 74
+     }
+    },
+    {
+     "id": "agachado-patada-fuerte",
+     "nombre": "Agachado patada fuerte",
+     "frames": [
+      "/luchadores/cammy/agachado-patada-fuerte/f1.png",
+      "/luchadores/cammy/agachado-patada-fuerte/f2.png",
+      "/luchadores/cammy/agachado-patada-fuerte/f3.png",
+      "/luchadores/cammy/agachado-patada-fuerte/f4.png",
+      "/luchadores/cammy/agachado-patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/cammy/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 400,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1088,
+      "cuentasMax": 1477,
+      "colores": 16,
+      "ancho": 74,
+      "alto": 57
+     }
+    },
+    {
+     "id": "salto-patada-debil",
+     "nombre": "Salto patada débil",
+     "frames": [
+      "/luchadores/cammy/salto-patada-debil/f1.png",
+      "/luchadores/cammy/salto-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/cammy/salto-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto-patada-debil/anim-s.gif",
+     "gifAncho": 340,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 889,
+      "cuentasMax": 965,
+      "colores": 14,
+      "ancho": 62,
+      "alto": 51
+     }
+    },
+    {
+     "id": "salto-patada-medio",
+     "nombre": "Salto patada medio",
+     "frames": [
+      "/luchadores/cammy/salto-patada-medio/f1.png",
+      "/luchadores/cammy/salto-patada-medio/f2.png"
+     ],
+     "gif": "/luchadores/cammy/salto-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto-patada-medio/anim-s.gif",
+     "gifAncho": 328,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 882,
+      "cuentasMax": 1023,
+      "colores": 14,
+      "ancho": 76,
+      "alto": 75
+     }
+    },
+    {
+     "id": "salto-patada-fuerte",
+     "nombre": "Salto patada fuerte",
+     "frames": [
+      "/luchadores/cammy/salto-patada-fuerte/f1.png",
+      "/luchadores/cammy/salto-patada-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/cammy/salto-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/cammy/salto-patada-fuerte/anim-s.gif",
+     "gifAncho": 415,
+     "gifAlto": 325,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 847,
+      "cuentasMax": 1130,
+      "colores": 15,
+      "ancho": 77,
+      "alto": 59
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "cannon-drill",
+     "nombre": "Cannon Drill",
+     "frames": [
+      "/luchadores/cammy/cannon-drill/f1.png",
+      "/luchadores/cammy/cannon-drill/f2.png",
+      "/luchadores/cammy/cannon-drill/f3.png",
+      "/luchadores/cammy/cannon-drill/f4.png",
+      "/luchadores/cammy/cannon-drill/f5.png",
+      "/luchadores/cammy/cannon-drill/f6.png",
+      "/luchadores/cammy/cannon-drill/f7.png",
+      "/luchadores/cammy/cannon-drill/f8.png",
+      "/luchadores/cammy/cannon-drill/f9.png",
+      "/luchadores/cammy/cannon-drill/f10.png"
+     ],
+     "gif": "/luchadores/cammy/cannon-drill/anim.gif",
+     "gifPeq": "/luchadores/cammy/cannon-drill/anim-s.gif",
+     "gifAncho": 510,
+     "gifAlto": 290,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 401,
+      "cuentasMax": 1295,
+      "colores": 17,
+      "ancho": 96,
+      "alto": 52
+     }
+    },
+    {
+     "id": "frankensteiner",
+     "nombre": "Frankensteiner",
+     "frames": [
+      "/luchadores/cammy/frankensteiner/f1.png",
+      "/luchadores/cammy/frankensteiner/f2.png",
+      "/luchadores/cammy/frankensteiner/f3.png",
+      "/luchadores/cammy/frankensteiner/f4.png",
+      "/luchadores/cammy/frankensteiner/f5.png",
+      "/luchadores/cammy/frankensteiner/f6.png",
+      "/luchadores/cammy/frankensteiner/f7.png"
+     ],
+     "gif": "/luchadores/cammy/frankensteiner/anim.gif",
+     "gifPeq": "/luchadores/cammy/frankensteiner/anim-s.gif",
+     "gifAncho": 308,
+     "gifAlto": 320,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 853,
+      "cuentasMax": 1377,
+      "colores": 19,
+      "ancho": 71,
+      "alto": 74
+     }
+    },
+    {
+     "id": "lanzamiento-aereo",
+     "nombre": "Lanzamiento aéreo",
+     "frames": [
+      "/luchadores/cammy/lanzamiento-aereo/f1.png",
+      "/luchadores/cammy/lanzamiento-aereo/f2.png",
+      "/luchadores/cammy/lanzamiento-aereo/f3.png",
+      "/luchadores/cammy/lanzamiento-aereo/f4.png",
+      "/luchadores/cammy/lanzamiento-aereo/f5.png",
+      "/luchadores/cammy/lanzamiento-aereo/f6.png",
+      "/luchadores/cammy/lanzamiento-aereo/f7.png"
+     ],
+     "gif": "/luchadores/cammy/lanzamiento-aereo/anim.gif",
+     "gifPeq": "/luchadores/cammy/lanzamiento-aereo/anim-s.gif",
+     "gifAncho": 216,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1010,
+      "cuentasMax": 1174,
+      "colores": 17,
+      "ancho": 66,
+      "alto": 84
+     }
+    },
+    {
+     "id": "spinning-knuckle",
+     "nombre": "Spinning Knuckle",
+     "frames": [
+      "/luchadores/cammy/spinning-knuckle/f1.png",
+      "/luchadores/cammy/spinning-knuckle/f2.png",
+      "/luchadores/cammy/spinning-knuckle/f3.png",
+      "/luchadores/cammy/spinning-knuckle/f4.png",
+      "/luchadores/cammy/spinning-knuckle/f5.png",
+      "/luchadores/cammy/spinning-knuckle/f6.png",
+      "/luchadores/cammy/spinning-knuckle/f7.png",
+      "/luchadores/cammy/spinning-knuckle/f8.png",
+      "/luchadores/cammy/spinning-knuckle/f9.png",
+      "/luchadores/cammy/spinning-knuckle/f10.png"
+     ],
+     "gif": "/luchadores/cammy/spinning-knuckle/anim.gif",
+     "gifPeq": "/luchadores/cammy/spinning-knuckle/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 1060,
+      "cuentasMax": 1646,
+      "colores": 17,
+      "ancho": 77,
+      "alto": 88
+     }
+    },
+    {
+     "id": "suplex",
+     "nombre": "Suplex",
+     "frames": [
+      "/luchadores/cammy/suplex/f1.png",
+      "/luchadores/cammy/suplex/f2.png",
+      "/luchadores/cammy/suplex/f3.png",
+      "/luchadores/cammy/suplex/f4.png",
+      "/luchadores/cammy/suplex/f5.png",
+      "/luchadores/cammy/suplex/f6.png",
+      "/luchadores/cammy/suplex/f7.png",
+      "/luchadores/cammy/suplex/f8.png",
+      "/luchadores/cammy/suplex/f9.png",
+      "/luchadores/cammy/suplex/f10.png",
+      "/luchadores/cammy/suplex/f11.png",
+      "/luchadores/cammy/suplex/f12.png",
+      "/luchadores/cammy/suplex/f13.png"
+     ],
+     "gif": "/luchadores/cammy/suplex/anim.gif",
+     "gifPeq": "/luchadores/cammy/suplex/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 13,
+     "datos": {
+      "cuentasMin": 257,
+      "cuentasMax": 1379,
+      "colores": 17,
+      "ancho": 73,
+      "alto": 100
+     }
+    },
+    {
+     "id": "thigh-press",
+     "nombre": "Thigh Press",
+     "frames": [
+      "/luchadores/cammy/thigh-press/f1.png",
+      "/luchadores/cammy/thigh-press/f2.png"
+     ],
+     "gif": "/luchadores/cammy/thigh-press/anim.gif",
+     "gifPeq": "/luchadores/cammy/thigh-press/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1151,
+      "cuentasMax": 1377,
+      "colores": 17,
+      "ancho": 47,
+      "alto": 83
+     }
+    },
+    {
+     "id": "thrust-kick",
+     "nombre": "Thrust Kick",
+     "frames": [
+      "/luchadores/cammy/thrust-kick/f1.png",
+      "/luchadores/cammy/thrust-kick/f2.png",
+      "/luchadores/cammy/thrust-kick/f3.png",
+      "/luchadores/cammy/thrust-kick/f4.png",
+      "/luchadores/cammy/thrust-kick/f5.png",
+      "/luchadores/cammy/thrust-kick/f6.png",
+      "/luchadores/cammy/thrust-kick/f7.png",
+      "/luchadores/cammy/thrust-kick/f8.png"
+     ],
+     "gif": "/luchadores/cammy/thrust-kick/anim.gif",
+     "gifPeq": "/luchadores/cammy/thrust-kick/anim-s.gif",
+     "gifAncho": 216,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1126,
+      "cuentasMax": 1606,
+      "colores": 17,
+      "ancho": 66,
+      "alto": 99
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "agachado-golpeado",
+     "nombre": "Agachado golpeado",
+     "frames": [
+      "/luchadores/cammy/agachado-golpeado/f1.png"
+     ],
+     "gif": "/luchadores/cammy/agachado-golpeado/anim.png",
+     "gifPeq": "/luchadores/cammy/agachado-golpeado/anim-s.png",
+     "gifAncho": 250,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1217,
+      "cuentasMax": 1217,
+      "colores": 16,
+      "ancho": 44,
+      "alto": 57
+     }
+    },
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/cammy/aturdido/f1.png",
+      "/luchadores/cammy/aturdido/f2.png",
+      "/luchadores/cammy/aturdido/f3.png",
+      "/luchadores/cammy/aturdido/f4.png",
+      "/luchadores/cammy/aturdido/f5.png",
+      "/luchadores/cammy/aturdido/f6.png",
+      "/luchadores/cammy/aturdido/f7.png",
+      "/luchadores/cammy/aturdido/f8.png",
+      "/luchadores/cammy/aturdido/f9.png",
+      "/luchadores/cammy/aturdido/f10.png",
+      "/luchadores/cammy/aturdido/f11.png",
+      "/luchadores/cammy/aturdido/f12.png",
+      "/luchadores/cammy/aturdido/f13.png",
+      "/luchadores/cammy/aturdido/f14.png",
+      "/luchadores/cammy/aturdido/f15.png",
+      "/luchadores/cammy/aturdido/f16.png",
+      "/luchadores/cammy/aturdido/f17.png",
+      "/luchadores/cammy/aturdido/f18.png",
+      "/luchadores/cammy/aturdido/f19.png",
+      "/luchadores/cammy/aturdido/f20.png",
+      "/luchadores/cammy/aturdido/f21.png"
+     ],
+     "gif": "/luchadores/cammy/aturdido/anim.gif",
+     "gifPeq": "/luchadores/cammy/aturdido/anim-s.gif",
+     "gifAncho": 243,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 21,
+     "datos": {
+      "cuentasMin": 257,
+      "cuentasMax": 1465,
+      "colores": 16,
+      "ancho": 75,
+      "alto": 100
+     }
+    },
+    {
+     "id": "golpe-en-el-estomago",
+     "nombre": "Golpe en el estómago",
+     "frames": [
+      "/luchadores/cammy/golpe-en-el-estomago/f1.png",
+      "/luchadores/cammy/golpe-en-el-estomago/f2.png",
+      "/luchadores/cammy/golpe-en-el-estomago/f3.png",
+      "/luchadores/cammy/golpe-en-el-estomago/f4.png"
+     ],
+     "gif": "/luchadores/cammy/golpe-en-el-estomago/anim.gif",
+     "gifPeq": "/luchadores/cammy/golpe-en-el-estomago/anim-s.gif",
+     "gifAncho": 174,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1560,
+      "cuentasMax": 1603,
+      "colores": 17,
+      "ancho": 52,
+      "alto": 90
+     }
+    },
+    {
+     "id": "golpeado-y-golpe-en-la-cara",
+     "nombre": "Golpeado y golpe en la cara",
+     "frames": [
+      "/luchadores/cammy/golpeado-y-golpe-en-la-cara/f1.png",
+      "/luchadores/cammy/golpeado-y-golpe-en-la-cara/f2.png",
+      "/luchadores/cammy/golpeado-y-golpe-en-la-cara/f3.png",
+      "/luchadores/cammy/golpeado-y-golpe-en-la-cara/f4.png"
+     ],
+     "gif": "/luchadores/cammy/golpeado-y-golpe-en-la-cara/anim.gif",
+     "gifPeq": "/luchadores/cammy/golpeado-y-golpe-en-la-cara/anim-s.gif",
+     "gifAncho": 183,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1312,
+      "cuentasMax": 1399,
+      "colores": 16,
+      "ancho": 55,
+      "alto": 81
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/cammy/victoria-1/f1.png",
+      "/luchadores/cammy/victoria-1/f2.png",
+      "/luchadores/cammy/victoria-1/f3.png",
+      "/luchadores/cammy/victoria-1/f4.png",
+      "/luchadores/cammy/victoria-1/f5.png"
+     ],
+     "gif": "/luchadores/cammy/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/cammy/victoria-1/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1315,
+      "cuentasMax": 1535,
+      "colores": 16,
+      "ancho": 47,
+      "alto": 94
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/cammy/victoria-2/f1.png",
+      "/luchadores/cammy/victoria-2/f2.png",
+      "/luchadores/cammy/victoria-2/f3.png",
+      "/luchadores/cammy/victoria-2/f4.png",
+      "/luchadores/cammy/victoria-2/f5.png"
+     ],
+     "gif": "/luchadores/cammy/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/cammy/victoria-2/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1275,
+      "cuentasMax": 1471,
+      "colores": 17,
+      "ancho": 47,
+      "alto": 88
+     }
+    },
+    {
+     "id": "tiempo-agotado",
+     "nombre": "Tiempo agotado",
+     "frames": [
+      "/luchadores/cammy/tiempo-agotado/f1.png"
+     ],
+     "gif": "/luchadores/cammy/tiempo-agotado/anim.png",
+     "gifPeq": "/luchadores/cammy/tiempo-agotado/anim-s.png",
+     "gifAncho": 168,
+     "gifAlto": 258,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1379,
+      "cuentasMax": 1379,
+      "colores": 13,
+      "ancho": 50,
+      "alto": 80
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/cammy/paletas-alternativas/f1.png",
+      "/luchadores/cammy/paletas-alternativas/f2.png",
+      "/luchadores/cammy/paletas-alternativas/f3.png",
+      "/luchadores/cammy/paletas-alternativas/f4.png",
+      "/luchadores/cammy/paletas-alternativas/f5.png",
+      "/luchadores/cammy/paletas-alternativas/f6.png",
+      "/luchadores/cammy/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/cammy/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/cammy/paletas-alternativas/anim-s.gif",
+     "gifAncho": 162,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1531,
+      "cuentasMax": 1660,
+      "colores": 21,
+      "ancho": 48,
+      "alto": 82
+     }
+    }
+   ]
+  }
+ ]
+}

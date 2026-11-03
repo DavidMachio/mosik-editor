@@ -1,0 +1,1182 @@
+{
+ "id": "t-hawk",
+ "nombre": "T. Hawk",
+ "pais": "México",
+ "tema": {
+  "fondo": "#3f6fa3",
+  "circulo": "#e0702a",
+  "circulo2": "#23405f",
+  "acento": "#e0702a",
+  "texto": "#ffffff",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/t-hawk/cara.png",
+ "total": 41,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/t-hawk/reposo/f1.png",
+      "/luchadores/t-hawk/reposo/f2.png",
+      "/luchadores/t-hawk/reposo/f3.png",
+      "/luchadores/t-hawk/reposo/f4.png"
+     ],
+     "gif": "/luchadores/t-hawk/reposo/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/reposo/anim-s.gif",
+     "gifAncho": 207,
+     "gifAlto": 351,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 3051,
+      "cuentasMax": 3141,
+      "colores": 14,
+      "ancho": 63,
+      "alto": 111
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/t-hawk/caminar/f1.png",
+      "/luchadores/t-hawk/caminar/f2.png",
+      "/luchadores/t-hawk/caminar/f3.png",
+      "/luchadores/t-hawk/caminar/f4.png",
+      "/luchadores/t-hawk/caminar/f5.png",
+      "/luchadores/t-hawk/caminar/f6.png"
+     ],
+     "gif": "/luchadores/t-hawk/caminar/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/caminar/anim-s.gif",
+     "gifAncho": 134,
+     "gifAlto": 240,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 2792,
+      "cuentasMax": 3120,
+      "colores": 15,
+      "ancho": 61,
+      "alto": 114
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/t-hawk/salto/f1.png",
+      "/luchadores/t-hawk/salto/f2.png",
+      "/luchadores/t-hawk/salto/f3.png",
+      "/luchadores/t-hawk/salto/f4.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto/anim-s.gif",
+     "gifAncho": 134,
+     "gifAlto": 250,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 2481,
+      "cuentasMax": 3042,
+      "colores": 15,
+      "ancho": 61,
+      "alto": 119
+     }
+    },
+    {
+     "id": "salto-adelante",
+     "nombre": "Salto adelante",
+     "frames": [
+      "/luchadores/t-hawk/salto-adelante/f1.png",
+      "/luchadores/t-hawk/salto-adelante/f2.png",
+      "/luchadores/t-hawk/salto-adelante/f3.png",
+      "/luchadores/t-hawk/salto-adelante/f4.png",
+      "/luchadores/t-hawk/salto-adelante/f5.png",
+      "/luchadores/t-hawk/salto-adelante/f6.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto-adelante/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto-adelante/anim-s.gif",
+     "gifAncho": 291,
+     "gifAlto": 336,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 2108,
+      "cuentasMax": 3042,
+      "colores": 15,
+      "ancho": 91,
+      "alto": 106
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/t-hawk/agachado/f1.png",
+      "/luchadores/t-hawk/agachado/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/agachado/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/agachado/anim-s.gif",
+     "gifAncho": 222,
+     "gifAlto": 333,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 3004,
+      "cuentasMax": 3042,
+      "colores": 15,
+      "ancho": 68,
+      "alto": 105
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/t-hawk/bloqueo/f1.png",
+      "/luchadores/t-hawk/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/bloqueo/anim-s.gif",
+     "gifAncho": 216,
+     "gifAlto": 351,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2874,
+      "cuentasMax": 3024,
+      "colores": 15,
+      "ancho": 66,
+      "alto": 111
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/t-hawk/puno-debil/f1.png",
+      "/luchadores/t-hawk/puno-debil/f2.png",
+      "/luchadores/t-hawk/puno-debil/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/puno-debil/anim-s.gif",
+     "gifAncho": 186,
+     "gifAlto": 242,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2992,
+      "cuentasMax": 3623,
+      "colores": 15,
+      "ancho": 87,
+      "alto": 115
+     }
+    },
+    {
+     "id": "puno-medio",
+     "nombre": "Puño medio",
+     "frames": [
+      "/luchadores/t-hawk/puno-medio/f1.png",
+      "/luchadores/t-hawk/puno-medio/f2.png",
+      "/luchadores/t-hawk/puno-medio/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/puno-medio/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/puno-medio/anim-s.gif",
+     "gifAncho": 188,
+     "gifAlto": 240,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 3062,
+      "cuentasMax": 3287,
+      "colores": 15,
+      "ancho": 88,
+      "alto": 114
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/t-hawk/puno-fuerte/f1.png",
+      "/luchadores/t-hawk/puno-fuerte/f2.png",
+      "/luchadores/t-hawk/puno-fuerte/f3.png",
+      "/luchadores/t-hawk/puno-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/t-hawk/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/puno-fuerte/anim-s.gif",
+     "gifAncho": 200,
+     "gifAlto": 242,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2856,
+      "cuentasMax": 3408,
+      "colores": 15,
+      "ancho": 94,
+      "alto": 115
+     }
+    },
+    {
+     "id": "puno-fuerte-2",
+     "nombre": "Puño fuerte (2)",
+     "frames": [
+      "/luchadores/t-hawk/puno-fuerte-2/f1.png",
+      "/luchadores/t-hawk/puno-fuerte-2/f2.png",
+      "/luchadores/t-hawk/puno-fuerte-2/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/puno-fuerte-2/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/puno-fuerte-2/anim-s.gif",
+     "gifAncho": 282,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2815,
+      "cuentasMax": 2874,
+      "colores": 16,
+      "ancho": 88,
+      "alto": 103
+     }
+    },
+    {
+     "id": "adelante-puno-medio",
+     "nombre": "Adelante puño medio",
+     "frames": [
+      "/luchadores/t-hawk/adelante-puno-medio/f1.png",
+      "/luchadores/t-hawk/adelante-puno-medio/f2.png",
+      "/luchadores/t-hawk/adelante-puno-medio/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/adelante-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/adelante-puno-medio/anim-s.gif",
+     "gifAncho": 138,
+     "gifAlto": 256,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2898,
+      "cuentasMax": 3244,
+      "colores": 15,
+      "ancho": 63,
+      "alto": 122
+     }
+    },
+    {
+     "id": "adelante-puno-fuerte",
+     "nombre": "Adelante puño fuerte",
+     "frames": [
+      "/luchadores/t-hawk/adelante-puno-fuerte/f1.png",
+      "/luchadores/t-hawk/adelante-puno-fuerte/f2.png",
+      "/luchadores/t-hawk/adelante-puno-fuerte/f3.png",
+      "/luchadores/t-hawk/adelante-puno-fuerte/f4.png",
+      "/luchadores/t-hawk/adelante-puno-fuerte/f5.png",
+      "/luchadores/t-hawk/adelante-puno-fuerte/f6.png"
+     ],
+     "gif": "/luchadores/t-hawk/adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 184,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 2651,
+      "cuentasMax": 3408,
+      "colores": 16,
+      "ancho": 86,
+      "alto": 129
+     }
+    },
+    {
+     "id": "agachado-puno-debil",
+     "nombre": "Agachado puño débil",
+     "frames": [
+      "/luchadores/t-hawk/agachado-puno-debil/f1.png",
+      "/luchadores/t-hawk/agachado-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/agachado-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/agachado-puno-debil/anim-s.gif",
+     "gifAncho": 288,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2874,
+      "cuentasMax": 3424,
+      "colores": 15,
+      "ancho": 90,
+      "alto": 91
+     }
+    },
+    {
+     "id": "agachado-puno-medio",
+     "nombre": "Agachado puño medio",
+     "frames": [
+      "/luchadores/t-hawk/agachado-puno-medio/f1.png",
+      "/luchadores/t-hawk/agachado-puno-medio/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/agachado-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/agachado-puno-medio/anim-s.gif",
+     "gifAncho": 330,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2874,
+      "cuentasMax": 3195,
+      "colores": 15,
+      "ancho": 104,
+      "alto": 83
+     }
+    },
+    {
+     "id": "salto-puno-debil-medio",
+     "nombre": "Salto puño débil-medio",
+     "frames": [
+      "/luchadores/t-hawk/salto-puno-debil-medio/f1.png",
+      "/luchadores/t-hawk/salto-puno-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto-puno-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto-puno-debil-medio/anim-s.gif",
+     "gifAncho": 186,
+     "gifAlto": 309,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2397,
+      "cuentasMax": 2700,
+      "colores": 14,
+      "ancho": 56,
+      "alto": 97
+     }
+    },
+    {
+     "id": "salto-puno-fuerte",
+     "nombre": "Salto puño fuerte",
+     "frames": [
+      "/luchadores/t-hawk/salto-puno-fuerte/f1.png",
+      "/luchadores/t-hawk/salto-puno-fuerte/f2.png",
+      "/luchadores/t-hawk/salto-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto-puno-fuerte/anim-s.gif",
+     "gifAncho": 285,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2482,
+      "cuentasMax": 2749,
+      "colores": 14,
+      "ancho": 89,
+      "alto": 100
+     }
+    },
+    {
+     "id": "salto-adelante-puno-fuerte",
+     "nombre": "Salto adelante puño fuerte",
+     "frames": [
+      "/luchadores/t-hawk/salto-adelante-puno-fuerte/f1.png",
+      "/luchadores/t-hawk/salto-adelante-puno-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto-adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto-adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 207,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 2440,
+      "cuentasMax": 2615,
+      "colores": 14,
+      "ancho": 63,
+      "alto": 102
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-medio",
+     "nombre": "Patada medio",
+     "frames": [
+      "/luchadores/t-hawk/patada-medio/f1.png",
+      "/luchadores/t-hawk/patada-medio/f2.png",
+      "/luchadores/t-hawk/patada-medio/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/patada-medio/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/patada-medio/anim-s.gif",
+     "gifAncho": 182,
+     "gifAlto": 246,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2883,
+      "cuentasMax": 3100,
+      "colores": 15,
+      "ancho": 85,
+      "alto": 117
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/t-hawk/patada-fuerte/f1.png",
+      "/luchadores/t-hawk/patada-fuerte/f2.png",
+      "/luchadores/t-hawk/patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/patada-fuerte/anim-s.gif",
+     "gifAncho": 297,
+     "gifAlto": 348,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2853,
+      "cuentasMax": 3345,
+      "colores": 15,
+      "ancho": 93,
+      "alto": 110
+     }
+    },
+    {
+     "id": "adelante-patada-debil",
+     "nombre": "Adelante patada débil",
+     "frames": [
+      "/luchadores/t-hawk/adelante-patada-debil/f1.png",
+      "/luchadores/t-hawk/adelante-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/adelante-patada-debil/anim-s.gif",
+     "gifAncho": 144,
+     "gifAlto": 244,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 3000,
+      "cuentasMax": 3205,
+      "colores": 15,
+      "ancho": 66,
+      "alto": 116
+     }
+    },
+    {
+     "id": "adelante-patada-medio",
+     "nombre": "Adelante patada medio",
+     "frames": [
+      "/luchadores/t-hawk/adelante-patada-medio/f1.png",
+      "/luchadores/t-hawk/adelante-patada-medio/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/adelante-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/adelante-patada-medio/anim-s.gif",
+     "gifAncho": 168,
+     "gifAlto": 244,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 3000,
+      "cuentasMax": 3057,
+      "colores": 15,
+      "ancho": 78,
+      "alto": 116
+     }
+    },
+    {
+     "id": "adelante-patada-fuerte",
+     "nombre": "Adelante patada fuerte",
+     "frames": [
+      "/luchadores/t-hawk/adelante-patada-fuerte/f1.png",
+      "/luchadores/t-hawk/adelante-patada-fuerte/f2.png",
+      "/luchadores/t-hawk/adelante-patada-fuerte/f3.png",
+      "/luchadores/t-hawk/adelante-patada-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/t-hawk/adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 184,
+     "gifAlto": 250,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2179,
+      "cuentasMax": 3068,
+      "colores": 17,
+      "ancho": 86,
+      "alto": 119
+     }
+    },
+    {
+     "id": "agachado-patada-debil",
+     "nombre": "Agachado patada débil",
+     "frames": [
+      "/luchadores/t-hawk/agachado-patada-debil/f1.png",
+      "/luchadores/t-hawk/agachado-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/agachado-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/agachado-patada-debil/anim-s.gif",
+     "gifAncho": 261,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 3044,
+      "cuentasMax": 3174,
+      "colores": 15,
+      "ancho": 81,
+      "alto": 87
+     }
+    },
+    {
+     "id": "agachado-patada-fuerte",
+     "nombre": "Agachado patada fuerte",
+     "frames": [
+      "/luchadores/t-hawk/agachado-patada-fuerte/f1.png",
+      "/luchadores/t-hawk/agachado-patada-fuerte/f2.png",
+      "/luchadores/t-hawk/agachado-patada-fuerte/f3.png",
+      "/luchadores/t-hawk/agachado-patada-fuerte/f4.png",
+      "/luchadores/t-hawk/agachado-patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/t-hawk/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2305,
+      "cuentasMax": 2990,
+      "colores": 15,
+      "ancho": 79,
+      "alto": 89
+     }
+    },
+    {
+     "id": "agachado-patada",
+     "nombre": "Agachado patada",
+     "frames": [
+      "/luchadores/t-hawk/agachado-patada/f1.png",
+      "/luchadores/t-hawk/agachado-patada/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/agachado-patada/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/agachado-patada/anim-s.gif",
+     "gifAncho": 376,
+     "gifAlto": 340,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2910,
+      "cuentasMax": 3071,
+      "colores": 15,
+      "ancho": 88,
+      "alto": 79
+     }
+    },
+    {
+     "id": "salto-patada-debil-medio",
+     "nombre": "Salto patada débil-medio",
+     "frames": [
+      "/luchadores/t-hawk/salto-patada-debil-medio/f1.png",
+      "/luchadores/t-hawk/salto-patada-debil-medio/f2.png",
+      "/luchadores/t-hawk/salto-patada-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto-patada-debil-medio/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 354,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2698,
+      "cuentasMax": 3108,
+      "colores": 14,
+      "ancho": 71,
+      "alto": 112
+     }
+    },
+    {
+     "id": "salto-patada-fuerte",
+     "nombre": "Salto patada fuerte",
+     "frames": [
+      "/luchadores/t-hawk/salto-patada-fuerte/f1.png",
+      "/luchadores/t-hawk/salto-patada-fuerte/f2.png",
+      "/luchadores/t-hawk/salto-patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto-patada-fuerte/anim-s.gif",
+     "gifAncho": 273,
+     "gifAlto": 354,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2801,
+      "cuentasMax": 3108,
+      "colores": 14,
+      "ancho": 85,
+      "alto": 112
+     }
+    },
+    {
+     "id": "salto-adelante-patada-fuerte",
+     "nombre": "Salto adelante patada fuerte",
+     "frames": [
+      "/luchadores/t-hawk/salto-adelante-patada-fuerte/f1.png",
+      "/luchadores/t-hawk/salto-adelante-patada-fuerte/f2.png",
+      "/luchadores/t-hawk/salto-adelante-patada-fuerte/f3.png",
+      "/luchadores/t-hawk/salto-adelante-patada-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/t-hawk/salto-adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/salto-adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 306,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 2102,
+      "cuentasMax": 2701,
+      "colores": 14,
+      "ancho": 96,
+      "alto": 100
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "diving-hawk",
+     "nombre": "Diving Hawk",
+     "frames": [
+      "/luchadores/t-hawk/diving-hawk/f1.png",
+      "/luchadores/t-hawk/diving-hawk/f2.png",
+      "/luchadores/t-hawk/diving-hawk/f3.png",
+      "/luchadores/t-hawk/diving-hawk/f4.png",
+      "/luchadores/t-hawk/diving-hawk/f5.png",
+      "/luchadores/t-hawk/diving-hawk/f6.png",
+      "/luchadores/t-hawk/diving-hawk/f7.png",
+      "/luchadores/t-hawk/diving-hawk/f8.png"
+     ],
+     "gif": "/luchadores/t-hawk/diving-hawk/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/diving-hawk/anim-s.gif",
+     "gifAncho": 291,
+     "gifAlto": 336,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 2108,
+      "cuentasMax": 3004,
+      "colores": 15,
+      "ancho": 91,
+      "alto": 106
+     }
+    },
+    {
+     "id": "elbow-smasher",
+     "nombre": "Elbow Smasher",
+     "frames": [
+      "/luchadores/t-hawk/elbow-smasher/f1.png",
+      "/luchadores/t-hawk/elbow-smasher/f2.png",
+      "/luchadores/t-hawk/elbow-smasher/f3.png"
+     ],
+     "gif": "/luchadores/t-hawk/elbow-smasher/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/elbow-smasher/anim-s.gif",
+     "gifAncho": 166,
+     "gifAlto": 248,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 3272,
+      "cuentasMax": 3579,
+      "colores": 15,
+      "ancho": 77,
+      "alto": 118
+     }
+    },
+    {
+     "id": "neck-breaker",
+     "nombre": "Neck Breaker",
+     "frames": [
+      "/luchadores/t-hawk/neck-breaker/f1.png",
+      "/luchadores/t-hawk/neck-breaker/f2.png",
+      "/luchadores/t-hawk/neck-breaker/f3.png",
+      "/luchadores/t-hawk/neck-breaker/f4.png",
+      "/luchadores/t-hawk/neck-breaker/f5.png",
+      "/luchadores/t-hawk/neck-breaker/f6.png"
+     ],
+     "gif": "/luchadores/t-hawk/neck-breaker/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/neck-breaker/anim-s.gif",
+     "gifAncho": 170,
+     "gifAlto": 262,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 3016,
+      "cuentasMax": 3561,
+      "colores": 17,
+      "ancho": 79,
+      "alto": 125
+     }
+    },
+    {
+     "id": "overhead-throw",
+     "nombre": "Overhead Throw",
+     "frames": [
+      "/luchadores/t-hawk/overhead-throw/f1.png",
+      "/luchadores/t-hawk/overhead-throw/f2.png",
+      "/luchadores/t-hawk/overhead-throw/f3.png",
+      "/luchadores/t-hawk/overhead-throw/f4.png"
+     ],
+     "gif": "/luchadores/t-hawk/overhead-throw/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/overhead-throw/anim-s.gif",
+     "gifAncho": 170,
+     "gifAlto": 246,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 3231,
+      "cuentasMax": 3761,
+      "colores": 15,
+      "ancho": 79,
+      "alto": 117
+     }
+    },
+    {
+     "id": "rising-hawk",
+     "nombre": "Rising Hawk",
+     "frames": [
+      "/luchadores/t-hawk/rising-hawk/f1.png",
+      "/luchadores/t-hawk/rising-hawk/f2.png",
+      "/luchadores/t-hawk/rising-hawk/f3.png",
+      "/luchadores/t-hawk/rising-hawk/f4.png",
+      "/luchadores/t-hawk/rising-hawk/f5.png",
+      "/luchadores/t-hawk/rising-hawk/f6.png",
+      "/luchadores/t-hawk/rising-hawk/f7.png",
+      "/luchadores/t-hawk/rising-hawk/f8.png"
+     ],
+     "gif": "/luchadores/t-hawk/rising-hawk/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/rising-hawk/anim-s.gif",
+     "gifAncho": 200,
+     "gifAlto": 250,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 2108,
+      "cuentasMax": 2972,
+      "colores": 15,
+      "ancho": 94,
+      "alto": 119
+     }
+    },
+    {
+     "id": "storm-hammer",
+     "nombre": "Storm Hammer",
+     "frames": [
+      "/luchadores/t-hawk/storm-hammer/f1.png",
+      "/luchadores/t-hawk/storm-hammer/f2.png",
+      "/luchadores/t-hawk/storm-hammer/f3.png",
+      "/luchadores/t-hawk/storm-hammer/f4.png",
+      "/luchadores/t-hawk/storm-hammer/f5.png",
+      "/luchadores/t-hawk/storm-hammer/f6.png",
+      "/luchadores/t-hawk/storm-hammer/f7.png",
+      "/luchadores/t-hawk/storm-hammer/f8.png",
+      "/luchadores/t-hawk/storm-hammer/f9.png",
+      "/luchadores/t-hawk/storm-hammer/f10.png"
+     ],
+     "gif": "/luchadores/t-hawk/storm-hammer/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/storm-hammer/anim-s.gif",
+     "gifAncho": 166,
+     "gifAlto": 284,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 2677,
+      "cuentasMax": 3579,
+      "colores": 17,
+      "ancho": 77,
+      "alto": 136
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/t-hawk/aturdido/f1.png",
+      "/luchadores/t-hawk/aturdido/f2.png",
+      "/luchadores/t-hawk/aturdido/f3.png",
+      "/luchadores/t-hawk/aturdido/f4.png",
+      "/luchadores/t-hawk/aturdido/f5.png",
+      "/luchadores/t-hawk/aturdido/f6.png",
+      "/luchadores/t-hawk/aturdido/f7.png",
+      "/luchadores/t-hawk/aturdido/f8.png",
+      "/luchadores/t-hawk/aturdido/f9.png",
+      "/luchadores/t-hawk/aturdido/f10.png"
+     ],
+     "gif": "/luchadores/t-hawk/aturdido/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/aturdido/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 240,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 11,
+     "datos": {
+      "cuentasMin": 2414,
+      "cuentasMax": 3328,
+      "colores": 18,
+      "ancho": 99,
+      "alto": 114
+     }
+    },
+    {
+     "id": "derribo-y-recuperacion",
+     "nombre": "Derribo y recuperación",
+     "frames": [
+      "/luchadores/t-hawk/derribo-y-recuperacion/f1.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f2.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f3.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f4.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f5.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f6.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f7.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f8.png",
+      "/luchadores/t-hawk/derribo-y-recuperacion/f9.png"
+     ],
+     "gif": "/luchadores/t-hawk/derribo-y-recuperacion/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/derribo-y-recuperacion/anim-s.gif",
+     "gifAncho": 315,
+     "gifAlto": 333,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 2511,
+      "cuentasMax": 3042,
+      "colores": 15,
+      "ancho": 99,
+      "alto": 105
+     }
+    },
+    {
+     "id": "golpe-en-el-estomago",
+     "nombre": "Golpe en el estómago",
+     "frames": [
+      "/luchadores/t-hawk/golpe-en-el-estomago/f1.png",
+      "/luchadores/t-hawk/golpe-en-el-estomago/f2.png"
+     ],
+     "gif": "/luchadores/t-hawk/golpe-en-el-estomago/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/golpe-en-el-estomago/anim-s.gif",
+     "gifAncho": 195,
+     "gifAlto": 357,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 3026,
+      "cuentasMax": 3162,
+      "colores": 15,
+      "ancho": 59,
+      "alto": 113
+     }
+    },
+    {
+     "id": "golpeado",
+     "nombre": "Golpeado",
+     "frames": [
+      "/luchadores/t-hawk/golpeado/f1.png",
+      "/luchadores/t-hawk/golpeado/f2.png",
+      "/luchadores/t-hawk/golpeado/f3.png",
+      "/luchadores/t-hawk/golpeado/f4.png"
+     ],
+     "gif": "/luchadores/t-hawk/golpeado/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/golpeado/anim-s.gif",
+     "gifAncho": 297,
+     "gifAlto": 354,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 3042,
+      "cuentasMax": 3282,
+      "colores": 15,
+      "ancho": 93,
+      "alto": 112
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/t-hawk/victoria-1/f1.png",
+      "/luchadores/t-hawk/victoria-1/f2.png",
+      "/luchadores/t-hawk/victoria-1/f3.png",
+      "/luchadores/t-hawk/victoria-1/f4.png",
+      "/luchadores/t-hawk/victoria-1/f5.png",
+      "/luchadores/t-hawk/victoria-1/f6.png"
+     ],
+     "gif": "/luchadores/t-hawk/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/victoria-1/anim-s.gif",
+     "gifAncho": 164,
+     "gifAlto": 256,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 3042,
+      "cuentasMax": 4210,
+      "colores": 15,
+      "ancho": 76,
+      "alto": 122
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/t-hawk/victoria-2/f1.png",
+      "/luchadores/t-hawk/victoria-2/f2.png",
+      "/luchadores/t-hawk/victoria-2/f3.png",
+      "/luchadores/t-hawk/victoria-2/f4.png",
+      "/luchadores/t-hawk/victoria-2/f5.png",
+      "/luchadores/t-hawk/victoria-2/f6.png"
+     ],
+     "gif": "/luchadores/t-hawk/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/victoria-2/anim-s.gif",
+     "gifAncho": 240,
+     "gifAlto": 345,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 2482,
+      "cuentasMax": 3287,
+      "colores": 15,
+      "ancho": 74,
+      "alto": 109
+     }
+    },
+    {
+     "id": "tiempo-agotado",
+     "nombre": "Tiempo agotado",
+     "frames": [
+      "/luchadores/t-hawk/tiempo-agotado/f1.png",
+      "/luchadores/t-hawk/tiempo-agotado/f2.png",
+      "/luchadores/t-hawk/tiempo-agotado/f3.png",
+      "/luchadores/t-hawk/tiempo-agotado/f4.png",
+      "/luchadores/t-hawk/tiempo-agotado/f5.png",
+      "/luchadores/t-hawk/tiempo-agotado/f6.png",
+      "/luchadores/t-hawk/tiempo-agotado/f7.png",
+      "/luchadores/t-hawk/tiempo-agotado/f8.png"
+     ],
+     "gif": "/luchadores/t-hawk/tiempo-agotado/anim.gif",
+     "gifPeq": "/luchadores/t-hawk/tiempo-agotado/anim-s.gif",
+     "gifAncho": 201,
+     "gifAlto": 351,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 3024,
+      "cuentasMax": 3120,
+      "colores": 15,
+      "ancho": 61,
+      "alto": 111
+     }
+    }
+   ]
+  }
+ ]
+}

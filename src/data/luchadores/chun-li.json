@@ -1,0 +1,1230 @@
+{
+ "id": "chun-li",
+ "nombre": "Chun-Li",
+ "pais": "China",
+ "tema": {
+  "fondo": "#3d6bc4",
+  "circulo": "#98b8e8",
+  "circulo2": "#1d3a7a",
+  "acento": "#98b8e8",
+  "texto": "#ffffff",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/chun-li/cara.png",
+ "total": 43,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/chun-li/reposo/f1.png",
+      "/luchadores/chun-li/reposo/f2.png",
+      "/luchadores/chun-li/reposo/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/reposo/anim.gif",
+     "gifPeq": "/luchadores/chun-li/reposo/anim-s.gif",
+     "gifAncho": 208,
+     "gifAlto": 340,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1702,
+      "cuentasMax": 1735,
+      "colores": 14,
+      "ancho": 46,
+      "alto": 79
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/chun-li/caminar/f1.png",
+      "/luchadores/chun-li/caminar/f2.png",
+      "/luchadores/chun-li/caminar/f3.png",
+      "/luchadores/chun-li/caminar/f4.png",
+      "/luchadores/chun-li/caminar/f5.png"
+     ],
+     "gif": "/luchadores/chun-li/caminar/anim.gif",
+     "gifPeq": "/luchadores/chun-li/caminar/anim-s.gif",
+     "gifAncho": 171,
+     "gifAlto": 258,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1560,
+      "cuentasMax": 1751,
+      "colores": 14,
+      "ancho": 51,
+      "alto": 80
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/chun-li/salto/f1.png",
+      "/luchadores/chun-li/salto/f2.png",
+      "/luchadores/chun-li/salto/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/salto/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto/anim-s.gif",
+     "gifAncho": 156,
+     "gifAlto": 303,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1283,
+      "cuentasMax": 1672,
+      "colores": 14,
+      "ancho": 46,
+      "alto": 95
+     }
+    },
+    {
+     "id": "salto-adelante",
+     "nombre": "Salto adelante",
+     "frames": [
+      "/luchadores/chun-li/salto-adelante/f1.png",
+      "/luchadores/chun-li/salto-adelante/f2.png",
+      "/luchadores/chun-li/salto-adelante/f3.png",
+      "/luchadores/chun-li/salto-adelante/f4.png",
+      "/luchadores/chun-li/salto-adelante/f5.png",
+      "/luchadores/chun-li/salto-adelante/f6.png",
+      "/luchadores/chun-li/salto-adelante/f7.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-adelante/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-adelante/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 303,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 1368,
+      "cuentasMax": 1672,
+      "colores": 14,
+      "ancho": 71,
+      "alto": 95
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/chun-li/agachado/f1.png",
+      "/luchadores/chun-li/agachado/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/agachado/anim.gif",
+     "gifPeq": "/luchadores/chun-li/agachado/anim-s.gif",
+     "gifAncho": 208,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1576,
+      "cuentasMax": 1672,
+      "colores": 14,
+      "ancho": 46,
+      "alto": 66
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/chun-li/bloqueo/f1.png",
+      "/luchadores/chun-li/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/chun-li/bloqueo/anim-s.gif",
+     "gifAncho": 220,
+     "gifAlto": 328,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1587,
+      "cuentasMax": 1765,
+      "colores": 14,
+      "ancho": 49,
+      "alto": 76
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/chun-li/puno-debil/f1.png",
+      "/luchadores/chun-li/puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/chun-li/puno-debil/anim-s.gif",
+     "gifAncho": 201,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1927,
+      "cuentasMax": 1973,
+      "colores": 14,
+      "ancho": 61,
+      "alto": 87
+     }
+    },
+    {
+     "id": "puno-medio",
+     "nombre": "Puño medio",
+     "frames": [
+      "/luchadores/chun-li/puno-medio/f1.png",
+      "/luchadores/chun-li/puno-medio/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/puno-medio/anim.gif",
+     "gifPeq": "/luchadores/chun-li/puno-medio/anim-s.gif",
+     "gifAncho": 368,
+     "gifAlto": 328,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1998,
+      "cuentasMax": 2209,
+      "colores": 14,
+      "ancho": 86,
+      "alto": 76
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/chun-li/puno-fuerte/f1.png",
+      "/luchadores/chun-li/puno-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/puno-fuerte/anim-s.gif",
+     "gifAncho": 340,
+     "gifAlto": 332,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1732,
+      "cuentasMax": 2171,
+      "colores": 14,
+      "ancho": 79,
+      "alto": 77
+     }
+    },
+    {
+     "id": "adelante-puno-debil",
+     "nombre": "Adelante puño débil",
+     "frames": [
+      "/luchadores/chun-li/adelante-puno-debil/f1.png",
+      "/luchadores/chun-li/adelante-puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/chun-li/adelante-puno-debil/anim-s.gif",
+     "gifAncho": 171,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1807,
+      "cuentasMax": 1812,
+      "colores": 14,
+      "ancho": 51,
+      "alto": 83
+     }
+    },
+    {
+     "id": "adelante-puno-fuerte",
+     "nombre": "Adelante puño fuerte",
+     "frames": [
+      "/luchadores/chun-li/adelante-puno-fuerte/f1.png",
+      "/luchadores/chun-li/adelante-puno-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 272,
+     "gifAlto": 340,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1665,
+      "cuentasMax": 1863,
+      "colores": 14,
+      "ancho": 62,
+      "alto": 79
+     }
+    },
+    {
+     "id": "agachado-puno-debil-medio-fuerte",
+     "nombre": "Agachado puño débil-medio-fuerte",
+     "frames": [
+      "/luchadores/chun-li/agachado-puno-debil-medio-fuerte/f1.png",
+      "/luchadores/chun-li/agachado-puno-debil-medio-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/agachado-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/agachado-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 445,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1675,
+      "cuentasMax": 1781,
+      "colores": 14,
+      "ancho": 83,
+      "alto": 60
+     }
+    },
+    {
+     "id": "salto-puno-debil-medio-fuerte",
+     "nombre": "Salto puño débil-medio-fuerte",
+     "frames": [
+      "/luchadores/chun-li/salto-puno-debil-medio-fuerte/f1.png",
+      "/luchadores/chun-li/salto-puno-debil-medio-fuerte/f2.png",
+      "/luchadores/chun-li/salto-puno-debil-medio-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 177,
+     "gifAlto": 258,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1311,
+      "cuentasMax": 1564,
+      "colores": 14,
+      "ancho": 53,
+      "alto": 80
+     }
+    },
+    {
+     "id": "salto-adelante-puno-debil-medio-fuerte",
+     "nombre": "Salto adelante puño débil-medio-fuerte",
+     "frames": [
+      "/luchadores/chun-li/salto-adelante-puno-debil-medio-fuerte/f1.png",
+      "/luchadores/chun-li/salto-adelante-puno-debil-medio-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-adelante-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-adelante-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 296,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1283,
+      "cuentasMax": 1545,
+      "colores": 14,
+      "ancho": 51,
+      "alto": 68
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil",
+     "nombre": "Patada débil",
+     "frames": [
+      "/luchadores/chun-li/patada-debil/f1.png"
+     ],
+     "gif": "/luchadores/chun-li/patada-debil/anim.png",
+     "gifPeq": "/luchadores/chun-li/patada-debil/anim-s.png",
+     "gifAncho": 264,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1715,
+      "cuentasMax": 1715,
+      "colores": 14,
+      "ancho": 82,
+      "alto": 87
+     }
+    },
+    {
+     "id": "patada-medio",
+     "nombre": "Patada medio",
+     "frames": [
+      "/luchadores/chun-li/patada-medio/f1.png",
+      "/luchadores/chun-li/patada-medio/f2.png",
+      "/luchadores/chun-li/patada-medio/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/patada-medio/anim.gif",
+     "gifPeq": "/luchadores/chun-li/patada-medio/anim-s.gif",
+     "gifAncho": 225,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1600,
+      "cuentasMax": 1918,
+      "colores": 14,
+      "ancho": 69,
+      "alto": 85
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/chun-li/patada-fuerte/f1.png",
+      "/luchadores/chun-li/patada-fuerte/f2.png",
+      "/luchadores/chun-li/patada-fuerte/f3.png",
+      "/luchadores/chun-li/patada-fuerte/f4.png"
+     ],
+     "gif": "/luchadores/chun-li/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/patada-fuerte/anim-s.gif",
+     "gifAncho": 246,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1503,
+      "cuentasMax": 1957,
+      "colores": 14,
+      "ancho": 76,
+      "alto": 88
+     }
+    },
+    {
+     "id": "adelante-patada-medio",
+     "nombre": "Adelante patada medio",
+     "frames": [
+      "/luchadores/chun-li/adelante-patada-medio/f1.png",
+      "/luchadores/chun-li/adelante-patada-medio/f2.png",
+      "/luchadores/chun-li/adelante-patada-medio/f3.png",
+      "/luchadores/chun-li/adelante-patada-medio/f4.png",
+      "/luchadores/chun-li/adelante-patada-medio/f5.png"
+     ],
+     "gif": "/luchadores/chun-li/adelante-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/chun-li/adelante-patada-medio/anim-s.gif",
+     "gifAncho": 258,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1457,
+      "cuentasMax": 1737,
+      "colores": 14,
+      "ancho": 80,
+      "alto": 92
+     }
+    },
+    {
+     "id": "adelante-patada-fuerte",
+     "nombre": "Adelante patada fuerte",
+     "frames": [
+      "/luchadores/chun-li/adelante-patada-fuerte/f1.png",
+      "/luchadores/chun-li/adelante-patada-fuerte/f2.png",
+      "/luchadores/chun-li/adelante-patada-fuerte/f3.png",
+      "/luchadores/chun-li/adelante-patada-fuerte/f4.png",
+      "/luchadores/chun-li/adelante-patada-fuerte/f5.png",
+      "/luchadores/chun-li/adelante-patada-fuerte/f6.png"
+     ],
+     "gif": "/luchadores/chun-li/adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 303,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1393,
+      "cuentasMax": 1581,
+      "colores": 14,
+      "ancho": 64,
+      "alto": 95
+     }
+    },
+    {
+     "id": "adelante-patada-fuerte-2",
+     "nombre": "Adelante patada fuerte (2)",
+     "frames": [
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f1.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f2.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f3.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f4.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f5.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f6.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f7.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f8.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f9.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f10.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f11.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f12.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f13.png",
+      "/luchadores/chun-li/adelante-patada-fuerte-2/f14.png"
+     ],
+     "gif": "/luchadores/chun-li/adelante-patada-fuerte-2/anim.gif",
+     "gifPeq": "/luchadores/chun-li/adelante-patada-fuerte-2/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 17,
+     "datos": {
+      "cuentasMin": 257,
+      "cuentasMax": 1852,
+      "colores": 14,
+      "ancho": 64,
+      "alto": 103
+     }
+    },
+    {
+     "id": "agachado-patada-debil",
+     "nombre": "Agachado patada débil",
+     "frames": [
+      "/luchadores/chun-li/agachado-patada-debil/f1.png",
+      "/luchadores/chun-li/agachado-patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/agachado-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/chun-li/agachado-patada-debil/anim-s.gif",
+     "gifAncho": 380,
+     "gifAlto": 295,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1338,
+      "cuentasMax": 1409,
+      "colores": 14,
+      "ancho": 70,
+      "alto": 53
+     }
+    },
+    {
+     "id": "agachado-patada-medio",
+     "nombre": "Agachado patada medio",
+     "frames": [
+      "/luchadores/chun-li/agachado-patada-medio/f1.png",
+      "/luchadores/chun-li/agachado-patada-medio/f2.png",
+      "/luchadores/chun-li/agachado-patada-medio/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/agachado-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/chun-li/agachado-patada-medio/anim-s.gif",
+     "gifAncho": 405,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1308,
+      "cuentasMax": 1621,
+      "colores": 14,
+      "ancho": 75,
+      "alto": 57
+     }
+    },
+    {
+     "id": "agachado-patada-fuerte",
+     "nombre": "Agachado patada fuerte",
+     "frames": [
+      "/luchadores/chun-li/agachado-patada-fuerte/f1.png",
+      "/luchadores/chun-li/agachado-patada-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 368,
+     "gifAlto": 268,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1524,
+      "cuentasMax": 1931,
+      "colores": 14,
+      "ancho": 86,
+      "alto": 61
+     }
+    },
+    {
+     "id": "salto-patada-debil-medio",
+     "nombre": "Salto patada débil-medio",
+     "frames": [
+      "/luchadores/chun-li/salto-patada-debil-medio/f1.png",
+      "/luchadores/chun-li/salto-patada-debil-medio/f2.png",
+      "/luchadores/chun-li/salto-patada-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-patada-debil-medio/anim-s.gif",
+     "gifAncho": 168,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1476,
+      "cuentasMax": 1546,
+      "colores": 14,
+      "ancho": 50,
+      "alto": 86
+     }
+    },
+    {
+     "id": "salto-patada-fuerte",
+     "nombre": "Salto patada fuerte",
+     "frames": [
+      "/luchadores/chun-li/salto-patada-fuerte/f1.png",
+      "/luchadores/chun-li/salto-patada-fuerte/f2.png",
+      "/luchadores/chun-li/salto-patada-fuerte/f3.png",
+      "/luchadores/chun-li/salto-patada-fuerte/f4.png",
+      "/luchadores/chun-li/salto-patada-fuerte/f5.png",
+      "/luchadores/chun-li/salto-patada-fuerte/f6.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-patada-fuerte/anim-s.gif",
+     "gifAncho": 213,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1357,
+      "cuentasMax": 1581,
+      "colores": 14,
+      "ancho": 65,
+      "alto": 92
+     }
+    },
+    {
+     "id": "salto-adelante-patada-debil-medio",
+     "nombre": "Salto adelante patada débil-medio",
+     "frames": [
+      "/luchadores/chun-li/salto-adelante-patada-debil-medio/f1.png",
+      "/luchadores/chun-li/salto-adelante-patada-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-adelante-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-adelante-patada-debil-medio/anim-s.gif",
+     "gifAncho": 355,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1177,
+      "cuentasMax": 1609,
+      "colores": 14,
+      "ancho": 65,
+      "alto": 54
+     }
+    },
+    {
+     "id": "salto-adelante-patada-fuerte",
+     "nombre": "Salto adelante patada fuerte",
+     "frames": [
+      "/luchadores/chun-li/salto-adelante-patada-fuerte/f1.png",
+      "/luchadores/chun-li/salto-adelante-patada-fuerte/f2.png",
+      "/luchadores/chun-li/salto-adelante-patada-fuerte/f3.png",
+      "/luchadores/chun-li/salto-adelante-patada-fuerte/f4.png",
+      "/luchadores/chun-li/salto-adelante-patada-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 168,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1461,
+      "cuentasMax": 1546,
+      "colores": 14,
+      "ancho": 50,
+      "alto": 86
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "hyakuretsukyaku",
+     "nombre": "Hyakuretsukyaku",
+     "frames": [
+      "/luchadores/chun-li/hyakuretsukyaku/f1.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f2.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f3.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f4.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f5.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f6.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f7.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f8.png",
+      "/luchadores/chun-li/hyakuretsukyaku/f9.png"
+     ],
+     "gif": "/luchadores/chun-li/hyakuretsukyaku/anim.gif",
+     "gifPeq": "/luchadores/chun-li/hyakuretsukyaku/anim-s.gif",
+     "gifAncho": 264,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 10,
+     "datos": {
+      "cuentasMin": 232,
+      "cuentasMax": 2229,
+      "colores": 14,
+      "ancho": 82,
+      "alto": 89
+     }
+    },
+    {
+     "id": "kikouken",
+     "nombre": "Kikouken",
+     "frames": [
+      "/luchadores/chun-li/kikouken/f1.png",
+      "/luchadores/chun-li/kikouken/f2.png",
+      "/luchadores/chun-li/kikouken/f3.png",
+      "/luchadores/chun-li/kikouken/f4.png"
+     ],
+     "gif": "/luchadores/chun-li/kikouken/anim.gif",
+     "gifPeq": "/luchadores/chun-li/kikouken/anim-s.gif",
+     "gifAncho": 210,
+     "gifAlto": 330,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1525,
+      "cuentasMax": 2006,
+      "colores": 14,
+      "ancho": 64,
+      "alto": 104
+     }
+    },
+    {
+     "id": "kikouken-proyectil",
+     "nombre": "Kikouken (Proyectil)",
+     "frames": [
+      "/luchadores/chun-li/kikouken-proyectil/f1.png",
+      "/luchadores/chun-li/kikouken-proyectil/f2.png",
+      "/luchadores/chun-li/kikouken-proyectil/f3.png",
+      "/luchadores/chun-li/kikouken-proyectil/f4.png",
+      "/luchadores/chun-li/kikouken-proyectil/f5.png",
+      "/luchadores/chun-li/kikouken-proyectil/f6.png",
+      "/luchadores/chun-li/kikouken-proyectil/f7.png",
+      "/luchadores/chun-li/kikouken-proyectil/f8.png",
+      "/luchadores/chun-li/kikouken-proyectil/f9.png",
+      "/luchadores/chun-li/kikouken-proyectil/f10.png",
+      "/luchadores/chun-li/kikouken-proyectil/f11.png"
+     ],
+     "gif": "/luchadores/chun-li/kikouken-proyectil/anim.gif",
+     "gifPeq": "/luchadores/chun-li/kikouken-proyectil/anim-s.gif",
+     "gifAncho": 176,
+     "gifAlto": 312,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 11,
+     "datos": {
+      "cuentasMin": 22,
+      "cuentasMax": 719,
+      "colores": 12,
+      "ancho": 38,
+      "alto": 72
+     }
+    },
+    {
+     "id": "lanzamiento",
+     "nombre": "Lanzamiento",
+     "frames": [
+      "/luchadores/chun-li/lanzamiento/f1.png",
+      "/luchadores/chun-li/lanzamiento/f2.png",
+      "/luchadores/chun-li/lanzamiento/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/lanzamiento/anim.gif",
+     "gifPeq": "/luchadores/chun-li/lanzamiento/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1585,
+      "cuentasMax": 1879,
+      "colores": 14,
+      "ancho": 71,
+      "alto": 84
+     }
+    },
+    {
+     "id": "salto-en-pared",
+     "nombre": "Salto en pared",
+     "frames": [
+      "/luchadores/chun-li/salto-en-pared/f1.png",
+      "/luchadores/chun-li/salto-en-pared/f2.png",
+      "/luchadores/chun-li/salto-en-pared/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/salto-en-pared/anim.gif",
+     "gifPeq": "/luchadores/chun-li/salto-en-pared/anim-s.gif",
+     "gifAncho": 180,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 973,
+      "cuentasMax": 1737,
+      "colores": 14,
+      "ancho": 54,
+      "alto": 84
+     }
+    },
+    {
+     "id": "spinning-bird-kick",
+     "nombre": "Spinning Bird Kick",
+     "frames": [
+      "/luchadores/chun-li/spinning-bird-kick/f1.png",
+      "/luchadores/chun-li/spinning-bird-kick/f2.png",
+      "/luchadores/chun-li/spinning-bird-kick/f3.png",
+      "/luchadores/chun-li/spinning-bird-kick/f4.png",
+      "/luchadores/chun-li/spinning-bird-kick/f5.png",
+      "/luchadores/chun-li/spinning-bird-kick/f6.png",
+      "/luchadores/chun-li/spinning-bird-kick/f7.png",
+      "/luchadores/chun-li/spinning-bird-kick/f8.png",
+      "/luchadores/chun-li/spinning-bird-kick/f9.png",
+      "/luchadores/chun-li/spinning-bird-kick/f10.png"
+     ],
+     "gif": "/luchadores/chun-li/spinning-bird-kick/anim.gif",
+     "gifPeq": "/luchadores/chun-li/spinning-bird-kick/anim-s.gif",
+     "gifAncho": 273,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 15,
+     "datos": {
+      "cuentasMin": 257,
+      "cuentasMax": 1798,
+      "colores": 14,
+      "ancho": 85,
+      "alto": 103
+     }
+    },
+    {
+     "id": "stomp-kick",
+     "nombre": "Stomp Kick",
+     "frames": [
+      "/luchadores/chun-li/stomp-kick/f1.png",
+      "/luchadores/chun-li/stomp-kick/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/stomp-kick/anim.gif",
+     "gifPeq": "/luchadores/chun-li/stomp-kick/anim-s.gif",
+     "gifAncho": 132,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1283,
+      "cuentasMax": 1581,
+      "colores": 14,
+      "ancho": 38,
+      "alto": 87
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "agachado-golpeado",
+     "nombre": "Agachado golpeado",
+     "frames": [
+      "/luchadores/chun-li/agachado-golpeado/f1.png"
+     ],
+     "gif": "/luchadores/chun-li/agachado-golpeado/anim.png",
+     "gifPeq": "/luchadores/chun-li/agachado-golpeado/anim-s.png",
+     "gifAncho": 295,
+     "gifAlto": 305,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1557,
+      "cuentasMax": 1557,
+      "colores": 13,
+      "ancho": 53,
+      "alto": 55
+     }
+    },
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/chun-li/aturdido/f1.png",
+      "/luchadores/chun-li/aturdido/f2.png",
+      "/luchadores/chun-li/aturdido/f3.png",
+      "/luchadores/chun-li/aturdido/f4.png",
+      "/luchadores/chun-li/aturdido/f5.png",
+      "/luchadores/chun-li/aturdido/f6.png"
+     ],
+     "gif": "/luchadores/chun-li/aturdido/anim.gif",
+     "gifPeq": "/luchadores/chun-li/aturdido/anim-s.gif",
+     "gifAncho": 258,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1301,
+      "cuentasMax": 2013,
+      "colores": 15,
+      "ancho": 80,
+      "alto": 96
+     }
+    },
+    {
+     "id": "derribo-y-recuperacion",
+     "nombre": "Derribo y recuperación",
+     "frames": [
+      "/luchadores/chun-li/derribo-y-recuperacion/f1.png",
+      "/luchadores/chun-li/derribo-y-recuperacion/f2.png",
+      "/luchadores/chun-li/derribo-y-recuperacion/f3.png",
+      "/luchadores/chun-li/derribo-y-recuperacion/f4.png",
+      "/luchadores/chun-li/derribo-y-recuperacion/f5.png",
+      "/luchadores/chun-li/derribo-y-recuperacion/f6.png"
+     ],
+     "gif": "/luchadores/chun-li/derribo-y-recuperacion/anim.gif",
+     "gifPeq": "/luchadores/chun-li/derribo-y-recuperacion/anim-s.gif",
+     "gifAncho": 344,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1163,
+      "cuentasMax": 1672,
+      "colores": 14,
+      "ancho": 80,
+      "alto": 66
+     }
+    },
+    {
+     "id": "golpe-en-la-cara",
+     "nombre": "Golpe en la cara",
+     "frames": [
+      "/luchadores/chun-li/golpe-en-la-cara/f1.png",
+      "/luchadores/chun-li/golpe-en-la-cara/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/golpe-en-la-cara/anim.gif",
+     "gifPeq": "/luchadores/chun-li/golpe-en-la-cara/anim-s.gif",
+     "gifAncho": 195,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1666,
+      "cuentasMax": 1692,
+      "colores": 13,
+      "ancho": 59,
+      "alto": 83
+     }
+    },
+    {
+     "id": "golpeado",
+     "nombre": "Golpeado",
+     "frames": [
+      "/luchadores/chun-li/golpeado/f1.png",
+      "/luchadores/chun-li/golpeado/f2.png"
+     ],
+     "gif": "/luchadores/chun-li/golpeado/anim.gif",
+     "gifPeq": "/luchadores/chun-li/golpeado/anim-s.gif",
+     "gifAncho": 284,
+     "gifAlto": 296,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1615,
+      "cuentasMax": 1671,
+      "colores": 14,
+      "ancho": 65,
+      "alto": 68
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/chun-li/victoria-1/f1.png",
+      "/luchadores/chun-li/victoria-1/f2.png",
+      "/luchadores/chun-li/victoria-1/f3.png"
+     ],
+     "gif": "/luchadores/chun-li/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/chun-li/victoria-1/anim-s.gif",
+     "gifAncho": 153,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1661,
+      "cuentasMax": 1914,
+      "colores": 14,
+      "ancho": 45,
+      "alto": 86
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/chun-li/victoria-2/f1.png",
+      "/luchadores/chun-li/victoria-2/f2.png",
+      "/luchadores/chun-li/victoria-2/f3.png",
+      "/luchadores/chun-li/victoria-2/f4.png",
+      "/luchadores/chun-li/victoria-2/f5.png",
+      "/luchadores/chun-li/victoria-2/f6.png",
+      "/luchadores/chun-li/victoria-2/f7.png",
+      "/luchadores/chun-li/victoria-2/f8.png"
+     ],
+     "gif": "/luchadores/chun-li/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/chun-li/victoria-2/anim-s.gif",
+     "gifAncho": 162,
+     "gifAlto": 354,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 24,
+     "datos": {
+      "cuentasMin": 290,
+      "cuentasMax": 1921,
+      "colores": 14,
+      "ancho": 48,
+      "alto": 112
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/chun-li/paletas-alternativas/f1.png",
+      "/luchadores/chun-li/paletas-alternativas/f2.png",
+      "/luchadores/chun-li/paletas-alternativas/f3.png",
+      "/luchadores/chun-li/paletas-alternativas/f4.png",
+      "/luchadores/chun-li/paletas-alternativas/f5.png",
+      "/luchadores/chun-li/paletas-alternativas/f6.png",
+      "/luchadores/chun-li/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/chun-li/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/chun-li/paletas-alternativas/anim-s.gif",
+     "gifAncho": 208,
+     "gifAlto": 332,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1698,
+      "cuentasMax": 1707,
+      "colores": 15,
+      "ancho": 46,
+      "alto": 77
+     }
+    },
+    {
+     "id": "retratos",
+     "nombre": "Retratos",
+     "frames": [
+      "/luchadores/chun-li/retratos/f1.png",
+      "/luchadores/chun-li/retratos/f2.png",
+      "/luchadores/chun-li/retratos/f3.png",
+      "/luchadores/chun-li/retratos/f4.png"
+     ],
+     "gif": "/luchadores/chun-li/retratos/anim.gif",
+     "gifPeq": "/luchadores/chun-li/retratos/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 297,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 608,
+      "cuentasMax": 5140,
+      "colores": 15,
+      "ancho": 72,
+      "alto": 93
+     }
+    }
+   ]
+  }
+ ]
+}

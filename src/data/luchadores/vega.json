@@ -1,0 +1,1135 @@
+{
+ "id": "vega",
+ "nombre": "Vega",
+ "pais": "España",
+ "tema": {
+  "fondo": "#5b2a9a",
+  "circulo": "#e8c030",
+  "circulo2": "#34185c",
+  "acento": "#e8c030",
+  "texto": "#ffffff",
+  "acentoTexto": "#1b0f0a"
+ },
+ "cara": "/luchadores/vega/cara.png",
+ "total": 40,
+ "categorias": [
+  {
+   "id": "reposo",
+   "titulo": "Reposo",
+   "movimientos": [
+    {
+     "id": "reposo",
+     "nombre": "Reposo",
+     "frames": [
+      "/luchadores/vega/reposo/f1.png",
+      "/luchadores/vega/reposo/f2.png",
+      "/luchadores/vega/reposo/f3.png"
+     ],
+     "gif": "/luchadores/vega/reposo/anim.gif",
+     "gifPeq": "/luchadores/vega/reposo/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 309,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2188,
+      "cuentasMax": 2219,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 97
+     }
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "titulo": "Movimiento",
+   "movimientos": [
+    {
+     "id": "caminar",
+     "nombre": "Caminar",
+     "frames": [
+      "/luchadores/vega/caminar/f1.png",
+      "/luchadores/vega/caminar/f2.png",
+      "/luchadores/vega/caminar/f3.png"
+     ],
+     "gif": "/luchadores/vega/caminar/anim.gif",
+     "gifPeq": "/luchadores/vega/caminar/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1959,
+      "cuentasMax": 2188,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 100
+     }
+    },
+    {
+     "id": "salto",
+     "nombre": "Salto",
+     "frames": [
+      "/luchadores/vega/salto/f1.png",
+      "/luchadores/vega/salto/f2.png",
+      "/luchadores/vega/salto/f3.png",
+      "/luchadores/vega/salto/f4.png"
+     ],
+     "gif": "/luchadores/vega/salto/anim.gif",
+     "gifPeq": "/luchadores/vega/salto/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 318,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 364,
+      "cuentasMax": 2031,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 100
+     }
+    },
+    {
+     "id": "salto-adelante",
+     "nombre": "Salto adelante",
+     "frames": [
+      "/luchadores/vega/salto-adelante/f1.png",
+      "/luchadores/vega/salto-adelante/f2.png",
+      "/luchadores/vega/salto-adelante/f3.png",
+      "/luchadores/vega/salto-adelante/f4.png",
+      "/luchadores/vega/salto-adelante/f5.png"
+     ],
+     "gif": "/luchadores/vega/salto-adelante/anim.gif",
+     "gifPeq": "/luchadores/vega/salto-adelante/anim-s.gif",
+     "gifAncho": 198,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1227,
+      "cuentasMax": 2031,
+      "colores": 15,
+      "ancho": 60,
+      "alto": 99
+     }
+    }
+   ]
+  },
+  {
+   "id": "def",
+   "titulo": "Defensas",
+   "movimientos": [
+    {
+     "id": "agachado",
+     "nombre": "Agachado",
+     "frames": [
+      "/luchadores/vega/agachado/f1.png",
+      "/luchadores/vega/agachado/f2.png"
+     ],
+     "gif": "/luchadores/vega/agachado/anim.gif",
+     "gifPeq": "/luchadores/vega/agachado/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1549,
+      "cuentasMax": 2031,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 84
+     }
+    },
+    {
+     "id": "bloqueo",
+     "nombre": "Bloqueo",
+     "frames": [
+      "/luchadores/vega/bloqueo/f1.png",
+      "/luchadores/vega/bloqueo/f2.png"
+     ],
+     "gif": "/luchadores/vega/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/vega/bloqueo/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1615,
+      "cuentasMax": 2047,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 99
+     }
+    }
+   ]
+  },
+  {
+   "id": "puno",
+   "titulo": "Puños",
+   "movimientos": [
+    {
+     "id": "puno-debil",
+     "nombre": "Puño débil",
+     "frames": [
+      "/luchadores/vega/puno-debil/f1.png",
+      "/luchadores/vega/puno-debil/f2.png"
+     ],
+     "gif": "/luchadores/vega/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/vega/puno-debil/anim-s.gif",
+     "gifAncho": 294,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2039,
+      "cuentasMax": 2125,
+      "colores": 15,
+      "ancho": 92,
+      "alto": 94
+     }
+    },
+    {
+     "id": "puno-medio",
+     "nombre": "Puño medio",
+     "frames": [
+      "/luchadores/vega/puno-medio/f1.png",
+      "/luchadores/vega/puno-medio/f2.png",
+      "/luchadores/vega/puno-medio/f3.png",
+      "/luchadores/vega/puno-medio/f4.png"
+     ],
+     "gif": "/luchadores/vega/puno-medio/anim.gif",
+     "gifPeq": "/luchadores/vega/puno-medio/anim-s.gif",
+     "gifAncho": 357,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2012,
+      "cuentasMax": 2275,
+      "colores": 15,
+      "ancho": 113,
+      "alto": 94
+     }
+    },
+    {
+     "id": "puno-fuerte",
+     "nombre": "Puño fuerte",
+     "frames": [
+      "/luchadores/vega/puno-fuerte/f1.png",
+      "/luchadores/vega/puno-fuerte/f2.png",
+      "/luchadores/vega/puno-fuerte/f3.png",
+      "/luchadores/vega/puno-fuerte/f4.png",
+      "/luchadores/vega/puno-fuerte/f5.png",
+      "/luchadores/vega/puno-fuerte/f6.png"
+     ],
+     "gif": "/luchadores/vega/puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/puno-fuerte/anim-s.gif",
+     "gifAncho": 384,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1970,
+      "cuentasMax": 2256,
+      "colores": 15,
+      "ancho": 122,
+      "alto": 99
+     }
+    },
+    {
+     "id": "adelante-puno-fuerte",
+     "nombre": "Adelante puño fuerte",
+     "frames": [
+      "/luchadores/vega/adelante-puno-fuerte/f1.png",
+      "/luchadores/vega/adelante-puno-fuerte/f2.png",
+      "/luchadores/vega/adelante-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/vega/adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 294,
+     "gifAlto": 297,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1970,
+      "cuentasMax": 2125,
+      "colores": 15,
+      "ancho": 92,
+      "alto": 93
+     }
+    },
+    {
+     "id": "agachado-puno-debil-medio",
+     "nombre": "Agachado puño débil-medio",
+     "frames": [
+      "/luchadores/vega/agachado-puno-debil-medio/f1.png",
+      "/luchadores/vega/agachado-puno-debil-medio/f2.png",
+      "/luchadores/vega/agachado-puno-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/vega/agachado-puno-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/vega/agachado-puno-debil-medio/anim-s.gif",
+     "gifAncho": 436,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1604,
+      "cuentasMax": 2013,
+      "colores": 15,
+      "ancho": 103,
+      "alto": 69
+     }
+    },
+    {
+     "id": "agachado-puno-fuerte",
+     "nombre": "Agachado puño fuerte",
+     "frames": [
+      "/luchadores/vega/agachado-puno-fuerte/f1.png",
+      "/luchadores/vega/agachado-puno-fuerte/f2.png",
+      "/luchadores/vega/agachado-puno-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/vega/agachado-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/agachado-puno-fuerte/anim-s.gif",
+     "gifAncho": 309,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1604,
+      "cuentasMax": 2044,
+      "colores": 15,
+      "ancho": 97,
+      "alto": 84
+     }
+    },
+    {
+     "id": "salto-puno-debil-medio-fuerte",
+     "nombre": "Salto puño débil-medio-fuerte",
+     "frames": [
+      "/luchadores/vega/salto-puno-debil-medio-fuerte/f1.png",
+      "/luchadores/vega/salto-puno-debil-medio-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/vega/salto-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/salto-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 249,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1683,
+      "cuentasMax": 1843,
+      "colores": 14,
+      "ancho": 77,
+      "alto": 89
+     }
+    },
+    {
+     "id": "salto-adelante-puno-fuerte",
+     "nombre": "Salto adelante puño fuerte",
+     "frames": [
+      "/luchadores/vega/salto-adelante-puno-fuerte/f1.png",
+      "/luchadores/vega/salto-adelante-puno-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/vega/salto-adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/salto-adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 207,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1507,
+      "cuentasMax": 1703,
+      "colores": 14,
+      "ancho": 63,
+      "alto": 92
+     }
+    }
+   ]
+  },
+  {
+   "id": "patada",
+   "titulo": "Patadas",
+   "movimientos": [
+    {
+     "id": "patada-debil",
+     "nombre": "Patada débil",
+     "frames": [
+      "/luchadores/vega/patada-debil/f1.png",
+      "/luchadores/vega/patada-debil/f2.png"
+     ],
+     "gif": "/luchadores/vega/patada-debil/anim.gif",
+     "gifPeq": "/luchadores/vega/patada-debil/anim-s.gif",
+     "gifAncho": 273,
+     "gifAlto": 345,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2125,
+      "cuentasMax": 2426,
+      "colores": 15,
+      "ancho": 85,
+      "alto": 109
+     }
+    },
+    {
+     "id": "patada-medio",
+     "nombre": "Patada medio",
+     "frames": [
+      "/luchadores/vega/patada-medio/f1.png",
+      "/luchadores/vega/patada-medio/f2.png"
+     ],
+     "gif": "/luchadores/vega/patada-medio/anim.gif",
+     "gifPeq": "/luchadores/vega/patada-medio/anim-s.gif",
+     "gifAncho": 294,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2062,
+      "cuentasMax": 2357,
+      "colores": 15,
+      "ancho": 92,
+      "alto": 102
+     }
+    },
+    {
+     "id": "patada-fuerte",
+     "nombre": "Patada fuerte",
+     "frames": [
+      "/luchadores/vega/patada-fuerte/f1.png",
+      "/luchadores/vega/patada-fuerte/f2.png",
+      "/luchadores/vega/patada-fuerte/f3.png"
+     ],
+     "gif": "/luchadores/vega/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/patada-fuerte/anim-s.gif",
+     "gifAncho": 294,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 2062,
+      "cuentasMax": 2181,
+      "colores": 15,
+      "ancho": 92,
+      "alto": 103
+     }
+    },
+    {
+     "id": "adelante-patada-debil",
+     "nombre": "Adelante patada débil",
+     "frames": [
+      "/luchadores/vega/adelante-patada-debil/f1.png",
+      "/luchadores/vega/adelante-patada-debil/f2.png",
+      "/luchadores/vega/adelante-patada-debil/f3.png"
+     ],
+     "gif": "/luchadores/vega/adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/vega/adelante-patada-debil/anim-s.gif",
+     "gifAncho": 207,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 2125,
+      "cuentasMax": 2256,
+      "colores": 15,
+      "ancho": 63,
+      "alto": 99
+     }
+    },
+    {
+     "id": "adelante-patada-medio",
+     "nombre": "Adelante patada medio",
+     "frames": [
+      "/luchadores/vega/adelante-patada-medio/f1.png",
+      "/luchadores/vega/adelante-patada-medio/f2.png"
+     ],
+     "gif": "/luchadores/vega/adelante-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/vega/adelante-patada-medio/anim-s.gif",
+     "gifAncho": 264,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1952,
+      "cuentasMax": 2134,
+      "colores": 15,
+      "ancho": 82,
+      "alto": 102
+     }
+    },
+    {
+     "id": "agachado-patada-debil-medio-fuerte",
+     "nombre": "Agachado patada débil-medio-fuerte",
+     "frames": [
+      "/luchadores/vega/agachado-patada-debil-medio-fuerte/f1.png",
+      "/luchadores/vega/agachado-patada-debil-medio-fuerte/f2.png",
+      "/luchadores/vega/agachado-patada-debil-medio-fuerte/f3.png",
+      "/luchadores/vega/agachado-patada-debil-medio-fuerte/f4.png",
+      "/luchadores/vega/agachado-patada-debil-medio-fuerte/f5.png"
+     ],
+     "gif": "/luchadores/vega/agachado-patada-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/agachado-patada-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 380,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 5,
+     "datos": {
+      "cuentasMin": 1387,
+      "cuentasMax": 1671,
+      "colores": 15,
+      "ancho": 70,
+      "alto": 56
+     }
+    },
+    {
+     "id": "salto-patada-debil-medio",
+     "nombre": "Salto patada débil-medio",
+     "frames": [
+      "/luchadores/vega/salto-patada-debil-medio/f1.png",
+      "/luchadores/vega/salto-patada-debil-medio/f2.png"
+     ],
+     "gif": "/luchadores/vega/salto-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/vega/salto-patada-debil-medio/anim-s.gif",
+     "gifAncho": 280,
+     "gifAlto": 320,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1327,
+      "cuentasMax": 1433,
+      "colores": 14,
+      "ancho": 64,
+      "alto": 74
+     }
+    },
+    {
+     "id": "salto-patada-fuerte",
+     "nombre": "Salto patada fuerte",
+     "frames": [
+      "/luchadores/vega/salto-patada-fuerte/f1.png",
+      "/luchadores/vega/salto-patada-fuerte/f2.png"
+     ],
+     "gif": "/luchadores/vega/salto-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/vega/salto-patada-fuerte/anim-s.gif",
+     "gifAncho": 204,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1433,
+      "cuentasMax": 1669,
+      "colores": 14,
+      "ancho": 62,
+      "alto": 86
+     }
+    },
+    {
+     "id": "salto-adelante-patada-debil-medio",
+     "nombre": "Salto adelante patada débil-medio",
+     "frames": [
+      "/luchadores/vega/salto-adelante-patada-debil-medio/f1.png",
+      "/luchadores/vega/salto-adelante-patada-debil-medio/f2.png",
+      "/luchadores/vega/salto-adelante-patada-debil-medio/f3.png"
+     ],
+     "gif": "/luchadores/vega/salto-adelante-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/vega/salto-adelante-patada-debil-medio/anim-s.gif",
+     "gifAncho": 216,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1433,
+      "cuentasMax": 1551,
+      "colores": 15,
+      "ancho": 66,
+      "alto": 81
+     }
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "titulo": "Especiales",
+   "movimientos": [
+    {
+     "id": "backflip",
+     "nombre": "Backflip",
+     "frames": [
+      "/luchadores/vega/backflip/f1.png",
+      "/luchadores/vega/backflip/f2.png",
+      "/luchadores/vega/backflip/f3.png",
+      "/luchadores/vega/backflip/f4.png",
+      "/luchadores/vega/backflip/f5.png"
+     ],
+     "gif": "/luchadores/vega/backflip/anim.gif",
+     "gifPeq": "/luchadores/vega/backflip/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 321,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1581,
+      "cuentasMax": 1900,
+      "colores": 15,
+      "ancho": 73,
+      "alto": 101
+     }
+    },
+    {
+     "id": "claw-dive",
+     "nombre": "Claw Dive",
+     "frames": [
+      "/luchadores/vega/claw-dive/f1.png",
+      "/luchadores/vega/claw-dive/f2.png",
+      "/luchadores/vega/claw-dive/f3.png"
+     ],
+     "gif": "/luchadores/vega/claw-dive/anim.gif",
+     "gifPeq": "/luchadores/vega/claw-dive/anim-s.gif",
+     "gifAncho": 315,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1159,
+      "cuentasMax": 1475,
+      "colores": 16,
+      "ancho": 99,
+      "alto": 99
+     }
+    },
+    {
+     "id": "claw-thrust",
+     "nombre": "Claw Thrust",
+     "frames": [
+      "/luchadores/vega/claw-thrust/f1.png",
+      "/luchadores/vega/claw-thrust/f2.png"
+     ],
+     "gif": "/luchadores/vega/claw-thrust/anim.gif",
+     "gifPeq": "/luchadores/vega/claw-thrust/anim-s.gif",
+     "gifAncho": 822,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 2,
+     "datos": {
+      "cuentasMin": 1518,
+      "cuentasMax": 1528,
+      "colores": 14,
+      "ancho": 131,
+      "alto": 43
+     }
+    },
+    {
+     "id": "crystal-roll",
+     "nombre": "Crystal Roll",
+     "frames": [
+      "/luchadores/vega/crystal-roll/f1.png",
+      "/luchadores/vega/crystal-roll/f2.png",
+      "/luchadores/vega/crystal-roll/f3.png"
+     ],
+     "gif": "/luchadores/vega/crystal-roll/anim.gif",
+     "gifPeq": "/luchadores/vega/crystal-roll/anim-s.gif",
+     "gifAncho": 309,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1643,
+      "cuentasMax": 2044,
+      "colores": 15,
+      "ancho": 97,
+      "alto": 84
+     }
+    },
+    {
+     "id": "double-backflip",
+     "nombre": "Double Backflip",
+     "frames": [
+      "/luchadores/vega/double-backflip/f1.png",
+      "/luchadores/vega/double-backflip/f2.png",
+      "/luchadores/vega/double-backflip/f3.png",
+      "/luchadores/vega/double-backflip/f4.png",
+      "/luchadores/vega/double-backflip/f5.png",
+      "/luchadores/vega/double-backflip/f6.png"
+     ],
+     "gif": "/luchadores/vega/double-backflip/anim.gif",
+     "gifPeq": "/luchadores/vega/double-backflip/anim-s.gif",
+     "gifAncho": 237,
+     "gifAlto": 321,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 1421,
+      "cuentasMax": 1900,
+      "colores": 15,
+      "ancho": 73,
+      "alto": 101
+     }
+    },
+    {
+     "id": "salto-en-pared",
+     "nombre": "Salto en pared",
+     "frames": [
+      "/luchadores/vega/salto-en-pared/f1.png",
+      "/luchadores/vega/salto-en-pared/f2.png",
+      "/luchadores/vega/salto-en-pared/f3.png",
+      "/luchadores/vega/salto-en-pared/f4.png",
+      "/luchadores/vega/salto-en-pared/f5.png",
+      "/luchadores/vega/salto-en-pared/f6.png"
+     ],
+     "gif": "/luchadores/vega/salto-en-pared/anim.gif",
+     "gifPeq": "/luchadores/vega/salto-en-pared/anim-s.gif",
+     "gifAncho": 312,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 6,
+     "datos": {
+      "cuentasMin": 1261,
+      "cuentasMax": 1900,
+      "colores": 15,
+      "ancho": 72,
+      "alto": 75
+     }
+    },
+    {
+     "id": "suplex",
+     "nombre": "Suplex",
+     "frames": [
+      "/luchadores/vega/suplex/f1.png",
+      "/luchadores/vega/suplex/f2.png",
+      "/luchadores/vega/suplex/f3.png"
+     ],
+     "gif": "/luchadores/vega/suplex/anim.gif",
+     "gifPeq": "/luchadores/vega/suplex/anim-s.gif",
+     "gifAncho": 312,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1857,
+      "cuentasMax": 1865,
+      "colores": 15,
+      "ancho": 98,
+      "alto": 94
+     }
+    },
+    {
+     "id": "suplex-aereo",
+     "nombre": "Suplex aéreo",
+     "frames": [
+      "/luchadores/vega/suplex-aereo/f1.png",
+      "/luchadores/vega/suplex-aereo/f2.png",
+      "/luchadores/vega/suplex-aereo/f3.png",
+      "/luchadores/vega/suplex-aereo/f4.png",
+      "/luchadores/vega/suplex-aereo/f5.png",
+      "/luchadores/vega/suplex-aereo/f6.png",
+      "/luchadores/vega/suplex-aereo/f7.png",
+      "/luchadores/vega/suplex-aereo/f8.png"
+     ],
+     "gif": "/luchadores/vega/suplex-aereo/anim.gif",
+     "gifPeq": "/luchadores/vega/suplex-aereo/anim-s.gif",
+     "gifAncho": 258,
+     "gifAlto": 321,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 9,
+     "datos": {
+      "cuentasMin": 392,
+      "cuentasMax": 1900,
+      "colores": 15,
+      "ancho": 80,
+      "alto": 101
+     }
+    }
+   ]
+  },
+  {
+   "id": "golpes",
+   "titulo": "Golpes recibidos",
+   "movimientos": [
+    {
+     "id": "aturdido",
+     "nombre": "Aturdido",
+     "frames": [
+      "/luchadores/vega/aturdido/f1.png",
+      "/luchadores/vega/aturdido/f2.png",
+      "/luchadores/vega/aturdido/f3.png"
+     ],
+     "gif": "/luchadores/vega/aturdido/anim.gif",
+     "gifPeq": "/luchadores/vega/aturdido/anim-s.gif",
+     "gifAncho": 195,
+     "gifAlto": 303,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 1819,
+      "cuentasMax": 2188,
+      "colores": 19,
+      "ancho": 59,
+      "alto": 95
+     }
+    },
+    {
+     "id": "derribo",
+     "nombre": "Derribo",
+     "frames": [
+      "/luchadores/vega/derribo/f1.png",
+      "/luchadores/vega/derribo/f2.png",
+      "/luchadores/vega/derribo/f3.png",
+      "/luchadores/vega/derribo/f4.png",
+      "/luchadores/vega/derribo/f5.png",
+      "/luchadores/vega/derribo/f6.png",
+      "/luchadores/vega/derribo/f7.png",
+      "/luchadores/vega/derribo/f8.png"
+     ],
+     "gif": "/luchadores/vega/derribo/anim.gif",
+     "gifPeq": "/luchadores/vega/derribo/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 12,
+     "datos": {
+      "cuentasMin": 1391,
+      "cuentasMax": 1900,
+      "colores": 15,
+      "ancho": 79,
+      "alto": 91
+     }
+    },
+    {
+     "id": "golpe-en-la-cabeza",
+     "nombre": "Golpe en la cabeza",
+     "frames": [
+      "/luchadores/vega/golpe-en-la-cabeza/f1.png",
+      "/luchadores/vega/golpe-en-la-cabeza/f2.png",
+      "/luchadores/vega/golpe-en-la-cabeza/f3.png"
+     ],
+     "gif": "/luchadores/vega/golpe-en-la-cabeza/anim.gif",
+     "gifPeq": "/luchadores/vega/golpe-en-la-cabeza/anim-s.gif",
+     "gifAncho": 198,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1848,
+      "cuentasMax": 1966,
+      "colores": 15,
+      "ancho": 60,
+      "alto": 91
+     }
+    },
+    {
+     "id": "golpeado",
+     "nombre": "Golpeado",
+     "frames": [
+      "/luchadores/vega/golpeado/f1.png",
+      "/luchadores/vega/golpeado/f2.png",
+      "/luchadores/vega/golpeado/f3.png"
+     ],
+     "gif": "/luchadores/vega/golpeado/anim.gif",
+     "gifPeq": "/luchadores/vega/golpeado/anim-s.gif",
+     "gifAncho": 198,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 3,
+     "datos": {
+      "cuentasMin": 1819,
+      "cuentasMax": 1871,
+      "colores": 19,
+      "ancho": 60,
+      "alto": 83
+     }
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "titulo": "Victoria y extras",
+   "movimientos": [
+    {
+     "id": "victoria-1",
+     "nombre": "Victoria 1",
+     "frames": [
+      "/luchadores/vega/victoria-1/f1.png",
+      "/luchadores/vega/victoria-1/f2.png",
+      "/luchadores/vega/victoria-1/f3.png",
+      "/luchadores/vega/victoria-1/f4.png",
+      "/luchadores/vega/victoria-1/f5.png",
+      "/luchadores/vega/victoria-1/f6.png",
+      "/luchadores/vega/victoria-1/f7.png",
+      "/luchadores/vega/victoria-1/f8.png",
+      "/luchadores/vega/victoria-1/f9.png"
+     ],
+     "gif": "/luchadores/vega/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/vega/victoria-1/anim-s.gif",
+     "gifAncho": 158,
+     "gifAlto": 296,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 12,
+     "datos": {
+      "cuentasMin": 392,
+      "cuentasMax": 2186,
+      "colores": 15,
+      "ancho": 73,
+      "alto": 142
+     }
+    },
+    {
+     "id": "victoria-2",
+     "nombre": "Victoria 2",
+     "frames": [
+      "/luchadores/vega/victoria-2/f1.png",
+      "/luchadores/vega/victoria-2/f2.png",
+      "/luchadores/vega/victoria-2/f3.png",
+      "/luchadores/vega/victoria-2/f4.png",
+      "/luchadores/vega/victoria-2/f5.png",
+      "/luchadores/vega/victoria-2/f6.png",
+      "/luchadores/vega/victoria-2/f7.png",
+      "/luchadores/vega/victoria-2/f8.png"
+     ],
+     "gif": "/luchadores/vega/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/vega/victoria-2/anim-s.gif",
+     "gifAncho": 162,
+     "gifAlto": 262,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 8,
+     "datos": {
+      "cuentasMin": 2096,
+      "cuentasMax": 2330,
+      "colores": 15,
+      "ancho": 75,
+      "alto": 125
+     }
+    },
+    {
+     "id": "tiempo-agotado",
+     "nombre": "Tiempo agotado",
+     "frames": [
+      "/luchadores/vega/tiempo-agotado/f1.png"
+     ],
+     "gif": "/luchadores/vega/tiempo-agotado/anim.png",
+     "gifPeq": "/luchadores/vega/tiempo-agotado/anim-s.png",
+     "gifAncho": 192,
+     "gifAlto": 291,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 1,
+     "datos": {
+      "cuentasMin": 1925,
+      "cuentasMax": 1925,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 91
+     }
+    },
+    {
+     "id": "paletas-alternativas",
+     "nombre": "Paletas alternativas",
+     "frames": [
+      "/luchadores/vega/paletas-alternativas/f1.png",
+      "/luchadores/vega/paletas-alternativas/f2.png",
+      "/luchadores/vega/paletas-alternativas/f3.png",
+      "/luchadores/vega/paletas-alternativas/f4.png",
+      "/luchadores/vega/paletas-alternativas/f5.png",
+      "/luchadores/vega/paletas-alternativas/f6.png",
+      "/luchadores/vega/paletas-alternativas/f7.png"
+     ],
+     "gif": "/luchadores/vega/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/vega/paletas-alternativas/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 303,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 7,
+     "datos": {
+      "cuentasMin": 2101,
+      "cuentasMax": 2188,
+      "colores": 15,
+      "ancho": 58,
+      "alto": 95
+     }
+    },
+    {
+     "id": "retratos",
+     "nombre": "Retratos",
+     "frames": [
+      "/luchadores/vega/retratos/f1.png",
+      "/luchadores/vega/retratos/f2.png",
+      "/luchadores/vega/retratos/f3.png",
+      "/luchadores/vega/retratos/f4.png"
+     ],
+     "gif": "/luchadores/vega/retratos/anim.gif",
+     "gifPeq": "/luchadores/vega/retratos/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 306,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
+     "fotogramas": 4,
+     "datos": {
+      "cuentasMin": 608,
+      "cuentasMax": 5394,
+      "colores": 18,
+      "ancho": 72,
+      "alto": 96
+     }
+    }
+   ]
+  }
+ ]
+}
