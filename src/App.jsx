@@ -9,6 +9,7 @@ import Registro from './pages/Registro.jsx';
 import Perfil from './pages/Perfil.jsx';
 import Coleccion from './pages/Coleccion.jsx';
 import Grupo from './pages/Grupo.jsx';
+import Luchador from './pages/Luchador.jsx';
 import Usuario from './pages/Usuario.jsx';
 import Montaje from './pages/Montaje.jsx';
 import Galeria from './pages/Galeria.jsx';
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="registro" element={<Registro />} />
         <Route path="perfil" element={<Perfil />} />
         <Route path="grupo/:slug" element={<Grupo />} />
+        <Route path="luchador/:id" element={<Luchador />} />
         <Route path="colecciones/:slug" element={<Coleccion />} />
         <Route path="usuario/:handle" element={<Usuario />} />
         <Route path="montaje" element={<Montaje />} />

@@ -3,65 +3,42 @@ import usePageTitle from '../hooks/usePageTitle.js';
 import Icon from '../components/Icon.jsx';
 import { GRUPOS } from '../data/colecciones/grupos.js';
 import { porSlug } from '../data/colecciones/index.js';
+import { luchadorPorId } from '../data/luchadores/index.js';
 import NotFound from './NotFound.jsx';
 import './Grupo.css';
 
-// Página de un grupo con luchadores (Street Fighter): una tarjeta en fila por luchador.
-// De izquierda a derecha: el GIF en bucle, el nombre y los fotogramas del movimiento. Pulsarla abre la ficha de esa colección.
+// Página de un grupo con luchadores (Street Fighter): una tarjeta con la cara de cada luchador.
+// «Ver todos» abre la lista de sus movimientos (/luchador/<id>), ordenados por categorías.
 export default function Grupo() {
   const { slug } = useParams();
   const g = GRUPOS.find((x) => x.slug === slug);
   usePageTitle(`${g ? g.titulo : 'Grupo'} · Mosik Beads`);
   if (!g || !g.luchadores) return <NotFound />;
+  const t = (porSlug(g.colecciones[0]) || {}).tema || { fondo: '#b3261e', circulo: '#f2a21c', circulo2: '#7d1712', acento: '#ffd84a' };
+  const style = { '--c-bg': t.fondo, '--c-a': t.circulo, '--c-b': t.circulo2, '--c-acc': t.acento };
   return (
-    <div className="container grupo-pag">
+    <div className="container grupo-pag" style={style}>
       <nav className="grupo-pag__crumbs" aria-label="Dónde estás"><Link to="/">Inicio</Link> <span aria-hidden="true">/</span> <span>{g.titulo}</span></nav>
       <header className="grupo-pag__head">
         {g.logo && <img className="grupo-pag__logo" src={g.logo} alt={g.logoAlt} />}
-        <h1>Luchadores</h1>
-        <p className="muted">Elige un luchador para ver su movimiento y los diseños para hacerlo en cuentas. De momento, la prueba con Ryu en reposo.</p>
+        <h1>Elige tu luchador</h1>
+        <p className="muted">Cada luchador tiene sus movimientos para hacer en cuentas: reposo, defensas, puños, patadas y especiales.</p>
       </header>
-      <ul className="luch">
-        {g.luchadores.map((l) => {
-          const col = porSlug(l.coleccion);
-          if (!col) return null;
-          const t = col.tema;
-          const alto = Math.max(...col.disenos.map((d) => d.alto));
-          const escala = Math.min(2.6, 150 / alto);
-          // Datos para las tarjetas pequeñas: «más de X» cuentas por diseño (redondeado a la centena), colores (gama Mini) y tamaño
-          const minCuentas = Math.min(...col.disenos.map((d) => d.cuentas));
-          const stats = [
-            { v: `+${(Math.floor(minCuentas / 100) * 100).toLocaleString('es-ES', { useGrouping: 'always' })}`, t: 'cuentas por diseño' },
-            { v: String(Math.max(...col.disenos.map((d) => d.gamas.m.colores.length))), t: 'colores' },
-            { v: `${Math.max(...col.disenos.map((d) => d.ancho))} × ${alto}`, t: 'cuentas de tamaño' },
-          ];
-          const style = { '--l-bg': t.fondo, '--l-a': t.circulo, '--l-b': t.circulo2, '--l-acc': t.acento };
-          return (
-            <li key={l.id}>
-              <Link to={`/colecciones/${col.slug}`} className="luch__card" style={style} aria-label={`${l.nombre}, ${l.movimiento}: ver los diseños`}>
-                <span className="luch__circle" aria-hidden="true" />
-                <img className="luch__gif" src={l.gif} alt={`${l.nombre} en ${l.movimiento.toLowerCase()}, animación`} width="172" height="328" />
-                <div className="luch__body">
-                  <p className="luch__mov">{l.movimiento}</p>
-                  <h2 className="luch__name">{l.nombre}</h2>
-                  <ul className="luch__frames" aria-hidden="true">
-                    {col.disenos.map((d) => (
-                      <li key={d.id}><img src={`/colecciones/${col.slug}/${d.id}.png`} alt="" width={d.ancho} height={d.alto} style={{ width: `${d.ancho * escala}px` }} /></li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="luch__side">
-                  <ul className="luch__stats" aria-label="Datos de cada diseño">
-                    {stats.map((x) => (
-                      <li key={x.t} className="luch__stat"><strong>{x.v}</strong><span>{x.t}</span></li>
-                    ))}
-                  </ul>
-                  <span className="luch__cta">Ver los {col.disenos.length} diseños <Icon name="flecha" size={18} /></span>
-                </div>
-              </Link>
-            </li>
-          );
-        })}
+      <ul className="cara-grid">
+        {g.luchadores.map(luchadorPorId).filter(Boolean).map((l) => (
+          <li key={l.id}>
+            <article className="cara">
+              <span className="cara__circle" aria-hidden="true" />
+              <img className="cara__img" src={l.cara} alt={`Cara de ${l.nombre}`} width="94" height="124" />
+              <div className="cara__body">
+                <p className="cara__pais">{l.pais}</p>
+                <h2 className="cara__name"><Link to={`/luchador/${l.id}`} className="cara__link">{l.nombre}</Link></h2>
+                <p className="cara__n">{l.total} movimientos</p>
+              </div>
+              <span className="cara__cta">Ver todos <Icon name="flecha" size={18} /></span>
+            </article>
+          </li>
+        ))}
       </ul>
     </div>
   );

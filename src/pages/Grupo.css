@@ -1,4 +1,4 @@
-/* Página de un grupo con luchadores: tarjetas en fila (GIF · nombre · fotogramas) */
+/* Página de un grupo con luchadores: tarjeta con la cara de cada uno */
 .grupo-pag { padding-block: 20px 56px; }
 .grupo-pag__crumbs { margin: 0 0 18px; font-size: 14px; color: var(--mk-muted); }
 .grupo-pag__crumbs a { color: inherit; }
@@ -7,40 +7,23 @@
 .grupo-pag__head h1 { margin: 0; font-size: clamp(30px, 4.2vw, 48px); }
 .grupo-pag__head p { margin: 0; max-width: 60ch; }
 
-.luch { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
-.luch__card {
-  position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(16px, 3vw, 40px);
-  min-height: 300px; padding: 24px clamp(20px, 4vw, 48px); overflow: hidden; border-radius: var(--radius-bento);
-  background: var(--l-bg); color: #fff; text-decoration: none; isolation: isolate;
+.cara-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.cara-grid > li { display: grid; min-width: 0; }
+.cara {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 10px; min-height: 380px; padding: 24px;
+  overflow: hidden; border-radius: var(--radius-bento); background: var(--c-bg); color: #fff; isolation: isolate;
   transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
-.luch__card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(21, 7, 2, .28); }
-.luch__card:focus-visible { outline: 3px solid var(--mk-action-border); outline-offset: 4px; }
-.luch__circle { position: absolute; z-index: -1; left: -6%; top: -40%; width: 46%; aspect-ratio: 1; border-radius: 50%; background: var(--l-a); }
-.luch__circle::after { content: ''; position: absolute; left: 60%; bottom: -140%; width: 160%; aspect-ratio: 1; border-radius: 50%; background: var(--l-b); opacity: .75; }
-/* el GIF, a la izquierda del todo */
-.luch__gif { display: block; width: auto; height: clamp(190px, 26vw, 280px); image-rendering: pixelated; filter: drop-shadow(0 10px 8px rgba(21, 7, 2, .35)); }
-.luch__body { display: grid; gap: 10px; justify-items: start; min-width: 0; }
-.luch__mov { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .9; }
-.luch__name { margin: 0; color: #fff; font-size: clamp(34px, 5vw, 64px); line-height: 1.05; }
-.luch__frames { display: flex; align-items: flex-end; gap: 14px; margin: 6px 0 4px; padding: 0; list-style: none; }
-.luch__frames img { display: block; height: auto; image-rendering: pixelated; filter: drop-shadow(0 8px 6px rgba(21, 7, 2, .35)); }
-.luch__cta { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; background: var(--l-acc); color: #150702; font-weight: 600; box-shadow: 0 6px 16px rgba(21, 7, 2, .22); }
-/* a la derecha: tarjetas pequeñas de datos y, debajo, el botón */
-.luch__side { display: grid; gap: 14px; justify-items: end; align-self: center; }
-.luch__stats { display: grid; grid-template-columns: repeat(3, minmax(88px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
-.luch__stat { display: grid; gap: 2px; align-content: center; min-height: 82px; padding: 10px 12px; border: 1px solid rgba(255, 255, 255, .28); border-radius: 14px; background: rgba(21, 7, 2, .24); text-align: left; }
-.luch__stat strong { color: #fff; font-size: clamp(20px, 2vw, 26px); line-height: 1.1; white-space: nowrap; }
-.luch__stat span { color: #fff; font-size: 12.5px; line-height: 1.25; opacity: .9; }
-@media (max-width: 1060px) {
-  .luch__card { grid-template-columns: auto minmax(0, 1fr); }
-  .luch__side { grid-column: 1 / -1; justify-items: start; }
-}
-@media (prefers-reduced-motion: reduce) { .luch__card, .luch__card:hover { transition: none; transform: none; } }
-@media (max-width: 700px) {
-  .luch__card { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
-  .luch__body { justify-items: center; }
-  .luch__frames { justify-content: center; }
-  .luch__side { justify-items: center; }
-  .luch__stats { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
-}
+.cara:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(21, 7, 2, .28); }
+.cara__circle { position: absolute; z-index: -1; right: -24%; top: -22%; width: 86%; aspect-ratio: 1; border-radius: 50%; background: var(--c-a); }
+.cara__circle::after { content: ''; position: absolute; left: -30%; bottom: -150%; width: 110%; aspect-ratio: 1; border-radius: 50%; background: var(--c-b); opacity: .75; }
+.cara__img { display: block; width: 150px; height: auto; image-rendering: pixelated; border-radius: 14px; box-shadow: 0 10px 22px rgba(21, 7, 2, .38); }
+.cara__body { display: grid; gap: 2px; align-content: end; }
+.cara__pais { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .9; }
+.cara__name { margin: 0; color: #fff; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.05; }
+.cara__link { color: inherit; text-decoration: none; }
+.cara__link::after { content: ''; position: absolute; inset: 0; }
+.cara__link:focus-visible { outline: 3px solid #fff; outline-offset: 6px; border-radius: 6px; }
+.cara__n { margin: 4px 0 0; color: #fff; opacity: .95; }
+.cara__cta { align-self: end; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; background: var(--c-acc); color: #150702; font-weight: 600; box-shadow: 0 6px 16px rgba(21, 7, 2, .22); }
+@media (prefers-reduced-motion: reduce) { .cara, .cara:hover { transition: none; transform: none; } }

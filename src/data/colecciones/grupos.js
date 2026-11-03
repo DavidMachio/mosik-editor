@@ -25,10 +25,7 @@ export const GRUPOS = [
     logo: '/colecciones/street-fighter/logo.png',
     logoAlt: 'Street Fighter II',
     colecciones: ['street-fighter-ii'],
-    // Al pulsar su tarjeta de Inicio se abre /grupo/street-fighter: una fila por luchador con sus movimientos.
-    // «coleccion» es el slug de la colección con ficha de ese movimiento; «gif», la animación en bucle.
-    luchadores: [
-      { id: 'ryu', nombre: 'Ryu', movimiento: 'Reposo', coleccion: 'ryu-reposo', gif: '/colecciones/ryu-reposo/anim.gif' },
-    ],
+    // Al pulsar su tarjeta de Inicio se abre /grupo/street-fighter: una tarjeta con la cara de cada luchador (ver src/data/luchadores).
+    luchadores: ['ryu'],
   },
 ];
