@@ -78,9 +78,8 @@ export default function Herramienta() {
     const slug = params.get('modelo');
     if (designId || !slug || loadedRef.current === `modelo:${modeloKey}`) return undefined;
     let cancelled = false;
-    import('../data/colecciones/modelo.js').then(({ modeloAEditor }) => {
+    import('../data/colecciones/modelo.js').then(({ modeloAEditor }) => modeloAEditor(slug, params.get('fase'), params.get('gama'), Number(params.get('pines')))).then((r) => {
       if (cancelled || !editorRef.current) return;
-      const r = modeloAEditor(slug, params.get('fase'), params.get('gama'), Number(params.get('pines')));
       if (!r) { setNotice({ text: 'No hemos encontrado ese modelo.', error: true }); return; }
       editorRef.current.importDesign(r.data);
       loadedRef.current = `modelo:${modeloKey}`;

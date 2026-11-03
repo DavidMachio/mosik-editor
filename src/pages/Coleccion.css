@@ -125,3 +125,6 @@
 @media (max-width: 700px) { .evo-author { grid-template-columns: auto minmax(0, 1fr); } .evo-author__stats { display: none; } .evo-author__btn { grid-column: 1 / -1; justify-content: center; } }
 .evo-author { position: sticky; top: 8px; z-index: 6; box-shadow: 0 8px 22px rgba(21, 7, 2, .12); }
 #evo-ficha { scroll-margin-top: 112px; }
+
+/* Botón de montar el diseño entero, debajo de la gama y cantidad por color */
+.evo-all__montar { display: flex; justify-content: flex-start; margin-top: 14px; }

@@ -20,14 +20,25 @@ export default function Montaje() {
   const pines = Number(params.get('pines'));
 
   // Modelo: de una colección (?modelo=...) o enviado desde el editor (?origen=editor).
-  const modelo = useMemo(() => {
-    if (origen === 'editor') {
-      const e = leer(CLAVE_EDITOR);
-      return e && e.data ? { titulo: e.titulo, data: e.data, hex: e.hex, clave: `editor:${e.ts}` } : null;
-    }
-    const r = slug ? modeloAEditor(slug, fase, gama, pines) : null;
-    return r ? { ...r, clave: `modelo:${slug}:${fase}:${gama}:${pines}` } : null;
+  const delEditor = useMemo(() => {
+    if (origen !== 'editor') return null;
+    const e = leer(CLAVE_EDITOR);
+    return e && e.data ? { titulo: e.titulo, data: e.data, hex: e.hex, clave: `editor:${e.ts}` } : null;
+  }, [origen]);
+  const [deColeccion, setDeColeccion] = useState(null); // las colecciones de los luchadores se cargan al abrir esta página
+  const [cargando, setCargando] = useState(origen !== 'editor' && !!slug);
+  useEffect(() => {
+    if (origen === 'editor' || !slug) { setCargando(false); return undefined; }
+    let cancelled = false;
+    setCargando(true);
+    modeloAEditor(slug, fase, gama, pines).then((r) => {
+      if (cancelled) return;
+      setDeColeccion(r ? { ...r, clave: `modelo:${slug}:${fase}:${gama}:${pines}` } : null);
+      setCargando(false);
+    });
+    return () => { cancelled = true; };
   }, [origen, slug, fase, gama, pines]);
+  const modelo = origen === 'editor' ? delEditor : deColeccion;
 
   const claveProgreso = modelo ? `mosik-montaje-progreso:${modelo.clave}` : null;
   const [hechos, setHechos] = useState([]);
@@ -45,6 +56,7 @@ export default function Montaje() {
     return { cols, rows, pw: pw || cols, ph: ph || rows, grid, colores, total: colores.reduce((a, c) => a + c.n, 0) };
   }, [modelo]);
 
+  if (cargando) return <div className="container mnt"><h1>Montaje</h1><p className="muted" role="status">Preparando el diseño…</p></div>;
   if (!modelo || !info) {
     return (
       <div className="container mnt">

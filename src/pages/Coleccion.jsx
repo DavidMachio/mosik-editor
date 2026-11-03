@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle.js';
 import Icon from '../components/Icon.jsx';
-import { porSlug } from '../data/colecciones/index.js';
+import { useColeccion } from '../data/colecciones/cargar.js';
+import { cabeEntera } from '../data/colecciones/modelo.js';
 import { usuarioPorHandle } from '../data/usuarios.js';
 import NotFound from './NotFound.jsx';
 import './Coleccion.css';
@@ -90,7 +91,8 @@ function Preview({ fase, pines, resaltar }) {
 
 
 // Los tres diseños juntos: composición en cuentas, totales y gama con la cantidad de cada color.
-function Conjunto({ disenos: EVOLUCIONES, gama, setGama, pines, setPines, tam, setTam }) {
+function Conjunto({ slug, disenos: EVOLUCIONES, gama, setGama, pines, setPines, tam, setTam }) {
+  const sinVista = EVOLUCIONES.length > 6; // con muchos fotogramas no se pinta la composición (serían decenas de miles de cuentas en pantalla)
   const [selRaw, setSel] = useState(null);
   const GAP = 5;
   const data = useMemo(() => {
@@ -112,7 +114,7 @@ function Conjunto({ disenos: EVOLUCIONES, gama, setGama, pines, setPines, tam, s
   const elegido = data.colores.find((c) => c.codigo === sel);
 
   const beads = [];
-  EVOLUCIONES.forEach((f, i) => {
+  if (!sinVista) EVOLUCIONES.forEach((f, i) => {
     const letraCodigo = Object.fromEntries(f.colores.map((c) => [c.letra, c]));
     const dy = data.alto - f.alto; // alineados por abajo
     f.filas.forEach((fila, y) => {
@@ -146,10 +148,12 @@ function Conjunto({ disenos: EVOLUCIONES, gama, setGama, pines, setPines, tam, s
         <li className="evo-stat"><span className="evo-stat__label">Diseños</span><strong>{EVOLUCIONES.length}</strong><span className="evo-stat__sub">{EVOLUCIONES.map((f) => f.cuentas).join(' + ')}</span></li>
         <li className="evo-stat"><span className="evo-stat__label">Placas</span><strong>{placas.n}</strong><span className="evo-stat__sub">{placas.c} × {placas.r} de {pines} × {pines} · tablero de {data.ancho} × {data.alto}</span></li>
       </ul>
-      <div className="evo-prev__stage evo-all__stage">
-        <svg className="evo-prev__svg" viewBox={`-6 -6 ${data.ancho * 10 + 12} ${data.alto * 10 + 12}`} role="img"
-          aria-label={`Los diseños juntos: ${data.total} cuentas, ${data.colores.length} colores y ${placas.n} placas`}>{beads}<Guias ancho={data.ancho} alto={data.alto} pines={pines} /></svg>
-      </div>
+      {!sinVista && (
+        <div className="evo-prev__stage evo-all__stage">
+          <svg className="evo-prev__svg" viewBox={`-6 -6 ${data.ancho * 10 + 12} ${data.alto * 10 + 12}`} role="img"
+            aria-label={`Los diseños juntos: ${data.total} cuentas, ${data.colores.length} colores y ${placas.n} placas`}>{beads}<Guias ancho={data.ancho} alto={data.alto} pines={pines} /></svg>
+        </div>
+      )}
       <div className="evo-all__gama">
         <div className="evo-all__gamahead">
           <h3>Gama y cantidad por color</h3>
@@ -171,6 +175,9 @@ function Conjunto({ disenos: EVOLUCIONES, gama, setGama, pines, setPines, tam, s
             ? <>El color <strong>{elegido.codigo}</strong>: {elegido.total} cuentas en total ({EVOLUCIONES.map((f, i) => `${f.nombre} ${elegido.por[i]}`).join(' · ')}).</>
             : 'Pulsa un color para ver cuántas cuentas lleva cada diseño.'}
         </p>
+        <div className="evo-all__montar">
+          <Link to={`/montaje?modelo=${slug}&fase=todos${tam === 'p' ? '-p' : ''}&gama=${gama}&pines=${pines}`} className="btn"><Icon name="cuentas" size={18} /> Montar el diseño entero</Link>
+        </div>
       </div>
     </section>
   );
@@ -180,7 +187,8 @@ const num = (n) => (n ? `Nº ${String(n).padStart(3, '0')}` : '');
 
 export default function Coleccion() {
   const { slug } = useParams();
-  const col = porSlug(slug);
+  const { col, estado } = useColeccion(slug);
+  if (estado === 'cargando') return <div className="container evo-page"><p className="muted" role="status">Cargando la colección…</p></div>;
   if (!col) return <NotFound />;
   return <ColeccionPagina col={col} />;
 }
@@ -191,6 +199,8 @@ function ColeccionPagina({ col }) {
   const [tam, setTam] = useState('g'); // 'g' grande, 'p' pequeña (solo si los diseños tienen versión pequeña)
   const [selFicha, setSelFicha] = useState(null);
   const conPequena = col.disenos.some((d) => d.pequeno);
+  // «Si haces todos» solo si todos juntos caben en el tablero de la herramienta (6 placas por lado)
+  const conjuntoCabe = col.disenos.length > 1 && col.disenos.length <= 24 && cabeEntera(col, tam === 'p', pines);
   const EVOLUCIONES = useMemo(() => col.disenos.map((d) => enGama(d, gama, tam)), [col, gama, tam]);
   usePageTitle(`${col.titulo} · Mosik Beads`);
   const [params, setParams] = useSearchParams();
@@ -207,7 +217,7 @@ function ColeccionPagina({ col }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const t = col.tema;
-  const style = { '--evo-bg': t.fondo, '--evo-a': t.circulo, '--evo-b': t.circulo2, '--evo-yellow': t.acento };
+  const style = { '--evo-bg': t.fondo, '--evo-a': t.circulo, '--evo-b': t.circulo2, '--evo-yellow': t.acento, '--evo-ink': t.acentoTexto || '#150702' };
 
   function onKey(e, i) {
     let n = null;
@@ -240,14 +250,15 @@ function ColeccionPagina({ col }) {
         <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección{col.entrega ? ` · ${col.entrega}` : ''}</p>
         <h1>{col.titulo}</h1>
         <p className="evo-hero__lead">{col.intro}</p>
-        {EVOLUCIONES.length > 1 && EVOLUCIONES.length <= 6 && <Conjunto disenos={EVOLUCIONES} gama={gama} setGama={setGama} pines={pines} setPines={setPines} tam={tam} setTam={conPequena ? setTam : undefined} />}
-        {EVOLUCIONES.length > 6 && <Ajustes gama={gama} setGama={setGama} pines={pines} setPines={setPines} tam={tam} setTam={conPequena ? setTam : undefined} />}
+        {conjuntoCabe
+          ? <Conjunto slug={col.slug} disenos={EVOLUCIONES} gama={gama} setGama={setGama} pines={pines} setPines={setPines} tam={tam} setTam={conPequena ? setTam : undefined} />
+          : EVOLUCIONES.length > 1 && <Ajustes gama={gama} setGama={setGama} pines={pines} setPines={setPines} tam={tam} setTam={conPequena ? setTam : undefined} />}
         <p className="evo-hero__pick">{EVOLUCIONES.length > 1 ? 'O elige un diseño para ver su ficha:' : 'Su ficha:'}</p>
         <div className="evo-tabs" role="tablist" aria-label="Diseños de la colección">
           {EVOLUCIONES.map((f, i) => (
             <button key={f.id} type="button" role="tab" id={`evo-tab-${i}`} aria-selected={i === sel - 1} aria-controls="evo-ficha"
               tabIndex={i === sel - 1 ? 0 : -1} className="evo-tab" onClick={() => pick(i)} onKeyDown={(e) => onKey(e, i)}>
-              <span className="evo-tab__img"><img src={`/colecciones/${col.slug}/${f.id}.png`} alt="" width={f.ancho} height={f.alto} /></span>
+              <span className="evo-tab__img"><img src={`${col.base || `/colecciones/${col.slug}`}/${f.id}.png`} alt="" width={f.ancho} height={f.alto} loading="lazy" /></span>
               <span className="evo-tab__txt">{f.numero ? <span className="evo-tab__num">{num(f.numero)}</span> : null}<span className="evo-tab__name">{f.nombre}</span><span className="evo-tab__phase">{f.fase}</span></span>
             </button>
           ))}

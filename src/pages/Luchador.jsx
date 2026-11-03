@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle.js';
 import FilaMovimiento from '../components/FilaMovimiento.jsx';
-import { luchadorPorId, FICHAS } from '../data/luchadores/index.js';
+import { luchadorPorId } from '../data/luchadores/index.js';
 import { porSlug } from '../data/colecciones/index.js';
 import NotFound from './NotFound.jsx';
 import './Luchador.css';
@@ -38,7 +38,7 @@ export default function Luchador() {
           <h2 id={`cat-t-${c.id}`}>{c.titulo}</h2>
           <ul className="luch-pag__list">
             {c.movimientos.map((m) => (
-              <li key={m.id}><FilaMovimiento luchador={l} mov={m} tema={tema} coleccion={FICHAS[`${l.id}/${m.id}`]} /></li>
+              <li key={m.id}><FilaMovimiento luchador={l} mov={m} tema={tema} coleccion={`${l.id}-${m.id}`} /></li>
             ))}
           </ul>
         </section>

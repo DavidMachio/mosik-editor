@@ -17,6 +17,5 @@ import sagat from './sagat.json';
 import m_bison from './m-bison.json';
 
 export const LUCHADORES = { 'ryu': ryu, 'e-honda': e_honda, 'blanka': blanka, 'guile': guile, 'ken': ken, 'chun-li': chun_li, 'zangief': zangief, 'dhalsim': dhalsim, 't-hawk': t_hawk, 'fei-long': fei_long, 'dee-jay': dee_jay, 'cammy': cammy, 'balrog': balrog, 'vega': vega, 'sagat': sagat, 'm-bison': m_bison };
-// Movimientos que ya tienen colección con ficha: «luchador/movimiento» -> slug de la colección
-export const FICHAS = { 'ryu/reposo': 'ryu-reposo' };
+// La ficha de cada movimiento es la colección «<luchador>-<movimiento>» (public/fichas, se carga al abrirla).
 export const luchadorPorId = (id) => LUCHADORES[id];
