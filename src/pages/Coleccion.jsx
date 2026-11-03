@@ -11,7 +11,11 @@ const PINES_PREDEFINIDOS = [20, 29, 40];
 const GAMAS = { m: { nombre: 'Mini', sub: 'Artkal M · sólidos' }, s: { nombre: 'Midi', sub: 'Artkal S · sólidos' } };
 
 // Un diseño en la gama elegida (los colores y las cuentas por color cambian; el tamaño no).
-const enGama = (d, g) => ({ ...d, colores: d.gamas[g].colores, filas: d.gamas[g].filas });
+// Con tam === 'p' y si el diseño tiene versión pequeña, se usa esa (su id lleva «-p»).
+const enGama = (d, g, tam) => {
+  const v = tam === 'p' && d.pequeno ? { ...d, ...d.pequeno, id: `${d.id}-p` } : d;
+  return { ...v, colores: v.gamas[g].colores, filas: v.gamas[g].filas };
+};
 const placasDe = (ancho, alto, pines) => { const c = Math.ceil(ancho / pines); const r = Math.ceil(alto / pines); return { c, r, n: c * r }; };
 
 // Líneas de guía cada «pines» cuentas (límite de cada placa).
@@ -23,9 +27,18 @@ function Guias({ ancho, alto, pines }) {
 }
 
 // Ajustes comunes de la página: gama (Mini/Midi) y cuentas por placa. Recalculan colores y placas.
-function Ajustes({ gama, setGama, pines, setPines }) {
+function Ajustes({ gama, setGama, pines, setPines, tam, setTam }) {
   return (
     <div className="evo-set" role="group" aria-label="Ajustes del cálculo">
+      {setTam && (
+        <div className="evo-set__item">
+          <span className="evo-set__label" id="evo-tam-l">Tamaño del diseño</span>
+          <div className="evo-seg" role="radiogroup" aria-labelledby="evo-tam-l">
+            <button type="button" role="radio" aria-checked={tam === 'g'} className="evo-seg__btn" onClick={() => setTam('g')}>Grande</button>
+            <button type="button" role="radio" aria-checked={tam === 'p'} className="evo-seg__btn" onClick={() => setTam('p')}>Pequeña</button>
+          </div>
+        </div>
+      )}
       <div className="evo-set__item">
         <span className="evo-set__label" id="evo-gama-l">Gama de cuentas</span>
         <div className="evo-seg" role="radiogroup" aria-labelledby="evo-gama-l">
@@ -77,7 +90,7 @@ function Preview({ fase, pines, resaltar }) {
 
 
 // Los tres diseños juntos: composición en cuentas, totales y gama con la cantidad de cada color.
-function Conjunto({ disenos: EVOLUCIONES, gama, setGama, pines, setPines }) {
+function Conjunto({ disenos: EVOLUCIONES, gama, setGama, pines, setPines, tam, setTam }) {
   const [selRaw, setSel] = useState(null);
   const GAP = 5;
   const data = useMemo(() => {
@@ -126,7 +139,7 @@ function Conjunto({ disenos: EVOLUCIONES, gama, setGama, pines, setPines }) {
         <h2 id="evo-all-t">Si haces {EVOLUCIONES.length === 2 ? 'los dos' : EVOLUCIONES.length === 3 ? 'los tres' : 'todos'}</h2>
         <p className="muted">La línea completa, una al lado de otra. Pulsa un color para verlo pintado en la composición.</p>
       </div>
-      <Ajustes gama={gama} setGama={setGama} pines={pines} setPines={setPines} />
+      <Ajustes gama={gama} setGama={setGama} pines={pines} setPines={setPines} tam={tam} setTam={setTam} />
       <ul className="evo-stats evo-stats--all" aria-label="Datos de todos los diseños juntos">
         <li className="evo-stat evo-stat--big"><span className="evo-stat__label">Total de cuentas</span><strong>{data.total.toLocaleString('es-ES')}</strong></li>
         <li className="evo-stat"><span className="evo-stat__label">Colores distintos</span><strong>{data.colores.length}</strong></li>
@@ -175,8 +188,10 @@ export default function Coleccion() {
 function ColeccionPagina({ col }) {
   const [gama, setGama] = useState('m');
   const [pines, setPines] = useState(29);
+  const [tam, setTam] = useState('g'); // 'g' grande, 'p' pequeña (solo si los diseños tienen versión pequeña)
   const [selFicha, setSelFicha] = useState(null);
-  const EVOLUCIONES = useMemo(() => col.disenos.map((d) => enGama(d, gama)), [col, gama]);
+  const conPequena = col.disenos.some((d) => d.pequeno);
+  const EVOLUCIONES = useMemo(() => col.disenos.map((d) => enGama(d, gama, tam)), [col, gama, tam]);
   usePageTitle(`${col.titulo} · Mosik Beads`);
   const [params, setParams] = useSearchParams();
   const sel = Math.max(1, Math.min(EVOLUCIONES.length, Number(params.get('fase')) || 1));
@@ -225,7 +240,8 @@ function ColeccionPagina({ col }) {
         <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección{col.entrega ? ` · ${col.entrega}` : ''}</p>
         <h1>{col.titulo}</h1>
         <p className="evo-hero__lead">{col.intro}</p>
-        {EVOLUCIONES.length > 1 && EVOLUCIONES.length <= 6 && <Conjunto disenos={EVOLUCIONES} gama={gama} setGama={setGama} pines={pines} setPines={setPines} />}
+        {EVOLUCIONES.length > 1 && EVOLUCIONES.length <= 6 && <Conjunto disenos={EVOLUCIONES} gama={gama} setGama={setGama} pines={pines} setPines={setPines} tam={tam} setTam={conPequena ? setTam : undefined} />}
+        {EVOLUCIONES.length > 6 && <Ajustes gama={gama} setGama={setGama} pines={pines} setPines={setPines} tam={tam} setTam={conPequena ? setTam : undefined} />}
         <p className="evo-hero__pick">{EVOLUCIONES.length > 1 ? 'O elige un diseño para ver su ficha:' : 'Su ficha:'}</p>
         <div className="evo-tabs" role="tablist" aria-label="Diseños de la colección">
           {EVOLUCIONES.map((f, i) => (

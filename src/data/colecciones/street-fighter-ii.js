@@ -7,8 +7,8 @@ export default {
   "Doce luchadores",
   " en cuentas"
  ],
- "texto": "Los doce luchadores de Street Fighter II en retratos de pixel art, con sus colores de siempre.",
- "intro": "Doce retratos de Street Fighter II. Elige un luchador para ver su ficha.",
+ "texto": "Los doce luchadores de Street Fighter II en retratos de pixel art, con sus colores de siempre. En versión grande y pequeña.",
+ "intro": "Doce retratos de Street Fighter II, en versión grande o pequeña. Elige el tamaño y un luchador para ver su ficha.",
  "resumen": "Doce luchadores de Street Fighter II en pixel art.",
  "tema": {
   "fondo": "#b3261e",
@@ -403,6 +403,223 @@ export default {
       ".......bbbbbbaaabbbaabbbddddddddeeeeeeedeeiiiiieeeeeddddmljjjjjkl......."
      ]
     }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 178,
+        "letra": "b"
+       },
+       {
+        "codigo": "G7",
+        "hex": "#985C3A",
+        "cuentas": 101,
+        "letra": "c"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 91,
+        "letra": "a"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 73,
+        "letra": "d"
+       },
+       {
+        "codigo": "G9",
+        "hex": "#E4B585",
+        "cuentas": 42,
+        "letra": "e"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 24,
+        "letra": "i"
+       },
+       {
+        "codigo": "A11",
+        "hex": "#FEDB98",
+        "cuentas": 22,
+        "letra": "f"
+       },
+       {
+        "codigo": "F15",
+        "hex": "#D30629",
+        "cuentas": 11,
+        "letra": "h"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 10,
+        "letra": "k"
+       },
+       {
+        "codigo": "F5",
+        "hex": "#E3052A",
+        "cuentas": 9,
+        "letra": "g"
+       },
+       {
+        "codigo": "M6",
+        "hex": "#B0AA85",
+        "cuentas": 9,
+        "letra": "j"
+       }
+      ],
+      "filas": [
+       "aaaabcbcbcbcbbbaaaa",
+       "aabcabccccccccccbaa",
+       "aaabcccddeedeedccba",
+       "abbcccdeefeeededcbb",
+       "babbbefefedddccdbcc",
+       "abcccdcddddbdcbccbc",
+       "bcbbdbcccdcbcbbbcbc",
+       "bbbccbccbcbbcbbbbbb",
+       "bbbcbbcbbbcbcbbbbbb",
+       "bbbcbbcbbbbbbbbgghb",
+       "bbbbbhcbggbhbgghhhh",
+       "bbbbhgbbggbbbbhcbeb",
+       "babbbhbhbbbbbbdbede",
+       "aabbbbdfcbbbdfebdbe",
+       "aababbcbbbbicffdbbd",
+       "aaababbecdcdeffdbec",
+       "aaaaabedcfeeffdddcb",
+       "aaaaacfddefffdddbbb",
+       "aaaaaeedbdedddddcbb",
+       "aaaaabbbcffeddddcbc",
+       "aaaaaabbbcceedddbbc",
+       "aaaaaabcdfdceddcbcc",
+       "aaaaaaabbcddddcbbdc",
+       "aaaaaaabfeeddcbbbec",
+       "aaajaaacdedccbbbcec",
+       "aaakjjkkcccbbbbbecc",
+       "aaaakiiiiiijbcbedcb",
+       "aiiiiiikiikbdbcfccd",
+       "ajjikiikijbddbfdbec",
+       "jiikiijikbbdceebbdb"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S41",
+        "hex": "#975F49",
+        "cuentas": 101,
+        "letra": "c"
+       },
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 100,
+        "letra": "g"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 91,
+        "letra": "a"
+       },
+       {
+        "codigo": "S15",
+        "hex": "#7D383C",
+        "cuentas": 78,
+        "letra": "b"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 73,
+        "letra": "d"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 42,
+        "letra": "e"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 24,
+        "letra": "j"
+       },
+       {
+        "codigo": "S52",
+        "hex": "#DAC779",
+        "cuentas": 22,
+        "letra": "f"
+       },
+       {
+        "codigo": "S66",
+        "hex": "#E66252",
+        "cuentas": 11,
+        "letra": "i"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 10,
+        "letra": "l"
+       },
+       {
+        "codigo": "S04",
+        "hex": "#EC7249",
+        "cuentas": 9,
+        "letra": "h"
+       },
+       {
+        "codigo": "S68",
+        "hex": "#AA9771",
+        "cuentas": 9,
+        "letra": "k"
+       }
+      ],
+      "filas": [
+       "aaaabcbcbcbcbbbaaaa",
+       "aabcabccccccccccbaa",
+       "aaabcccddeedeedccba",
+       "abbcccdeefeeededcbb",
+       "bagbbefefedddccdbcc",
+       "agcccdcddddbdcbccbc",
+       "gcbbdbcccdcbcbgbcbc",
+       "gbbccgccgcbgcbggbgb",
+       "bbgcggcggbcgcgbgggg",
+       "gggcggcgggbgggghhig",
+       "gbgbgicghhgighhiiii",
+       "ggggihgghhggggicgeg",
+       "gagggigiggggggdgede",
+       "aaggggdfcgggdfebdge",
+       "aagaggcbgggjcffdggd",
+       "aaagabbecdcdeffdbec",
+       "aaaaabedcfeeffdddcg",
+       "aaaaacfddefffdddggb",
+       "aaaaaeedbdedddddcgb",
+       "aaaaabbbcffeddddcgc",
+       "aaaaaagbbcceedddbbc",
+       "aaaaaabcdfdceddcgcc",
+       "aaaaaaagbcddddcgbdc",
+       "aaaaaaabfeeddcbgbec",
+       "aaakaaacdedccggbcec",
+       "aaalkkllcccbggbbecc",
+       "aaaaljjjjjjkgcbedcb",
+       "ajjjjjjljjlgdbcfccd",
+       "akkjljjljkgddbfdbec",
+       "kjjljjkjlgbdceebbdb"
+      ]
+     }
+    }
    }
   },
   {
@@ -754,6 +971,235 @@ export default {
       "....ihhhhgggfaggggggggggggggggggggggeaaaghhhhhhhgfgffffffffffffffeaa....",
       "......hhhgggfagggggggggggggggggggggaaafghhhhhhggggfffefeeeaaaaaaaa......"
      ]
+    }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 246,
+        "letra": "b"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 69,
+        "letra": "a"
+       },
+       {
+        "codigo": "G9",
+        "hex": "#E4B585",
+        "cuentas": 55,
+        "letra": "c"
+       },
+       {
+        "codigo": "G7",
+        "hex": "#985C3A",
+        "cuentas": 53,
+        "letra": "d"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 51,
+        "letra": "g"
+       },
+       {
+        "codigo": "A11",
+        "hex": "#FEDB98",
+        "cuentas": 37,
+        "letra": "h"
+       },
+       {
+        "codigo": "G20",
+        "hex": "#A5452F",
+        "cuentas": 20,
+        "letra": "i"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 13,
+        "letra": "f"
+       },
+       {
+        "codigo": "F5",
+        "hex": "#E3052A",
+        "cuentas": 10,
+        "letra": "j"
+       },
+       {
+        "codigo": "F15",
+        "hex": "#D30629",
+        "cuentas": 8,
+        "letra": "l"
+       },
+       {
+        "codigo": "M6",
+        "hex": "#B0AA85",
+        "cuentas": 7,
+        "letra": "e"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 1,
+        "letra": "k"
+       }
+      ],
+      "filas": [
+       "aaaaaaaaaabbbbbaaaa",
+       "aaaaaaaaabcdbbbbbaa",
+       "aaaaaaaaabbbbbbbbba",
+       "aaaaaaaabeffbbbbbba",
+       "aaaaaabbbbbbfbbbbba",
+       "aaaaabbbbbbbbbbbbaa",
+       "aaaabbbbbbbbbgbbbba",
+       "aabbggbbbbbbbbcbbbb",
+       "abdgbbgbbbbggbbdbbb",
+       "abbbdbbbbgcccdbbdbb",
+       "abbbdhbbbhhcbcbbbbb",
+       "abbdbhhhhhbdbgbbbhb",
+       "dbbbbdhhhhbbbibbhbc",
+       "gdbbbbhjhcbbbjcbcbc",
+       "ghdbkbbjcbbbihddbdc",
+       "hhgbbebbbbbfijdcbcb",
+       "hhgiiiihbgbidjicbbb",
+       "hcdiigchbdhjjdiibbb",
+       "ccbjighgcbhciibjbbg",
+       "cgbigbfbbddebiigbbg",
+       "gdbdcbefffebbgbjbbg",
+       "ddbbgbfllllbbcbibbd",
+       "dbbbbbflllledcgbbbb",
+       "gdbbbbgfffedcgdbbdb",
+       "cgdbgbcgdddcgbbbbgd",
+       "ccgbdbdhchhdbbbgbbb",
+       "ccgbbgbbbbbbbbbcbbg",
+       "ccgbbdhhcgdbbdcdbgh",
+       "cgdbdchccccgdbddbhc",
+       "cgbdcggggccccdbbhcg"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 159,
+        "letra": "c"
+       },
+       {
+        "codigo": "S15",
+        "hex": "#7D383C",
+        "cuentas": 87,
+        "letra": "b"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 69,
+        "letra": "a"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 55,
+        "letra": "d"
+       },
+       {
+        "codigo": "S41",
+        "hex": "#975F49",
+        "cuentas": 53,
+        "letra": "e"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 51,
+        "letra": "h"
+       },
+       {
+        "codigo": "S52",
+        "hex": "#DAC779",
+        "cuentas": 37,
+        "letra": "i"
+       },
+       {
+        "codigo": "S146",
+        "hex": "#8C1E35",
+        "cuentas": 20,
+        "letra": "j"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 13,
+        "letra": "g"
+       },
+       {
+        "codigo": "S04",
+        "hex": "#EC7249",
+        "cuentas": 10,
+        "letra": "k"
+       },
+       {
+        "codigo": "S66",
+        "hex": "#E66252",
+        "cuentas": 8,
+        "letra": "m"
+       },
+       {
+        "codigo": "S68",
+        "hex": "#AA9771",
+        "cuentas": 7,
+        "letra": "f"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 1,
+        "letra": "l"
+       }
+      ],
+      "filas": [
+       "aaaaaaaaaabbcccaaaa",
+       "aaaaaaaaabdebccccaa",
+       "aaaaaaaaacbbcbcccca",
+       "aaaaaaaacfggcccccca",
+       "aaaaaacbbccbgccccca",
+       "aaaaaccccbcccbcccaa",
+       "aaaabbcccccbbhbccca",
+       "aabbhhbbcbcccbdbccc",
+       "acehcbhbbcchhcbebcc",
+       "acbcecccchdddecbebc",
+       "accceiccciidcdccbbb",
+       "acceciiiiicechcccic",
+       "ecccceiiiicccjbcicd",
+       "heccccikidccckdcdcd",
+       "hieclcckdcccjieeced",
+       "iihcbfccbbcgjkedbdc",
+       "iihjjjjibhbjekjdbcc",
+       "idejjhdibeikkejjbcb",
+       "ddbkjhihdcidjjbkbch",
+       "dhcjhbgcceefcjjhbch",
+       "hecedbfgggfcchbkbch",
+       "eecchbgmmmmccdbjcce",
+       "ebccbbgmmmmfedhbccb",
+       "hebccbhgggfedhecceb",
+       "dhechcdheeedhbcbche",
+       "ddhcebeidiiebcchbbb",
+       "ddhcchbbbbcccbbdbbh",
+       "ddhcbeiidhebbedebhi",
+       "dhecediddddhebeebid",
+       "dhbedhhhhddddecbidh"
+      ]
+     }
     }
    }
   },
@@ -1110,6 +1556,239 @@ export default {
       "....hhhihiiiiiiiiihiihhhhhhhhhhhgffffffffgghhhhhgghhhiiikkkkkkkkiihh.j",
       "......hhiiiiiiiiiiiihihihhhhhhhhggfffffggghhhhhhhgghhhikkkkkkkkkih...j"
      ]
+    }
+   },
+   "pequeno": {
+    "ancho": 20,
+    "alto": 32,
+    "cuentas": 640,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "B17",
+        "hex": "#9CB43E",
+        "cuentas": 152,
+        "letra": "f"
+       },
+       {
+        "codigo": "A10",
+        "hex": "#F57E36",
+        "cuentas": 92,
+        "letra": "c"
+       },
+       {
+        "codigo": "B12",
+        "hex": "#1C6E3C",
+        "cuentas": 64,
+        "letra": "k"
+       },
+       {
+        "codigo": "G20",
+        "hex": "#A5452F",
+        "cuentas": 63,
+        "letra": "e"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 56,
+        "letra": "a"
+       },
+       {
+        "codigo": "B14",
+        "hex": "#ADE84D",
+        "cuentas": 54,
+        "letra": "g"
+       },
+       {
+        "codigo": "B23",
+        "hex": "#353B1B",
+        "cuentas": 54,
+        "letra": "j"
+       },
+       {
+        "codigo": "A6",
+        "hex": "#FBAA50",
+        "cuentas": 35,
+        "letra": "d"
+       },
+       {
+        "codigo": "B13",
+        "hex": "#C8E87E",
+        "cuentas": 28,
+        "letra": "h"
+       },
+       {
+        "codigo": "H11",
+        "hex": "#CECDCD",
+        "cuentas": 19,
+        "letra": "b"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 16,
+        "letra": "i"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 4,
+        "letra": "l"
+       },
+       {
+        "codigo": "H23",
+        "hex": "#9B9C97",
+        "cuentas": 3,
+        "letra": "m"
+       }
+      ],
+      "filas": [
+       "aaaaaaaaaaaaaaaaaaab",
+       "ccddccddcddccccecceb",
+       "ccddccdccdcccceccecb",
+       "ccddcddcdccccccceccb",
+       "ecddcdccdccecccecccb",
+       "ecddcdcddceecceccceb",
+       "eccdcdcdcefcceccceeb",
+       "eecdcdcdcefeeccceeea",
+       "eecdcdeccfgeccceeeea",
+       "ceedcdfcefgfceeeeeca",
+       "ececdegcfhgfcefgfeea",
+       "eeeecfhehhgfefgfgfea",
+       "ieefefhhhghgffgjfgea",
+       "iiihfhhghhhhhffjkgea",
+       "iiighhgghfkffhffjgea",
+       "iiiffgfhhjlfhgfffeea",
+       "iiighfgfjlbghffffjja",
+       "iikkgffkkffhgffffjka",
+       "ikfgkkgfffgkkfffgjka",
+       "kfgggkhfffkbbjgfgkfa",
+       "fggggfhffkmlbjgffjfa",
+       "fgfgfjfjmblmjgffkjfa",
+       "ffgfgfjfkkkggkfkjkka",
+       "kfffffjfgggffffjjkka",
+       "kffffffjjkkkffkjfkka",
+       "kkfffffffjfffjjfkfjb",
+       "fkkfffkfffjjjjkfkfjb",
+       "fffkkkkkfffjjfjkjfjb",
+       "ffffkkjkfggfkjfjjkjb",
+       "ffffkkjjkffgfkkjjkjb",
+       "fffkkjjjjfffggffjkjb",
+       "aaaaaaaaaaaaaaaaaaab"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S123",
+        "hex": "#55C443",
+        "cuentas": 130,
+        "letra": "g"
+       },
+       {
+        "codigo": "S70",
+        "hex": "#9BA73E",
+        "cuentas": 76,
+        "letra": "f"
+       },
+       {
+        "codigo": "S03",
+        "hex": "#EE9A32",
+        "cuentas": 70,
+        "letra": "d"
+       },
+       {
+        "codigo": "S71",
+        "hex": "#24874F",
+        "cuentas": 64,
+        "letra": "k"
+       },
+       {
+        "codigo": "S97",
+        "hex": "#D3733F",
+        "cuentas": 63,
+        "letra": "e"
+       },
+       {
+        "codigo": "S56",
+        "hex": "#FC8945",
+        "cuentas": 57,
+        "letra": "c"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 56,
+        "letra": "a"
+       },
+       {
+        "codigo": "S151",
+        "hex": "#2D4937",
+        "cuentas": 54,
+        "letra": "j"
+       },
+       {
+        "codigo": "S65",
+        "hex": "#D8E788",
+        "cuentas": 28,
+        "letra": "h"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 23,
+        "letra": "b"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 16,
+        "letra": "i"
+       },
+       {
+        "codigo": "S79",
+        "hex": "#98A4AC",
+        "cuentas": 3,
+        "letra": "l"
+       }
+      ],
+      "filas": [
+       "aaaaaaaaaaaaaaaaaaab",
+       "cddddcddcddcdcdecdeb",
+       "cdddcdddcdcdcdecdedb",
+       "ccddcddcddcdcccdedcb",
+       "ecddcddcdcdecddedccb",
+       "ecddcdcddceecdedcceb",
+       "ecddcdcddefcdedcceeb",
+       "eeddcdcdcegeecdceeea",
+       "eecdcdedcfgecdceeeea",
+       "ceedcdfdeggfdeeeeeca",
+       "eceddegcfhgfcefgfeea",
+       "eeeedfhehhggefgfgfea",
+       "ieegeghhhghggggjfgea",
+       "iiihghhghhhhhggjkgea",
+       "iiighhgghgkfghggjgea",
+       "iiifggghhjbghggggeea",
+       "iiighgggjbbghgfgfjja",
+       "iikkggfkkfghgffggjka",
+       "ikggkkggfggkkggfgjka",
+       "kggggkhgfgkbbjgfgkfa",
+       "fggggfhgfklbbjgggjfa",
+       "fggggjgjlbbljgfgkjfa",
+       "fgggggjgkkkggkfkjkka",
+       "kgggggjgggggffgjjkka",
+       "kfgggffjjkkkfgkjfkka",
+       "kkfgfffffjfggjjfkfjb",
+       "fkkfffkfffjjjjkfkfjb",
+       "gffkkkkkfgfjjfjkjfjb",
+       "ggffkkjkfggfkjfjjkjb",
+       "ggffkkjjkggggkkjjkjb",
+       "gffkkjjjjggggggfjkjb",
+       "aaaaaaaaaaaaaaaaaaab"
+      ]
+     }
     }
    }
   },
@@ -1493,6 +2172,235 @@ export default {
       "......agdffdaggaaaallllllllllllllllllllllaaaaaggdgdddddaaaaaaaaggg....."
      ]
     }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 78,
+        "letra": "a"
+       },
+       {
+        "codigo": "F10",
+        "hex": "#874628",
+        "cuentas": 67,
+        "letra": "h"
+       },
+       {
+        "codigo": "M13",
+        "hex": "#C59265",
+        "cuentas": 66,
+        "letra": "k"
+       },
+       {
+        "codigo": "G7",
+        "hex": "#985C3A",
+        "cuentas": 59,
+        "letra": "g"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 56,
+        "letra": "l"
+       },
+       {
+        "codigo": "A24",
+        "hex": "#F0F6A9",
+        "cuentas": 44,
+        "letra": "c"
+       },
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 43,
+        "letra": "i"
+       },
+       {
+        "codigo": "A26",
+        "hex": "#FEC832",
+        "cuentas": 42,
+        "letra": "b"
+       },
+       {
+        "codigo": "G11",
+        "hex": "#D9CB9A",
+        "cuentas": 39,
+        "letra": "j"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 29,
+        "letra": "d"
+       },
+       {
+        "codigo": "G10",
+        "hex": "#D98B43",
+        "cuentas": 25,
+        "letra": "e"
+       },
+       {
+        "codigo": "G6",
+        "hex": "#E2A114",
+        "cuentas": 21,
+        "letra": "f"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 1,
+        "letra": "m"
+       }
+      ],
+      "filas": [
+       "aaaaaaaaaaaaabbcccc",
+       "aaaaaaaaabcddddccbb",
+       "aaaaaabccccdddcbcbc",
+       "abbccccccddcbbbbbbb",
+       "cccddddddccbbbbbbbe",
+       "bebfcccbcccbbfbebbe",
+       "ebecfccccccbefbebeb",
+       "agfecfccccbeffebbef",
+       "aagfebfhhhhhgefbefe",
+       "aaaihfhjdjklheffefe",
+       "aaahkhkjdjlkhffefee",
+       "aaagkkkjjjlkkifehhe",
+       "aaallllkkdjllliikli",
+       "aaakdgljjdjlgllkkji",
+       "aaagjhkkhihhgjlkiki",
+       "aaahhhgihmigkjgkiki",
+       "aaaaligggggkdjgjhli",
+       "aaaaggkggkjdjgljkgi",
+       "aaaaalkgljjkgkkjiil",
+       "aaaaaldkkkkklkjkhgk",
+       "aaaaallghddkkkkgigk",
+       "klgaaihhhhhgklkhill",
+       "djklhigljdkgllgihkl",
+       "hgjjlihhgkllllighjk",
+       "dghllhigkdklgihkgkj",
+       "hjjhhiiggllgihgjgkj",
+       "jhkjhigiiiiihhkkglk",
+       "kjhhigkihggglhjlhll",
+       "hlkihilighlhghjghlk",
+       "hhhihgighhllhhkghgk"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S83",
+        "hex": "#A96137",
+        "cuentas": 126,
+        "letra": "g"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 78,
+        "letra": "a"
+       },
+       {
+        "codigo": "S50",
+        "hex": "#F1AB91",
+        "cuentas": 66,
+        "letra": "j"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 56,
+        "letra": "k"
+       },
+       {
+        "codigo": "S65",
+        "hex": "#D8E788",
+        "cuentas": 44,
+        "letra": "c"
+       },
+       {
+        "codigo": "S15",
+        "hex": "#7D383C",
+        "cuentas": 43,
+        "letra": "h"
+       },
+       {
+        "codigo": "S14",
+        "hex": "#E0BB3E",
+        "cuentas": 42,
+        "letra": "b"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 39,
+        "letra": "i"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 29,
+        "letra": "d"
+       },
+       {
+        "codigo": "S92",
+        "hex": "#C89A35",
+        "cuentas": 25,
+        "letra": "e"
+       },
+       {
+        "codigo": "S86",
+        "hex": "#D8A121",
+        "cuentas": 21,
+        "letra": "f"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 1,
+        "letra": "l"
+       }
+      ],
+      "filas": [
+       "aaaaaaaaaaaaabbcccc",
+       "aaaaaaaaabcddddccbb",
+       "aaaaaabccccdddcbcbc",
+       "abbccccccddcbbbbbbb",
+       "cccddddddccbbbbbbbe",
+       "bebfcccbcccbbfbebbe",
+       "ebecfccccccbefbebeb",
+       "agfecfccccbeffebbef",
+       "aagfebfggggggefbefe",
+       "aaahgfgidijkgeffefe",
+       "aaagjgjidikjgffefee",
+       "aaagjjjiiikjjhfegge",
+       "aaakkkkjjdikkkhhjkh",
+       "aaajdgkiidikgkkjjih",
+       "aaagigjjghgggikjhjh",
+       "aaagggghglhgjigjhjh",
+       "aaaakhgggggjdigigkh",
+       "aaaaggjggjidigkijgh",
+       "aaaaakjgkiijgjjihhk",
+       "aaaaakdjjjjjkjijggj",
+       "aaaaakkggddjjjjghgj",
+       "jkgaahggggggjkjghkk",
+       "dijkghgkidjgkkghgjk",
+       "ggiikhgggjkkkkhggij",
+       "dggkkghgjdjkghgjgji",
+       "giigghhggkkghggigji",
+       "igjighghhhhhggjjgkj",
+       "jigghgjhggggkgikgkk",
+       "gkjhghkhggkgggiggkj",
+       "ggghgghgggkkggjgggj"
+      ]
+     }
+    }
    }
   },
   {
@@ -1844,6 +2752,259 @@ export default {
       "....hhhhhhhhhhhhhhhhkkjkkkiiiaaaiiiiiijkhhhhhhhhhhgccccdceggghggggeg....",
       "......hhhhhhhhhhhhhhkkkkkkiiiaaaiiiiiijkhhhhhhhhhhgcccdcdeegggggge......"
      ]
+    }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 136,
+        "letra": "b"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 93,
+        "letra": "a"
+       },
+       {
+        "codigo": "F10",
+        "hex": "#874628",
+        "cuentas": 53,
+        "letra": "c"
+       },
+       {
+        "codigo": "F5",
+        "hex": "#E3052A",
+        "cuentas": 48,
+        "letra": "m"
+       },
+       {
+        "codigo": "M13",
+        "hex": "#C59265",
+        "cuentas": 41,
+        "letra": "e"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 37,
+        "letra": "d"
+       },
+       {
+        "codigo": "G7",
+        "hex": "#985C3A",
+        "cuentas": 36,
+        "letra": "f"
+       },
+       {
+        "codigo": "G11",
+        "hex": "#D9CB9A",
+        "cuentas": 26,
+        "letra": "g"
+       },
+       {
+        "codigo": "A26",
+        "hex": "#FEC832",
+        "cuentas": 24,
+        "letra": "j"
+       },
+       {
+        "codigo": "A24",
+        "hex": "#F0F6A9",
+        "cuentas": 19,
+        "letra": "k"
+       },
+       {
+        "codigo": "F8",
+        "hex": "#BB0126",
+        "cuentas": 19,
+        "letra": "l"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 15,
+        "letra": "i"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 13,
+        "letra": "h"
+       },
+       {
+        "codigo": "G6",
+        "hex": "#E2A114",
+        "cuentas": 9,
+        "letra": "o"
+       },
+       {
+        "codigo": "G10",
+        "hex": "#D98B43",
+        "cuentas": 1,
+        "letra": "n"
+       }
+      ],
+      "filas": [
+       "aaaaabbbcbcbbbaaaaa",
+       "aaaabbbbbcbcbbbaaaa",
+       "aaabbbbbcbcbbbbbaaa",
+       "aaabbbbdbcbcbbbbaaa",
+       "aabbcbbebcbdbbbcbaa",
+       "aabbfdbgfcbgcbfbbaa",
+       "aabbcecegbgeeefbbaa",
+       "aabbfdggdeeeedfcbaa",
+       "aabbdgghfdfegeffbaa",
+       "aabcdccggfgheeefbaa",
+       "aaebegcbefdebbcdbda",
+       "aafcgbiibdbbicedbba",
+       "aabcgehifecdegeebca",
+       "aabcgggedgcgeedfbfa",
+       "aaabdgeddedcffccbba",
+       "aaabcddcghebgefcbaa",
+       "aaabcccfcebdbbdbaaa",
+       "aajbcddedcdiibebaaa",
+       "ajjbcefcihhiiffbaaa",
+       "kjjbbdciddegefbbbaa",
+       "kfjbfbddfccbblmmlla",
+       "kfnbdbcegedbmmmmmml",
+       "kkfbfcbcedbmmmmmmmm",
+       "kkjbbfcbbblmmmmmmml",
+       "kjkbbffccbmmmmmmhii",
+       "kokjbbfbbbmmmmhhjjo",
+       "kkokjbcfbbmmmhojjoi",
+       "jkjokjbbcblmmlhohil",
+       "mmljokjjbbblmmlhllm",
+       "mmlljokkjjjblmlilmm"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S15",
+        "hex": "#7D383C",
+        "cuentas": 136,
+        "letra": "b"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 93,
+        "letra": "a"
+       },
+       {
+        "codigo": "S83",
+        "hex": "#A96137",
+        "cuentas": 89,
+        "letra": "c"
+       },
+       {
+        "codigo": "S04",
+        "hex": "#EC7249",
+        "cuentas": 48,
+        "letra": "l"
+       },
+       {
+        "codigo": "S50",
+        "hex": "#F1AB91",
+        "cuentas": 41,
+        "letra": "e"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 37,
+        "letra": "d"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 26,
+        "letra": "f"
+       },
+       {
+        "codigo": "S14",
+        "hex": "#E0BB3E",
+        "cuentas": 24,
+        "letra": "i"
+       },
+       {
+        "codigo": "S65",
+        "hex": "#D8E788",
+        "cuentas": 19,
+        "letra": "j"
+       },
+       {
+        "codigo": "S05",
+        "hex": "#C33B48",
+        "cuentas": 19,
+        "letra": "k"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 15,
+        "letra": "h"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 13,
+        "letra": "g"
+       },
+       {
+        "codigo": "S86",
+        "hex": "#D8A121",
+        "cuentas": 9,
+        "letra": "n"
+       },
+       {
+        "codigo": "S92",
+        "hex": "#C89A35",
+        "cuentas": 1,
+        "letra": "m"
+       }
+      ],
+      "filas": [
+       "aaaaabbbcbcbbbaaaaa",
+       "aaaabbbbbcbcbbbaaaa",
+       "aaabbbbbcbcbbbbbaaa",
+       "aaabbbbdbcbcbbbbaaa",
+       "aabbcbbebcbdbbbcbaa",
+       "aabbcdbfccbfcbcbbaa",
+       "aabbcecefbfeeecbbaa",
+       "aabbcdffdeeeedccbaa",
+       "aabbdffgcdcefeccbaa",
+       "aabcdccffcfgeeecbaa",
+       "aaebefcbecdebbcdbda",
+       "aaccfbhhbdbbhcedbba",
+       "aabcfeghcecdefeebca",
+       "aabcfffedfcfeedcbca",
+       "aaabdfeddedcccccbba",
+       "aaabcddcfgebfeccbaa",
+       "aaabcccccebdbbdbaaa",
+       "aaibcddedcdhhbebaaa",
+       "aiibcecchgghhccbaaa",
+       "jiibbdchddefecbbbaa",
+       "jcibcbddcccbbkllkka",
+       "jcmbdbcefedbllllllk",
+       "jjcbccbcedbllllllll",
+       "jjibbccbbbklllllllk",
+       "jijbbccccbllllllghh",
+       "jnjibbcbbbllllggiin",
+       "jjnjibccbblllgniinh",
+       "ijinjibbcbkllkgnghk",
+       "llkinjiibbbkllkgkkl",
+       "llkkinjjiiibklkhkll"
+      ]
+     }
     }
    }
   },
@@ -2208,6 +3369,217 @@ export default {
       ".........kjjfghiihiifkkkkkkkkkkkkkmmmmlmlmlmlmlllllmbkhffiihihigfiii....",
       "..........kjhfgghiihkkkkkkkeeabakkmmmmmlmlmlmllllllmcbjhggiiihhfgi......"
      ]
+    }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 163,
+        "letra": "e"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 68,
+        "letra": "a"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 59,
+        "letra": "i"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 52,
+        "letra": "b"
+       },
+       {
+        "codigo": "G7",
+        "hex": "#985C3A",
+        "cuentas": 42,
+        "letra": "d"
+       },
+       {
+        "codigo": "G9",
+        "hex": "#E4B585",
+        "cuentas": 41,
+        "letra": "c"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 39,
+        "letra": "j"
+       },
+       {
+        "codigo": "A11",
+        "hex": "#FEDB98",
+        "cuentas": 28,
+        "letra": "f"
+       },
+       {
+        "codigo": "M6",
+        "hex": "#B0AA85",
+        "cuentas": 27,
+        "letra": "h"
+       },
+       {
+        "codigo": "D25",
+        "hex": "#4951C3",
+        "cuentas": 26,
+        "letra": "k"
+       },
+       {
+        "codigo": "D15",
+        "hex": "#311E90",
+        "cuentas": 25,
+        "letra": "g"
+       }
+      ],
+      "filas": [
+       "aaaaabbbccccbdeaaaa",
+       "aabbccfcfffccbdeaaa",
+       "aceeebcfccbcccdeeaa",
+       "bebeecbcbbbbdbddeaa",
+       "bbdeebdbedbdeeeeeea",
+       "dceebdeddeeeeeeeeea",
+       "dcebfdeedeeeeeeeeea",
+       "dbecfdeeeeeeeeeeeee",
+       "ddeffbeeeeeeeeeeeee",
+       "eeefffebedeededeede",
+       "eeefffbebeeeededeed",
+       "deecfcceggebeedebee",
+       "eeedbfehidccbececbe",
+       "eeeegcebccfeeeeeebe",
+       "eaeebfdbffehjiihhee",
+       "aaaecfbbfejiiihiiih",
+       "aaaebcedejiiihiijhg",
+       "aaaedcfbhiiihiijjgi",
+       "aaaeebeeiiiihijjgjk",
+       "aaaeedehiiihiihgjki",
+       "aaaedeejgjihihgjkik",
+       "aaaebehiegihhgjkikk",
+       "aaaecejiheikgjkhakj",
+       "aaabceiiiiggjkkjkjh",
+       "aaacbejiigijakjkkjk",
+       "aaacdehigijaijakjgg",
+       "adebeeajgjjijahjagk",
+       "dfbeedegihajhijagkk",
+       "fccdebejiijaajhgkkk",
+       "fcbbebeiijiiijgfkkg"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 83,
+        "letra": "e"
+       },
+       {
+        "codigo": "S15",
+        "hex": "#7D383C",
+        "cuentas": 80,
+        "letra": "g"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 68,
+        "letra": "a"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 59,
+        "letra": "j"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 52,
+        "letra": "b"
+       },
+       {
+        "codigo": "S143",
+        "hex": "#2C49AB",
+        "cuentas": 51,
+        "letra": "h"
+       },
+       {
+        "codigo": "S41",
+        "hex": "#975F49",
+        "cuentas": 42,
+        "letra": "d"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 41,
+        "letra": "c"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 39,
+        "letra": "k"
+       },
+       {
+        "codigo": "S52",
+        "hex": "#DAC779",
+        "cuentas": 28,
+        "letra": "f"
+       },
+       {
+        "codigo": "S68",
+        "hex": "#AA9771",
+        "cuentas": 27,
+        "letra": "i"
+       }
+      ],
+      "filas": [
+       "aaaaabbbccccbdeaaaa",
+       "aabbccfcfffccbdeaaa",
+       "acgggbcfccbcccdgeaa",
+       "bgbegcbcbbbbdbddeaa",
+       "bbdeebdbgdbdgggggea",
+       "dcgebdgddgggegeggea",
+       "dcebfdegdegeeeeeeea",
+       "dbecfdeeeeeeeeeeeee",
+       "ddeffbeeegeggegegee",
+       "ggefffebedggdedgede",
+       "geefffbebggegdgdggd",
+       "deecfccghhgbegdgbgg",
+       "geedbfgijdccbecgcbg",
+       "eeeghcgbccfggggggbg",
+       "eaegbfdbffgikjjiigg",
+       "aaaecfbbfgkjjjijjji",
+       "aaaebcgdgkjjjijjkih",
+       "aaaedcfbijjjijjkkhj",
+       "aaaeebggjjjjijkkhkh",
+       "aaagedgijjjijjihkhj",
+       "aaagdegkhkjijihkhjh",
+       "aaagbeijehjiihkhjhh",
+       "aaagcgkjiejhhkhiahk",
+       "aaabcgjjjjhhkhhkhki",
+       "aaacbgkjjhjkahkhhkh",
+       "aaacdeijhjkajkahkhh",
+       "adgbgeakhkkjkaikahh",
+       "dfbgedghjiakijkahhh",
+       "fccdebekjjkaakihhhh",
+       "fcbbebejjkjjjkhfhhh"
+      ]
+     }
     }
    }
   },
@@ -2597,6 +3969,235 @@ export default {
       ".......ggggggjjjgggjjgggfhfhhhhheeeiiieheiccccciiieehhhfmlooooonl......."
      ]
     }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "G11",
+        "hex": "#D9CB9A",
+        "cuentas": 91,
+        "letra": "c"
+       },
+       {
+        "codigo": "F10",
+        "hex": "#874628",
+        "cuentas": 60,
+        "letra": "h"
+       },
+       {
+        "codigo": "A26",
+        "hex": "#FEC832",
+        "cuentas": 56,
+        "letra": "b"
+       },
+       {
+        "codigo": "G6",
+        "hex": "#E2A114",
+        "cuentas": 52,
+        "letra": "e"
+       },
+       {
+        "codigo": "G10",
+        "hex": "#D98B43",
+        "cuentas": 52,
+        "letra": "f"
+       },
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 46,
+        "letra": "j"
+       },
+       {
+        "codigo": "G7",
+        "hex": "#985C3A",
+        "cuentas": 45,
+        "letra": "g"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 41,
+        "letra": "a"
+       },
+       {
+        "codigo": "M13",
+        "hex": "#C59265",
+        "cuentas": 40,
+        "letra": "i"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 36,
+        "letra": "d"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 32,
+        "letra": "k"
+       },
+       {
+        "codigo": "F5",
+        "hex": "#E3052A",
+        "cuentas": 18,
+        "letra": "l"
+       },
+       {
+        "codigo": "F8",
+        "hex": "#BB0126",
+        "cuentas": 1,
+        "letra": "m"
+       }
+      ],
+      "filas": [
+       "aaaaaaabcdcbcbeaaaa",
+       "aaaaaabdcebddccefaa",
+       "aaaaaddcbeccdcbbeaa",
+       "aaafccdbecddcbceefa",
+       "aafcddbeecdddbebefa",
+       "aaeccdcbcddccbbeeff",
+       "afccdcdddcdcbbbfeff",
+       "abbccddcddccbebefff",
+       "fbbbbccccdcccbeffff",
+       "fbcbebbcbcbbeebefff",
+       "febgebgcgbgcbheffef",
+       "febhehhbhehhchfefef",
+       "afbhhihbheijhhebfbe",
+       "afehjhghcgjjhihcbfb",
+       "aafhkjjghjjkiihfcfc",
+       "llfhhjdghkjdgikhcbf",
+       "lleehckikgiiccghfcf",
+       "llcejcdckgicdkghfce",
+       "lecbjiccihiiigkhfee",
+       "ebfbjkighgchigijfef",
+       "blechhhdddggiigjhhf",
+       "flccejihdhgikghjhgh",
+       "llccbhhiiiikkjjijci",
+       "llbcefjikgkkjkgcggc",
+       "llebefjgccgjgcgichc",
+       "lljeehjjhjjkgicichk",
+       "ljgifjhhihjkckckihh",
+       "mjkcchghgijkcgchggh",
+       "jgkccikggkjkcihgjjj",
+       "jggiicckkgkjkjhjjjj"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S83",
+        "hex": "#A96137",
+        "cuentas": 105,
+        "letra": "g"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 91,
+        "letra": "c"
+       },
+       {
+        "codigo": "S14",
+        "hex": "#E0BB3E",
+        "cuentas": 56,
+        "letra": "b"
+       },
+       {
+        "codigo": "S86",
+        "hex": "#D8A121",
+        "cuentas": 52,
+        "letra": "e"
+       },
+       {
+        "codigo": "S92",
+        "hex": "#C89A35",
+        "cuentas": 52,
+        "letra": "f"
+       },
+       {
+        "codigo": "S15",
+        "hex": "#7D383C",
+        "cuentas": 46,
+        "letra": "i"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 41,
+        "letra": "a"
+       },
+       {
+        "codigo": "S50",
+        "hex": "#F1AB91",
+        "cuentas": 40,
+        "letra": "h"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 36,
+        "letra": "d"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 32,
+        "letra": "j"
+       },
+       {
+        "codigo": "S04",
+        "hex": "#EC7249",
+        "cuentas": 18,
+        "letra": "k"
+       },
+       {
+        "codigo": "S05",
+        "hex": "#C33B48",
+        "cuentas": 1,
+        "letra": "l"
+       }
+      ],
+      "filas": [
+       "aaaaaaabcdcbcbeaaaa",
+       "aaaaaabdcebddccefaa",
+       "aaaaaddcbeccdcbbeaa",
+       "aaafccdbecddcbceefa",
+       "aafcddbeecdddbebefa",
+       "aaeccdcbcddccbbeeff",
+       "afccdcdddcdcbbbfeff",
+       "abbccddcddccbebefff",
+       "fbbbbccccdcccbeffff",
+       "fbcbebbcbcbbeebefff",
+       "febgebgcgbgcbgeffef",
+       "febgeggbgeggcgfefef",
+       "afbgghgbgehiggebfbe",
+       "afegigggcgiighgcbfb",
+       "aafgjiiggiijhhgfcfc",
+       "kkfggidggjidghjgcbf",
+       "kkeegcjhjghhccggfcf",
+       "kkceicdcjghcdjggfce",
+       "kecbihcchghhhgjgfee",
+       "ebfbijhgggcghghifef",
+       "bkecgggdddgghhgiggf",
+       "fkcceihgdgghjggiggg",
+       "kkccbgghhhhjjiihich",
+       "kkbcefihjgjjijgcggc",
+       "kkebefigccgigcghcgc",
+       "kkieegiigiijghchcgj",
+       "kighfigghgijcjcjhgg",
+       "lijccgggghijcgcgggg",
+       "igjcchjggjijchggiii",
+       "igghhccjjgjijigiiii"
+      ]
+     }
+    }
    }
   },
   {
@@ -2975,6 +4576,253 @@ export default {
       "......kkenlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkfig......"
      ]
     }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "H6",
+        "hex": "#2C2C2C",
+        "cuentas": 99,
+        "letra": "h"
+       },
+       {
+        "codigo": "A25",
+        "hex": "#FED785",
+        "cuentas": 87,
+        "letra": "j"
+       },
+       {
+        "codigo": "C16",
+        "hex": "#1959A3",
+        "cuentas": 69,
+        "letra": "b"
+       },
+       {
+        "codigo": "G17",
+        "hex": "#7A544E",
+        "cuentas": 57,
+        "letra": "g"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 53,
+        "letra": "a"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 39,
+        "letra": "c"
+       },
+       {
+        "codigo": "C6",
+        "hex": "#54A7EA",
+        "cuentas": 38,
+        "letra": "e"
+       },
+       {
+        "codigo": "G4",
+        "hex": "#DAB287",
+        "cuentas": 37,
+        "letra": "i"
+       },
+       {
+        "codigo": "C24",
+        "hex": "#7FC5F9",
+        "cuentas": 35,
+        "letra": "d"
+       },
+       {
+        "codigo": "M14",
+        "hex": "#C37564",
+        "cuentas": 32,
+        "letra": "f"
+       },
+       {
+        "codigo": "G19",
+        "hex": "#DB7E40",
+        "cuentas": 9,
+        "letra": "k"
+       },
+       {
+        "codigo": "G6",
+        "hex": "#E2A114",
+        "cuentas": 8,
+        "letra": "l"
+       },
+       {
+        "codigo": "A14",
+        "hex": "#E75743",
+        "cuentas": 5,
+        "letra": "n"
+       },
+       {
+        "codigo": "H19",
+        "hex": "#F2F0E6",
+        "cuentas": 2,
+        "letra": "m"
+       }
+      ],
+      "filas": [
+       "aaabbbabbaaaaaaabba",
+       "aabccdbbbbaaabbbede",
+       "abccdefggggfgdcbccd",
+       "bdcdegggffghhebcccc",
+       "bddhgghhgghhhcbcccc",
+       "bghghghhhhhhhebcccc",
+       "ahghghhfhffhgcbdccc",
+       "hghhghfihjjfhdbddcd",
+       "hghhhggjgjjifhebddd",
+       "hhhfhigjjjjjihhdbee",
+       "hhgigjijjfiijghedbb",
+       "hhgijjjfgiijjfhhbeb",
+       "hhggjjggfjjkkjhfjgh",
+       "hbgfgjjghhfkljgjhjh",
+       "bbhhgfjhhmfijjjfhih",
+       "ebgfhijifiijjjjgfih",
+       "ebgigijjjjjjjjiiiha",
+       "ebgihjjjjjjjjjjhhha",
+       "eegjigjjjjjjjjfhhaa",
+       "debijngnijjjjifhaaa",
+       "debgjlnmjjjjiighaaa",
+       "debgijijjjjigiglbaa",
+       "adbahjjjjjfhfglkbae",
+       "acbaahijihhgllkcbae",
+       "adebaahhhihlbedcbad",
+       "aecbaahbhfhkkedcbbd",
+       "aacebahbbhkbbedcfbc",
+       "aaecbhbbhhkbeddffdc",
+       "aaacdbhbbhheedbhecc",
+       "elennbghbhheehhbeed"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 99,
+        "letra": "h"
+       },
+       {
+        "codigo": "S52",
+        "hex": "#DAC779",
+        "cuentas": 87,
+        "letra": "j"
+       },
+       {
+        "codigo": "S103",
+        "hex": "#1A71C3",
+        "cuentas": 69,
+        "letra": "b"
+       },
+       {
+        "codigo": "S82",
+        "hex": "#876A52",
+        "cuentas": 57,
+        "letra": "g"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 53,
+        "letra": "a"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 39,
+        "letra": "c"
+       },
+       {
+        "codigo": "S54",
+        "hex": "#3592DB",
+        "cuentas": 38,
+        "letra": "e"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 37,
+        "letra": "i"
+       },
+       {
+        "codigo": "S44",
+        "hex": "#99C9E0",
+        "cuentas": 35,
+        "letra": "d"
+       },
+       {
+        "codigo": "S57",
+        "hex": "#A16D65",
+        "cuentas": 32,
+        "letra": "f"
+       },
+       {
+        "codigo": "S56",
+        "hex": "#FC8945",
+        "cuentas": 9,
+        "letra": "k"
+       },
+       {
+        "codigo": "S48",
+        "hex": "#EAAA1F",
+        "cuentas": 8,
+        "letra": "l"
+       },
+       {
+        "codigo": "S97",
+        "hex": "#D3733F",
+        "cuentas": 5,
+        "letra": "n"
+       },
+       {
+        "codigo": "S51",
+        "hex": "#D7CCB9",
+        "cuentas": 2,
+        "letra": "m"
+       }
+      ],
+      "filas": [
+       "aaabbbabbaaaaaaabba",
+       "aabccdbbbbaaabbbede",
+       "abccdefggggfgdcbccd",
+       "bdcdegggffghhebcccc",
+       "bddhgghhgghhhcbcccc",
+       "bghghghhhhhhhebcccc",
+       "ahghghhfhffhgcbdccc",
+       "hghhghfihjjfhdbddcd",
+       "hghhhggjgjjifhebddd",
+       "hhhfhigjjjjjihhdbee",
+       "hhgigjijjfiijghedbb",
+       "hhgijjjfgiijjfhhbeb",
+       "hhggjjggfjjkkjhfjgh",
+       "hbgfgjjghhfkljgjhjh",
+       "bbhhgfjhhmfijjjfhih",
+       "ebgfhijifiijjjjgfih",
+       "ebgigijjjjjjjjiiiha",
+       "ebgihjjjjjjjjjjhhha",
+       "eegjigjjjjjjjjfhhaa",
+       "debijngnijjjjifhaaa",
+       "debgjlnmjjjjiighaaa",
+       "debgijijjjjigiglbaa",
+       "adbahjjjjjfhfglkbae",
+       "acbaahijihhgllkcbae",
+       "adebaahhhihlbedcbad",
+       "aecbaahbhfhkkedcbbd",
+       "aacebahbbhkbbedcfbc",
+       "aaecbhbbhhkbeddffdc",
+       "aaacdbhbbhheedbhecc",
+       "elennbghbhheehhbeed"
+      ]
+     }
+    }
    }
   },
   {
@@ -3312,6 +5160,223 @@ export default {
       "....ddcaeaaaljjjjjkjjjjffbceefecddfeccaaebccdddddddafebafbljjjjleeee....",
       "......aaeaaalljjjkjjjjjbffecdffeddefadaaebcdddddddafefcefbjjjjjlee......"
      ]
+    }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 237,
+        "letra": "b"
+       },
+       {
+        "codigo": "G7",
+        "hex": "#985C3A",
+        "cuentas": 89,
+        "letra": "c"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 79,
+        "letra": "d"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 56,
+        "letra": "a"
+       },
+       {
+        "codigo": "G9",
+        "hex": "#E4B585",
+        "cuentas": 49,
+        "letra": "e"
+       },
+       {
+        "codigo": "A11",
+        "hex": "#FEDB98",
+        "cuentas": 33,
+        "letra": "f"
+       },
+       {
+        "codigo": "F15",
+        "hex": "#D30629",
+        "cuentas": 10,
+        "letra": "i"
+       },
+       {
+        "codigo": "G20",
+        "hex": "#A5452F",
+        "cuentas": 10,
+        "letra": "k"
+       },
+       {
+        "codigo": "F5",
+        "hex": "#E3052A",
+        "cuentas": 5,
+        "letra": "j"
+       },
+       {
+        "codigo": "D15",
+        "hex": "#311E90",
+        "cuentas": 1,
+        "letra": "g"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 1,
+        "letra": "h"
+       }
+      ],
+      "filas": [
+       "aaaaabccbbbbbbbaaaa",
+       "aaaabcbbbbbbbbbbaaa",
+       "aabccbbbbdeffdcbbaa",
+       "abccbbbdffffffedbba",
+       "abbbbbcffdfdddfedbb",
+       "aabbbcefdfdddddeebb",
+       "aaacdeffddfddddddcb",
+       "aaadcfdffdeddddcdcb",
+       "aaccfbbbedeedccddcc",
+       "acddbbdcedddbfebdbc",
+       "abccbghbfeebfbebbcb",
+       "aabbbbcefddbebebccd",
+       "aabcbeffecbbbbebbdc",
+       "abcdbdfecbcbbdebbbb",
+       "acfcdbcbbccbbecbcbc",
+       "abcbbbbbbddbbdbcdbd",
+       "aabbcbbbbbdbbbbddce",
+       "aaabbbbbbbbbbbbedce",
+       "aabebeebbbbbbbbeecd",
+       "aabceccdbbbbbbbeecd",
+       "aaabbbbbbbbbbbbedbc",
+       "aabbbbbbbbbbbbcecbc",
+       "ijibbbbbbbbbbbcdcbc",
+       "ejjbbbbbcbdbbbddcbc",
+       "fiikbbbbdbccbbecbbb",
+       "eciikbbbdcbbbbecbbb",
+       "edkkkbbbbecbbcdccbb",
+       "dcbiiibcccebbdcbcbb",
+       "dcbkjjibedfdccbbbcb",
+       "cbbkkkkbeffeeddcccc"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 135,
+        "letra": "d"
+       },
+       {
+        "codigo": "S15",
+        "hex": "#7D383C",
+        "cuentas": 102,
+        "letra": "b"
+       },
+       {
+        "codigo": "S41",
+        "hex": "#975F49",
+        "cuentas": 89,
+        "letra": "c"
+       },
+       {
+        "codigo": "S18",
+        "hex": "#CA967E",
+        "cuentas": 79,
+        "letra": "e"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 56,
+        "letra": "a"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 49,
+        "letra": "f"
+       },
+       {
+        "codigo": "S52",
+        "hex": "#DAC779",
+        "cuentas": 33,
+        "letra": "g"
+       },
+       {
+        "codigo": "S66",
+        "hex": "#E66252",
+        "cuentas": 10,
+        "letra": "j"
+       },
+       {
+        "codigo": "S146",
+        "hex": "#8C1E35",
+        "cuentas": 10,
+        "letra": "l"
+       },
+       {
+        "codigo": "S04",
+        "hex": "#EC7249",
+        "cuentas": 5,
+        "letra": "k"
+       },
+       {
+        "codigo": "S143",
+        "hex": "#2C49AB",
+        "cuentas": 1,
+        "letra": "h"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 1,
+        "letra": "i"
+       }
+      ],
+      "filas": [
+       "aaaaabccbddddddaaaa",
+       "aaaabcbdddddddddaaa",
+       "aabccddddefggecddaa",
+       "abccbddeggggggfedda",
+       "abbdddcggegeeegfedd",
+       "aadddcfgegeeeeeffbd",
+       "aaacefggeegeeeeeecb",
+       "aaaecgeggefeeeececb",
+       "aaccgbddfeffecceecc",
+       "aceebdecfeeebgfbebc",
+       "adccdhibgffbgdfbbcb",
+       "aaddddcfgeebfdfbcce",
+       "aadcbfggfcbdddfbbec",
+       "adcebegfcbcddefbbbb",
+       "acgcebcbdccddfcbcbc",
+       "abcdddbddeeddedcebe",
+       "aadbcbddddedddbeecf",
+       "aaadbbbbddddddbfecf",
+       "aabfbffbddddddbffce",
+       "aabcfccebdddddbffce",
+       "aaaddbdbddddddbfebc",
+       "aaddbdddddddddcfcbc",
+       "jkjdddddddbddbcecbc",
+       "fkkdddddcbebbbeecbc",
+       "gjjldbdbebccbbfcbbb",
+       "fcjjldbbecbbbbfcbbb",
+       "fellldbbbfcbbceccbb",
+       "ecdjjjdcccfbbecdcbb",
+       "ecdlkkjdfegeccdbbcb",
+       "cbdlllldfggffeecccc"
+      ]
+     }
     }
    }
   },
@@ -3707,6 +5772,217 @@ export default {
       "......ccaadkkkkkddddddddddddddddmnnoiondaaaadddddddddddddddddddddd......"
      ]
     }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 110,
+        "letra": "a"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 85,
+        "letra": "g"
+       },
+       {
+        "codigo": "B23",
+        "hex": "#353B1B",
+        "cuentas": 74,
+        "letra": "k"
+       },
+       {
+        "codigo": "G14",
+        "hex": "#8C684E",
+        "cuentas": 71,
+        "letra": "h"
+       },
+       {
+        "codigo": "M13",
+        "hex": "#C59265",
+        "cuentas": 57,
+        "letra": "i"
+       },
+       {
+        "codigo": "A11",
+        "hex": "#FEDB98",
+        "cuentas": 49,
+        "letra": "e"
+       },
+       {
+        "codigo": "F8",
+        "hex": "#BB0126",
+        "cuentas": 30,
+        "letra": "c"
+       },
+       {
+        "codigo": "A10",
+        "hex": "#F57E36",
+        "cuentas": 30,
+        "letra": "d"
+       },
+       {
+        "codigo": "A1",
+        "hex": "#FAF5CC",
+        "cuentas": 25,
+        "letra": "f"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 23,
+        "letra": "j"
+       },
+       {
+        "codigo": "G20",
+        "hex": "#A5452F",
+        "cuentas": 16,
+        "letra": "b"
+       }
+      ],
+      "filas": [
+       "aaaaaaabcdcedcaaaaa",
+       "aaaaabcddcfddddcaaa",
+       "aaaacdddcefddceegaa",
+       "aaacdeddgfddceffeha",
+       "aaaceddcfddcgfeieih",
+       "aaadfddcfdcgeeeeiig",
+       "aaheccciecceiigiiig",
+       "aaheccceeeeigggiggg",
+       "ahgecjcffffeeghghhh",
+       "ahifecefffeiiihhfkh",
+       "aakhgifegkkhhihfgik",
+       "aaakkgehkkkkhiggkik",
+       "aaahjgikjjjgegikkgk",
+       "aaaihegihhgiehgkihk",
+       "aaadgfigeddcbbgiikh",
+       "aaabifiggecbbbbjjkk",
+       "aaaaeigkieihhbjkkjk",
+       "aaajhgkheidbhhjkkjk",
+       "aaajakkhhicbbhjkkjk",
+       "aaaajieiihgbbbkjjkk",
+       "aaaaakkkgghhhhkkkhk",
+       "aaaaahggkkhggkkkkhk",
+       "aaaaaheeegghkkhhkgh",
+       "aaaaakigigkkkhghkgg",
+       "aaaaaakkkkhhkhikkgg",
+       "aaaaagjhgeigkgikhgg",
+       "aaaagjhigfeghighggg",
+       "agfgjhighiikhgihgig",
+       "gfgjghggkggkiggiggh",
+       "eegjheihkhkieeighhh"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 110,
+        "letra": "a"
+       },
+       {
+        "codigo": "S47",
+        "hex": "#986E46",
+        "cuentas": 85,
+        "letra": "g"
+       },
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 74,
+        "letra": "k"
+       },
+       {
+        "codigo": "S82",
+        "hex": "#876A52",
+        "cuentas": 71,
+        "letra": "h"
+       },
+       {
+        "codigo": "S39",
+        "hex": "#E38D4D",
+        "cuentas": 57,
+        "letra": "i"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 49,
+        "letra": "e"
+       },
+       {
+        "codigo": "S66",
+        "hex": "#E66252",
+        "cuentas": 30,
+        "letra": "c"
+       },
+       {
+        "codigo": "S04",
+        "hex": "#EC7249",
+        "cuentas": 30,
+        "letra": "d"
+       },
+       {
+        "codigo": "S149",
+        "hex": "#DDC199",
+        "cuentas": 25,
+        "letra": "f"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 23,
+        "letra": "j"
+       },
+       {
+        "codigo": "S146",
+        "hex": "#8C1E35",
+        "cuentas": 16,
+        "letra": "b"
+       }
+      ],
+      "filas": [
+       "aaaaaaabcdcedcaaaaa",
+       "aaaaabcddcfddddcaaa",
+       "aaaacdddcefddceegaa",
+       "aaacdeddgfddceffeha",
+       "aaaceddcfddcgfeieih",
+       "aaadfddcfdcgeeeeiig",
+       "aaheccciecceiigiiig",
+       "aaheccceeeeigggiggg",
+       "ahgecjcffffeeghghhh",
+       "ahifecefffeiiihhfkh",
+       "aakhgifegkkhhihfgik",
+       "aaakkgehkkkkhiggkik",
+       "aaahjgikjjjgegikkgk",
+       "aaaihegihhgiehgkihk",
+       "aaadgfigeddcbbgiikh",
+       "aaabifiggecbbbbjjkk",
+       "aaaaeigkieihhbjkkjk",
+       "aaajhgkheidbhhjkkjk",
+       "aaajakkhhicbbhjkkjk",
+       "aaaajieiihgbbbkjjkk",
+       "aaaaakkkgghhhhkkkhk",
+       "aaaaahggkkhggkkkkhk",
+       "aaaaaheeegghkkhhkgh",
+       "aaaaakigigkkkhghkgg",
+       "aaaaaakkkkhhkhikkgg",
+       "aaaaagjhgeigkgikhgg",
+       "aaaagjhigfeghighggg",
+       "agfgjhighiikhgihgig",
+       "gfgjghggkggkiggiggh",
+       "eegjheihkhkieeighhh"
+      ]
+     }
+    }
    }
   },
   {
@@ -4054,6 +6330,181 @@ export default {
       "....ccccccccccccccccccccccccccbbbbffgggfbaaccbfbcacfgfakckkfbbbacccc....",
       "......ccccccccccccccccccccccccccbbbbfgggfbabcccaaabgbbkkcckcccbbac......"
      ]
+    }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "M13",
+        "hex": "#C59265",
+        "cuentas": 105,
+        "letra": "d"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 97,
+        "letra": "a"
+       },
+       {
+        "codigo": "G13",
+        "hex": "#B26F4C",
+        "cuentas": 93,
+        "letra": "g"
+       },
+       {
+        "codigo": "G14",
+        "hex": "#8C684E",
+        "cuentas": 86,
+        "letra": "b"
+       },
+       {
+        "codigo": "A11",
+        "hex": "#FEDB98",
+        "cuentas": 78,
+        "letra": "f"
+       },
+       {
+        "codigo": "B23",
+        "hex": "#353B1B",
+        "cuentas": 64,
+        "letra": "c"
+       },
+       {
+        "codigo": "A1",
+        "hex": "#FAF5CC",
+        "cuentas": 46,
+        "letra": "e"
+       },
+       {
+        "codigo": "H3",
+        "hex": "#B5B5B5",
+        "cuentas": 1,
+        "letra": "h"
+       }
+      ],
+      "filas": [
+       "aaaabbcdeeefbbaaaaa",
+       "aaabgcdeeeeeegbaaaa",
+       "aaadcdfeggffeegbaaa",
+       "aabdbfeddbbfffebaaa",
+       "aadbgefedbbbbdfdbaa",
+       "abdbdffdggccddddbaa",
+       "adbgfgfeeggccgdbbaa",
+       "adbggfeefdgdcdbfbaa",
+       "bfcgdeefdgbffbebfba",
+       "bgcdfedcccgeffdcfba",
+       "decgdbcghcdededcfba",
+       "fdcccccbgdefgffcfba",
+       "bcccdgbgdefggdffgbb",
+       "acccfggdddgggdfbbgd",
+       "adccegbfefdggdfgdgg",
+       "aacgefdbfefdgdfddgg",
+       "aacgdcbeefedddddfgg",
+       "aaacccddfeffddddfgg",
+       "aaabbgcbgggfddgdfgg",
+       "aaacgdfffdffdgcfdbg",
+       "aaaacbbgddddgcbfdbg",
+       "aaaacggeeddgcbgfgbg",
+       "aaaacdfbddgccbfdgbg",
+       "aaaaacgbgbcccdfgbbb",
+       "aaaaaaccccccbfdgbbb",
+       "aaaaaaaccbbbgddggbb",
+       "aaaaaaabcggbddgddgg",
+       "adfffdbbcbbdfgbddfe",
+       "fffddgbgbcgfdbgeeef",
+       "fdddggbggcfdbeeffdd"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S39",
+        "hex": "#E38D4D",
+        "cuentas": 105,
+        "letra": "d"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 97,
+        "letra": "a"
+       },
+       {
+        "codigo": "S47",
+        "hex": "#986E46",
+        "cuentas": 93,
+        "letra": "g"
+       },
+       {
+        "codigo": "S82",
+        "hex": "#876A52",
+        "cuentas": 86,
+        "letra": "b"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 78,
+        "letra": "f"
+       },
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 64,
+        "letra": "c"
+       },
+       {
+        "codigo": "S149",
+        "hex": "#DDC199",
+        "cuentas": 46,
+        "letra": "e"
+       },
+       {
+        "codigo": "S77",
+        "hex": "#C0BFBD",
+        "cuentas": 1,
+        "letra": "h"
+       }
+      ],
+      "filas": [
+       "aaaabbcdeeefbbaaaaa",
+       "aaabgcdeeeeeegbaaaa",
+       "aaadcdfeggffeegbaaa",
+       "aabdbfeddbbfffebaaa",
+       "aadbgefedbbbbdfdbaa",
+       "abdbdffdggccddddbaa",
+       "adbgfgfeeggccgdbbaa",
+       "adbggfeefdgdcdbfbaa",
+       "bfcgdeefdgbffbebfba",
+       "bgcdfedcccgeffdcfba",
+       "decgdbcghcdededcfba",
+       "fdcccccbgdefgffcfba",
+       "bcccdgbgdefggdffgbb",
+       "acccfggdddgggdfbbgd",
+       "adccegbfefdggdfgdgg",
+       "aacgefdbfefdgdfddgg",
+       "aacgdcbeefedddddfgg",
+       "aaacccddfeffddddfgg",
+       "aaabbgcbgggfddgdfgg",
+       "aaacgdfffdffdgcfdbg",
+       "aaaacbbgddddgcbfdbg",
+       "aaaacggeeddgcbgfgbg",
+       "aaaacdfbddgccbfdgbg",
+       "aaaaacgbgbcccdfgbbb",
+       "aaaaaaccccccbfdgbbb",
+       "aaaaaaaccbbbgddggbb",
+       "aaaaaaabcggbddgddgg",
+       "adfffdbbcbbdfgbddfe",
+       "fffddgbgbcgfdbgeeef",
+       "fdddggbggcfdbeeffdd"
+      ]
+     }
     }
    }
   },
@@ -4408,6 +6859,217 @@ export default {
       "....ababbbbbbbbbbbbbbbbbbbaeefgggffffffffeeeeeffffeeefffffffffffffff....",
       "......babbbbbbbbbbbbbbbbeeegggfffffffffeeeeeefffeeeeffffffffffffff......"
      ]
+    }
+   },
+   "pequeno": {
+    "ancho": 19,
+    "alto": 30,
+    "cuentas": 570,
+    "gamas": {
+     "m": {
+      "colores": [
+       {
+        "codigo": "F7",
+        "hex": "#921932",
+        "cuentas": 141,
+        "letra": "b"
+       },
+       {
+        "codigo": "G8",
+        "hex": "#703F2F",
+        "cuentas": 83,
+        "letra": "i"
+       },
+       {
+        "codigo": "D15",
+        "hex": "#311E90",
+        "cuentas": 62,
+        "letra": "d"
+       },
+       {
+        "codigo": "F10",
+        "hex": "#874628",
+        "cuentas": 62,
+        "letra": "j"
+       },
+       {
+        "codigo": "M14",
+        "hex": "#C37564",
+        "cuentas": 60,
+        "letra": "h"
+       },
+       {
+        "codigo": "C20",
+        "hex": "#1B71AC",
+        "cuentas": 55,
+        "letra": "a"
+       },
+       {
+        "codigo": "F17",
+        "hex": "#E79C7D",
+        "cuentas": 24,
+        "letra": "e"
+       },
+       {
+        "codigo": "G11",
+        "hex": "#D9CB9A",
+        "cuentas": 24,
+        "letra": "f"
+       },
+       {
+        "codigo": "G9",
+        "hex": "#E4B585",
+        "cuentas": 24,
+        "letra": "k"
+       },
+       {
+        "codigo": "H9",
+        "hex": "#EFEDEE",
+        "cuentas": 19,
+        "letra": "g"
+       },
+       {
+        "codigo": "F3",
+        "hex": "#EF4C3D",
+        "cuentas": 16,
+        "letra": "c"
+       }
+      ],
+      "filas": [
+       "aaaabcbbbbbbbbbbaaa",
+       "aaabcbbbbbbbbbbcbaa",
+       "aabcbbbbbddbbbbbcba",
+       "abbbbbbdefgedbbbbcb",
+       "abbbbbdehhehedbbbbb",
+       "bbbbbddddddddddbbbb",
+       "bbbbbddiihhiiddbbbb",
+       "bbbbbieijekjieibbbb",
+       "bbbbdiijhkfhjiidbbb",
+       "bbbbiheffggffejibbb",
+       "bbbijjjjiiijjjjjibb",
+       "bbbiiijjiiiijjiiibb",
+       "abbiijeghjjhgejiibb",
+       "abjhhihkejjekhihhjb",
+       "aihikfhheffehhfkihi",
+       "aijijkgffggffgkjiji",
+       "aaiihhegjggjgehhiia",
+       "aaiihjhkhiihkhjhiia",
+       "aaaijjhfgeegfhjjiaa",
+       "aaaaijkijeejikjiaaa",
+       "aaaaijhhfggfhhjiaaa",
+       "aaaijhkkhjjhkkhjiaa",
+       "aadijfhjhhhhjhfjida",
+       "addijehhgkkghhejidd",
+       "dddijjhkffffkhjjidd",
+       "dddiiijkhkkhkjiiidd",
+       "bdddddijhhhhjiddddd",
+       "bbdddbbiiiiiidddddb",
+       "bbbccbbbdddbbbbccbb",
+       "bbcccbbbdddbbbbcccb"
+      ]
+     },
+     "s": {
+      "colores": [
+       {
+        "codigo": "S146",
+        "hex": "#8C1E35",
+        "cuentas": 141,
+        "letra": "b"
+       },
+       {
+        "codigo": "S16",
+        "hex": "#453B3C",
+        "cuentas": 83,
+        "letra": "i"
+       },
+       {
+        "codigo": "S143",
+        "hex": "#2C49AB",
+        "cuentas": 62,
+        "letra": "d"
+       },
+       {
+        "codigo": "S83",
+        "hex": "#A96137",
+        "cuentas": 62,
+        "letra": "j"
+       },
+       {
+        "codigo": "S95",
+        "hex": "#CE7067",
+        "cuentas": 60,
+        "letra": "h"
+       },
+       {
+        "codigo": "S139",
+        "hex": "#7098DD",
+        "cuentas": 55,
+        "letra": "a"
+       },
+       {
+        "codigo": "S96",
+        "hex": "#E37864",
+        "cuentas": 24,
+        "letra": "e"
+       },
+       {
+        "codigo": "S32",
+        "hex": "#DDBF8D",
+        "cuentas": 24,
+        "letra": "f"
+       },
+       {
+        "codigo": "S50",
+        "hex": "#F1AB91",
+        "cuentas": 24,
+        "letra": "k"
+       },
+       {
+        "codigo": "S01",
+        "hex": "#D0CFD2",
+        "cuentas": 19,
+        "letra": "g"
+       },
+       {
+        "codigo": "S04",
+        "hex": "#EC7249",
+        "cuentas": 16,
+        "letra": "c"
+       }
+      ],
+      "filas": [
+       "aaaabcbbbbbbbbbbaaa",
+       "aaabcbbbbbbbbbbcbaa",
+       "aabcbbbbbddbbbbbcba",
+       "abbbbbbdefgedbbbbcb",
+       "abbbbbdehhehedbbbbb",
+       "bbbbbddddddddddbbbb",
+       "bbbbbddiihhiiddbbbb",
+       "bbbbbieijekjieibbbb",
+       "bbbbdiijhkfhjiidbbb",
+       "bbbbiheffggffejibbb",
+       "bbbijjjjiiijjjjjibb",
+       "bbbiiijjiiiijjiiibb",
+       "abbiijeghjjhgejiibb",
+       "abjhhihkejjekhihhjb",
+       "aihikfhheffehhfkihi",
+       "aijijkgffggffgkjiji",
+       "aaiihhegjggjgehhiia",
+       "aaiihjhkhiihkhjhiia",
+       "aaaijjhfgeegfhjjiaa",
+       "aaaaijkijeejikjiaaa",
+       "aaaaijhhfggfhhjiaaa",
+       "aaaijhkkhjjhkkhjiaa",
+       "aadijfhjhhhhjhfjida",
+       "addijehhgkkghhejidd",
+       "dddijjhkffffkhjjidd",
+       "dddiiijkhkkhkjiiidd",
+       "bdddddijhhhhjiddddd",
+       "bbdddbbiiiiiidddddb",
+       "bbbccbbbdddbbbbccbb",
+       "bbcccbbbdddbbbbcccb"
+      ]
+     }
     }
    }
   }

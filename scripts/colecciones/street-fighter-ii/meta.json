@@ -6,8 +6,8 @@
     "Doce luchadores",
     " en cuentas"
   ],
-  "texto": "Los doce luchadores de Street Fighter II en retratos de pixel art, con sus colores de siempre.",
-  "intro": "Doce retratos de Street Fighter II. Elige un luchador para ver su ficha.",
+  "texto": "Los doce luchadores de Street Fighter II en retratos de pixel art, con sus colores de siempre. En versión grande y pequeña.",
+  "intro": "Doce retratos de Street Fighter II, en versión grande o pequeña. Elige el tamaño y un luchador para ver su ficha.",
   "resumen": "Doce luchadores de Street Fighter II en pixel art.",
   "tema": {
     "fondo": "#b3261e",
@@ -26,73 +26,85 @@
       "archivo": "ryu.png",
       "id": "ryu",
       "nombre": "Ryu",
-      "fase": "Japón"
+      "fase": "Japón",
+      "archivoPequeno": "ryu-p.png"
     },
     {
       "archivo": "e-honda.png",
       "id": "e-honda",
       "nombre": "E. Honda",
-      "fase": "Japón"
+      "fase": "Japón",
+      "archivoPequeno": "e-honda-p.png"
     },
     {
       "archivo": "blanka.png",
       "id": "blanka",
       "nombre": "Blanka",
-      "fase": "Brasil"
+      "fase": "Brasil",
+      "archivoPequeno": "blanka-p.png"
     },
     {
       "archivo": "guile.png",
       "id": "guile",
       "nombre": "Guile",
-      "fase": "Estados Unidos"
+      "fase": "Estados Unidos",
+      "archivoPequeno": "guile-p.png"
     },
     {
       "archivo": "balrog.png",
       "id": "balrog",
       "nombre": "Balrog",
-      "fase": "Estados Unidos"
+      "fase": "Estados Unidos",
+      "archivoPequeno": "balrog-p.png"
     },
     {
       "archivo": "vega.png",
       "id": "vega",
       "nombre": "Vega",
-      "fase": "España"
+      "fase": "España",
+      "archivoPequeno": "vega-p.png"
     },
     {
       "archivo": "ken.png",
       "id": "ken",
       "nombre": "Ken",
-      "fase": "Estados Unidos"
+      "fase": "Estados Unidos",
+      "archivoPequeno": "ken-p.png"
     },
     {
       "archivo": "chun-li.png",
       "id": "chun-li",
       "nombre": "Chun-Li",
-      "fase": "China"
+      "fase": "China",
+      "archivoPequeno": "chun-li-p.png"
     },
     {
       "archivo": "zangief.png",
       "id": "zangief",
       "nombre": "Zangief",
-      "fase": "URSS"
+      "fase": "URSS",
+      "archivoPequeno": "zangief-p.png"
     },
     {
       "archivo": "dhalsim.png",
       "id": "dhalsim",
       "nombre": "Dhalsim",
-      "fase": "India"
+      "fase": "India",
+      "archivoPequeno": "dhalsim-p.png"
     },
     {
       "archivo": "sagat.png",
       "id": "sagat",
       "nombre": "Sagat",
-      "fase": "Tailandia"
+      "fase": "Tailandia",
+      "archivoPequeno": "sagat-p.png"
     },
     {
       "archivo": "m-bison.png",
       "id": "m-bison",
       "nombre": "M. Bison",
-      "fase": "Tailandia"
+      "fase": "Tailandia",
+      "archivoPequeno": "m-bison-p.png"
     }
   ]
 }

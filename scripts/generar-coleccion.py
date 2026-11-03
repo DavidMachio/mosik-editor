@@ -30,11 +30,11 @@ GAMAS = {g: [(d['c'], d['h'], lab(rgb(d['h']))) for d in data if d['g'] == g and
 LET = 'abcdefghijklmnopqrstuvwxyz'
 
 os.makedirs(os.path.join('public', 'colecciones', slug), exist_ok=True)
-out = []
-for d in meta['disenos']:
-    im = Image.open(os.path.join(base, d['archivo'])).convert('RGBA')
+def convertir(ruta, destino):
+    """PNG (1 píxel = 1 cuenta) -> tamaño, cuentas y rejilla por gama. Guarda el PNG recortado en destino."""
+    im = Image.open(ruta).convert('RGBA')
     im = im.crop(im.getbbox())
-    im.save(os.path.join('public', 'colecciones', slug, d['id'] + '.png'))
+    im.save(destino)
     w, h = im.size
     gamas = {}
     cuentas = None
@@ -50,15 +50,27 @@ for d in meta['disenos']:
                     l = lab((r, gg, b)); cache[(r, gg, b)] = min(PL, key=lambda p: sum((u - v) ** 2 for u, v in zip(l, p[2])))[0]
                 code = cache[(r, gg, b)]
                 if code not in idx: idx[code] = len(idx)
-                if idx[code] >= len(LET): raise SystemExit('Demasiados colores (máx. 26) en ' + d['archivo'] + ' (gama ' + g + ')')
+                if idx[code] >= len(LET): raise SystemExit('Demasiados colores (máx. 26) en ' + ruta + ' (gama ' + g + ')')
                 cnt[code] = cnt.get(code, 0) + 1
                 row += LET[idx[code]]
             rows.append(row)
         hexof = {p[0]: p[1] for p in PL}
         gamas[g] = {'colores': [{'codigo': k, 'hex': hexof[k], 'cuentas': cnt[k], 'letra': LET[idx[k]]} for k in sorted(cnt, key=lambda k: -cnt[k])], 'filas': rows}
         cuentas = sum(cnt.values())
-    out.append({**{k: v for k, v in d.items() if k != 'archivo'}, 'ancho': w, 'alto': h, 'cuentas': cuentas, 'gamas': gamas})
-    print(d['id'], w, h, cuentas, 'cuentas', {g: len(v['colores']) for g, v in gamas.items()}, 'colores')
+    return {'ancho': w, 'alto': h, 'cuentas': cuentas, 'gamas': gamas}
+
+out = []
+for d in meta['disenos']:
+    destino = os.path.join('public', 'colecciones', slug)
+    r = convertir(os.path.join(base, d['archivo']), os.path.join(destino, d['id'] + '.png'))
+    resto = {k: v for k, v in d.items() if k not in ('archivo', 'archivoPequeno')}
+    item = {**resto, **r}
+    # Versión pequeña opcional («archivoPequeno»): mismos datos con otro tamaño; se elige en la página de la colección
+    if d.get('archivoPequeno'):
+        item['pequeno'] = convertir(os.path.join(base, d['archivoPequeno']), os.path.join(destino, d['id'] + '-p.png'))
+    out.append(item)
+    print(d['id'], r['ancho'], r['alto'], r['cuentas'], 'cuentas', {g: len(v['colores']) for g, v in r['gamas'].items()}, 'colores',
+          ('| pequeña %d x %d, %d cuentas' % (item['pequeno']['ancho'], item['pequeno']['alto'], item['pequeno']['cuentas'])) if 'pequeno' in item else '')
 
 col = {k: v for k, v in meta.items() if k != 'disenos'}
 col['disenos'] = out

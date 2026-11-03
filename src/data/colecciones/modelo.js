@@ -3,7 +3,10 @@ import { porSlug } from './index.js';
 
 export function modeloAEditor(slug, faseId, gamaParam, pinesParam) {
   const col = porSlug(slug);
-  const d = col && col.disenos.find((x) => x.id === faseId);
+  // «<id>-p» es la versión pequeña del diseño «<id>» (si la colección la tiene)
+  const esPeq = /-p$/.test(faseId || '');
+  const base = col && col.disenos.find((x) => x.id === (esPeq ? faseId.slice(0, -2) : faseId));
+  const d = base && esPeq && base.pequeno ? { ...base, ...base.pequeno } : base;
   if (!d) return null;
   const gama = gamaParam === 's' ? 's' : 'm';
   const g = d.gamas[gama];
@@ -22,5 +25,5 @@ export function modeloAEditor(slug, faseId, gamaParam, pinesParam) {
     for (let x = 0; x < fila.length; x += 1) if (fila[x] !== '.') grid[oy + y][ox + x] = porLetra[fila[x]];
   });
   const hex = Object.fromEntries(g.colores.map((c) => [c.codigo, c.hex]));
-  return { titulo: d.nombre, hex, data: { v: 2, gama, cols, rows, pw: pines, ph: pines, pr, pc, grid } };
+  return { titulo: d.nombre + (esPeq && base.pequeno ? ' (pequeña)' : ''), hex, data: { v: 2, gama, cols, rows, pw: pines, ph: pines, pr, pc, grid } };
 }
