@@ -8,7 +8,7 @@ const masDe = (n) => {
   return `+${(Math.floor(n / base) * base).toLocaleString('es-ES', { useGrouping: 'always' })}`;
 };
 
-// Tarjeta en fila de un movimiento: la viñeta con el GIF en bucle a la izquierda, el nombre (en una línea) y los fotogramas,
+// Tarjeta en fila de un movimiento: la viñeta (sin sombras ni halos) con el GIF en bucle a la izquierda, el nombre (en una línea) y los fotogramas,
 // y los datos en una línea abajo a la derecha. Sin botón: si el movimiento tiene ficha (slug de colección), pulsar la tarjeta entra en ella.
 export default function FilaMovimiento({ luchador, mov, tema, coleccion, tituloH = 3 }) {
   const t = tema;
@@ -16,12 +16,9 @@ export default function FilaMovimiento({ luchador, mov, tema, coleccion, tituloH
   const [ref, src] = useCargaProgresiva(mov.gifPeq, mov.gif);
   const n = mov.frames.length;
   const escala = Math.max(0.8, Math.min(2.2, 120 / d.alto, (520 - 10 * (n - 1)) / n / d.ancho));
-  const b = mov.bordes || {};
   const style = {
     '--l-bg': t.fondo, '--l-a': t.circulo, '--l-b': t.circulo2, '--l-acc': t.acento,
     '--gw': mov.gifAncho, '--gh': mov.gifAlto,
-    // halo en los lados por los que el dibujo se acerca al borde recortado del GIF
-    '--hl': b.l ? 0.5 : 0, '--hr': b.r ? 0.5 : 0, '--ht': b.t ? 0.5 : 0,
   };
   const Titulo = `h${tituloH}`;
   const cuerpo = (
