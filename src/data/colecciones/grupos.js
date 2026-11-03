@@ -18,4 +18,12 @@ export const GRUPOS = [
     logoAlt: 'Super Mario',
     colecciones: ['mario', 'bowser'],
   },
+  {
+    slug: 'street-fighter',
+    titulo: 'Street Fighter',
+    texto: 'Los luchadores de Street Fighter II en retratos de pixel art.',
+    logo: '/colecciones/street-fighter/logo.png',
+    logoAlt: 'Street Fighter II',
+    colecciones: ['street-fighter-ii'],
+  },
 ];

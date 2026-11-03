@@ -225,7 +225,7 @@ function ColeccionPagina({ col }) {
         <p className="evo-hero__kicker"><Icon name="paleta" size={18} /> Colección{col.entrega ? ` · ${col.entrega}` : ''}</p>
         <h1>{col.titulo}</h1>
         <p className="evo-hero__lead">{col.intro}</p>
-        {EVOLUCIONES.length > 1 && <Conjunto disenos={EVOLUCIONES} gama={gama} setGama={setGama} pines={pines} setPines={setPines} />}
+        {EVOLUCIONES.length > 1 && EVOLUCIONES.length <= 6 && <Conjunto disenos={EVOLUCIONES} gama={gama} setGama={setGama} pines={pines} setPines={setPines} />}
         <p className="evo-hero__pick">{EVOLUCIONES.length > 1 ? 'O elige un diseño para ver su ficha:' : 'Su ficha:'}</p>
         <div className="evo-tabs" role="tablist" aria-label="Diseños de la colección">
           {EVOLUCIONES.map((f, i) => (

@@ -1,0 +1,98 @@
+{
+  "slug": "street-fighter-ii",
+  "titulo": "Street Fighter II",
+  "entrega": "",
+  "lema": [
+    "Doce luchadores",
+    " en cuentas"
+  ],
+  "texto": "Los doce luchadores de Street Fighter II en retratos de pixel art, con sus colores de siempre.",
+  "intro": "Doce retratos de Street Fighter II. Elige un luchador para ver su ficha.",
+  "resumen": "Doce luchadores de Street Fighter II en pixel art.",
+  "tema": {
+    "fondo": "#b3261e",
+    "circulo": "#f2a21c",
+    "circulo2": "#7d1712",
+    "acento": "#ffd84a"
+  },
+  "banner": [
+    "ryu",
+    "ken",
+    "chun-li",
+    "m-bison"
+  ],
+  "disenos": [
+    {
+      "archivo": "ryu.png",
+      "id": "ryu",
+      "nombre": "Ryu",
+      "fase": "Japón"
+    },
+    {
+      "archivo": "e-honda.png",
+      "id": "e-honda",
+      "nombre": "E. Honda",
+      "fase": "Japón"
+    },
+    {
+      "archivo": "blanka.png",
+      "id": "blanka",
+      "nombre": "Blanka",
+      "fase": "Brasil"
+    },
+    {
+      "archivo": "guile.png",
+      "id": "guile",
+      "nombre": "Guile",
+      "fase": "Estados Unidos"
+    },
+    {
+      "archivo": "balrog.png",
+      "id": "balrog",
+      "nombre": "Balrog",
+      "fase": "Estados Unidos"
+    },
+    {
+      "archivo": "vega.png",
+      "id": "vega",
+      "nombre": "Vega",
+      "fase": "España"
+    },
+    {
+      "archivo": "ken.png",
+      "id": "ken",
+      "nombre": "Ken",
+      "fase": "Estados Unidos"
+    },
+    {
+      "archivo": "chun-li.png",
+      "id": "chun-li",
+      "nombre": "Chun-Li",
+      "fase": "China"
+    },
+    {
+      "archivo": "zangief.png",
+      "id": "zangief",
+      "nombre": "Zangief",
+      "fase": "URSS"
+    },
+    {
+      "archivo": "dhalsim.png",
+      "id": "dhalsim",
+      "nombre": "Dhalsim",
+      "fase": "India"
+    },
+    {
+      "archivo": "sagat.png",
+      "id": "sagat",
+      "nombre": "Sagat",
+      "fase": "Tailandia"
+    },
+    {
+      "archivo": "m-bison.png",
+      "id": "m-bison",
+      "nombre": "M. Bison",
+      "fase": "Tailandia"
+    }
+  ]
+}

@@ -5,7 +5,9 @@ import Icon from './Icon.jsx';
 export default function ColeccionBanner({ col, titleId, slide = false }) {
   const t = col.tema;
   const GAP = 5;
-  const suma = col.disenos.reduce((a, d) => a + d.ancho, 0) + (col.disenos.length - 1) * GAP;
+  // Si la colección tiene muchos diseños, «banner» lista los ids que salen en el banner (por defecto, todos).
+  const enBanner = col.banner ? col.banner.map((id) => col.disenos.find((d) => d.id === id)).filter(Boolean) : col.disenos;
+  const suma = enBanner.reduce((a, d) => a + d.ancho, 0) + (enBanner.length - 1) * GAP;
   const escala = Math.max(1.2, Math.min(4, 520 / suma)); // cabe en la mitad del banner
   const style = { '--evo-bg': t.fondo, '--evo-a': t.circulo, '--evo-b': t.circulo2, '--evo-yellow': t.acento, '--s': escala };
   const [marca, resto] = col.lema;
@@ -23,7 +25,7 @@ export default function ColeccionBanner({ col, titleId, slide = false }) {
           </div>
         </div>
         <div className="evo__art" aria-hidden="true">
-          {col.disenos.map((d, i) => (
+          {enBanner.map((d, i) => (
             <img key={d.id} className="evo__sprite" style={{ '--w': d.ancho, animationDelay: `${i * 0.35}s` }}
               src={`/colecciones/${col.slug}/${d.id}.png`} width={d.ancho} height={d.alto} alt="" />
           ))}
