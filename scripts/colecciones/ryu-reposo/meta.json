@@ -1,0 +1,38 @@
+{
+  "slug": "ryu-reposo",
+  "titulo": "Ryu · Reposo",
+  "entrega": "Street Fighter II",
+  "lema": [
+    "Tres fotogramas",
+    " de Ryu en reposo"
+  ],
+  "texto": "Ryu esperando el combate, en tres fotogramas de pixel art para hacer en cuentas.",
+  "intro": "Los tres fotogramas de Ryu en reposo. Elige uno para ver su ficha o mira lo que lleva hacerlos todos.",
+  "resumen": "Ryu en reposo, en tres fotogramas.",
+  "tema": {
+    "fondo": "#b3261e",
+    "circulo": "#f2a21c",
+    "circulo2": "#7d1712",
+    "acento": "#ffd84a"
+  },
+  "disenos": [
+    {
+      "archivo": "fotograma-1.png",
+      "id": "fotograma-1",
+      "nombre": "Ryu · Reposo 1",
+      "fase": "Fotograma"
+    },
+    {
+      "archivo": "fotograma-2.png",
+      "id": "fotograma-2",
+      "nombre": "Ryu · Reposo 2",
+      "fase": "Fotograma"
+    },
+    {
+      "archivo": "fotograma-3.png",
+      "id": "fotograma-3",
+      "nombre": "Ryu · Reposo 3",
+      "fase": "Fotograma"
+    }
+  ]
+}

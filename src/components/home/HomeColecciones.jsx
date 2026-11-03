@@ -11,7 +11,7 @@ const EJEMPLO = { coleccion: 'evoluciones', diseno: 'fase-2', fase: 2 }; // Evol
 const AFICIONES = [
   { grupo: 'pokemon', titulo: 'Para los amantes de Pokémon', texto: 'Líneas evolutivas completas en cuentas, de la cría a la forma final.', cta: 'Ver las colecciones' },
   { grupo: 'super-mario', titulo: 'Para los locos por Mario', texto: 'Mario y Bowser en tres poses cada uno, listos para colgar juntos.', cta: 'Ver las colecciones' },
-  { grupo: 'street-fighter', titulo: 'Para los nostálgicos de la lucha', texto: 'Los doce luchadores de Street Fighter II en retratos de pixel art.', cta: 'Ver la colección' },
+  { grupo: 'street-fighter', titulo: 'Para los nostálgicos de la lucha', texto: 'Los doce luchadores de Street Fighter II en retratos de pixel art.', cta: 'Ver los luchadores', ruta: '/grupo/street-fighter' },
 ];
 
 function Aficion({ a }) {
@@ -29,7 +29,7 @@ function Aficion({ a }) {
       <article className="hg" style={style}>
         <span className="hg__circle" aria-hidden="true" />
         <img className="hg__logo" src={g.logo} alt={g.logoAlt} />
-        <h3 className="hg__title"><Link to={`/colecciones/${col.slug}`} className="hg__link">{a.titulo}</Link></h3>
+        <h3 className="hg__title"><Link to={a.ruta || `/colecciones/${col.slug}`} className="hg__link">{a.titulo}</Link></h3>
         <p className="hg__text">{a.texto}</p>
         <div className="hg__art" aria-hidden="true">
           {sprites.map((d) => (

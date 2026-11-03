@@ -1,0 +1,34 @@
+/* Página de un grupo con luchadores: tarjetas en fila (GIF · nombre · fotogramas) */
+.grupo-pag { padding-block: 20px 56px; }
+.grupo-pag__crumbs { margin: 0 0 18px; font-size: 14px; color: var(--mk-muted); }
+.grupo-pag__crumbs a { color: inherit; }
+.grupo-pag__head { display: grid; gap: 8px; justify-items: start; margin-bottom: 24px; }
+.grupo-pag__logo { height: clamp(56px, 8vw, 84px); width: auto; }
+.grupo-pag__head h1 { margin: 0; font-size: clamp(30px, 4.2vw, 48px); }
+.grupo-pag__head p { margin: 0; max-width: 60ch; }
+
+.luch { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.luch__card {
+  position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(16px, 4vw, 48px);
+  min-height: 300px; padding: 24px clamp(20px, 4vw, 48px); overflow: hidden; border-radius: var(--radius-bento);
+  background: var(--l-bg); color: #fff; text-decoration: none; isolation: isolate;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.luch__card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(21, 7, 2, .28); }
+.luch__card:focus-visible { outline: 3px solid var(--mk-action-border); outline-offset: 4px; }
+.luch__circle { position: absolute; z-index: -1; left: -6%; top: -40%; width: 46%; aspect-ratio: 1; border-radius: 50%; background: var(--l-a); }
+.luch__circle::after { content: ''; position: absolute; left: 60%; bottom: -140%; width: 160%; aspect-ratio: 1; border-radius: 50%; background: var(--l-b); opacity: .75; }
+/* el GIF, a la izquierda del todo */
+.luch__gif { display: block; width: auto; height: clamp(190px, 26vw, 280px); image-rendering: pixelated; filter: drop-shadow(0 10px 8px rgba(21, 7, 2, .35)); }
+.luch__body { display: grid; gap: 10px; justify-items: start; min-width: 0; }
+.luch__mov { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .9; }
+.luch__name { margin: 0; color: #fff; font-size: clamp(34px, 5vw, 64px); line-height: 1.05; }
+.luch__frames { display: flex; align-items: flex-end; gap: 14px; margin: 6px 0 4px; padding: 0; list-style: none; }
+.luch__frames img { display: block; height: auto; image-rendering: pixelated; filter: drop-shadow(0 8px 6px rgba(21, 7, 2, .35)); }
+.luch__cta { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; background: var(--l-acc); color: #150702; font-weight: 600; box-shadow: 0 6px 16px rgba(21, 7, 2, .22); }
+@media (prefers-reduced-motion: reduce) { .luch__card, .luch__card:hover { transition: none; transform: none; } }
+@media (max-width: 700px) {
+  .luch__card { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
+  .luch__body { justify-items: center; }
+  .luch__frames { justify-content: center; }
+}
