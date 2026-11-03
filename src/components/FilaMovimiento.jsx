@@ -17,7 +17,7 @@ export default function FilaMovimiento({ luchador, mov, tema, coleccion, tituloH
   const n = mov.frames.length;
   const escala = Math.max(0.8, Math.min(2.2, 120 / d.alto, (520 - 10 * (n - 1)) / n / d.ancho));
   const style = {
-    '--l-bg': t.fondo, '--l-a': t.circulo, '--l-b': t.circulo2, '--l-acc': t.acento,
+    '--l-bg': t.fondo, '--l-a': t.circulo, '--l-b': t.circulo2, '--l-acc': t.acento, '--l-ink': t.texto || '#fff',
     '--gw': mov.gifAncho, '--gh': mov.gifAlto,
   };
   const Titulo = `h${tituloH}`;
@@ -28,7 +28,6 @@ export default function FilaMovimiento({ luchador, mov, tema, coleccion, tituloH
         {src && <img className="fila__gif" src={src} alt={`${luchador.nombre}: ${mov.nombre}, animación`} width={mov.gifAncho} height={mov.gifAlto} decoding="async" />}
       </div>
       <div className="fila__title">
-        <p className="fila__who">{luchador.nombre}</p>
         <Titulo className="fila__name">{mov.nombre}</Titulo>
         {!coleccion && <span className="fila__soon">Ficha próximamente</span>}
       </div>

@@ -3,10 +3,12 @@
  "nombre": "Ryu",
  "pais": "Japón",
  "tema": {
-  "fondo": "#785848",
-  "circulo": "#d88868",
-  "circulo2": "#483828",
-  "acento": "#f0d090"
+  "fondo": "#e6e3cc",
+  "circulo": "#c8281e",
+  "circulo2": "#c9c3a0",
+  "acento": "#c8281e",
+  "texto": "#1b0f0a",
+  "acentoTexto": "#ffffff"
  },
  "cara": "/luchadores/ryu/cara.png",
  "total": 43,

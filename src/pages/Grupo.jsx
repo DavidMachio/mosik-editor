@@ -27,7 +27,7 @@ export default function Grupo() {
       <ul className="cara-grid">
         {g.luchadores.map(luchadorPorId).filter(Boolean).map((l) => (
           <li key={l.id}>
-            <article className="cara" style={l.tema ? { '--c-bg': l.tema.fondo, '--c-a': l.tema.circulo, '--c-b': l.tema.circulo2, '--c-acc': l.tema.acento } : undefined}>
+            <article className="cara" style={l.tema ? { '--c-bg': l.tema.fondo, '--c-a': l.tema.circulo, '--c-b': l.tema.circulo2, '--c-acc': l.tema.acento, '--c-ink': l.tema.texto || '#fff', '--c-acc-ink': l.tema.acentoTexto || '#150702' } : undefined}>
               <span className="cara__circle" aria-hidden="true" />
               <img className="cara__img" src={l.cara} alt={`Cara de ${l.nombre}`} width="94" height="124" />
               <div className="cara__body">

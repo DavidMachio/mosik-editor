@@ -12,9 +12,9 @@ import json, os, re, sys, unicodedata, hashlib
 from PIL import Image
 
 pid, nombre, pais, carpeta, cara = sys.argv[1:6]
-# colores de los fondos: los del jugador. JSON con fondo/circulo/circulo2/acento, o «auto» para sacarlos de la piel y la ropa de los sprites
-tema = None if len(sys.argv) <= 6 else (None if sys.argv[6] == 'auto' else json.loads(sys.argv[6]))
-AUTO = len(sys.argv) > 6 and sys.argv[6] == 'auto'
+# colores de los fondos: los de la ROPA del jugador. «ropa» los lee de scripts/luchadores/paletas.json; también vale un JSON con fondo/circulo/circulo2/acento, o «auto» (tonos de piel)
+tema = None if len(sys.argv) <= 6 or sys.argv[6] in ('auto', 'ropa') else json.loads(sys.argv[6])
+AUTO = sys.argv[6:7] == ['auto']
 PUB = os.path.join('public', 'luchadores', pid)
 os.makedirs(PUB, exist_ok=True)
 
@@ -143,7 +143,19 @@ def tema_auto():
     print('tonos de piel:', [hx(c) for c in tonos])
     return {'fondo': hx(k(0.3)), 'circulo': hx(k(0.65)), 'circulo2': hx(k(0)), 'acento': hx(k(0.85))}
 
+def contraste(a, b):
+    lum = lambda h: sum(w * ((c / 255 / 12.92) if c / 255 <= 0.03928 else ((c / 255 + 0.055) / 1.055) ** 2.4) for w, c in zip((0.2126, 0.7152, 0.0722), (int(h[1:3], 16), int(h[3:5], 16), int(h[5:7], 16))))
+    x, y = sorted((lum(a), lum(b)), reverse=True)
+    return (x + 0.05) / (y + 0.05)
+def completar(t):
+    # texto legible sobre el fondo y sobre el acento (blanco u oscuro, el que más contraste dé)
+    mejor = lambda fondo: '#ffffff' if contraste('#ffffff', fondo) >= contraste('#1b0f0a', fondo) else '#1b0f0a'
+    t = {k: v for k, v in t.items() if k != 'ropa'}
+    t['texto'] = mejor(t['fondo']); t['acentoTexto'] = mejor(t.get('acento', t['circulo']))
+    return t
+if sys.argv[6:7] == ['ropa']: tema = json.load(open(os.path.join(os.path.dirname(__file__), 'paletas.json'), encoding='utf-8'))[pid]
 if AUTO: tema = tema_auto(); print('tema automático:', tema)
+if tema: tema = completar(tema)
 categorias = []
 for cid, titulo in CATS:
     ms = sorted([m for m in movs if m['cat'] == cid], key=lambda m: m['orden'])

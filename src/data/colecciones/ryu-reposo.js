@@ -11,10 +11,10 @@ export default {
  "intro": "Los tres fotogramas de Ryu en reposo. Elige uno para ver su ficha o mira lo que lleva hacerlos todos.",
  "resumen": "Ryu en reposo, en tres fotogramas.",
  "tema": {
-  "fondo": "#785848",
-  "circulo": "#d88868",
-  "circulo2": "#483828",
-  "acento": "#f0d090"
+  "fondo": "#c8281e",
+  "circulo": "#d8503f",
+  "circulo2": "#8e1a12",
+  "acento": "#e6e3cc"
  },
  "disenos": [
   {

@@ -11,7 +11,7 @@
 .cara-grid > li { display: grid; min-width: 0; }
 .cara {
   position: relative; display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 10px; min-height: 380px; padding: 24px;
-  overflow: hidden; border-radius: var(--radius-bento); background: var(--c-bg); color: #fff; isolation: isolate;
+  overflow: hidden; border-radius: var(--radius-bento); background: var(--c-bg); color: var(--c-ink, #fff); isolation: isolate;
   transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
 .cara:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(21, 7, 2, .28); }
@@ -20,10 +20,10 @@
 .cara__img { display: block; width: 150px; height: auto; image-rendering: pixelated; border-radius: 14px; box-shadow: 0 10px 22px rgba(21, 7, 2, .38); }
 .cara__body { display: grid; gap: 2px; align-content: end; }
 .cara__pais { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .9; }
-.cara__name { margin: 0; color: #fff; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.05; }
+.cara__name { margin: 0; color: var(--c-ink, #fff); font-size: clamp(32px, 3.4vw, 42px); line-height: 1.05; }
 .cara__link { color: inherit; text-decoration: none; }
 .cara__link::after { content: ''; position: absolute; inset: 0; }
-.cara__link:focus-visible { outline: 3px solid #fff; outline-offset: 6px; border-radius: 6px; }
-.cara__n { margin: 4px 0 0; color: #fff; opacity: .95; }
-.cara__cta { align-self: end; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; background: var(--c-acc); color: #150702; font-weight: 600; box-shadow: 0 6px 16px rgba(21, 7, 2, .22); }
+.cara__link:focus-visible { outline: 3px solid var(--c-ink, #fff); outline-offset: 6px; border-radius: 6px; }
+.cara__n { margin: 4px 0 0; color: var(--c-ink, #fff); opacity: .95; }
+.cara__cta { align-self: end; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 10px; background: var(--c-acc); color: var(--c-acc-ink, #150702); font-weight: 600; box-shadow: 0 6px 16px rgba(21, 7, 2, .22); }
 @media (prefers-reduced-motion: reduce) { .cara, .cara:hover { transition: none; transform: none; } }

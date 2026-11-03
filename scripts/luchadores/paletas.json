@@ -1,0 +1,18 @@
+{
+  "ryu":      { "fondo": "#e6e3cc", "circulo": "#c8281e", "circulo2": "#c9c3a0", "acento": "#c8281e", "ropa": "gi blanco roto; cinta roja" },
+  "e-honda":  { "fondo": "#5a3d8f", "circulo": "#8e6fd0", "circulo2": "#33235a", "acento": "#8e6fd0", "ropa": "mawashi morado" },
+  "blanka":   { "fondo": "#c9702a", "circulo": "#e8a040", "circulo2": "#7a3a10", "acento": "#e8a040", "ropa": "taparrabos naranja" },
+  "guile":    { "fondo": "#4a6a2e", "circulo": "#7a9a52", "circulo2": "#2a3d18", "acento": "#a8c474", "ropa": "camuflaje verde" },
+  "ken":      { "fondo": "#b8350a", "circulo": "#e0662a", "circulo2": "#7a1f00", "acento": "#f0a030", "ropa": "gi rojo anaranjado" },
+  "chun-li":  { "fondo": "#3d6bc4", "circulo": "#98b8e8", "circulo2": "#1d3a7a", "acento": "#98b8e8", "ropa": "qipao azul" },
+  "zangief":  { "fondo": "#b01818", "circulo": "#e04a3a", "circulo2": "#6a0c0c", "acento": "#e04a3a", "ropa": "calzón y botas rojos" },
+  "dhalsim":  { "fondo": "#d6a21a", "circulo": "#f2cf55", "circulo2": "#8a6200", "acento": "#f2cf55", "ropa": "taparrabos amarillo" },
+  "t-hawk":   { "fondo": "#3f6fa3", "circulo": "#e0702a", "circulo2": "#23405f", "acento": "#e0702a", "ropa": "pantalón vaquero azul; muñequeras naranjas" },
+  "fei-long": { "fondo": "#4a4a52", "circulo": "#8a8a94", "circulo2": "#26262c", "acento": "#d8d8e0", "ropa": "pantalón gris oscuro" },
+  "dee-jay":  { "fondo": "#b8420f", "circulo": "#e0661f", "circulo2": "#6e2208", "acento": "#f0a030", "ropa": "pantalón rojo anaranjado" },
+  "cammy":    { "fondo": "#3f8a3a", "circulo": "#c2301f", "circulo2": "#235220", "acento": "#c2301f", "ropa": "malla verde; boina roja" },
+  "balrog":   { "fondo": "#6f93d4", "circulo": "#c53030", "circulo2": "#3b5a96", "acento": "#c53030", "ropa": "camiseta y pantalón azul claro; guantes rojos" },
+  "vega":     { "fondo": "#5b2a9a", "circulo": "#e8c030", "circulo2": "#34185c", "acento": "#e8c030", "ropa": "traje morado; detalles amarillos" },
+  "sagat":    { "fondo": "#3a35c8", "circulo": "#6a64e6", "circulo2": "#1f1c78", "acento": "#6a64e6", "ropa": "pantalón azul" },
+  "m-bison":  { "fondo": "#b51821", "circulo": "#e04a50", "circulo2": "#6e0d12", "acento": "#e04a50", "ropa": "uniforme rojo" }
+}
