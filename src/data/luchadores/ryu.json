@@ -2,6 +2,12 @@
  "id": "ryu",
  "nombre": "Ryu",
  "pais": "Japón",
+ "tema": {
+  "fondo": "#1f2a47",
+  "circulo": "#c8281e",
+  "circulo2": "#121a30",
+  "acento": "#f3efe6"
+ },
  "cara": "/luchadores/ryu/cara.png",
  "total": 43,
  "categorias": [
@@ -18,6 +24,14 @@
       "/luchadores/ryu/reposo/f3.png"
      ],
      "gif": "/luchadores/ryu/reposo/anim.gif",
+     "gifPeq": "/luchadores/ryu/reposo/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 4,
      "datos": {
       "cuentasMin": 1846,
@@ -44,6 +58,14 @@
       "/luchadores/ryu/caminar/f5.png"
      ],
      "gif": "/luchadores/ryu/caminar/anim.gif",
+     "gifPeq": "/luchadores/ryu/caminar/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1683,
@@ -63,6 +85,14 @@
       "/luchadores/ryu/salto/f4.png"
      ],
      "gif": "/luchadores/ryu/salto/anim.gif",
+     "gifPeq": "/luchadores/ryu/salto/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 7,
      "datos": {
       "cuentasMin": 1302,
@@ -84,6 +114,14 @@
       "/luchadores/ryu/salto-adelante/f6.png"
      ],
      "gif": "/luchadores/ryu/salto-adelante/anim.gif",
+     "gifPeq": "/luchadores/ryu/salto-adelante/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 7,
      "datos": {
       "cuentasMin": 1302,
@@ -107,6 +145,14 @@
       "/luchadores/ryu/agachado/f2.png"
      ],
      "gif": "/luchadores/ryu/agachado/anim.gif",
+     "gifPeq": "/luchadores/ryu/agachado/anim-s.gif",
+     "gifAncho": 196,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 2,
      "datos": {
       "cuentasMin": 1473,
@@ -124,6 +170,14 @@
       "/luchadores/ryu/bloqueo/f2.png"
      ],
      "gif": "/luchadores/ryu/bloqueo/anim.gif",
+     "gifPeq": "/luchadores/ryu/bloqueo/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 2,
      "datos": {
       "cuentasMin": 1550,
@@ -147,6 +201,14 @@
       "/luchadores/ryu/puno-debil/f2.png"
      ],
      "gif": "/luchadores/ryu/puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ryu/puno-debil/anim-s.gif",
+     "gifAncho": 189,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1928,
@@ -165,6 +227,14 @@
       "/luchadores/ryu/puno-medio-fuerte/f3.png"
      ],
      "gif": "/luchadores/ryu/puno-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/puno-medio-fuerte/anim-s.gif",
+     "gifAncho": 234,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1928,
@@ -182,6 +252,14 @@
       "/luchadores/ryu/adelante-puno-debil/f2.png"
      ],
      "gif": "/luchadores/ryu/adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ryu/adelante-puno-debil/anim-s.gif",
+     "gifAncho": 159,
+     "gifAlto": 282,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1928,
@@ -202,6 +280,14 @@
       "/luchadores/ryu/adelante-puno-medio/f5.png"
      ],
      "gif": "/luchadores/ryu/adelante-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/ryu/adelante-puno-medio/anim-s.gif",
+     "gifAncho": 201,
+     "gifAlto": 273,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 7,
      "datos": {
       "cuentasMin": 1877,
@@ -221,6 +307,14 @@
       "/luchadores/ryu/adelante-puno-fuerte/f4.png"
      ],
      "gif": "/luchadores/ryu/adelante-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/adelante-puno-fuerte/anim-s.gif",
+     "gifAncho": 198,
+     "gifAlto": 327,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1837,
@@ -238,6 +332,14 @@
       "/luchadores/ryu/agachado-puno-debil/f2.png"
      ],
      "gif": "/luchadores/ryu/agachado-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ryu/agachado-puno-debil/anim-s.gif",
+     "gifAncho": 340,
+     "gifAlto": 305,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1545,
@@ -256,6 +358,14 @@
       "/luchadores/ryu/agachado-puno-medio/f3.png"
      ],
      "gif": "/luchadores/ryu/agachado-puno-medio/anim.gif",
+     "gifPeq": "/luchadores/ryu/agachado-puno-medio/anim-s.gif",
+     "gifAncho": 335,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 4,
      "datos": {
       "cuentasMin": 1459,
@@ -274,6 +384,14 @@
       "/luchadores/ryu/agachado-puno-fuerte/f3.png"
      ],
      "gif": "/luchadores/ryu/agachado-puno-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/agachado-puno-fuerte/anim-s.gif",
+     "gifAncho": 165,
+     "gifAlto": 354,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1685,
@@ -292,6 +410,14 @@
       "/luchadores/ryu/salto-puno-debil-medio-fuerte/f3.png"
      ],
      "gif": "/luchadores/ryu/salto-puno-debil-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/salto-puno-debil-medio-fuerte/anim-s.gif",
+     "gifAncho": 228,
+     "gifAlto": 292,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1302,
@@ -309,6 +435,14 @@
       "/luchadores/ryu/salto-adelante-puno-debil/f2.png"
      ],
      "gif": "/luchadores/ryu/salto-adelante-puno-debil/anim.gif",
+     "gifPeq": "/luchadores/ryu/salto-adelante-puno-debil/anim-s.gif",
+     "gifAncho": 180,
+     "gifAlto": 292,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 2,
      "datos": {
       "cuentasMin": 1302,
@@ -332,6 +466,14 @@
       "/luchadores/ryu/patada-debil-medio/f2.png"
      ],
      "gif": "/luchadores/ryu/patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/ryu/patada-debil-medio/anim-s.gif",
+     "gifAncho": 219,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1883,
@@ -352,6 +494,14 @@
       "/luchadores/ryu/patada-fuerte/f5.png"
      ],
      "gif": "/luchadores/ryu/patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/patada-fuerte/anim-s.gif",
+     "gifAncho": 225,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1462,
@@ -369,6 +519,14 @@
       "/luchadores/ryu/adelante-patada-debil/f2.png"
      ],
      "gif": "/luchadores/ryu/adelante-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/ryu/adelante-patada-debil/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 270,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1526,
@@ -387,6 +545,14 @@
       "/luchadores/ryu/adelante-patada-medio/f3.png"
      ],
      "gif": "/luchadores/ryu/adelante-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/ryu/adelante-patada-medio/anim-s.gif",
+     "gifAncho": 183,
+     "gifAlto": 294,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1631,
@@ -405,6 +571,14 @@
       "/luchadores/ryu/adelante-patada-fuerte/f3.png"
      ],
      "gif": "/luchadores/ryu/adelante-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/adelante-patada-fuerte/anim-s.gif",
+     "gifAncho": 255,
+     "gifAlto": 345,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1540,
@@ -422,6 +596,14 @@
       "/luchadores/ryu/agachado-patada-debil/f2.png"
      ],
      "gif": "/luchadores/ryu/agachado-patada-debil/anim.gif",
+     "gifPeq": "/luchadores/ryu/agachado-patada-debil/anim-s.gif",
+     "gifAncho": 385,
+     "gifAlto": 315,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1517,
@@ -439,6 +621,14 @@
       "/luchadores/ryu/agachado-patada-medio/f2.png"
      ],
      "gif": "/luchadores/ryu/agachado-patada-medio/anim.gif",
+     "gifPeq": "/luchadores/ryu/agachado-patada-medio/anim-s.gif",
+     "gifAncho": 475,
+     "gifAlto": 310,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1517,
@@ -459,6 +649,14 @@
       "/luchadores/ryu/agachado-patada-fuerte/f5.png"
      ],
      "gif": "/luchadores/ryu/agachado-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/agachado-patada-fuerte/anim-s.gif",
+     "gifAncho": 380,
+     "gifAlto": 305,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1198,
@@ -476,6 +674,14 @@
       "/luchadores/ryu/salto-patada-debil-medio/f2.png"
      ],
      "gif": "/luchadores/ryu/salto-patada-debil-medio/anim.gif",
+     "gifPeq": "/luchadores/ryu/salto-patada-debil-medio/anim-s.gif",
+     "gifAncho": 153,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 2,
      "datos": {
       "cuentasMin": 1302,
@@ -494,6 +700,14 @@
       "/luchadores/ryu/salto-patada-fuerte/f3.png"
      ],
      "gif": "/luchadores/ryu/salto-patada-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/salto-patada-fuerte/anim-s.gif",
+     "gifAncho": 177,
+     "gifAlto": 285,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1256,
@@ -511,6 +725,14 @@
       "/luchadores/ryu/salto-adelante-patada-medio-fuerte/f2.png"
      ],
      "gif": "/luchadores/ryu/salto-adelante-patada-medio-fuerte/anim.gif",
+     "gifPeq": "/luchadores/ryu/salto-adelante-patada-medio-fuerte/anim-s.gif",
+     "gifAncho": 276,
+     "gifAlto": 276,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1286,
@@ -539,6 +761,14 @@
       "/luchadores/ryu/hadouken/f7.png"
      ],
      "gif": "/luchadores/ryu/hadouken/anim.gif",
+     "gifPeq": "/luchadores/ryu/hadouken/anim-s.gif",
+     "gifAncho": 291,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 7,
      "datos": {
       "cuentasMin": 812,
@@ -566,6 +796,14 @@
       "/luchadores/ryu/hadouken-proyectil/f12.png"
      ],
      "gif": "/luchadores/ryu/hadouken-proyectil/anim.gif",
+     "gifPeq": "/luchadores/ryu/hadouken-proyectil/anim-s.gif",
+     "gifAncho": 335,
+     "gifAlto": 320,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 13,
      "datos": {
       "cuentasMin": 32,
@@ -586,6 +824,14 @@
       "/luchadores/ryu/lanzamiento-de-hombro/f5.png"
      ],
      "gif": "/luchadores/ryu/lanzamiento-de-hombro/anim.gif",
+     "gifPeq": "/luchadores/ryu/lanzamiento-de-hombro/anim-s.gif",
+     "gifAncho": 186,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 5,
      "datos": {
       "cuentasMin": 1390,
@@ -611,6 +857,14 @@
       "/luchadores/ryu/shoryuken/f10.png"
      ],
      "gif": "/luchadores/ryu/shoryuken/anim.gif",
+     "gifPeq": "/luchadores/ryu/shoryuken/anim-s.gif",
+     "gifAncho": 168,
+     "gifAlto": 342,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 10,
      "datos": {
       "cuentasMin": 257,
@@ -635,6 +889,14 @@
       "/luchadores/ryu/tatsumaki-senpukyaku/f9.png"
      ],
      "gif": "/luchadores/ryu/tatsumaki-senpukyaku/anim.gif",
+     "gifPeq": "/luchadores/ryu/tatsumaki-senpukyaku/anim-s.gif",
+     "gifAncho": 183,
+     "gifAlto": 288,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 12,
      "datos": {
       "cuentasMin": 257,
@@ -657,6 +919,14 @@
       "/luchadores/ryu/voltereta-atras/f7.png"
      ],
      "gif": "/luchadores/ryu/voltereta-atras/anim.gif",
+     "gifPeq": "/luchadores/ryu/voltereta-atras/anim-s.gif",
+     "gifAncho": 222,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 7,
      "datos": {
       "cuentasMin": 1423,
@@ -679,6 +949,14 @@
       "/luchadores/ryu/agachado-golpeado/f1.png"
      ],
      "gif": "/luchadores/ryu/agachado-golpeado/anim.png",
+     "gifPeq": "/luchadores/ryu/agachado-golpeado/anim-s.png",
+     "gifAncho": 204,
+     "gifAlto": 272,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 1,
      "datos": {
       "cuentasMin": 1526,
@@ -702,6 +980,14 @@
       "/luchadores/ryu/aturdido/f8.png"
      ],
      "gif": "/luchadores/ryu/aturdido/anim.gif",
+     "gifPeq": "/luchadores/ryu/aturdido/anim-s.gif",
+     "gifAncho": 240,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 8,
      "datos": {
       "cuentasMin": 1464,
@@ -726,6 +1012,14 @@
       "/luchadores/ryu/derribo-y-recuperacion/f9.png"
      ],
      "gif": "/luchadores/ryu/derribo-y-recuperacion/anim.gif",
+     "gifPeq": "/luchadores/ryu/derribo-y-recuperacion/anim-s.gif",
+     "gifAncho": 240,
+     "gifAlto": 324,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 9,
      "datos": {
       "cuentasMin": 257,
@@ -745,6 +1039,14 @@
       "/luchadores/ryu/golpe-en-la-cara/f4.png"
      ],
      "gif": "/luchadores/ryu/golpe-en-la-cara/anim.gif",
+     "gifPeq": "/luchadores/ryu/golpe-en-la-cara/anim-s.gif",
+     "gifAncho": 192,
+     "gifAlto": 267,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 4,
      "datos": {
       "cuentasMin": 1725,
@@ -764,6 +1066,14 @@
       "/luchadores/ryu/golpeado/f4.png"
      ],
      "gif": "/luchadores/ryu/golpeado/anim.gif",
+     "gifPeq": "/luchadores/ryu/golpeado/anim-s.gif",
+     "gifAncho": 165,
+     "gifAlto": 264,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 4,
      "datos": {
       "cuentasMin": 1629,
@@ -788,6 +1098,14 @@
       "/luchadores/ryu/victoria-1/f3.png"
      ],
      "gif": "/luchadores/ryu/victoria-1/anim.gif",
+     "gifPeq": "/luchadores/ryu/victoria-1/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 345,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 3,
      "datos": {
       "cuentasMin": 1683,
@@ -808,6 +1126,14 @@
       "/luchadores/ryu/victoria-2/f5.png"
      ],
      "gif": "/luchadores/ryu/victoria-2/anim.gif",
+     "gifPeq": "/luchadores/ryu/victoria-2/anim-s.gif",
+     "gifAncho": 147,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 7,
      "datos": {
       "cuentasMin": 1879,
@@ -824,6 +1150,14 @@
       "/luchadores/ryu/tiempo-agotado/f1.png"
      ],
      "gif": "/luchadores/ryu/tiempo-agotado/anim.png",
+     "gifPeq": "/luchadores/ryu/tiempo-agotado/anim-s.png",
+     "gifAncho": 147,
+     "gifAlto": 279,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 1,
      "datos": {
       "cuentasMin": 1956,
@@ -846,6 +1180,14 @@
       "/luchadores/ryu/paletas-alternativas/f7.png"
      ],
      "gif": "/luchadores/ryu/paletas-alternativas/anim.gif",
+     "gifPeq": "/luchadores/ryu/paletas-alternativas/anim-s.gif",
+     "gifAncho": 150,
+     "gifAlto": 261,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 7,
      "datos": {
       "cuentasMin": 1872,
@@ -865,6 +1207,14 @@
       "/luchadores/ryu/retratos/f4.png"
      ],
      "gif": "/luchadores/ryu/retratos/anim.gif",
+     "gifPeq": "/luchadores/ryu/retratos/anim-s.gif",
+     "gifAncho": 231,
+     "gifAlto": 300,
+     "bordes": {
+      "l": true,
+      "r": true,
+      "t": true
+     },
      "fotogramas": 4,
      "datos": {
       "cuentasMin": 608,

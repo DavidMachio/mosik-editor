@@ -15,7 +15,8 @@ export default function Luchador() {
   const l = luchadorPorId(id);
   usePageTitle(`${l ? l.nombre : 'Luchador'} · Street Fighter · Mosik Beads`);
   if (!l) return <NotFound />;
-  const tema = (porSlug('street-fighter-ii') || {}).tema || TEMA;
+  // colores de los fondos: los del jugador (si no tiene, los de la colección)
+  const tema = l.tema || (porSlug('street-fighter-ii') || {}).tema || TEMA;
   return (
     <div className="container luch-pag">
       <nav className="luch-pag__crumbs" aria-label="Dónde estás">

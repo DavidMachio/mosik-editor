@@ -1,52 +1,53 @@
 import { Link } from 'react-router-dom';
-import Icon from './Icon.jsx';
+import useCargaProgresiva from '../hooks/useCargaProgresiva.js';
 import './FilaMovimiento.css';
 
-// Redondea «hacia abajo» para decir «más de N» (centenas si hay muchas cuentas, decenas si hay pocas)
+// «Más de N» redondeando hacia abajo (centenas si hay muchas cuentas, decenas si hay pocas)
 const masDe = (n) => {
   const base = n >= 500 ? 100 : 10;
   return `+${(Math.floor(n / base) * base).toLocaleString('es-ES', { useGrouping: 'always' })}`;
 };
 
-// Tarjeta en fila de un movimiento: el GIF en bucle a la izquierda, el nombre y los fotogramas en el centro y, a la derecha,
-// tarjetas pequeñas de datos con el botón. Si el movimiento ya tiene colección con ficha (slug), toda la tarjeta lleva a ella.
+// Tarjeta en fila de un movimiento: la viñeta con el GIF en bucle a la izquierda, el nombre (en una línea) y los fotogramas,
+// y los datos en una línea abajo a la derecha. Sin botón: si el movimiento tiene ficha (slug de colección), pulsar la tarjeta entra en ella.
 export default function FilaMovimiento({ luchador, mov, tema, coleccion, tituloH = 3 }) {
   const t = tema;
-  const style = { '--l-bg': t.fondo, '--l-a': t.circulo, '--l-b': t.circulo2, '--l-acc': t.acento };
   const d = mov.datos;
-  // los fotogramas caben en una sola línea siempre que se pueda: la escala baja cuando hay muchos
+  const [ref, src] = useCargaProgresiva(mov.gifPeq, mov.gif);
   const n = mov.frames.length;
-  const escala = Math.max(0.8, Math.min(2.2, 130 / d.alto, (300 - 10 * (n - 1)) / n / d.ancho));
-  const stats = [
-    { v: masDe(d.cuentasMin), t: mov.frames.length > 1 ? 'cuentas por diseño' : 'cuentas' },
-    { v: String(d.colores), t: 'colores' },
-    { v: `${d.ancho} × ${d.alto}`, t: 'cuentas de tamaño' },
-  ];
-  const H = `h${tituloH}`;
+  const escala = Math.max(0.8, Math.min(2.2, 120 / d.alto, (520 - 10 * (n - 1)) / n / d.ancho));
+  const b = mov.bordes || {};
+  const style = {
+    '--l-bg': t.fondo, '--l-a': t.circulo, '--l-b': t.circulo2, '--l-acc': t.acento,
+    '--gw': mov.gifAncho, '--gh': mov.gifAlto,
+    // halo en los lados por los que el dibujo se acerca al borde recortado del GIF
+    '--hl': b.l ? 0.5 : 0, '--hr': b.r ? 0.5 : 0, '--ht': b.t ? 0.5 : 0,
+  };
+  const Titulo = `h${tituloH}`;
   const cuerpo = (
     <>
       <span className="fila__circle" aria-hidden="true" />
-      <img className="fila__gif" src={mov.gif} alt={`${luchador.nombre}: ${mov.nombre}, animación`} loading="lazy" decoding="async" />
+      <div className="fila__vineta" ref={ref}>
+        {src && <img className="fila__gif" src={src} alt={`${luchador.nombre}: ${mov.nombre}, animación`} width={mov.gifAncho} height={mov.gifAlto} decoding="async" />}
+      </div>
       <div className="fila__body">
         <p className="fila__who">{luchador.nombre}</p>
-        {H === 'h2' ? <h2 className="fila__name">{mov.nombre}</h2> : <h3 className="fila__name">{mov.nombre}</h3>}
+        <Titulo className="fila__name">{mov.nombre}</Titulo>
         <ul className="fila__frames" aria-hidden="true">
-          {mov.frames.map((src) => (
-            <li key={src}><img src={src} alt="" loading="lazy" style={{ height: `${d.alto * escala}px` }} /></li>
+          {mov.frames.map((f) => (
+            <li key={f}><img src={f} alt="" loading="lazy" decoding="async" style={{ height: `${d.alto * escala}px` }} /></li>
           ))}
         </ul>
       </div>
-      <div className="fila__side">
-        <ul className="fila__stats" aria-label="Datos de cada diseño">
-          {stats.map((x) => <li key={x.t} className="fila__stat"><strong>{x.v}</strong><span>{x.t}</span></li>)}
-        </ul>
-        {coleccion
-          ? <span className="fila__cta">Ver {mov.frames.length === 1 ? 'el diseño' : `los ${mov.frames.length} diseños`} <Icon name="flecha" size={18} /></span>
-          : <span className="fila__cta fila__cta--off" aria-disabled="true">Ficha próximamente</span>}
-      </div>
+      {!coleccion && <span className="fila__soon">Ficha próximamente</span>}
+      <p className="fila__data" aria-label="Datos de cada diseño">
+        <span><b>{masDe(d.cuentasMin)}</b> cuentas</span>
+        <span><b>{d.colores}</b> colores</span>
+        <span><b>{d.ancho} × {d.alto}</b></span>
+      </p>
     </>
   );
   return coleccion
-    ? <Link to={`/colecciones/${coleccion}`} className="fila" style={style} aria-label={`${luchador.nombre}, ${mov.nombre}: ver los diseños`}>{cuerpo}</Link>
+    ? <Link to={`/colecciones/${coleccion}`} className="fila" style={style} aria-label={`${luchador.nombre}, ${mov.nombre}: ver los ${n === 1 ? 'diseño' : `${n} diseños`}`}>{cuerpo}</Link>
     : <div className="fila fila--off" style={style}>{cuerpo}</div>;
 }

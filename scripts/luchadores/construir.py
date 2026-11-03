@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Prepara un luchador para la web a partir de su carpeta de sprites (una carpeta por movimiento, PNG con fondo transparente).
 
-Uso:  python3 scripts/luchadores/construir.py <id> "<Nombre>" "<País>" <carpeta_sprites> <cara.png>
+Uso:  python3 scripts/luchadores/construir.py <id> "<Nombre>" "<País>" <carpeta_sprites> <cara.png> '{"fondo":"#..","circulo":"#..","circulo2":"#..","acento":"#.."}'
 Salida:
   public/luchadores/<id>/cara.png
   public/luchadores/<id>/<movimiento>/f1.png, f2.png…   (fotogramas distintos)  y  anim.gif  (todos los fotogramas, en bucle)
@@ -12,6 +12,7 @@ import json, os, re, sys, unicodedata, hashlib
 from PIL import Image
 
 pid, nombre, pais, carpeta, cara = sys.argv[1:6]
+tema = json.loads(sys.argv[6]) if len(sys.argv) > 6 else None  # colores de los fondos: los del jugador
 PUB = os.path.join('public', 'luchadores', pid)
 os.makedirs(PUB, exist_ok=True)
 
@@ -82,21 +83,29 @@ for nom in sorted(os.listdir(carpeta)):
     rutas = []
     for i, f in enumerate(distintos, 1):
         f.save(os.path.join(out, f'f{i}.png'), optimize=True); rutas.append(f'/luchadores/{pid}/{sl}/f{i}.png')
-    # GIF en bucle con todos los fotogramas, pies abajo y centrados, ampliado sin suavizar
-    W = max(f.width for f in fr); H = max(f.height for f in fr); K = max(2, min(6, round(300 / H)))
-    lienzos = []
+    # GIF en bucle con todos los fotogramas, centrados y con un pequeño margen, ampliado sin suavizar.
+    # Se hacen dos tamaños: «anim-s» (mitad, para cargar antes) y «anim» (completo, se cambia al entrar en pantalla).
+    PAD = 3
+    W = max(f.width for f in fr) + 2 * PAD; H = max(f.height for f in fr) + 2 * PAD; K = max(2, min(6, round(300 / H)))
+    lienzos = []; cerca = {'l': False, 'r': False, 't': False}
     for f in fr:
-        c = Image.new('RGBA', (W, H), (0, 0, 0, 0)); c.paste(f, ((W - f.width) // 2, H - f.height), f)
-        lienzos.append(c.resize((W * K, H * K), Image.NEAREST))
-    gif = f'/luchadores/{pid}/{sl}/anim.gif'
-    if len(lienzos) == 1:
-        lienzos[0].save(os.path.join(out, 'anim.png')); gif = f'/luchadores/{pid}/{sl}/anim.png'
-    else:
+        c = Image.new('RGBA', (W, H), (0, 0, 0, 0)); x0 = (W - f.width) // 2; y0 = H - PAD - f.height
+        c.paste(f, (x0, y0), f)
+        if x0 <= PAD + 1: cerca['l'] = True
+        if W - (x0 + f.width) <= PAD + 1: cerca['r'] = True
+        if y0 <= PAD + 1: cerca['t'] = True
+        lienzos.append(c)
+    def guardar(escala, nombre_archivo):
+        ls = [c.resize((W * escala, H * escala), Image.NEAREST) for c in lienzos]
+        if len(ls) == 1:
+            ls[0].save(os.path.join(out, nombre_archivo + '.png')); return f'/luchadores/{pid}/{sl}/{nombre_archivo}.png'
         ps = []
-        for c in lienzos:
+        for c in ls:
             p = c.convert('RGB').convert('P', palette=Image.ADAPTIVE, colors=255)
             p.paste(255, Image.eval(c.split()[3], lambda v: 255 if v < 128 else 0)); ps.append(p)
-        ps[0].save(os.path.join(out, 'anim.gif'), save_all=True, append_images=ps[1:], duration=260 if nom == 'Reposo' else 150, loop=0, transparency=255, disposal=2)
+        ps[0].save(os.path.join(out, nombre_archivo + '.gif'), save_all=True, append_images=ps[1:], duration=260 if nom == 'Reposo' else 150, loop=0, transparency=255, disposal=2)
+        return f'/luchadores/{pid}/{sl}/{nombre_archivo}.gif'
+    gif = guardar(K, 'anim'); gif_s = guardar(max(1, K // 2), 'anim-s')
     # datos de cada fotograma distinto: cuentas, colores (gama Mini), tamaño
     cu, co, an, al = [], [], [], []
     for f in distintos:
@@ -107,7 +116,7 @@ for nom in sorted(os.listdir(carpeta)):
                 if a >= 128: n += 1; cs.add(codigo((r, g, b)))
         cu.append(n); co.append(len(cs)); an.append(w); al.append(h)
     cat = categoria(nom)
-    movs.append({'cat': cat, 'orden': orden(cat, nom), 'id': sl, 'nombre': nom, 'frames': rutas, 'gif': gif, 'fotogramas': len(fr),
+    movs.append({'cat': cat, 'orden': orden(cat, nom), 'id': sl, 'nombre': nom, 'frames': rutas, 'gif': gif, 'gifPeq': gif_s, 'gifAncho': W * K, 'gifAlto': H * K, 'bordes': cerca, 'fotogramas': len(fr),
                  'datos': {'cuentasMin': min(cu), 'cuentasMax': max(cu), 'colores': max(co), 'ancho': max(an), 'alto': max(al)}})
 
 categorias = []
@@ -122,6 +131,6 @@ for y in range(cara_img.height):  # el fondo magenta de la hoja puede dejar píx
         r, g, b, a = px[x, y]
         if a and abs(r - 192) + g + abs(b - 192) < 60: px[x, y] = (0, 0, 0, 0)
 cara_img.save(os.path.join(PUB, 'cara.png'), optimize=True)
-doc = {'id': pid, 'nombre': nombre, 'pais': pais, 'cara': f'/luchadores/{pid}/cara.png', 'total': len(movs), 'categorias': categorias}
+doc = {'id': pid, 'nombre': nombre, 'pais': pais, **({'tema': tema} if tema else {}), 'cara': f'/luchadores/{pid}/cara.png', 'total': len(movs), 'categorias': categorias}
 json.dump(doc, open(os.path.join('src', 'data', 'luchadores', pid + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(pid, len(movs), 'movimientos;', {c['titulo']: len(c['movimientos']) for c in categorias})
