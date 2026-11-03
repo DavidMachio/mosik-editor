@@ -28,6 +28,13 @@ export default function Grupo() {
           const t = col.tema;
           const alto = Math.max(...col.disenos.map((d) => d.alto));
           const escala = Math.min(2.6, 150 / alto);
+          // Datos para las tarjetas pequeñas: «más de X» cuentas por diseño (redondeado a la centena), colores (gama Mini) y tamaño
+          const minCuentas = Math.min(...col.disenos.map((d) => d.cuentas));
+          const stats = [
+            { v: `+${(Math.floor(minCuentas / 100) * 100).toLocaleString('es-ES', { useGrouping: 'always' })}`, t: 'cuentas por diseño' },
+            { v: String(Math.max(...col.disenos.map((d) => d.gamas.m.colores.length))), t: 'colores' },
+            { v: `${Math.max(...col.disenos.map((d) => d.ancho))} × ${alto}`, t: 'cuentas de tamaño' },
+          ];
           const style = { '--l-bg': t.fondo, '--l-a': t.circulo, '--l-b': t.circulo2, '--l-acc': t.acento };
           return (
             <li key={l.id}>
@@ -40,6 +47,13 @@ export default function Grupo() {
                   <ul className="luch__frames" aria-hidden="true">
                     {col.disenos.map((d) => (
                       <li key={d.id}><img src={`/colecciones/${col.slug}/${d.id}.png`} alt="" width={d.ancho} height={d.alto} style={{ width: `${d.ancho * escala}px` }} /></li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="luch__side">
+                  <ul className="luch__stats" aria-label="Datos de cada diseño">
+                    {stats.map((x) => (
+                      <li key={x.t} className="luch__stat"><strong>{x.v}</strong><span>{x.t}</span></li>
                     ))}
                   </ul>
                   <span className="luch__cta">Ver los {col.disenos.length} diseños <Icon name="flecha" size={18} /></span>
