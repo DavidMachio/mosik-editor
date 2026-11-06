@@ -1,0 +1,6 @@
+.simbar { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 90; display: flex; align-items: center; gap: 4px; padding: 6px; background: var(--mk-ink); color: #f7f2f0; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,.28); font: 500 13px var(--font-body); max-width: calc(100vw - 16px); }
+.simbar__t { padding: 0 8px 0 10px; opacity: .8; white-space: nowrap; }
+.simbar__b { border: 0; border-radius: 999px; padding: 7px 12px; background: transparent; color: inherit; font: inherit; cursor: pointer; white-space: nowrap; }
+.simbar__b[aria-pressed='true'] { background: var(--mk-action); color: var(--mk-ink); font-weight: 600; }
+.simbar__b:hover:not([aria-pressed='true']) { background: rgba(255,255,255,.14); }
+@media (max-width: 520px) { .simbar__t { display: none; } }

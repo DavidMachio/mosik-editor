@@ -60,7 +60,7 @@ export default function HomeColecciones() {
             <h1 id="home-titulo" className="hc__title">Descubre <span className="evo__mark">todas nuestras colecciones</span></h1>
             <p className="evo__lead">Retratos, sprites y figuras en cuentas para planchar, con una medida común para colgar cada colección entera. Aquí, una muestra: {d.nombre}, de la colección {col.titulo}.</p>
             <div className="evo__actions">
-              <Link to={`/colecciones/${col.slug}?fase=${EJEMPLO.fase}`} className="evo__btn evo__btn--main"><Icon name="imagen" size={20} /> Ver el diseño</Link>
+              <Link to={`/producto/${col.slug}/${EJEMPLO.diseno}`} className="evo__btn evo__btn--main"><Icon name="imagen" size={20} /> Ver el kit</Link>
               <Link to="/herramienta" className="evo__btn evo__btn--ghost">Crear el mío</Link>
             </div>
           </div>

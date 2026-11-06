@@ -1,0 +1,74 @@
+/* Tienda, colecciones, producto, planes, tutoriales, cuenta. Tokens --mk-* del sistema de diseño. */
+.tw { padding-top: 28px; padding-bottom: 24px; }
+.tw-h1 { font-size: clamp(28px, 4vw, 44px); }
+.tw-peq { font-size: 14px; }
+.tw-fila { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 8px; align-items: center; }
+.tw-sec { margin-top: 36px; }
+.tw-sec__h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.tw-crumbs { font-size: 14px; color: var(--mk-muted); margin-bottom: 12px; }
+.tw-crumbs a { color: var(--mk-muted); }
+.tw-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+.tw-grid--2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.tw-card { display: block; background: var(--mk-card); border: 1px solid var(--mk-line); border-radius: var(--radius-card); overflow: hidden; color: var(--mk-text); text-decoration: none; transition: border-color var(--dur-fast) var(--ease-out); }
+a.tw-card:hover { border-color: var(--mk-action-border); }
+.tw-card__b { padding: 12px 14px 14px; }
+.tw-card__b h3 { font-size: 18px; margin: 0 0 4px; }
+.tw-card__b p { margin: 0 0 4px; }
+.tw-precio { font-weight: 600; }
+.tw-pad { padding: 18px; background: var(--mk-card); border: 1px solid var(--mk-line); border-radius: var(--radius-card); }
+.tw-ph { aspect-ratio: 4 / 3; display: grid; place-items: center; }
+.tw-ph svg { width: 62%; height: 62%; }
+.tw-col__f { aspect-ratio: 16 / 9; display: grid; place-items: center; color: #fff; font: 600 clamp(20px, 2.4vw, 26px) var(--font-display); text-align: center; padding: 8px; }
+.tw-hero { display: grid; gap: 24px; grid-template-columns: 1.1fr 1fr; align-items: center; border-radius: var(--radius-bento); padding: clamp(20px, 4vw, 40px); color: #fff; }
+.tw-hero h1 { color: #fff; }
+.tw-hero p { max-width: 46ch; }
+.tw-hero .btn--ghost { color: #fff; border-color: rgba(255,255,255,.7); }
+.tw-hero__ph { border-radius: var(--radius-card); overflow: hidden; }
+@media (max-width: 760px) { .tw-hero { grid-template-columns: 1fr; } }
+.tw-chip { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--mk-action-soft); font-size: 13px; font-weight: 600; }
+.tw-ico { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--mk-action-soft); margin-bottom: 8px; }
+.tw-lista { list-style: none; padding: 0; margin: 14px 0; }
+.tw-lista li { display: flex; gap: 8px; align-items: center; padding: 4px 0; }
+.puerta { display: grid; gap: 28px; grid-template-columns: 1fr; max-width: 1000px; margin: 0 auto; align-items: center; }
+.tw--puerta:has(.puerta__demo) .puerta { grid-template-columns: 1fr 1fr; }
+@media (max-width: 760px) { .tw--puerta:has(.puerta__demo) .puerta { grid-template-columns: 1fr; } }
+/* Producto */
+.tw-prod-pg { display: grid; gap: 28px; grid-template-columns: 1.1fr 1fr; align-items: start; }
+@media (max-width: 800px) { .tw-prod-pg { grid-template-columns: 1fr; } }
+.tw-galeria { display: grid; gap: 10px; }
+.tw-galeria__min { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.tw-galeria__min button { padding: 0; border: 2px solid transparent; border-radius: var(--radius-control); overflow: hidden; background: none; cursor: pointer; }
+.tw-galeria__min button[aria-pressed='true'] { border-color: var(--mk-action-border); }
+.tw-opc { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 14px; }
+.tw-opc button { border: 1px solid var(--mk-border); background: var(--mk-card); color: var(--mk-text); border-radius: var(--radius-control); padding: 8px 14px; font: inherit; cursor: pointer; }
+.tw-opc button[aria-pressed='true'] { background: var(--mk-action); border-color: var(--mk-action-border); font-weight: 600; }
+.tw-precio-g { font: 600 32px var(--font-display); margin: 8px 0; }
+.tw-tabla { width: 100%; border-collapse: collapse; }
+.tw-tabla th, .tw-tabla td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--mk-line); }
+.tw-tabla th { color: var(--mk-muted); font-weight: 500; width: 45%; }
+/* Carrusel horizontal de productos */
+.tw-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 230px); gap: 14px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x proximity; }
+.tw-rail > * { scroll-snap-align: start; }
+/* Cuenta */
+.tw-cuenta { display: grid; gap: 24px; grid-template-columns: 220px 1fr; align-items: start; }
+@media (max-width: 760px) { .tw-cuenta { grid-template-columns: 1fr; } }
+.tw-cuenta__nav { display: flex; flex-direction: column; gap: 2px; }
+@media (max-width: 760px) { .tw-cuenta__nav { flex-direction: row; overflow-x: auto; } }
+.tw-cuenta__nav a { padding: 8px 12px; border-radius: var(--radius-control); color: var(--mk-text); text-decoration: none; white-space: nowrap; }
+.tw-cuenta__nav a:hover { background: var(--mk-sunken); }
+.tw-cuenta__nav a[aria-current='page'] { background: var(--mk-action-soft); font-weight: 600; }
+.tw-stats { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 14px; }
+.tw-stats b { display: block; font: 600 26px var(--font-display); }
+.tw-aviso { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--mk-line); }
+.tw-faq { border-bottom: 1px solid var(--mk-line); padding: 10px 0; }
+.tw-faq summary { cursor: pointer; font-weight: 600; }
+.tw-callout { background: var(--mk-action-soft); border-radius: var(--radius-control); padding: 12px 14px; margin: 14px 0; }
+.tw-campana { position: relative; }
+.tw-campana__dot { position: absolute; top: 6px; right: 6px; width: 9px; height: 9px; border-radius: 50%; background: #d3302a; border: 2px solid var(--mk-card); }
+.tw-menu { position: absolute; right: 0; top: calc(100% + 6px); width: min(340px, 92vw); background: var(--mk-card); border: 1px solid var(--mk-line); border-radius: var(--radius-card); box-shadow: 0 10px 30px rgba(0,0,0,.18); padding: 8px 14px; z-index: 80; }
+.tw-buscar { display: flex; gap: 8px; margin: 14px 0; }
+.tw-buscar input { flex: 1; padding: 10px 12px; border: 1px solid var(--mk-border); border-radius: var(--radius-control); background: var(--mk-card); color: var(--mk-text); font: inherit; }
+.tw-pie { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.tw-pie h4 { margin: 0 0 6px; font-size: 15px; }
+.tw-pie a { display: block; padding: 3px 0; color: var(--mk-text); text-decoration: none; font-size: 14px; }
+.tw-pie a:hover { text-decoration: underline; }
