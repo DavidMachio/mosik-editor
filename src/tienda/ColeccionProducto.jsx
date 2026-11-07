@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { porSlug } from '../data/colecciones/index.js';
-import { coleccionesTienda, productosDe } from '../data/tienda.js';
+import { coleccionDe, coleccionesTienda, productosDe } from '../data/tienda.js';
 import ProductoCard, { ColeccionTarjeta } from './ProductoCard.jsx';
 import NotFound from '../pages/NotFound.jsx';
 import './tienda.css';
@@ -8,7 +7,7 @@ import './tienda.css';
 // Página de una colección como producto: información, sus kits en carrusel y más colecciones. No muestra ningún patrón.
 export default function ColeccionProducto() {
   const { slug } = useParams();
-  const col = porSlug(slug);
+  const col = coleccionDe(slug);
   if (!col) return <NotFound />;
   const prods = productosDe(slug);
   const otras = coleccionesTienda().filter((c) => c.slug !== slug);

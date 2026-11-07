@@ -1,14 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { request } from '../lib/api.js';
 import usePageTitle from '../hooks/usePageTitle.js';
 import useReveal from '../hooks/useReveal.js';
 import ToolDemo from '../components/ToolDemo.jsx';
-import Carrusel from '../components/Carrusel.jsx';
 import HomeTienda from '../tienda/HomeTienda.jsx';
 import { useAcceso } from '../sim/SimContext.jsx';
-import { porSlug } from '../data/colecciones/index.js';
-import { DISENOS_MUESTRA, autorPrincipal } from '../data/usuarios.js';
 import DesignCard from '../components/DesignCard.jsx';
 import Icon from '../components/Icon.jsx';
 import '../components/DesignCard.css';
@@ -41,14 +38,6 @@ const AYUDAS = [
   { icono: 'guardar-cuenta', titulo: 'Guarda y comparte', texto: 'Con una cuenta, tus diseños se quedan en «Mis diseños».' },
 ];
 
-// Los diseños de muestra con su autor ficticio (ver data/usuarios.js), agrupados en páginas para el carrusel.
-function recomendadosEnPaginas(porPagina) {
-  const items = DISENOS_MUESTRA.map((m) => ({ ...m, usuario: autorPrincipal(m.clave) }));
-  const pags = [];
-  for (let i = 0; i < items.length; i += porPagina) pags.push(items.slice(i, i + porPagina));
-  return pags;
-}
-
 export default function Home() {
   usePageTitle('Mosik Beads · Crea tu diseño de cuentas para planchar');
   const acceso = useAcceso();
@@ -64,52 +53,10 @@ export default function Home() {
   }, []);
 
   useReveal([designs.length]);
-  // 3 tarjetas por página en pantallas anchas y 2 en móvil
-  const [estrecho, setEstrecho] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 700px)').matches);
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 700px)');
-    const on = () => setEstrecho(mq.matches);
-    mq.addEventListener('change', on);
-    return () => mq.removeEventListener('change', on);
-  }, []);
-  const recPaginas = useMemo(() => recomendadosEnPaginas(estrecho ? 2 : 3), [estrecho]);
-
   return (
     <>
       {/* 1 · Colección destacada, colecciones y novedades de la tienda (producto de venta: sin patrón) */}
       <HomeTienda />
-
-      {/* Recomendados: diseños de muestra con usuarios ficticios */}
-      <section className="container bento-wrap" aria-labelledby="recomendados" data-reveal>
-        <div className="tile tile--light tile--section">
-          <header className="section-head">
-            <p className="section-head__row"><span className="pill">Recomendados</span></p>
-            <h2 id="recomendados">Diseños de la comunidad</h2>
-            <p className="muted">Diseños de muestra de usuarios ficticios. Ábrelos, entra en el perfil de su autor y edítalos o móntalos.</p>
-          </header>
-          <Carrusel key={estrecho ? 'rec2' : 'rec3'} etiqueta="Diseños recomendados" intervalo={8000}
-            items={recPaginas.map((pag, n) => ({
-              key: `rec-${n}`,
-              node: (
-                <ul className="rec__grid">
-                  {pag.map(({ col, d, fase, usuario }) => (
-                    <li key={`${col.slug}-${d.id}`} className="rec__card">
-                      <Link to={`/colecciones/${col.slug}?fase=${fase}&autor=${usuario.handle}`} className="rec__art" style={{ background: `linear-gradient(135deg, ${col.tema.fondo}, ${col.tema.circulo})` }} aria-label={`Ver el diseño ${d.nombre}`}>
-                        <img src={`/colecciones/${col.slug}/${d.id}.png`} alt="" width={d.ancho} height={d.alto} loading="lazy" />
-                      </Link>
-                      <div className="rec__body">
-                        <h3>{d.nombre}</h3>
-                        <p className="rec__by"><Link to={`/usuario/${usuario.handle}`} className="rec__user"><span className="rec__av" style={{ background: usuario.tono }} aria-hidden="true">{usuario.nombre[0]}</span>@{usuario.handle}</Link></p>
-                        <p className="rec__meta">{d.cuentas.toLocaleString('es-ES')} cuentas · {d.gamas.m.colores.length} colores</p>
-                        <Link to={`/colecciones/${col.slug}?fase=${fase}&autor=${usuario.handle}`} className="rec__link">Ver diseño <Icon name="flecha" size={16} /></Link>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              ),
-            }))} />
-        </div>
-      </section>
 
       {/* Portada: la tarjeta de la herramienta ocupa todo el ancho y casi todo el alto; debajo, dos tarjetas */}
       <section className="container bento-wrap bento-wrap--wide" aria-labelledby="hero-titulo">

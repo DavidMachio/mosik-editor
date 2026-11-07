@@ -66,3 +66,4 @@ Vercel construye el proyecto con `vercel.json` (Vite, salida en `dist/`, y todas
 - Tienda, colecciones como producto, planes, tutoriales y Mi cuenta viven en `src/tienda/`; los productos salen de `src/data/colecciones` (`src/data/tienda.js`). Precios y textos son provisionales.
 - La herramienta (`src/pages/Herramienta.jsx` y `src/pages/herramienta/`) no se ha modificado.
 - `src/sim/`: simulador de tipo de cuenta (sin cuenta / free / paid). Se quita poniendo `SIMULADOR_ACTIVO = false` en `src/sim/config.js` cuando se descongele la base de datos.
+- Los diseños y perfiles de muestra (usuarios ficticios) se han eliminado. La tienda usa `src/data/tienda-catalogo.js`, una versión ligera de las colecciones: regenerarla con `node scripts/generar-catalogo-tienda.mjs` al añadir o cambiar una colección. Las páginas pesadas (colección, grupo, luchador, montaje, herramienta) se cargan solo al entrar en ellas.

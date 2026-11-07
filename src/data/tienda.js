@@ -1,6 +1,6 @@
 // Productos de la tienda, derivados de las colecciones reales (src/data/colecciones). Precios y textos PROVISIONALES.
 // Una colección propia de Mosik es un PRODUCTO DE VENTA: la web nunca muestra su patrón/diseño (de momento).
-import { COLECCIONES_FICHA } from './colecciones/index.js';
+import { CATALOGO as COLECCIONES_FICHA } from './tienda-catalogo.js'; // versión ligera (scripts/generar-catalogo-tienda.mjs)
 
 export const PRECIO_BASE = { 'Fácil': 12.9, 'Media': 14.9, 'Avanzado': 17.9 };
 export const EXTRA_MIDI = 2;
@@ -33,5 +33,6 @@ export const PRODUCTOS = COLECCIONES_FICHA.flatMap((col) =>
 
 export const productosDe = (slug) => PRODUCTOS.filter((p) => p.coleccion === slug);
 export const producto = (slug, dis) => PRODUCTOS.find((p) => p.coleccion === slug && p.dis === dis);
+export const coleccionDe = (slug) => COLECCIONES_FICHA.find((c) => c.slug === slug);
 export const coleccionesTienda = () => COLECCIONES_FICHA;
 export const destacada = () => COLECCIONES_FICHA[COLECCIONES_FICHA.length - 1];
