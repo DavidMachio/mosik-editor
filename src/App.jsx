@@ -40,7 +40,7 @@ export default function App() {
           path="herramienta"
           element={
             <Suspense fallback={<p className="container muted">Cargando la herramienta…</p>}>
-              <Protegida tipo="herramienta"><Herramienta /></Protegida>
+              <Herramienta />
             </Suspense>
           }
         />

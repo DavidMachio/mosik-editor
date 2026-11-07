@@ -60,3 +60,9 @@ Vercel construye el proyecto con `vercel.json` (Vite, salida en `dist/`, y todas
   Siguiente paso previsto: ir partiéndolo en componentes y hooks.
 - No se usa `React.StrictMode` a propósito: `initEditor` engancha eventos sobre el DOM.
 - Colores y medidas de cuentas del editor: aproximados, pendientes de contrastar con el catálogo.
+
+## Tienda y simulador de cuenta (provisional)
+
+- Tienda, colecciones como producto, planes, tutoriales y Mi cuenta viven en `src/tienda/`; los productos salen de `src/data/colecciones` (`src/data/tienda.js`). Precios y textos son provisionales.
+- La herramienta (`src/pages/Herramienta.jsx` y `src/pages/herramienta/`) no se ha modificado.
+- `src/sim/`: simulador de tipo de cuenta (sin cuenta / free / paid). Se quita poniendo `SIMULADOR_ACTIVO = false` en `src/sim/config.js` cuando se descongele la base de datos.
