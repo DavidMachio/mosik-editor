@@ -7,6 +7,11 @@ import NotFound from './pages/NotFound.jsx';
 import Entrar from './pages/Entrar.jsx';
 import Registro from './pages/Registro.jsx';
 import Perfil from './pages/Perfil.jsx';
+import Coleccion from './pages/Coleccion.jsx';
+import Grupo from './pages/Grupo.jsx';
+import Luchador from './pages/Luchador.jsx';
+import Usuario from './pages/Usuario.jsx';
+import Montaje from './pages/Montaje.jsx';
 import Galeria from './pages/Galeria.jsx';
 import Diseno from './pages/Diseno.jsx';
 import { SimProvider, SimBar } from './sim/SimContext.jsx';
@@ -23,11 +28,6 @@ import { Sobre, Como, Novedades, Ayuda, Legal } from './tienda/Info.jsx';
 import Cuenta from './tienda/Cuenta.jsx';
 
 // La herramienta pesa bastante más que el resto: se descarga solo al entrar en ella.
-const Coleccion = lazy(() => import('./pages/Coleccion.jsx'));
-const Grupo = lazy(() => import('./pages/Grupo.jsx'));
-const Luchador = lazy(() => import('./pages/Luchador.jsx'));
-const Montaje = lazy(() => import('./pages/Montaje.jsx'));
-const Cargando = <p className="container muted">Cargando…</p>;
 const Herramienta = lazy(() => import('./pages/Herramienta.jsx'));
 
 export default function App() {
@@ -47,10 +47,11 @@ export default function App() {
         <Route path="entrar" element={<Entrar />} />
         <Route path="registro" element={<Registro />} />
         <Route path="perfil" element={<Protegida tipo="cuenta"><Perfil /></Protegida>} />
-        <Route path="grupo/:slug" element={<Suspense fallback={Cargando}><Grupo /></Suspense>} />
-        <Route path="luchador/:id" element={<Suspense fallback={Cargando}><Luchador /></Suspense>} />
-        <Route path="colecciones/:slug" element={<Suspense fallback={Cargando}><Coleccion /></Suspense>} />
-        <Route path="montaje" element={<Suspense fallback={Cargando}><Montaje /></Suspense>} />
+        <Route path="grupo/:slug" element={<Grupo />} />
+        <Route path="luchador/:id" element={<Luchador />} />
+        <Route path="colecciones/:slug" element={<Coleccion />} />
+        <Route path="usuario/:handle" element={<Protegida tipo="cuenta"><Usuario /></Protegida>} />
+        <Route path="montaje" element={<Montaje />} />
         <Route path="galeria" element={<Galeria />} />
         <Route path="diseno/:id" element={<Protegida tipo="diseno"><Diseno /></Protegida>} />
         <Route path="tienda" element={<Tienda />} />

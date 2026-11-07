@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { CONTENIDO, coleccionDe, euros, precio, producto, productosDe } from '../data/tienda.js';
+import { porSlug } from '../data/colecciones/index.js';
+import { CONTENIDO, euros, precio, producto, productosDe } from '../data/tienda.js';
 import Ilustracion from './Ilustracion.jsx';
 import ProductoCard from './ProductoCard.jsx';
 import Avisame from './Avisame.jsx';
@@ -11,7 +12,7 @@ const VISTAS = [['caja', 'Caja'], ['contenido', 'Contenido'], ['marco', 'Con mar
 
 export default function Producto() {
   const { slug, dis } = useParams();
-  const col = coleccionDe(slug);
+  const col = porSlug(slug);
   const p = producto(slug, dis);
   const [vista, setVista] = useState('caja');
   const [formato, setFormato] = useState('kit');
