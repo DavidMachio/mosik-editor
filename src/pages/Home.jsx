@@ -5,8 +5,8 @@ import usePageTitle from '../hooks/usePageTitle.js';
 import useReveal from '../hooks/useReveal.js';
 import ToolDemo from '../components/ToolDemo.jsx';
 import Carrusel from '../components/Carrusel.jsx';
-import HomeColecciones from '../components/home/HomeColecciones.jsx';
-import HomeCascada from '../components/home/HomeCascada.jsx';
+import HomeTienda from '../tienda/HomeTienda.jsx';
+import { useAcceso } from '../sim/SimContext.jsx';
 import { porSlug } from '../data/colecciones/index.js';
 import { DISENOS_MUESTRA, autorPrincipal } from '../data/usuarios.js';
 import DesignCard from '../components/DesignCard.jsx';
@@ -51,6 +51,7 @@ function recomendadosEnPaginas(porPagina) {
 
 export default function Home() {
   usePageTitle('Mosik Beads · Crea tu diseño de cuentas para planchar');
+  const acceso = useAcceso();
 
   // Últimos diseños públicos de la galería (si la API no responde, el bloque simplemente no aparece).
   const [designs, setDesigns] = useState([]);
@@ -75,11 +76,8 @@ export default function Home() {
 
   return (
     <>
-      {/* 1 · Colección de ejemplo a todo el ancho y tres tarjetas por afición */}
-      <HomeColecciones />
-
-      {/* 2 · «Entre todos…»: cascada de diseños con profundidad */}
-      <HomeCascada />
+      {/* 1 · Colección destacada, colecciones y novedades de la tienda (producto de venta: sin patrón) */}
+      <HomeTienda />
 
       {/* Recomendados: diseños de muestra con usuarios ficticios */}
       <section className="container bento-wrap" aria-labelledby="recomendados" data-reveal>
@@ -210,17 +208,25 @@ export default function Home() {
       )}
 
       {/* Franja final con la invitación a crear cuenta */}
+      {acceso !== 'paid' && (
       <section className="container bento-wrap" aria-labelledby="cuenta" data-reveal>
         <div className="tile tile--dark tile--glow-warm cta">
           <p className="pill pill--ondark">Cuenta</p>
-          <h2 id="cuenta">Guarda tus diseños y compártelos</h2>
-          <p>Con una cuenta, tus diseños se quedan en «Mis diseños» y puedes publicarlos en la galería.</p>
+          <h2 id="cuenta">{acceso === 'sin' ? 'Guarda tus diseños y compártelos' : 'Pasa a paid y crea sin límites'}</h2>
+          <p>{acceso === 'sin' ? 'Con una cuenta, tus diseños se quedan en «Mis diseños» y puedes publicarlos en la galería. Empiezas con 14 días de plan paid gratis.' : '20 proyectos, diseños ilimitados, herramienta completa y PDF de montaje. Precios provisionales.'}</p>
           <div className="hero__actions">
-            <Link to="/registro" className="btn btn--big">Crear cuenta <Icon name="flecha" size={18} /></Link>
-            <Link to="/entrar" className="btn btn--big btn--ondark">Ya tengo cuenta</Link>
+            {acceso === 'sin' ? (
+              <>
+                <Link to="/registro" className="btn btn--big">Crear cuenta <Icon name="flecha" size={18} /></Link>
+                <Link to="/entrar" className="btn btn--big btn--ondark">Ya tengo cuenta</Link>
+              </>
+            ) : (
+              <Link to="/planes" className="btn btn--big">Ver planes <Icon name="flecha" size={18} /></Link>
+            )}
           </div>
         </div>
       </section>
+      )}
     </>
   );
 }
